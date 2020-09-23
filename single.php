@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying all single posts
- *
+ * yep
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package mediafairplay
