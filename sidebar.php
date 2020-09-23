@@ -60,7 +60,7 @@ endif;
 if (is_active_sidebar('mfp-footer-1')  || is_active_sidebar('mfp-footer-2') || is_active_sidebar('mfp-footer-3')) { ?>
     <style>
         section#wrapper-widget-footer {
-            background-color: <?php echo get_theme_mod('mfp_footer_background_color', '#000'); ?>;
+            background-color: <?php echo get_theme_mod('mfp_footer_background_color', '#728d9e'); ?>;
         }
 
         section#wrapper-widget-footer .footer-widget-wrapper-inside {
