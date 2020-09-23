@@ -26,7 +26,7 @@ if (!function_exists('mediafairplay_setup')) :
 
   function mediafairplay_setup()
   {
-    /*
+    /*		tes
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on mediafairplay, use a find and replace
