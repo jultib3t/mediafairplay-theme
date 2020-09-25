@@ -576,17 +576,4 @@ function wpex_wp_welcome_panel()
   //Optional: Set the branch that contains the stable release.
   $myUpdateChecker->setBranch('master');
   $myUpdateChecker->getVcsApi()->enableReleaseAssets();
-  // $updateChecker->setBranch('master'); test
-
-  echo '<br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-  <h1>Hellpp Dale</h1>
-  <br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br>
-  ';
+  // $updateChecker->setBranch('master'); tes
