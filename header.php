@@ -913,22 +913,26 @@
         <ul class="main-menu clearfix extra">
           <li class="languegue-switcher">
             <?php
-            $translations = pll_the_languages(array('raw' => 1));
-            /* echo '<pre>';
-                var_dump($translations);
-              echo '</pre>'; */
-            foreach ($translations as $translation) {
-              //  print_r($translation);
-              if ($translation['current_lang']) {
-                $active_lang = 'true-active avoid-clicks';
-                echo '<span class="' . $active_lang . '">' . ucwords($translation['slug']) . '</span>';
-              } else {
-                $active_lang = 'not-active';
-                echo '<a class="' . $active_lang . '" href="' . $translation['url'] . '">' . ucwords($translation['slug']) . '</a>';
+            if ( function_exists('pll_the_languages'))
+            {
+              $translations = pll_the_languages(array('raw' => 1));
+              /* echo '<pre>';
+                  var_dump($translations);
+                echo '</pre>'; */
+              foreach ($translations as $translation) {
+                //  print_r($translation);
+                if ($translation['current_lang']) {
+                  $active_lang = 'true-active avoid-clicks';
+                  echo '<span class="' . $active_lang . '">' . ucwords($translation['slug']) . '</span>';
+                } else {
+                  $active_lang = 'not-active';
+                  echo '<a class="' . $active_lang . '" href="' . $translation['url'] . '">' . ucwords($translation['slug']) . '</a>';
+                }
+                //slug
+  
               }
-              //slug
-
             }
+           
             ?>
 
           </li>
