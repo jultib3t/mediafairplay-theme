@@ -110,7 +110,7 @@
         $string = str_replace(' ', '', $item['title']);
         // print_r($subs);
         echo '<li>
-                      <a href="' . $item['url'] . '">' . __($item['title'], 'mediafairplay') . ' <span class="caret"></span>
+                      <a class="menu-item" href="' . $item['url'] . '">' . __($item['title'], 'mediafairplay') . ' <span class="caret"></span>
                         <label class="caret" for="' .$string . '" title=""></label></a>
                       <input id="' . $string . '" type="checkbox" />
                       <ul class="sub-menu">';
@@ -120,14 +120,14 @@
             $grand_subs = $sub['children'];
             echo ' 
                             <li>
-                                    <a href="' . $sub['url'] . '">' . __($sub['title'], 'mediafairplay') . ' <span class="caret"></span>
+                                    <a class="menu-item" href="' . $sub['url'] . '">' . __($sub['title'], 'mediafairplay') . ' <span class="caret"></span>
                                       <label class="caret" for="' .$string . '" title=""></label></a>
                                     <input id="' . $string . '" type="checkbox" />
                                     <ul class="sub-menu">';
             foreach ($grand_subs as $grand) {
               if (!empty($grand['children'])) {
                 echo '<li>
-                                        <a href="' . $grand['url'] . '">' . $grand['title'] . ' <span class="caret"></span><label class="caret" for="Test2" title=""></label></a><input id="Test2" type="checkbox" />
+                                        <a class="menu-item" href="' . $grand['url'] . '">' . $grand['title'] . ' <span class="caret"></span><label class="caret" for="Test2" title=""></label></a><input id="Test2" type="checkbox" />
                                         <ul class="sub-menu">
                                           <li>
                                             <a href="#">A</a>
@@ -139,7 +139,7 @@
                                       </li>';
               } else {
                 echo '<li>
-                                              <a href="' . $grand['url'] . '">' . $grand['title'] . '</a>
+                                              <a class="menu-item" href="' . $grand['url'] . '">' . $grand['title'] . '</a>
                                             </li>';
               }
             }
@@ -148,7 +148,7 @@
           } else {
             echo ' 
                           <li>
-                                <a href="' . $sub['url'] . '">' . $sub['title'] . '</a>
+                                <a class="menu-item" href="' . $sub['url'] . '">' . $sub['title'] . '</a>
                       </li>';
           }
         }
@@ -156,7 +156,7 @@
                       </li>';
       } else {
         echo '<li>
-                <a class="" href="' . $item['url'] . '">' . $item['title'] . '</a>
+                <a class="menu-item" href="' . $item['url'] . '">' . $item['title'] . '</a>
               </li>';
       }
     }
@@ -395,9 +395,9 @@
         -webkit-transition: all 0.125s ease-in-out;
       }
 
-      .mfp-menu a:hover,
-      .mfp-menu a:focus,
-      .mfp-menu a.active {
+      .mfp-menu a.menu-item:hover,
+      .mfp-menu a.menu-item:focus,
+      .mfp-menu a.menu-item.active {
         background-color: <?php echo get_theme_mod('header_background_hover_color', 'blue') ?>;
         color: <?php echo get_theme_mod('header_text_color_hover', '#fff') ?>;
       }
