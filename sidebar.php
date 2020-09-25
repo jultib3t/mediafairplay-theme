@@ -8,9 +8,15 @@
  * @package mediafairplay
  */
 
-if (!is_active_sidebar('mfp-footer-1')) {
+/* if (!is_active_sidebar('mfp-footer-1')) {
     return;
 }
+if (!is_active_sidebar('mfp-footer-2')) {
+    return;
+}
+if (!is_active_sidebar('mfp-footer-3')) {
+    return;
+} */
 ?>
 <?php
 $navigation_page_enable = get_field('enable_pagination_to_the_page');

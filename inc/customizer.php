@@ -113,8 +113,6 @@ class skyrocket_initialise_customizer_settings
         add_action('customize_register', array($this, 'mfp_typography_controls'));
         // register our copyrights 
         add_action('customize_register', array($this, 'mfp_copyrights_controls'));
-        // register our footer
-        // add_action('customize_register', array($this, 'mfp_footer_control'));
         // register our features
         add_action('customize_register', array($this, 'mfp_features_controls'));
         // MFP TABLE/CARDS
@@ -127,15 +125,73 @@ class skyrocket_initialise_customizer_settings
         // add_action('customize_register', array($this, 'skyrocket_register_sample_default_controls'));
     }
     /** Register the Customizer panels */
-    public function mfp_global_controls($wp_customize){
+    public function mfp_global_controls($wp_customize)
+    {
+
         $wp_customize->add_panel(
             'mfp_global_panel',
             array(
                 'title' => __('Global', 'mediafairplay'),
                 'description' => esc_html__('Adjust your Global Settings', 'mediafairplay'),
-                'priority'       => 20,   
+                'priority'       => 20,
             )
         );
+
+        // TYPOGRAPHY
+        $wp_customize->add_section('mfp_global_typography_section', [
+            'title' => __('Typography', 'mediafairplay'),
+            'panel'    => 'mfp_global_panel'
+        ]);
+        $wp_customize->add_setting(
+            'mfp_global_typography',
+            array(
+                'default' => 'doublespin',
+                'transport' => 'refresh',
+                'sanitize_callback' => 'skyrocket_radio_sanitization'
+            )
+        );
+        $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
+            $wp_customize,
+            'mfp_global_typography',
+            array(
+                'label' => __('Mobile Menu Hamburger Animation', 'mediafairplay'),
+                'description' => esc_html__('Mobile Menu Hamburger Animation', 'mediafairplay'),
+                'section' => 'mfp_global_typography_section',
+                'choices' => array(
+                    'spin' => __('spin', 'mediafairplay'),
+                    'doublespin' => __('DoubleSpin', 'mediafairplay')
+                )
+            )
+        ));
+
+        // COLORS
+        $wp_customize->add_section('mfp_global_colors_section', [
+            'title' => __('Colors', 'mediafairplay'),
+            'panel'    => 'mfp_global_panel'
+        ]);
+        $wp_customize->add_setting(
+            'mfp_global_colors',
+            array(
+                'default' => 'doublespin',
+                'transport' => 'refresh',
+                'sanitize_callback' => 'skyrocket_radio_sanitization'
+            )
+        );
+        $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
+            $wp_customize,
+            'mfp_global_colors',
+            array(
+                'label' => __('Mobile Menu Hamburger Animation', 'mediafairplay'),
+                'description' => esc_html__('Mobile Menu Hamburger Animation', 'mediafairplay'),
+                'section' => 'mfp_global_colors_section',
+                'choices' => array(
+                    'spin' => __('spin', 'mediafairplay'),
+                    'doublespin' => __('DoubleSpin', 'mediafairplay')
+                )
+            )
+        ));
+
+        // CONTAINER
         $wp_customize->add_section('mfp_global_section', [
             'title' => __('Container', 'mediafairplay'),
             'panel'    => 'mfp_global_panel'
@@ -197,14 +253,7 @@ class skyrocket_initialise_customizer_settings
                 'priority'       => 40,
             )
         );
-        /**
-         *  Footer
-         */
-        $wp_customize->add_panel('footer', [
-            'title' => __('MFP Footer', 'footer'),
-            'description' => '<p>MFP Footer Settings</p>',
-            'priority'  => 50,
-        ]);
+
         /**
          *  Add Our Main typography panel
          */
@@ -216,14 +265,6 @@ class skyrocket_initialise_customizer_settings
                 'priority'       => 60,
             )
         );
-        /**
-         *  Copyrights
-         */
-        $wp_customize->add_panel('copyrights', [
-            'title' => __('MFP Copyrights', 'footer'),
-            'description' => '<p>MFP Copyrights Settings</p>',
-            'priority'  => 60
-        ]);
     }
     public function skyrocket_add_customizer_sections($wp_customize)
     {
@@ -255,14 +296,7 @@ class skyrocket_initialise_customizer_settings
         ]);
         /** END FAQ */
 
-        /**
-         * Copyrights section
-         */
-        $wp_customize->add_section('mfp_copyright_section', [
-            'title' => __('Footer Copyrights', 'mediafairplay'),
-            'priority' => 260,
-            'panel'    => 'footer'
-        ]);
+
 
         /**
          * Hedaer Position section
@@ -446,41 +480,6 @@ class skyrocket_initialise_customizer_settings
                 'panel' => 'mfp_typography_panel',
             )
         );
-        $wp_customize->add_section('mfp_footer_section', [
-            'title' => __('Footer', 'mfp'),
-            'priority' => 30,
-            'panel'    => 'footer'
-        ]);
-        /** Footer Logo section */
-        $wp_customize->add_section('mfp_footer_logos_section', [
-            'title' => __('Footer Logo', 'mfp'),
-            'panel'    => 'footer'
-        ]);
-        /** Footer Color section */
-        $wp_customize->add_section('mfp_footer_colors_section', [
-            'title' => __('Footer Colors', 'mfp'),
-            'panel'    => 'footer'
-        ]);
-        /** Footer Width section */
-        $wp_customize->add_section('mfp_footer_widths_section', [
-            'title' => __('Footer Width', 'mfp'),
-            'panel'    => 'footer'
-        ]);
-        /** Footer Aliengment section */
-        $wp_customize->add_section('mfp_footer_alignments_section', [
-            'title' => __('Footer Alignment', 'mfp'),
-            'panel'    => 'footer'
-        ]);
-        /** Footer trust logo section */
-        $wp_customize->add_section('mfp_footer_trust_logo_section', [
-            'title' => __('Footer Trust Logo', 'mfp'),
-            'panel'    => 'footer'
-        ]);
-        /** Footer Shadows section */
-        $wp_customize->add_section('mfp_footer_shadows_section', [
-            'title' => __('Footer Shadows', 'mfp'),
-            'panel'    => 'footer'
-        ]);
     }
     /** Header Control */
     public function mfp_header_controls($wp_customize)
@@ -893,8 +892,8 @@ class skyrocket_initialise_customizer_settings
             )
         ));
     }
-  
-  
+
+
     /** Typography Control */
     public function mfp_typography_controls($wp_customize)
     {
@@ -1335,95 +1334,7 @@ class skyrocket_initialise_customizer_settings
             )
         ));
     }
-    /** Copyrights Control */
-    public function mfp_copyrights_controls($wp_customize)
-    {
-        /** Copyrights inside the footer */
-        $wp_customize->add_setting(
-            'mfp_copyright',
-            array(
-                'default' => 'yes',
-                'transport' => 'refresh',
-                'sanitize_callback' => 'skyrocket_switch_sanitization'
-            )
-        );
-        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control(
-            $wp_customize,
-            'mfp_copyright',
-            array(
-                'label' => __('Show Copyrights?', 'mediafairplay'),
-                'section' => 'mfp_copyright_section'
-            )
-        ));
-        /** Copyrights background color */
-        $wp_customize->add_setting('mfp_copyright_background_color', [
-            'default' => '#000'
-        ]);
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize,
-                'mfp_copyright_background_color',
-                array(
-                    'label'          => __('Choose Background Color', 'mfp'),
-                    'section'    => 'mfp_copyright_section',
-                    'settings'   => 'mfp_copyright_background_color'
-                )
-            )
-        );
-        /** Copyrights text color */
-        $wp_customize->add_setting('mfp_copyright_text_color', [
-            'default' => '#fff'
-        ]);
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize,
-                'mfp_copyright_text_color',
-                array(
-                    'label'          => __('Choose Text Color', 'mfp'),
-                    'section'    => 'mfp_copyright_section',
-                    'settings'   => 'mfp_copyright_text_color'
-                )
-            )
-        );
-        /** Copyrights text size */
-        $wp_customize->add_setting('mfp_copyright_text_size', [
-            'default' => '11'
-        ]);
-        $wp_customize->add_control(
-            new WP_Customize_Control(
-                $wp_customize,
-                'mfp_copyright_text_size',
-                array(
-                    'type' => 'number',
-                    'priority' => 10, // Within the section.
-                    'section' => 'mfp_copyright_section', // Required, core or custom.
-                    'label' => __('Font Size'),
-                    'description' => __('choose font size for Copyrights'),
-                    'input_attrs' => array(
-                        'style' => 'text-align: center',
-                    ),
-                )
-            )
-        );
-        /** Copyrights text */
-        $wp_customize->add_setting(
-            'mfp_copyright_text',
-            array(
-                'default' => 'Copyright 2020, All Right Reserved. Casino Canuck',
-                'transport' => 'refresh',
-                'sanitize_callback' => 'skyrocket_url_sanitization'
-            )
-        );
-        $wp_customize->add_control(new WP_Customize_Control(
-            $wp_customize,
-            'mfp_copyright_text',
-            array(
-                'label'          => __('Edit Copyright text', 'mfp'),
-                'section'        => 'mfp_copyright_section',
-                'settings'       => 'mfp_copyright_text'
-            )
-        ));
-    }
+
     /** Site General Control */
     public function mfp_site_general_controls($wp_customize)
     {
@@ -2086,37 +1997,7 @@ class skyrocket_initialise_customizer_settings
             )
         ));
 
-        // Test of TinyMCE control
-        $wp_customize->add_setting(
-            'sample_tinymce_editor',
-            array(
-                'default' => $this->defaults['sample_tinymce_editor'],
-                'transport' => 'postMessage',
-                'sanitize_callback' => 'wp_kses_post'
-            )
-        );
-        $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control(
-            $wp_customize,
-            'sample_tinymce_editor',
-            array(
-                'label' => __('TinyMCE Control', 'mediafairplay'),
-                'description' => __('This is a TinyMCE Editor Custom Control', 'mediafairplay'),
-                'section' => 'sample_custom_controls_section',
-                'input_attrs' => array(
-                    'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
-                    'mediaButtons' => true,
-                )
-            )
-        ));
-        $wp_customize->selective_refresh->add_partial(
-            'sample_tinymce_editor',
-            array(
-                'selector' => '.footer-credits',
-                'container_inclusive' => false,
-                'render_callback' => 'skyrocket_get_credits_render_callback',
-                'fallback_refresh' => false,
-            )
-        );
+
 
         // Test of Google Font Select Control
         $wp_customize->add_setting(
@@ -4394,7 +4275,7 @@ class skyrocket_initialise_customizer_settings
                 'section' => 'mfp_casino_cards_review_link_section'
             )
         ));
-        
+
         $wp_customize->add_setting(
             'mfp_cards_review_link_text',
             array(
@@ -4463,8 +4344,8 @@ class skyrocket_initialise_customizer_settings
             )
         ));
 
-        
-       
+
+
 
 
         // t&c apply
@@ -4543,7 +4424,6 @@ class skyrocket_initialise_customizer_settings
                 ),
             )
         ));
-       
     }
 
     public function mfp_casino_table_controls($wp_customize)
@@ -4590,13 +4470,6 @@ class skyrocket_initialise_customizer_settings
     }
 }
 
-/**
- * Render Callback for displaying the footer credits
- */
-function skyrocket_get_credits_render_callback()
-{
-    echo skyrocket_get_credits();
-}
 
 /**
  * Load all our Customizer Custom Controls
@@ -4626,3 +4499,217 @@ function my_customizer_responsive_sizes()
 }
 
 add_action('customize_controls_print_styles', 'my_customizer_responsive_sizes');
+
+
+
+
+if (class_exists('WP_Customize_Panel')) {
+
+    class PE_WP_Customize_Panel extends WP_Customize_Panel
+    {
+
+        public $panel;
+
+        public $type = 'pe_panel';
+
+        public function json()
+        {
+
+            $array = wp_array_slice_assoc((array) $this, array('id', 'description', 'priority', 'type', 'panel',));
+            $array['title'] = html_entity_decode($this->title, ENT_QUOTES, get_bloginfo('charset'));
+            $array['content'] = $this->get_content();
+            $array['active'] = $this->active();
+            $array['instanceNumber'] = $this->instance_number;
+
+            return $array;
+        }
+    }
+}
+
+if (class_exists('WP_Customize_Section')) {
+
+    class PE_WP_Customize_Section extends WP_Customize_Section
+    {
+
+        public $section;
+
+        public $type = 'pe_section';
+
+        public function json()
+        {
+
+            $array = wp_array_slice_assoc((array) $this, array('id', 'description', 'priority', 'panel', 'type', 'description_hidden', 'section',));
+            $array['title'] = html_entity_decode($this->title, ENT_QUOTES, get_bloginfo('charset'));
+            $array['content'] = $this->get_content();
+            $array['active'] = $this->active();
+            $array['instanceNumber'] = $this->instance_number;
+
+            if ($this->panel) {
+
+                $array['customizeAction'] = sprintf('Customizing &#9656; %s', esc_html($this->manager->get_panel($this->panel)->title));
+            } else {
+
+                $array['customizeAction'] = 'Customizing';
+            }
+
+            return $array;
+        }
+    }
+}
+
+// Enqueue our scripts and styles
+function pe_customize_controls_scripts()
+{
+
+    wp_enqueue_script('pe-customize-controls', get_theme_file_uri('/js/pe-customize-controls.js'), array(), '1.0', true);
+}
+
+add_action('customize_controls_enqueue_scripts', 'pe_customize_controls_scripts');
+
+function pe_customize_controls_styles()
+{
+
+    wp_enqueue_style('pe-customize-controls', get_theme_file_uri('/css/pe-customize-controls.css'), array(), '1.0');
+}
+
+add_action('customize_controls_print_styles', 'pe_customize_controls_styles');
+
+function pe_customize_register($wp_customize)
+{
+
+    // Has to be at the top
+    $wp_customize->register_panel_type('PE_WP_Customize_Panel');
+    $wp_customize->register_section_type('PE_WP_Customize_Section');
+
+
+    // Below this there is only demo code, safe to delete and add your own
+    // panels/sections/controls
+
+    // Add three levels on panels
+    $global_parent_panel = new PE_WP_Customize_Panel($wp_customize, 'global_parent_panel', array(
+        'title' => 'Global',
+        'priority' => 131,
+    ));
+    $wp_customize->add_panel($global_parent_panel);
+
+    $global_child_1_panel = new PE_WP_Customize_Panel($wp_customize, 'global_child_1_panel', array(
+        'title' => 'Typography',
+        'panel' => 'global_parent_panel',
+    ));
+
+    $wp_customize->add_panel($global_child_1_panel);
+
+    $global_child_2_panel = new PE_WP_Customize_Panel($wp_customize, 'global_child_2_panel', array(
+        'title' => 'Level 3',
+        'panel' => 'global_child_1_panel',
+        'priority' => 1,
+    ));
+
+    $wp_customize->add_panel($global_child_2_panel);
+
+    // Add example section and controls to the final (third) panel
+    $wp_customize->add_section('pe_section', array(
+        'title' => 'Section Test',
+        'panel' => 'global_child_2_panel',
+    ));
+
+    $wp_customize->add_setting('pe_test', array(
+        'default' => 'default value here',
+        'sanitize_callback' => 'wp_kses_post',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control('pe_test', array(
+        'type' => 'text',
+        'label' => 'Some text control',
+        'section' => 'pe_section',
+    ));
+
+    // Add example section and controls to the middle (second) panel
+    $wp_customize->add_section('base_typography_section', array(
+        'title' => 'Base Typography',
+        'panel' => 'global_child_1_panel',
+        'priority' => 2,
+    ));
+
+    $wp_customize->add_setting('pe_test_2', array(
+        'default' => 'default value here',
+        'sanitize_callback' => 'wp_kses_post',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control('pe_test_2', array(
+        'type' => 'text',
+        'label' => 'Some text control 2',
+        'section' => 'base_typography_section',
+    ));
+
+    $wp_customize->add_section('pe_section_2_1', array(
+        'title' => 'Heading',
+        'panel' => 'global_child_1_panel',
+        'priority' => 2,
+    ));
+
+    // Test of Dropdown Select2 Control (single select)
+    $wp_customize->add_setting(
+        'sample_dropdown_select2_control_single',
+        array(
+            'default' => 'vic',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'sample_dropdown_select2_control_single',
+        array(
+            'label' => __('Dropdown Select2 Control', 'skyrocket'),
+            'description' => esc_html__('Sample Dropdown Select2 custom control (Single Select)', 'skyrocket'),
+            'section' => 'pe_section_2_1',
+            'input_attrs' => array(
+                'placeholder' => __('Please select a state...', 'skyrocket'),
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                'nsw' => __('New South Wales', 'skyrocket'),
+                'vic' => __('Victoria', 'skyrocket'),
+                'qld' => __('Queensland', 'skyrocket'),
+                'wa' => __('Western Australia', 'skyrocket'),
+                'sa' => __('South Australia', 'skyrocket'),
+                'tas' => __('Tasmania', 'skyrocket'),
+                'act' => __('Australian Capital Territory', 'skyrocket'),
+                'nt' => __('Northern Territory', 'skyrocket'),
+            )
+        )
+    ));
+
+    // Add example section and controls to another section
+    $lvl1ParentSection = new PE_WP_Customize_Section($wp_customize, 'lvl_1_parent_section', array(
+        'title' => 'Level 1 Section',
+        'panel' => 'lvl_3_parent_panel',
+    ));
+
+    $wp_customize->add_section($lvl1ParentSection);
+
+    $lv21ParentSection = new PE_WP_Customize_Section($wp_customize, 'lvl_2_parent_section', array(
+        'title' => 'Level 2 Section',
+        'section' => 'lvl_1_parent_section',
+        'panel' => 'lvl_3_parent_panel',
+    ));
+
+    $wp_customize->add_section($lv21ParentSection);
+
+    $wp_customize->add_setting('pe_test_3', array(
+        'default' => 'default value here',
+        'sanitize_callback' => 'wp_kses_post',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control('pe_test_3', array(
+        'type' => 'text',
+        'label' => 'Some text control 3',
+        'section' => 'lvl_2_parent_section',
+    ));
+}
+
+add_action('customize_register', 'pe_customize_register');
