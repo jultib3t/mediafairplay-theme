@@ -274,21 +274,21 @@
     /** Dektop */
     @media(min-width: 1000px) {
       .site-main {
-        margin-top: <?php echo get_theme_mod('header_fixed_margin_top_desktop', 14) ?>px;
+        margin-top: <?php echo get_theme_mod('header_fixed_margin_top_desktop', 120) ?>px;
       }
     }
 
     /** Tablet */
     @media(max-width: 1000px) {
       .site-main {
-        margin-top: <?php echo get_theme_mod('header_fixed_margin_top_tablet', 14) ?>px;
+        margin-top: <?php echo get_theme_mod('header_fixed_margin_top_tablet', 120) ?>px;
       }
     }
 
     /** Mobile */
     @media(max-width: 500px) {
       .site-main {
-        margin-top: <?php echo get_theme_mod('header_fixed_margin_top_mobile', 14) ?>px;
+        margin-top: <?php echo get_theme_mod('header_fixed_margin_top_mobile', 70) ?>px;
       }
     }
 
