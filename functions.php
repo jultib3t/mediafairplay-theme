@@ -577,3 +577,16 @@ function wpex_wp_welcome_panel()
   $myUpdateChecker->setBranch('master');
   $myUpdateChecker->getVcsApi()->enableReleaseAssets();
   // $updateChecker->setBranch('master'); test
+
+  echo '<br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <h1>Hellpp Dale</h1>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  ';
