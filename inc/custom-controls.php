@@ -1950,27 +1950,3 @@ if (class_exists('WP_Customize_Control')) {
 		}
 	}
 }
-
-class Customizer_Number_Inline_Control extends WP_Customize_Control
-{
-	public $fieldwidth = 'text';
-	public $type = 'number';
-
-	protected function render()
-	{
-		$id = 'customize-control-' . str_replace('[', '-', str_replace(']', '', $this->id));
-		$class = 'customize-control customize-control-' . $this->type; ?>
-
-		<li id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($class); ?>" style="clear:none;display:inline-block;max-width:<?php echo $this->fieldwidth . "%"; ?>">
-			<?php $this->render_content(); ?>
-		</li>
-	<?php }
-
-	public function render_content()
-	{ ?>
-		<label class="inline">
-			<span class="customize-control-title" style="font-size:10px;line-height:10px;height:20px;"><?php echo esc_html($this->label); ?></span>
-			<input type="number" <?php $this->link(); ?> value="<?php echo intval($this->value()); ?>" />
-		</label>
-<?php }
-}

@@ -4701,18 +4701,6 @@ function pe_customize_register($wp_customize)
         'priority' => 2,
     ));
 
-    $wp_customize->add_setting( 'width', array (
-        'default'   => '77',
-        'type'      => 'option',
-    ) );
-    $wp_customize->add_control( new Customizer_Number_Inline_Control( $wp_customize, 'width', array (
-        'label'     => 'Width',
-        'type'      => 'number',
-        'section'   => 'base_typography_section',
-        'priority'  => 1,
-        'fieldwidth'=> '50', //set the field to 50% width so that we can display a second one next to it
-    ) ) );
-
     $wp_customize->add_section('pe_section_2_1', array(
         'title' => 'Heading',
         'panel' => 'global_child_1_panel',
