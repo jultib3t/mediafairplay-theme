@@ -58,7 +58,6 @@ class acf_field_wysiwyg extends acf_field {
 		
 		// wp-includes/class-wp-embed.php
 		if(	!empty($GLOBALS['wp_embed']) ) {
-		
 			add_filter( 'acf_the_content', array( $GLOBALS['wp_embed'], 'run_shortcode' ), 8 );
 			add_filter( 'acf_the_content', array( $GLOBALS['wp_embed'], 'autoembed' ), 8 );
 			

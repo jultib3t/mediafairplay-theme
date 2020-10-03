@@ -12,14 +12,12 @@
 
 ?>
 <!doctype html>
-<html <?php language_attributes();
-      ?>>
+<html <?php language_attributes();?>>
 
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='profile' href='https://gmpg.org/xfn/11'>
-
   <?php wp_head(); ?>
 
   <?php
@@ -53,123 +51,7 @@
     echo get_theme_mod('Google_Tag_Manager_Body', '<script></script>');
   }
 
-  wp_body_open(); ?>
-
-  <?php
-  // By location.
-  $menu_name = 'Header';
-  $locations = get_nav_menu_locations();
-  $menu_id   = $locations[$menu_name];
-
-  function wp_get_menu_array($menu_id)
-  {
-    //$logo = the_custom_logo();
-    $array_menu = wp_get_nav_menu_items($menu_id);
-    $menu = array();
-    foreach ($array_menu as $father) {
-      if (empty($father->menu_item_parent)) {
-        $menu[$father->ID] = array();
-        $menu[$father->ID]['ID']             =   $father->ID;
-        $menu[$father->ID]['title']          =   $father->title;
-        $menu[$father->ID]['url']            =   $father->url;
-        $menu[$father->ID]['children']       =   array();
-        $childMenu = array();
-        foreach ($array_menu as $child) {
-          if ($child->menu_item_parent == $father->ID) {
-            $childMenu[$child->ID] = array();
-            $childMenu[$child->ID]['ID']          =   $child->ID;
-            $childMenu[$child->ID]['title']       =   $child->title;
-            $childMenu[$child->ID]['url']         =   $child->url;
-            $childMenu[$child->ID]['children']       =   array();
-            $grandChildMenu = array();
-            foreach ($array_menu as $grandfather) {
-              if ($grandfather->menu_item_parent == $child->ID) {
-                $grandChildMenu[$grandfather->ID] = array();
-                $grandChildMenu[$grandfather->ID]['ID']          =   $grandfather->ID;
-                $grandChildMenu[$grandfather->ID]['title']       =   $grandfather->title;
-                $grandChildMenu[$grandfather->ID]['url']         =   $grandfather->url;
-                $childMenu[$grandfather->menu_item_parent]['children'][$grandfather->ID] = $grandChildMenu[$grandfather->ID];
-              }
-            }
-            $menu[$child->menu_item_parent]['children'][$child->ID] = $childMenu[$child->ID];
-          }
-        }
-      }
-    }
-    return $menu;
-  }
-
-  function custom_header_menu($menu_id)
-  {
-    $items = wp_get_menu_array($menu_id);
-    echo '<ul class="main-menu clearfix">';
-    foreach ($items as $item) {
-      if (!empty($item['children'])) {
-        $subs = $item['children'];
-        
-        $string = str_replace(' ', '', $item['title']);
-        // print_r($subs);
-        echo '<li>
-                      <a class="menu-item" href="' . $item['url'] . '">' . __($item['title'], 'mediafairplay') . ' <span class="caret"></span>
-                        <label class="caret" for="' .$string . '" title=""></label></a>
-                      <input id="' . $string . '" type="checkbox" />
-                      <ul class="sub-menu">';
-        foreach ($subs as $sub) {
-          if (!empty($sub['children'])) {
-            $string = str_replace(' ', '', $sub['title']);
-            $grand_subs = $sub['children'];
-            echo ' 
-                            <li>
-                                    <a class="menu-item" href="' . $sub['url'] . '">' . __($sub['title'], 'mediafairplay') . ' <span class="caret"></span>
-                                      <label class="caret" for="' .$string . '" title=""></label></a>
-                                    <input id="' . $string . '" type="checkbox" />
-                                    <ul class="sub-menu">';
-            foreach ($grand_subs as $grand) {
-              if (!empty($grand['children'])) {
-                echo '<li>
-                                        <a class="menu-item" href="' . $grand['url'] . '">' . $grand['title'] . ' <span class="caret"></span><label class="caret" for="Test2" title=""></label></a><input id="Test2" type="checkbox" />
-                                        <ul class="sub-menu">
-                                          <li>
-                                            <a href="#">A</a>
-                                          </li>
-                                          <li>
-                                            <a href="#">B</a>
-                                          </li>
-                                        </ul>
-                                      </li>';
-              } else {
-                echo '<li>
-                                              <a class="menu-item" href="' . $grand['url'] . '">' . $grand['title'] . '</a>
-                                            </li>';
-              }
-            }
-            echo '</ul>
-                          </li>';
-          } else {
-            echo ' 
-                          <li>
-                                <a class="menu-item" href="' . $sub['url'] . '">' . $sub['title'] . '</a>
-                      </li>';
-          }
-        }
-        echo  '</ul>
-                      </li>';
-      } else {
-        echo '<li>
-                <a class="menu-item" href="' . $item['url'] . '">' . $item['title'] . '</a>
-              </li>';
-      }
-    }
-    echo '</ul>';
-  }
-
-
-  //$logo = the_custom_logo();
-  $custom_logo_id = get_theme_mod('custom_logo', 'logo');
-  //var_dump( $custom_logo_id );
-  $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', TRUE);
-  $image = wp_get_attachment_image_src($custom_logo_id, 'full');
-
+  wp_body_open();
 
   ?>
 
@@ -270,6 +152,11 @@
     }
 
     /** Start Header Margin */
+    .site-main {
+      max-width: 1200px;
+      margin-right: auto;
+      margin-left: auto;
+    }
 
     /** Dektop */
     @media(min-width: 1000px) {
@@ -598,9 +485,23 @@
         display: flex;
         justify-content: flex-end;
       }
+
       li.languegue-switcher a:last-child {
-          border-left: 2px solid #d6d6d6;
-        }
+        border-left: 2px solid #d6d6d6;
+      }
+
+      .company-logo-wrapper a.custom-logo-link {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .company-logo-wrapper a.custom-logo-link img.custom-logo {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+      }
+
       @media only screen and (min-width: 1000px) {
 
         #toggle-menu,
@@ -913,14 +814,10 @@
         <ul class="main-menu clearfix extra">
           <li class="languegue-switcher">
             <?php
-            if ( function_exists('pll_the_languages'))
-            {
+            // check if polylang plugin exists
+            if (function_exists('pll_the_languages')) {
               $translations = pll_the_languages(array('raw' => 1));
-              /* echo '<pre>';
-                  var_dump($translations);
-                echo '</pre>'; */
               foreach ($translations as $translation) {
-                //  print_r($translation);
                 if ($translation['current_lang']) {
                   $active_lang = 'true-active avoid-clicks';
                   echo '<span class="' . $active_lang . '">' . ucwords($translation['slug']) . '</span>';
@@ -928,35 +825,50 @@
                   $active_lang = 'not-active';
                   echo '<a class="' . $active_lang . '" href="' . $translation['url'] . '">' . ucwords($translation['slug']) . '</a>';
                 }
-                //slug
-  
               }
             }
-           
             ?>
-
           </li>
           <li class="search-wrapper">
-
             <div class="search-container">
-
-              <form method="get" action="/" _lpchecked="1">
+              <form method="get" action="<?php echo home_url('/'); ?>" _lpchecked="1">
                 <label for="search-term" style="position: absolute; left: -9999px; height:0; width:0;">Search</label>
                 <input id="search-term" type="text" name="s" class="search-field" placeholder="Search" value="Search">
                 <input type="submit" style="position: absolute; left: -9999px; height:0; width:0;">
               </form>
             </div>
-
           </li>
         </ul>
-        <?php echo custom_header_menu($menu_id); ?>
+        <?php
+
+        // By location.
+        $menu_name = 'Header';
+        $locations = get_nav_menu_locations();
+        $menu_id   = $locations[$menu_name];
+        // check if our custom header is empty or not
+        if (!empty(custom_header_menu($menu_id))) {
+          echo custom_header_menu($menu_id);
+        } else {
+          echo "menu is empty, please add a new menu call 'Header'";
+        }
+        ?>
         <div class="company-logo-wrapper">
-          <?php echo the_custom_logo(); ?>
+          <?php
+          $custom_logo_id = get_theme_mod('custom_logo', 'logo');
+          $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', TRUE);
+          $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+          // check if the custom logo exists or not
+          if (!empty($custom_logo_id)) {
+            echo the_custom_logo();
+          } else {
+            echo '<a href="' . home_url('/') . '" class="custom-logo-link" rel="home" aria-current="page"><img width="225" height="90" src="' . get_stylesheet_directory_uri() . '/images/first_logo.png' . '" class="custom-logo" alt="Reputable Online Casinos"></a>';
+          }
+          ?>
         </div>
       </nav>
-
     </header>
     <script>
+      // menu script
       const menu = document.querySelector('.menu');
       menu.addEventListener("click", menuclick);
 

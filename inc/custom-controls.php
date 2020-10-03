@@ -13,6 +13,8 @@ if (class_exists('WP_Customize_Control')) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
+
+
 	class Skyrocket_Custom_Control extends WP_Customize_Control
 	{
 		protected function get_skyrocket_resource_url()
@@ -804,7 +806,6 @@ if (class_exists('WP_Customize_Control')) {
 
 				// Get the element with id="defaultOpen" and click on it
 				document.getElementById("defaultOpen").click();
-
 			</script>
 
 		<?php
@@ -1718,7 +1719,7 @@ if (class_exists('WP_Customize_Control')) {
 					<a href="<?php echo esc_url($this->url); ?>" target="_blank" <?php echo ' style="background-color:' . $bkgrndcolor . ';color:' . $color . ';"'; ?>><?php echo esc_html($this->title); ?></a>
 				</h3>
 			</li>
-<?php
+		<?php
 		}
 	}
 
@@ -1948,4 +1949,28 @@ if (class_exists('WP_Customize_Control')) {
 			return skyrocket_in_range($number, $min, $max);
 		}
 	}
+}
+
+class Customizer_Number_Inline_Control extends WP_Customize_Control
+{
+	public $fieldwidth = 'text';
+	public $type = 'number';
+
+	protected function render()
+	{
+		$id = 'customize-control-' . str_replace('[', '-', str_replace(']', '', $this->id));
+		$class = 'customize-control customize-control-' . $this->type; ?>
+
+		<li id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($class); ?>" style="clear:none;display:inline-block;max-width:<?php echo $this->fieldwidth . "%"; ?>">
+			<?php $this->render_content(); ?>
+		</li>
+	<?php }
+
+	public function render_content()
+	{ ?>
+		<label class="inline">
+			<span class="customize-control-title" style="font-size:10px;line-height:10px;height:20px;"><?php echo esc_html($this->label); ?></span>
+			<input type="number" <?php $this->link(); ?> value="<?php echo intval($this->value()); ?>" />
+		</label>
+<?php }
 }

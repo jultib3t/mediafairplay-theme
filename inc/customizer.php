@@ -124,100 +124,7 @@ class skyrocket_initialise_customizer_settings
         // Register our sample default controls
         // add_action('customize_register', array($this, 'skyrocket_register_sample_default_controls'));
     }
-    /** Register the Customizer panels */
-    public function mfp_global_controls($wp_customize)
-    {
-
-        $wp_customize->add_panel(
-            'mfp_global_panel',
-            array(
-                'title' => __('Global', 'mediafairplay'),
-                'description' => esc_html__('Adjust your Global Settings', 'mediafairplay'),
-                'priority'       => 20,
-            )
-        );
-
-        // TYPOGRAPHY
-        $wp_customize->add_section('mfp_global_typography_section', [
-            'title' => __('Typography', 'mediafairplay'),
-            'panel'    => 'mfp_global_panel'
-        ]);
-        $wp_customize->add_setting(
-            'mfp_global_typography',
-            array(
-                'default' => 'doublespin',
-                'transport' => 'refresh',
-                'sanitize_callback' => 'skyrocket_radio_sanitization'
-            )
-        );
-        $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
-            $wp_customize,
-            'mfp_global_typography',
-            array(
-                'label' => __('Mobile Menu Hamburger Animation', 'mediafairplay'),
-                'description' => esc_html__('Mobile Menu Hamburger Animation', 'mediafairplay'),
-                'section' => 'mfp_global_typography_section',
-                'choices' => array(
-                    'spin' => __('spin', 'mediafairplay'),
-                    'doublespin' => __('DoubleSpin', 'mediafairplay')
-                )
-            )
-        ));
-
-        // COLORS
-        $wp_customize->add_section('mfp_global_colors_section', [
-            'title' => __('Colors', 'mediafairplay'),
-            'panel'    => 'mfp_global_panel'
-        ]);
-        $wp_customize->add_setting(
-            'mfp_global_colors',
-            array(
-                'default' => 'doublespin',
-                'transport' => 'refresh',
-                'sanitize_callback' => 'skyrocket_radio_sanitization'
-            )
-        );
-        $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
-            $wp_customize,
-            'mfp_global_colors',
-            array(
-                'label' => __('Mobile Menu Hamburger Animation', 'mediafairplay'),
-                'description' => esc_html__('Mobile Menu Hamburger Animation', 'mediafairplay'),
-                'section' => 'mfp_global_colors_section',
-                'choices' => array(
-                    'spin' => __('spin', 'mediafairplay'),
-                    'doublespin' => __('DoubleSpin', 'mediafairplay')
-                )
-            )
-        ));
-
-        // CONTAINER
-        $wp_customize->add_section('mfp_global_section', [
-            'title' => __('Container', 'mediafairplay'),
-            'panel'    => 'mfp_global_panel'
-        ]);
-        $wp_customize->add_setting(
-            'mfp_global_container',
-            array(
-                'default' => 'doublespin',
-                'transport' => 'refresh',
-                'sanitize_callback' => 'skyrocket_radio_sanitization'
-            )
-        );
-        $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
-            $wp_customize,
-            'mfp_global_container',
-            array(
-                'label' => __('Mobile Menu Hamburger Animation', 'mediafairplay'),
-                'description' => esc_html__('Mobile Menu Hamburger Animation', 'mediafairplay'),
-                'section' => 'mfp_global_section',
-                'choices' => array(
-                    'spin' => __('spin', 'mediafairplay'),
-                    'doublespin' => __('DoubleSpin', 'mediafairplay')
-                )
-            )
-        ));
-    }
+    
     public function skyrocket_add_customizer_panels($wp_customize)
     {
         /**
@@ -892,7 +799,6 @@ class skyrocket_initialise_customizer_settings
             )
         ));
     }
-
 
     /** Typography Control */
     public function mfp_typography_controls($wp_customize)
@@ -4576,7 +4482,6 @@ add_action('customize_controls_print_styles', 'pe_customize_controls_styles');
 
 function pe_customize_register($wp_customize)
 {
-
     // Has to be at the top
     $wp_customize->register_panel_type('PE_WP_Customize_Panel');
     $wp_customize->register_section_type('PE_WP_Customize_Section');
@@ -4588,7 +4493,7 @@ function pe_customize_register($wp_customize)
     // Add three levels on panels
     $global_parent_panel = new PE_WP_Customize_Panel($wp_customize, 'global_parent_panel', array(
         'title' => 'Global',
-        'priority' => 131,
+        'priority' => 2,
     ));
     $wp_customize->add_panel($global_parent_panel);
 
@@ -4598,6 +4503,170 @@ function pe_customize_register($wp_customize)
     ));
 
     $wp_customize->add_panel($global_child_1_panel);
+
+    $global_colors_child_1 = new PE_WP_Customize_Panel($wp_customize, 'global_colors_child_1', array(
+        'title' => 'Colors',
+        'panel' => 'global_parent_panel',
+    ));
+
+    $wp_customize->add_panel($global_colors_child_1);
+
+    $wp_customize->add_section('global_colors_section', array(
+        'title' => 'Section Test',
+        'panel' => 'global_colors_child_1',
+    ));
+
+    $wp_customize->add_setting('colors_tests_te', array(
+        'default' => 'default value here',
+        'sanitize_callback' => 'wp_kses_post',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control('colors_tests_te', array(
+        'type' => 'text',
+        'label' => 'Some text control',
+        'section' => 'global_colors_section',
+    ));
+
+   /*  $global_container = new PE_WP_Customize_Panel($wp_customize, 'global_container', array(
+        'title' => 'Container',
+        'panel' => 'global_parent_panel',
+    ));
+    $wp_customize->add_panel($global_container); */
+    
+    $wp_customize->add_section('global_container',array(
+        'title'=>'Container',
+        'panel'=>'global_parent_panel',
+    ));
+    
+    
+    $wp_customize->add_setting(
+        'global_container_width',
+        array(
+            'default' => 1200,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'absint'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'global_container_width',
+        array(
+            'label' => __('Width', 'mediafairplay'),
+            'section' => 'global_container',
+            'input_attrs' => array(
+                'min' => 100,
+                'max' => 1920,
+                'step' => 20,
+            ),
+        )
+    ));
+
+    $wp_customize->add_setting(
+        'global_layout_layout',
+        array(
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_layout_layout',
+        array(
+            'label' => __('Default Layout', 'mediafairplay'),
+            'description' => esc_html__('', 'skyrocket'),
+            'section' => 'global_container',
+            'input_attrs' => array(
+                'placeholder' => false,
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                'container' => __('Container', 'mediafairplay'),
+                'Full_Width' => __('Full Width', 'mediafairplay'),
+            )
+        )
+    ));
+
+    $wp_customize->add_setting(
+        'global_layout_page',
+        array(
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_layout_page',
+        array(
+            'label' => __('Page Layout', 'mediafairplay'),
+            'description' => esc_html__('', 'skyrocket'),
+            'section' => 'global_container',
+            'input_attrs' => array(
+                'placeholder' => false,
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                'default' => __('Default', 'mediafairplay'),
+                'container' => __('Container', 'mediafairplay'),
+                'Full_Width' => __('Full Width', 'mediafairplay'),
+            )
+        )
+    ));
+    $wp_customize->add_setting(
+        'global_layout_blog_post_layout',
+        array(
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_layout_blog_post_layout',
+        array(
+            'label' => __('Blog Post Layout', 'mediafairplay'),
+            'description' => esc_html__('', 'skyrocket'),
+            'section' => 'global_container',
+            'input_attrs' => array(
+                'placeholder' => false,
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                'default' => __('Default', 'mediafairplay'),
+                'container' => __('Container', 'mediafairplay'),
+                'Full_Width' => __('Full Width', 'mediafairplay'),
+            )
+        )
+    ));
+    
+    $wp_customize->add_setting(
+        'global_layout_archives_layout',
+        array(
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_layout_archives_layout',
+        array(
+            'label' => __('Archives Layout', 'mediafairplay'),
+            'description' => esc_html__('', 'skyrocket'),
+            'section' => 'global_container',
+            'input_attrs' => array(
+                'placeholder' => false,
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                'default' => __('Default', 'mediafairplay'),
+                'container' => __('Container', 'mediafairplay'),
+                'Full_Width' => __('Full Width', 'mediafairplay'),
+            )
+        )
+    ));
+
+    
+
+    
 
     $global_child_2_panel = new PE_WP_Customize_Panel($wp_customize, 'global_child_2_panel', array(
         'title' => 'Level 3',
@@ -4632,17 +4701,17 @@ function pe_customize_register($wp_customize)
         'priority' => 2,
     ));
 
-    $wp_customize->add_setting('pe_test_2', array(
-        'default' => 'default value here',
-        'sanitize_callback' => 'wp_kses_post',
-        'transport' => 'postMessage',
-    ));
-
-    $wp_customize->add_control('pe_test_2', array(
-        'type' => 'text',
-        'label' => 'Some text control 2',
-        'section' => 'base_typography_section',
-    ));
+    $wp_customize->add_setting( 'width', array (
+        'default'   => '77',
+        'type'      => 'option',
+    ) );
+    $wp_customize->add_control( new Customizer_Number_Inline_Control( $wp_customize, 'width', array (
+        'label'     => 'Width',
+        'type'      => 'number',
+        'section'   => 'base_typography_section',
+        'priority'  => 1,
+        'fieldwidth'=> '50', //set the field to 50% width so that we can display a second one next to it
+    ) ) );
 
     $wp_customize->add_section('pe_section_2_1', array(
         'title' => 'Heading',
@@ -4710,6 +4779,8 @@ function pe_customize_register($wp_customize)
         'label' => 'Some text control 3',
         'section' => 'lvl_2_parent_section',
     ));
+
+    
 }
 
 add_action('customize_register', 'pe_customize_register');
