@@ -767,6 +767,12 @@
       section#wrapper-widget-footer .footer-widget-wrapper-inside .third-footer-widget-wrapper {
         text-align: left;
       }
+
+      #menutoggle:checked+.extra {
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
     }
 
     .company-logo-wrapper a.custom-logo-link {
