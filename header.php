@@ -533,7 +533,7 @@
 
       .mfp-menu li {
         float: left;
-        border-width: 0 1px 0 0;
+        border-width: 0 0 0 1px;
 
       }
 
