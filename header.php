@@ -815,10 +815,12 @@
         </label>
         <input id="menutoggle" type="checkbox" />
         <ul class="main-menu clearfix extra">
-          <li class="languegue-switcher">
+          
             <?php
             // check if polylang plugin exists
-            if (function_exists('pll_the_languages')) {
+            if (function_exists('pll_the_languages')) { ?>
+            <li class="languegue-switcher">
+            <?php
               $translations = pll_the_languages(array('raw' => 1));
               foreach ($translations as $translation) {
                 if ($translation['current_lang']) {
@@ -828,10 +830,12 @@
                   $active_lang = 'not-active';
                   echo '<a class="' . $active_lang . '" href="' . $translation['url'] . '">' . ucwords($translation['slug']) . '</a>';
                 }
+              } ?>
+              </li>
+            <?php 
               }
-            }
             ?>
-          </li>
+          
           <li class="search-wrapper">
             <div class="search-container">
               <form method="get" action="<?php echo home_url('/'); ?>" _lpchecked="1">
