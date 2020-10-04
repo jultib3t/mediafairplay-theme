@@ -156,6 +156,8 @@
       max-width: 1200px;
       margin-right: auto;
       margin-left: auto;
+      padding-right: 0.83em;
+      padding-left: 0.83em;
     }
 
     /** Dektop */
@@ -181,12 +183,7 @@
 
     /** END Header Margin */
   </style>
-  <!-- Header CSS END - REMOVE IT ON PRODUCTION !! -->
-
-  <!-- Page Start -->
-  <div id='page' class='site'>
-
-    <style>
+      <style>
       .caret {
         width: 0px;
         height: 0px;
@@ -801,6 +798,12 @@
 
       /** END LOGO sizes */
     </style>
+  <!-- Header CSS END - REMOVE IT ON PRODUCTION !! -->
+
+  <!-- Page Start -->
+  <div id='page' class='site'>
+
+
     <header class="header-wrapper-mfp">
 
       <nav dir="rtl" class="mfp-menu">
@@ -840,7 +843,6 @@
           </li>
         </ul>
         <?php
-
         // By location.
         $menu_name = 'Header';
         $locations = get_nav_menu_locations();
