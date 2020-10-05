@@ -99,8 +99,6 @@ class skyrocket_initialise_customizer_settings
         add_action('customize_register', array($this, 'mfp_site_general_controls'));
         // global control
         add_action('customize_register', array($this, 'mfp_global_controls'));
-        // register our Site Content
-        add_action('customize_register', array($this, 'mfp_site_content_control'));
         // register our features
         add_action('customize_register', array($this, 'mfp_features_controls'));
         // MFP TABLE
@@ -122,17 +120,6 @@ class skyrocket_initialise_customizer_settings
                 'title' => __('MFP Features', 'mediafairplay'),
                 'description' => esc_html__('Adjust your Features', 'mediafairplay'),
                 'priority'       => 80,
-            )
-        );
-        /**
-         *  Add Our Content panel
-         */
-        $wp_customize->add_panel(
-            'mfp_content_panel',
-            array(
-                'title' => __('MFP Content', 'mediafairplay'),
-                'description' => esc_html__('Adjust your Content', 'mediafairplay'),
-                'priority'       => 40,
             )
         );
 
@@ -179,30 +166,7 @@ class skyrocket_initialise_customizer_settings
         /** END FAQ */
 
 
-        /**
-         * Content width section
-         */
-        $wp_customize->add_section(
-            'mfp_content_width',
-            array(
-                'title' => __('Content Width', 'mediafairplay'),
-                'description' => esc_html__('Edit Site Content Width', 'mediafairplay'),
-                'panel' => 'mfp_content_panel',
-                'priority'       => 30
-            )
-        );
-        /**
-         * Content bcakground color section
-         */
-        $wp_customize->add_section(
-            'mfp_content_background_color',
-            array(
-                'title' => __('Content Background Color', 'mediafairplay'),
-                'description' => esc_html__('Choose content background color', 'mediafairplay'),
-                'panel' => 'mfp_content_panel',
-                'priority'       => 30
-            )
-        );
+      
         /**
          * Add our WooCommerce Layout Section, only if WooCommerce is active
          */
@@ -237,53 +201,6 @@ class skyrocket_initialise_customizer_settings
             )
         );
        
-    }
-   
-    /** Site Content Control */
-    public function mfp_site_content_control($wp_customize)
-    {
-        /** Content Container Width -  container full / container half */
-        $wp_customize->add_setting(
-            'content_width',
-            array(
-                'default' =>    1200,
-                'transport' => 'refresh',
-                'sanitize_callback' => 'absint'
-            )
-        );
-        $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
-            $wp_customize,
-            'content_width',
-            array(
-                'label' => __('Content Width', 'mediafairplay'),
-                'description' => __('1920px will be 100%', 'mediafairplay'),
-                'section' => 'mfp_content_width',
-                'input_attrs' => array(
-                    'min' => 600,
-                    'max' => 1920,
-                    'step' => 20,
-                ),
-            )
-        ));
-        /** Content background color */
-        $wp_customize->add_setting(
-            'content_background_color',
-            array(
-                'default' => '#fff',
-                'transport' => 'refresh',
-                'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
-            )
-        );
-        $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
-            $wp_customize,
-            'content_background_color',
-            array(
-                'label' => __('Content Background Color'),
-                'description' => esc_html__('add your own background color'),
-                'section' => 'mfp_content_background_color',
-                'show_opacity' => true
-            )
-        ));
     }
 
     /** Site General Control */
@@ -2298,7 +2215,7 @@ class skyrocket_initialise_customizer_settings
         $wp_customize->add_panel(
             'mfp_casino_cards_panel',
             array(
-                'title' => __('MFP Casino Cards', 'mediafairplay'),
+                'title' => __('MFP Casino Cards ( Beta )', 'mediafairplay'),
                 'description' => esc_html__('Adjust your Tables and Crds', 'mediafairplay'),
                 /* 'priority'       => 30, */
             )
@@ -3385,7 +3302,7 @@ class skyrocket_initialise_customizer_settings
         $wp_customize->add_panel(
             'mfp_casino_table_panel',
             array(
-                'title' => __('MFP Casino Table', 'mediafairplay'),
+                'title' => __('MFP Casino Table ( Beta )', 'mediafairplay'),
                 'description' => esc_html__('Adjust your Tables and Crds', 'mediafairplay'),
                 /* 'priority'       => 30, */
             )
