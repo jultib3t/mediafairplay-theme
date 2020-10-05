@@ -150,7 +150,7 @@ if (defined('JETPACK__VERSION')) {
 /**
  * Set our skyrockect file
  */
-include_once trailingslashit(dirname(__FILE__)) . 'inc/skyrocket.php';
+include_once trailingslashit(dirname(__FILE__)) . 'inc/customizer/skyrocket.php';
 
 /**
  * Set our custom site settings
@@ -160,12 +160,12 @@ include_once trailingslashit(dirname(__FILE__)) . 'inc/skyrocket.php';
 /**
  * Load all our Customizer options
  */
-include_once trailingslashit(dirname(__FILE__)) . 'inc/customizer.php';
+include_once trailingslashit(dirname(__FILE__)) . 'inc/customizer/customizer.php';
 
 /**
  * Custome LOGIN page
  */
-include_once trailingslashit(dirname(__FILE__)) . 'inc/custom_login.php';
+include_once trailingslashit(dirname(__FILE__)) . 'inc/login/custom_login.php';
 
 /**
  * Custome Admin panel menus
@@ -175,7 +175,7 @@ include_once trailingslashit(dirname(__FILE__)) . 'inc/custom_admin.php';
 /**
  * ACF
  */
-include_once trailingslashit(dirname(__FILE__)) . 'custom_acf.php';
+include_once trailingslashit(dirname(__FILE__)) . 'inc/acf/custom_acf.php';
 
 /**
  * USERS
