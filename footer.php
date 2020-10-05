@@ -65,7 +65,9 @@
     }
 
     .back_to_top-show {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 
