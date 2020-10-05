@@ -180,7 +180,7 @@ include_once trailingslashit(dirname(__FILE__)) . 'inc/acf/custom_acf.php';
 /**
  * USERS
  */
-include_once trailingslashit(dirname(__FILE__)) . 'inc/custom_users.php';
+include_once trailingslashit(dirname(__FILE__)) . 'inc/users/custom_users.php';
 
 /** 
  * MFP SHORT CODES
@@ -191,7 +191,7 @@ include_once trailingslashit(dirname(__FILE__)) . 'inc/shortcodes/mfp_table_card
 /**
  * Hide ACF from Admin Menu
  */
-add_filter('acf/settings/show_admin', '__return_false');
+// add_filter('acf/settings/show_admin', '__return_false');
 /**
  * Custom blocks
  */
