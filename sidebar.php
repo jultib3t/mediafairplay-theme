@@ -8,17 +8,6 @@
  * @package mediafairplay
  */
 
-/* if (!is_active_sidebar('mfp-footer-1')) {
-    return;
-}
-if (!is_active_sidebar('mfp-footer-2')) {
-    return;
-}
-if (!is_active_sidebar('mfp-footer-3')) {
-    return;
-} */
-?>
-<?php
 /**
  * START PAGE NAVIGATION - ( Custom ACF ) 
  */
@@ -68,6 +57,15 @@ endif;
 ?>
 <footer>
 <?php
+/* if (!is_active_sidebar('mfp-footer-1')) {
+    return;
+}
+if (!is_active_sidebar('mfp-footer-2')) {
+    return;
+}
+if (!is_active_sidebar('mfp-footer-3')) {
+    return;
+} */
 // check if any of the widgets is active, even if one is active - show
 if (is_active_sidebar('mfp-footer-1')  || is_active_sidebar('mfp-footer-2') || is_active_sidebar('mfp-footer-3')) { ?>
     <style>

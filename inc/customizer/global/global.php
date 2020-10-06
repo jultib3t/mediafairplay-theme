@@ -72,7 +72,7 @@ function global_customizer_register($wp_customize)
     $wp_customize->register_section_type('PE_WP_Customize_Section');
     // Add three levels on panels
     $global_parent_panel = new PE_WP_Customize_Panel($wp_customize, 'global_parent_panel', array(
-        'title' => 'Global ( Beta )',
+        'title' => 'Global',
         'priority' => 30,
     ));
     $wp_customize->add_panel($global_parent_panel);

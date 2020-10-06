@@ -2,7 +2,7 @@
 function mfp_global_container($wp_customize)
 {
     $wp_customize->add_section('global_container', array(
-        'title' => 'Container ( Beta )',
+        'title' => 'Container',
         'panel' => 'global_parent_panel',
     ));
 
@@ -31,6 +31,7 @@ function mfp_global_container($wp_customize)
     $wp_customize->add_setting(
         'global_layout_layout',
         array(
+            'default' => 'container',
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_text_sanitization'
         )
@@ -103,10 +104,10 @@ function mfp_global_container($wp_customize)
             )
         )
     ));
-
     $wp_customize->add_setting(
         'global_layout_archives_layout',
         array(
+            'default' => 'default',
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_text_sanitization'
         )
@@ -129,5 +130,7 @@ function mfp_global_container($wp_customize)
             )
         )
     ));
+
+    
 }
 add_action('customize_register', 'mfp_global_container');

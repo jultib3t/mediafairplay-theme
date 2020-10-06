@@ -128,10 +128,39 @@
     }
 
     <?php } ?><?php } ?>body {
-      font-family: <?php echo get_theme_mod('mfp_font_familiy_control', 'Arial') ?>;
+      font-family: <?php echo get_theme_mod('global_typo_family', 'Arial') ?>;
       background-color: <?php echo get_theme_mod('content_background_color', '#fff') ?>;
+      font-size: <?php echo get_theme_mod('global_typo_font_size', 16); ?>px;
+      font-weight: <?php echo get_theme_mod('global_typo_font_weight', 400); ?>;
+      font-style: normal;
+      text-transform: <?php echo get_theme_mod('global_typo_text_transform', 'capitalize'); ?>;
+      margin: 0;
+      line-height: <?php echo get_theme_mod('global_typo_line_height', 1.5); ?>;
+      color: <?php echo get_theme_mod('global_text_color', '#404040'); ?>;
     }
 
+    p {
+      margin-bottom: <?php echo get_theme_mod('global_typo_p_margin_bottom', 1.5); ?>em;
+    }
+
+    a {
+      color: <?php echo get_theme_mod('global_Link_Color', '#0073aa'); ?>;
+    }
+
+    a:active,
+    a:focus,
+    a:hover {
+      color: <?php echo get_theme_mod('global_Link_Hover_Color', '#191970'); ?>;
+    }
+
+    a:focus {
+      outline: thin dotted;
+    }
+
+    a:active,
+    a:hover {
+      outline: 0;
+    }
 
     <?php
 
@@ -152,12 +181,66 @@
     }
 
     /** Start Header Margin */
+
+    /** -------- */
     .site-main {
-      max-width: 1200px;
+      <?php if ($layout == 'container') : ?>
+       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+      <?php else: ?>
+        max-width: 100%;
+      <?php endif; ?>
       margin-right: auto;
       margin-left: auto;
       padding-right: 0.83em;
       padding-left: 0.83em;
+      background-color: <?php echo get_theme_mod('global_Content_Background_Color', '#fff'); ?>;
+    }
+    <?php
+    $layout = get_theme_mod('global_layout_layout', 'container');
+    // Run code only for Single post page
+    if (is_single() && 'post' == get_post_type()) :
+      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
+      if( $layout_page == 'default' || $layout_page == 'container'): ?>
+        .site-main {
+       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+        }
+        <?php else : 
+          echo 'max-width: 100%;';
+    endif;
+    endif;
+    
+    // run code for archive
+    if (is_archive() ) :
+      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
+      if( $layout_page == 'default' || $layout_page == 'container'): ?>
+        .site-main {
+       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+        }
+        <?php else : 
+          echo 'max-width: 100%;';
+    endif;
+    endif;
+
+     // run code for pages
+     if (is_page() ) :
+      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
+      if( $layout_page == 'default' || $layout_page == 'container'): ?>
+        .site-main {
+       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+        }
+        <?php else : 
+          echo 'max-width: 100%;';
+    endif;
+    endif;
+    ?>
+      
+        
+
+    @media(max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px) {
+      .site-main {
+        margin-right: 0.83em;
+        margin-left: 0.83em;
+      }
     }
 
     /** Dektop */
