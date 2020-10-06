@@ -12,7 +12,7 @@ function register_header_customizer($wp_customize)
         array(
             'title' => __('Header ( Beta )', 'mediafairplay'),
             'description' => esc_html__('Adjust your Header', 'mediafairplay'),
-            'priority'       => 30,
+            'priority'       => 40,
         )
     );
 

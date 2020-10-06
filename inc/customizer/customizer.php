@@ -207,7 +207,7 @@ class skyrocket_initialise_customizer_settings
     public function mfp_site_general_controls($wp_customize)
     {
         /** Change the title from site general to MFP Site General */
-        $wp_customize->get_section('title_tagline')->title = 'Site General';
+        $wp_customize->get_section('title_tagline')->title = 'Site Identity';
         /** Google tag manager Head */
         $wp_customize->add_setting(
             'Google_Tag_Manager_Head',

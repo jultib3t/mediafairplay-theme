@@ -19,6 +19,9 @@ if (!is_active_sidebar('mfp-footer-3')) {
 } */
 ?>
 <?php
+/**
+ * START PAGE NAVIGATION - ( Custom ACF ) 
+ */
 $navigation_page_enable = get_field('enable_pagination_to_the_page');
 // check if we enabled page navigation
 if (is_null($navigation_page_enable)) {
@@ -59,8 +62,11 @@ if (is_page()) :
                 </section>';
     endif;
 endif;
+/**
+ * END OF PAGE NAVIGATION - ( Custom ACF ) 
+ */
 ?>
-
+<footer>
 <?php
 // check if any of the widgets is active, even if one is active - show
 if (is_active_sidebar('mfp-footer-1')  || is_active_sidebar('mfp-footer-2') || is_active_sidebar('mfp-footer-3')) { ?>
@@ -173,7 +179,33 @@ if (is_active_sidebar('mfp-footer-1')  || is_active_sidebar('mfp-footer-2') || i
             flex-direction: row;
             justify-content: space-between;
         }
+        section.first-footer-wrapper {
+        background-color: #b71c1c;
+    }
 
+    section.first-footer-wrapper .first-footer {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    section.lower-footer-wrapper .lower-footer {
+        max-width: <?php echo get_theme_mod('site_content_width', '1200')?>px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .lower-footer .allrights {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0px;
+    }
+
+    section.first-footer-wrapper .first-footer ul {
+        list-style: none;
+    }
         @media(max-width: 1000px) {
             .footer-copyrights {
                 flex-direction: column;
@@ -181,11 +213,12 @@ if (is_active_sidebar('mfp-footer-1')  || is_active_sidebar('mfp-footer-2') || i
             }
         }
     </style>
-    <footer>
+    
         <div class="footer-copyrights-wrapper">
             <div class="footer-copyrights">
                 <?php dynamic_sidebar('mfp-copyrights-footer'); ?>
             </div>
         </div>
-    </footer>
+
 <?php endif; ?>
+</footer>

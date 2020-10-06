@@ -1,70 +1,220 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+Plugin Update Checker
+=====================
 
-_s
-===
+This is a custom update checker library for WordPress plugins and themes. It lets you add automatic update notifications and one-click upgrades to your commercial plugins, private themes, and so on. All you need to do is put your plugin/theme details in a JSON file, place the file on your server, and pass the URL to the library. The library periodically checks the URL to see if there's a new version available and displays an update notification to the user if necessary.
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+From the users' perspective, it works just like with plugins and themes hosted on WordPress.org. The update checker uses the default upgrade UI that is familiar to most WordPress users.
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
 
-* A modern workflow with a pre-made command-line interface to turn your project into a more pleasant experience.
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A custom header implementation in `inc/custom-header.php`. Just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/template-functions.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample layouts in `sass/layouts/` made using CSS Grid for a sidebar on either side of your content. Just uncomment the layout of your choice in `sass/style.scss`.
-Note: `.no-sidebar` styles are automatically loaded.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
+- [Getting Started](#getting-started)
+  - [Self-hosted Plugins and Themes](#self-hosted-plugins-and-themes)
+    - [How to Release an Update](#how-to-release-an-update)
+    - [Notes](#notes)
+  - [GitHub Integration](#github-integration)
+    - [How to Release an Update](#how-to-release-an-update-1)
+    - [Notes](#notes-1)
+  - [BitBucket Integration](#bitbucket-integration)
+    - [How to Release an Update](#how-to-release-an-update-2)
+- [Resources](#resources)
 
-Installation
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+Getting Started
 ---------------
 
-### Requirements
+### Self-hosted Plugins and Themes
 
-`_s` requires the following dependencies:
+1. Download [the latest release](https://github.com/YahnisElsts/plugin-update-checker/releases/latest) and copy the `plugin-update-checker` directory to your plugin or theme.
+2. Go to the `examples` subdirectory and open the .json file that fits your project type. Replace the placeholder data with your plugin/theme details. 
+	- Plugin example:
+	
+		```json
+		{
+			"name" : "Plugin Name",
+			"version" : "2.0",
+			"download_url" : "http://example.com/plugin-name-2.0.zip",
+			"sections" : {
+				"description" : "Plugin description here. You can use HTML."
+			}
+		}
+		```
+		
+        This is a minimal example that leaves out optional fields. See [this table](https://spreadsheets.google.com/pub?key=0AqP80E74YcUWdEdETXZLcXhjd2w0cHMwX2U1eDlWTHc&authkey=CK7h9toK&hl=en&single=true&gid=0&output=html) for a full list of supported fields and their descriptions.
+	- Theme example:
+	
+		```json
+		{
+			"version": "2.0",
+			"details_url": "http://example.com/version-2.0-details.html",
+			"download_url": "http://example.com/example-theme-2.0.zip"
+		}
+		```
+		
+		This is actually a complete example that shows all theme-related fields. `version` and `download_url` should be self-explanatory. The `details_url` key specifies the page that the user will see if they click the "View version 1.2.3 details" link in an update notification.  
+3. Upload the JSON file to a publicly accessible location.
+4. Add the following code to the main plugin file or to the `functions.php` file:
 
-- [Node.js](https://nodejs.org/)
-- [Composer](https://getcomposer.org/)
+	```php
+	require 'path/to/plugin-update-checker/plugin-update-checker.php';
+	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+		'http://example.com/path/to/details.json',
+		__FILE__,
+		'unique-plugin-or-theme-slug'
+	);
+	```
 
-### Quick Start
+#### How to Release an Update
 
-Clone or download this repository, change its name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a six-step find and replace on the name in all the templates.
+Change the `version` number in the JSON file and make sure that `download_url` points to the latest version. Update the other fields if necessary. Tip: You can use [wp-update-server](https://github.com/YahnisElsts/wp-update-server) to automate this process.
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain and replace with: `'megatherium-is-awesome'`.
-2. Search for `_s_` to capture all the functions names and replace with: `megatherium_is_awesome_`.
-3. Search for `Text Domain: _s` in `style.css` and replace with: `Text Domain: megatherium-is-awesome`.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks and replace with: <code>&nbsp;Megatherium_is_Awesome</code>.
-5. Search for `_s-` to capture prefixed handles and replace with: `megatherium-is-awesome-`.
-6. Search for `_S_` (in uppercase) to capture constants and replace with: `MEGATHERIUM_IS_AWESOME_`.
+By default, the library will check the specified URL for changes every 12 hours. You can force it to check immediately by clicking the "Check Now" link on the "Plugins" page (it's next to the "Visit plugin site" link). Themes don't get a "check now" link, but you can also trigger an update check like this:
+ 
+ 1. Install [Debug Bar](https://srd.wordpress.org/plugins/debug-bar/).
+ 2. Click the "Debug" menu in the Admin Bar (a.k.a Toolbar).
+ 3. Open the "PUC (your-slug)" panel. 
+ 4. Click the "Check Now" button.  
 
-Then, update the stylesheet header in `style.css`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
+#### Notes
+- The second argument passed to `buildUpdateChecker` must be the absolute path to the main plugin file or any file in the theme directory. If you followed the "getting started" instructions, you can just use the `__FILE__` constant.
+- The third argument - i.e. the slug - is optional but recommended. If it's omitted, the update checker will use the name of the main plugin file as the slug (e.g. `my-cool-plugin.php` &rarr; `my-cool-plugin`). This can lead to conflicts if your plugin has a generic file name like `plugin.php`. 
+	
+	This doesn't affect themes because PUC uses the theme directory name as the default slug. Still, if you're planning to use the slug in your own code - e.g. to filter updates or override update checker behaviour - it can be a good idea to set it explicitly. 
 
-### Setup
+### GitHub Integration
 
-To start using all the tools that come with `_s`  you need to install the necessary Node.js and Composer dependencies :
+1. Download [the latest release](https://github.com/YahnisElsts/plugin-update-checker/releases/latest) and copy the `plugin-update-checker` directory to your plugin or theme.
+2. Add the following code to the main plugin file or `functions.php`:
 
-```sh
-$ composer install
-$ npm install
-```
+	```php
+	require 'plugin-update-checker/plugin-update-checker.php';
+	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+		'https://github.com/user-name/repo-name/',
+		__FILE__,
+		'unique-plugin-or-theme-slug'
+	);
 
-### Available CLI commands
+	//Optional: If you're using a private repository, specify the access token like this:
+	$myUpdateChecker->setAuthentication('your-token-here');
 
-`_s` comes packed with CLI commands tailored for WordPress theme development :
+	//Optional: Set the branch that contains the stable release.
+	$myUpdateChecker->setBranch('stable-branch-name');
+	```
+3. Plugins only: Add a `readme.txt` file formatted according to the [WordPress.org plugin readme standard](https://wordpress.org/plugins/about/readme.txt) to your repository. The contents of this file will be shown when the user clicks the "View version 1.2.3 details" link.
 
-- `composer lint:wpcs` : checks all PHP files against [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
-- `composer lint:php` : checks all PHP files for syntax errors.
-- `composer make-pot` : generates a .pot file in the `language/` directory.
-- `npm run compile:css` : compiles SASS files to css.
-- `npm run compile:rtl` : generates an RTL stylesheet.
-- `npm run watch` : watches all SASS files and recompiles them to css when they change.
-- `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
-- `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
-- `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
+#### How to Release an Update
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+This library supports a couple of different ways to release updates on GitHub. Pick the one that best fits your workflow.
 
-Good luck!
+- **GitHub releases** 
+	
+	Create a new release using the "Releases" feature on GitHub. The tag name and release title don't matter. The description is optional, but if you do provide one, it will be displayed when the user clicks the "View version x.y.z details" link on the "Plugins" page. Note that PUC ignores releases marked as "This is a pre-release".
+	
+- **Tags** 
+	
+	To release version 1.2.3, create a new Git tag named `v1.2.3` or `1.2.3`. That's it.
+	
+	PUC doesn't require strict adherence to [SemVer](http://semver.org/). These are all valid tag names: `v1.2.3`, `v1.2-foo`, `1.2.3_rc1-ABC`, `1.2.3.4.5`. However, be warned that it's not smart enough to filter out alpha/beta/RC versions. If that's a problem, you might want to use GitHub releases or branches instead.
+	
+- **Stable branch** 
+	
+	Point the update checker at a stable, production-ready branch: 
+	 ```php
+	 $updateChecker->setBranch('branch-name');
+	 ```
+	 PUC will periodically check the `Version` header in the main plugin file or `style.css` and display a notification if it's greater than the installed version.
+	 
+	 Caveat: If you set the branch to `master` (the default), the update checker will look for recent releases and tags first. It'll only use the `master` branch if it doesn't find anything else suitable.
+
+#### Notes
+
+The library will pull update details from the following parts of a release/tag/branch:
+
+- Version number
+	- The "Version" plugin header.
+	- The latest GitHub release or tag name.
+- Changelog
+	- The "Changelog" section of `readme.txt`.
+	- One of the following files:
+		CHANGES.md, CHANGELOG.md, changes.md, changelog.md
+	- GitHub release notes.
+- Required and tested WordPress versions
+	- The "Requires at least" and "Tested up to" fields in `readme.txt`.
+	- The following plugin headers:
+		`Required WP`, `Tested WP`, `Requires at least`, `Tested up to`
+- "Last updated" timestamp
+	- The creation timestamp of the latest GitHub release.
+	- The latest commit in the selected tag or branch.
+- Number of downloads
+	- The `download_count` statistic of the latest release.
+	- If you're not using GitHub releases, there will be no download stats.
+- Other plugin details - author, homepage URL, description
+	- The "Description" section of `readme.txt`.
+	- Remote plugin headers (i.e. the latest version on GitHub).
+	- Local plugin headers (i.e. the currently installed version).
+- Ratings, banners, screenshots
+	- Not supported.
+	
+### BitBucket Integration
+
+1. Download [the latest release](https://github.com/YahnisElsts/plugin-update-checker/releases/latest) and copy the `plugin-update-checker` directory to your plugin or theme.
+2. Add the following code to the main plugin file or `functions.php`:
+
+	```php
+	require 'plugin-update-checker/plugin-update-checker.php';
+	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+		'https://bitbucket.org/user-name/repo-name',
+		__FILE__,
+		'unique-plugin-or-theme-slug'
+	);
+
+	//Optional: If you're using a private repository, create an OAuth consumer
+	//and set the authentication credentials like this:
+	$myUpdateChecker->setAuthentication(array(
+		'consumer_key' => '...',
+		'consumer_secret' => '...',
+	));
+
+	//Optional: Set the branch that contains the stable release.
+	$myUpdateChecker->setBranch('stable-branch-name');
+	```
+3. Optional: Add a `readme.txt` file formatted according to the [WordPress.org plugin readme standard](https://wordpress.org/plugins/about/readme.txt) to your repository. For plugins, the contents of this file will be shown when the user clicks the "View version 1.2.3 details" link.
+
+#### How to Release an Update
+
+BitBucket doesn't have an equivalent to GitHub's releases, so the process is slightly different. You can use any of the following approaches: 
+
+- **`Stable tag` header** 
+	
+	This is the recommended approach if you're using tags to mark each version. Add a `readme.txt` file formatted according to the [WordPress.org plugin readme standard](https://wordpress.org/plugins/about/readme.txt) to your repository. Set the "stable tag" header to the tag that represents the latest release. Example:
+	```text
+	Stable tag: v1.2.3
+	```
+	The tag doesn't have to start with a "v" or follow any particular format. You can use any name you like as long as it's a valid Git tag.
+	
+	Tip: If you explicitly set a stable branch, the update checker will look for a `readme.txt` in that branch. Otherwise it will only look at the `master` branch.
+	
+- **Tags** 
+	
+	You can skip the "stable tag" bit and just create a new Git tag named `v1.2.3` or `1.2.3`. The update checker will look at the most recent tags and pick the one that looks like the highest version number.
+	
+	PUC doesn't require strict adherence to [SemVer](http://semver.org/). These are all valid tag names: `v1.2.3`, `v1.2-foo`, `1.2.3_rc1-ABC`, `1.2.3.4.5`. However, be warned that it's not smart enough to filter out alpha/beta/RC versions.
+	
+- **Stable branch** 
+	
+	Point the update checker at a stable, production-ready branch: 
+	 ```php
+	 $updateChecker->setBranch('branch-name');
+	 ```
+	 PUC will periodically check the `Version` header in the main plugin file or `style.css` and display a notification if it's greater than the installed version. Caveat: If you set the branch to `master`, the update checker will still look for tags first.
+
+Resources
+---------
+
+- [This blog post](http://w-shadow.com/blog/2010/09/02/automatic-updates-for-any-plugin/) has more information about the update checker API. *Slightly out of date.*
+- [Debug Bar](https://wordpress.org/plugins/debug-bar/) - useful for testing and debugging the update checker.
+- [Securing download links](http://w-shadow.com/blog/2013/03/19/plugin-updates-securing-download-links/) - a general overview.
+- [A GUI for entering download credentials](http://open-tools.net/documentation/tutorial-automatic-updates.html#wordpress)
+- [Theme Update Checker](http://w-shadow.com/blog/2011/06/02/automatic-updates-for-commercial-themes/) - an older, theme-only variant of this update checker.

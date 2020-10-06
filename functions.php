@@ -129,7 +129,7 @@ add_action('wp_enqueue_scripts', 'mediafairplay_scripts');
  * Custom header
  */
 
-require get_template_directory() . '/inc/custom_header.php';
+require get_template_directory() . '/inc/menus/custom_header.php';
 
 /**
  * Custom template tags for this theme.
@@ -170,7 +170,7 @@ include_once trailingslashit(dirname(__FILE__)) . 'inc/login/custom_login.php';
 /**
  * Custome Admin panel menus
  */
-include_once trailingslashit(dirname(__FILE__)) . 'inc/custom_admin.php';
+include_once trailingslashit(dirname(__FILE__)) . 'inc/admin/custom_admin.php';
 
 /**
  * ACF
@@ -220,49 +220,9 @@ function gb_gutenberg_admin_styles()
 add_action('admin_head', 'gb_gutenberg_admin_styles');
 
 /**
- * Add a sidebar.
+ * Add Widget throught sidebar.php
  */
-function mfp_register_sidebars()
-{
-  register_sidebar(array(
-    'name'          => __('Footer Area 1', 'mfp'),
-    'id'            => 'mfp-footer-1',
-    'description'   => __('First Footer Area', 'mfp'),
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</li>',
-    'before_title'  => '<h2 class="widgettitle">',
-    'after_title'   => '</h2>',
-  ));
-
-  register_sidebar(array(
-    'name'          => __('Footer Area 2', 'mfp'),
-    'id'            => 'mfp-footer-2',
-    'description'   => __('Second Footer Area', 'mfp'),
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</li>',
-    'before_title'  => '<h2 class="widgettitle">',
-    'after_title'   => '</h2>',
-  ));
-  register_sidebar(array(
-    'name'          => __('Footer Area 3', 'mfp'),
-    'id'            => 'mfp-footer-3',
-    'description'   => __('Second Footer Area', 'mfp'),
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</li>',
-    'before_title'  => '<h2 class="widgettitle">',
-    'after_title'   => '</h2>',
-  ));
-  register_sidebar(array(
-    'name'          => __('Footer Copyrights', 'mfp'),
-    'id'            => 'mfp-copyrights-footer',
-    'description'   => __('Copyrights Footer Area', 'mfp'),
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</li>',
-    'before_title'  => '<h2 class="widgettitle">',
-    'after_title'   => '</h2>',
-  ));
-}
-add_action('widgets_init', 'mfp_register_sidebars');
+include_once trailingslashit(dirname(__FILE__)) . 'inc/widgets/widgets.php';
 
 /**
  * Register support for Gutenberg wide images in your theme
