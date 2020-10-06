@@ -10,7 +10,7 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_panel(
         'mfp_header_panel',
         array(
-            'title' => __('Header ( Beta )', 'mediafairplay'),
+            'title' => __('Header', 'mediafairplay'),
             'description' => esc_html__('Adjust your Header', 'mediafairplay'),
             'priority'       => 40,
         )
@@ -20,9 +20,9 @@ function register_header_customizer($wp_customize)
      * Hedaer Direction section
      */
     $wp_customize->add_section(
-        'mfp_header_direction_section',
+        'mfp_header_layout_section',
         array(
-            'title' => __('Header Direction', 'mediafairplay'),
+            'title' => __('Header Layout ( Beta )', 'mediafairplay'),
             'description' => esc_html__('', 'mediafairplay'),
             'panel' => 'mfp_header_panel',
             'priority'       => 30
@@ -46,7 +46,7 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_section(
         'mfp_header_fonts_section',
         array(
-            'title' => __('Header Fonts', 'mediafairplay'),
+            'title' => __('Fonts Size', 'mediafairplay'),
             'description' => esc_html__('', 'mediafairplay'),
             'panel' => 'mfp_header_panel',
             'priority'       => 30
@@ -79,62 +79,7 @@ function register_header_customizer($wp_customize)
     /**
      * Hedaer Mobile menu
      */
-    $wp_customize->add_section(
-        'mfp_header_mobile_menu',
-        array(
-            'title' => __('Header Mobile', 'mediafairplay'),
-            'description' => esc_html__('', 'mediafairplay'),
-            'panel' => 'mfp_header_panel',
-            'priority'       => 30
-        )
-    );
-    // header menu animation on mobile
-    $wp_customize->add_setting(
-        'header_menu_mobile_animation',
-        array(
-            'default' => 'doublespin',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_radio_sanitization'
-        )
-    );
-    $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
-        $wp_customize,
-        'header_menu_mobile_animation',
-        array(
-            'label' => __('Mobile Menu Hamburger Animation', 'mediafairplay'),
-            'description' => esc_html__('Mobile Menu Hamburger Animation', 'mediafairplay'),
-            'section' => 'mfp_header_mobile_menu',
-            'choices' => array(
-                'spin' => __('spin', 'mediafairplay'),
-                'doublespin' => __('DoubleSpin', 'mediafairplay')
-            )
-        )
-    ));
-
-    /** Header Sticky / fixed / default */
-    $wp_customize->add_setting(
-        'header_navbar_style',
-        array(
-            'default' => 'default',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_radio_sanitization'
-        )
-    );
-    $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
-        $wp_customize,
-        'header_navbar_style',
-        array(
-            'label' => __('Choose The Header Position'),
-            'description' => esc_html__('Choose The Header Position'),
-            'priority'       => 0,
-            'section' => 'mfp_header_position_section',
-            'choices' => array(
-                'default' => __('Default'), // Required. Setting for this particular radio button choice and the text to display
-                'fixed' => __('Fixed'),
-                'bottom fixed' => __('Bottom Fixed') // Required. Setting for this particular radio button choice and the text to display
-            )
-        )
-    ));
+ 
     /** If header fixed - margin - Desktop*/
     $wp_customize->add_setting(
         'header_fixed_margin_top_desktop',
@@ -148,7 +93,7 @@ function register_header_customizer($wp_customize)
         $wp_customize,
         'header_fixed_margin_top_desktop',
         array(
-            'label' => __('IF HEADER FIXED', 'mediafairplay'),
+            'label' => __('margin top - Dekstop', 'mediafairplay'),
             'description' => __('margin top - Dekstop', 'mediafairplay'),
             'section' => 'mfp_header_position_section',
             'input_attrs' => array(
@@ -208,7 +153,7 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_setting(
         'header_background_color',
         array(
-            'default' => '#fff',
+            'default' => 'blue',
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
         )
@@ -286,7 +231,7 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_setting(
         'header_font_size_desktop',
         array(
-            'default' => 17,
+            'default' => 16,
             'transport' => 'refresh',
             'sanitize_callback' => 'absint'
         )
@@ -299,7 +244,7 @@ function register_header_customizer($wp_customize)
             'section' => 'mfp_header_fonts_section',
             'input_attrs' => array(
                 'min' => 1,
-                'max' => 200,
+                'max' => 100,
                 'step' => 1,
             ),
         )
@@ -321,7 +266,7 @@ function register_header_customizer($wp_customize)
             'section' => 'mfp_header_fonts_section',
             'input_attrs' => array(
                 'min' => 1,
-                'max' => 200,
+                'max' => 100,
                 'step' => 1,
             ),
         )
@@ -382,24 +327,30 @@ function register_header_customizer($wp_customize)
     ));
     /** Header Alignment */
     $wp_customize->add_setting(
-        'header_alignmment',
+        'global_layout_choose',
         array(
-            'default' => 'left',
+            'default' => 'layout_1',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_radio_sanitization'
+            'sanitize_callback' => 'skyrocket_text_sanitization'
         )
     );
-    $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
+
+    $wp_customize->add_control(new Skyrocket_Image_Radio_Button_Custom_Control(
         $wp_customize,
-        'header_alignmment',
+        'global_layout_choose',
         array(
-            'label' => __('Choose The Header Direction'),
-            'description' => esc_html__('Sample custom control description'),
-            'priority'       => 0,
-            'section' => 'mfp_header_direction_section',
+            'label' => __('Header Layout'),
+            'description' => esc_html__(''),
+            'section' => 'mfp_header_layout_section',
             'choices' => array(
-                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
+                'layout_1' => array(  // Required. Setting for this particular radio button choice
+                    'image' => trailingslashit(get_template_directory_uri()) . 'images/layout_1.png', // Required. URL for the image
+                    'name' => __('layout_1') // Required. Title text to display
+                ),
+                'layout_2' => array(
+                    'image' => trailingslashit(get_template_directory_uri()) . 'images/layout_2.png',
+                    'name' => __('layout_2')
+                )
             )
         )
     ));
@@ -407,7 +358,7 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_setting(
         'header_logo_size_tablet',
         array(
-            'default' => 200,
+            'default' => 150,
             'transport' => 'refresh',
             'sanitize_callback' => 'absint'
         )
@@ -420,8 +371,8 @@ function register_header_customizer($wp_customize)
             'section' => 'title_tagline',
             'priority'       => 8,
             'input_attrs' => array(
-                'min' => 50,
-                'max' => 2000,
+                'min' => 0,
+                'max' => 300,
                 'step' => 1,
             ),
         )
@@ -430,7 +381,7 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_setting(
         'header_logo_size_mobile',
         array(
-            'default' => 200,
+            'default' => 100,
             'transport' => 'refresh',
             'sanitize_callback' => 'absint'
         )
@@ -443,8 +394,8 @@ function register_header_customizer($wp_customize)
             'section' => 'title_tagline',
             'priority'       => 9,
             'input_attrs' => array(
-                'min' => 10,
-                'max' => 2000,
+                'min' => 0,
+                'max' => 500,
                 'step' => 1,
             ),
         )

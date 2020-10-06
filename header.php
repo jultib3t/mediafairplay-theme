@@ -184,59 +184,57 @@
 
     /** -------- */
     .site-main {
-      <?php if ($layout == 'container') : ?>
-       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
-      <?php else: ?>
-        max-width: 100%;
-      <?php endif; ?>
-      margin-right: auto;
+
+      <?php
+        $layout = get_theme_mod('global_layout_layout', 'container');
+        if ($layout == 'container') : ?>max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+      <?php else : ?>max-width: 100%;
+      <?php endif; ?>margin-right: auto;
       margin-left: auto;
       padding-right: 0.83em;
       padding-left: 0.83em;
       background-color: <?php echo get_theme_mod('global_Content_Background_Color', '#fff'); ?>;
     }
+
     <?php
     $layout = get_theme_mod('global_layout_layout', 'container');
     // Run code only for Single post page
     if (is_single() && 'post' == get_post_type()) :
-      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
-      if( $layout_page == 'default' || $layout_page == 'container'): ?>
-        .site-main {
-       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
-        }
-        <?php else : 
-          echo 'max-width: 100%;';
-    endif;
-    endif;
-    
-    // run code for archive
-    if (is_archive() ) :
-      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
-      if( $layout_page == 'default' || $layout_page == 'container'): ?>
-        .site-main {
-       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
-        }
-        <?php else : 
-          echo 'max-width: 100%;';
-    endif;
-    endif;
-
-     // run code for pages
-     if (is_page() ) :
-      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
-      if( $layout_page == 'default' || $layout_page == 'container'): ?>
-        .site-main {
-       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
-        }
-        <?php else : 
-          echo 'max-width: 100%;';
-    endif;
-    endif;
-    ?>
       
-        
+      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
+      if ($layout_page == 'default' || $layout_page == 'container') : ?>.site-main {
+      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+    }
 
-    @media(max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px) {
+    <?php else :
+        echo 'max-width: 100%;';
+      endif;
+    endif;
+
+    // run code for archive
+    if (is_archive()) :
+      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
+      if ($layout_page == 'default' || $layout_page == 'container') : ?>.site-main {
+      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+    }
+
+    <?php else :
+        echo 'max-width: 100%;';
+      endif;
+    endif;
+
+    // run code for pages
+    if (is_page()) :
+      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
+      if ($layout_page == 'default' || $layout_page == 'container') : ?>
+      .site-main {
+      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+    }
+    <?php else :
+        echo 'max-width: 100%;';
+      endif;
+    endif;
+    ?>@media(max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px) {
       .site-main {
         margin-right: 0.83em;
         margin-left: 0.83em;
@@ -879,11 +877,19 @@
         max-width: <?php echo get_theme_mod('header_logo_size_tablet', '200') ?>px;
         width: 100%;
       }
+      .image-wrppaer img{
+        max-width: <?php echo get_theme_mod('header_logo_size_tablet', '200') ?>px;
+        width: 100%;
+      }
     }
 
     /** Mobile */
     @media(max-width: 500px) {
       .company-logo-wrapper a.custom-logo-link img.custom-logo {
+        max-width: <?php echo get_theme_mod('header_logo_size_mobile', '200') ?>px;
+        width: 100%;
+      }
+      .image-wrppaer img{
         max-width: <?php echo get_theme_mod('header_logo_size_mobile', '200') ?>px;
         width: 100%;
       }
@@ -896,84 +902,166 @@
   <!-- Page Start -->
   <div id='page' class='site'>
 
-
-    <header class="header-wrapper-mfp">
-
-      <nav dir="rtl" class="mfp-menu">
-        <label for="menutoggle" id="toggle-menu">
-          <span class="menu-text">Menu</span>
-          <div class="menu btn2" data-menu="2">
-            <div class="icon"></div>
-          </div>
-        </label>
-        <input id="menutoggle" type="checkbox" />
-        <ul class="main-menu clearfix extra">
-
-          <?php
-          // check if polylang plugin exists
-          if (function_exists('pll_the_languages')) { ?>
-            <li class="languegue-switcher">
-              <?php
-              $translations = pll_the_languages(array('raw' => 1));
-              foreach ($translations as $translation) {
-                if ($translation['current_lang']) {
-                  $active_lang = 'true-active avoid-clicks';
-                  echo '<span class="' . $active_lang . '">' . ucwords($translation['slug']) . '</span>';
-                } else {
-                  $active_lang = 'not-active';
-                  echo '<a class="' . $active_lang . '" href="' . $translation['url'] . '">' . ucwords($translation['slug']) . '</a>';
-                }
-              } ?>
-            </li>
-          <?php
-          }
-          ?>
-
-          <li class="search-wrapper">
-            <div class="search-container">
-              <form method="get" action="<?php echo home_url('/'); ?>" _lpchecked="1">
-                <label for="search-term" style="position: absolute; left: -9999px; height:0; width:0;">Search</label>
-                <input id="search-term" type="text" name="s" class="search-field" placeholder="Search" value="Search">
-                <input type="submit" style="position: absolute; left: -9999px; height:0; width:0;">
-              </form>
+    <?php $layout_choose = get_theme_mod('global_layout_choose', 'layout_1'); ?>
+    <?php if ($layout_choose == 'layout_1') : ?>
+      <header class="header-wrapper-mfp">
+        <nav dir="rtl" class="mfp-menu">
+          <label for="menutoggle" id="toggle-menu">
+            <span class="menu-text">Menu</span>
+            <div class="menu btn2" data-menu="2">
+              <div class="icon"></div>
             </div>
-          </li>
-        </ul>
-        <?php
-        // By location.
-        $menu_name = 'Header';
-        $locations = get_nav_menu_locations();
-        $menu_id   = $locations[$menu_name];
-        // check if our custom header is empty or not
-        if (!empty(custom_header_menu($menu_id))) {
-          echo custom_header_menu($menu_id);
-        } else {
-          echo "menu is empty, please add a new menu call 'Header'";
-        }
-        ?>
-        <div class="company-logo-wrapper">
+          </label>
+          <input id="menutoggle" type="checkbox" />
+          <ul class="main-menu clearfix extra">
+
+            <?php
+            // check if polylang plugin exists
+            if (function_exists('pll_the_languages')) { ?>
+              <li class="languegue-switcher">
+                <?php
+                $translations = pll_the_languages(array('raw' => 1));
+                foreach ($translations as $translation) {
+                  if ($translation['current_lang']) {
+                    $active_lang = 'true-active avoid-clicks';
+                    echo '<span class="' . $active_lang . '">' . ucwords($translation['slug']) . '</span>';
+                  } else {
+                    $active_lang = 'not-active';
+                    echo '<a class="' . $active_lang . '" href="' . $translation['url'] . '">' . ucwords($translation['slug']) . '</a>';
+                  }
+                } ?>
+              </li>
+            <?php
+            }
+            ?>
+
+            <li class="search-wrapper">
+              <div class="search-container">
+                <form method="get" action="<?php echo home_url('/'); ?>" _lpchecked="1">
+                  <label for="search-term" style="position: absolute; left: -9999px; height:0; width:0;">Search</label>
+                  <input id="search-term" type="text" name="s" class="search-field" placeholder="Search" value="Search">
+                  <input type="submit" style="position: absolute; left: -9999px; height:0; width:0;">
+                </form>
+              </div>
+            </li>
+          </ul>
           <?php
-          $custom_logo_id = get_theme_mod('custom_logo', 'logo');
-          $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', TRUE);
-          $image = wp_get_attachment_image_src($custom_logo_id, 'full');
-          // check if the custom logo exists or not
-          if (!empty($custom_logo_id)) {
-            echo the_custom_logo();
+          // By location.
+          $menu_name = 'Header';
+          $locations = get_nav_menu_locations();
+          $menu_id   = $locations[$menu_name];
+          // check if our custom header is empty or not
+          if (!empty(custom_header_menu($menu_id))) {
+            echo custom_header_menu($menu_id);
           } else {
-            echo '<a href="' . home_url('/') . '" class="custom-logo-link" rel="home" aria-current="page"><img width="225" height="90" src="' . get_stylesheet_directory_uri() . '/images/first_logo.png' . '" class="custom-logo" alt="Reputable Online Casinos"></a>';
+            echo "menu is empty, please add a new menu call 'Header'";
           }
           ?>
-        </div>
-      </nav>
-    </header>
-    <script>
-      // menu script
-      const menu = document.querySelector('.menu');
-      menu.addEventListener("click", menuclick);
+          <div class="company-logo-wrapper">
+            <?php
+            $custom_logo_id = get_theme_mod('custom_logo', 'logo');
+            $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', TRUE);
+            $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+            // check if the custom logo exists or not
+            if (!empty($custom_logo_id)) {
+              echo the_custom_logo();
+            } else {
+              echo '<a href="' . home_url('/') . '" class="custom-logo-link" rel="home" aria-current="page"><img width="225" height="90" src="' . get_stylesheet_directory_uri() . '/images/first_logo.png' . '" class="custom-logo" alt="Reputable Online Casinos"></a>';
+            }
+            ?>
+          </div>
+        </nav>
+      </header>
+      <script>
+        // menu script
+        const menu = document.querySelector('.menu');
+        menu.addEventListener("click", menuclick);
 
-      function menuclick() {
-        this.classList.toggle("open");
-        const menuText = document.querySelector('.menu-text');
-        menuText.classList.toggle("red");
-      }
-    </script>
+        function menuclick() {
+          this.classList.toggle("open");
+          const menuText = document.querySelector('.menu-text');
+          menuText.classList.toggle("red");
+        }
+      </script>
+    <?php else : // if layout will be layout_2 
+    ?>
+      <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/inc/menus/mmenu/mm_style.css" />
+      <?php 
+      echo '<style>
+                .header-mfp{
+                  background: '.get_theme_mod('header_background_color', '#eee').';
+                }
+                .mm-spn ul{
+                  font-size: '.get_theme_mod('header_font_size_desktop', 16).'px;
+                  font-weight: '.get_theme_mod('mfp_header_font_weight', '400').';
+                }
+                @media(max-width: 1000px){
+                  .mm-spn ul{
+                    font-size: '.get_theme_mod('header_font_size_tablet', 15).'px;
+                  }
+                }
+                @media(max-width: 500px){
+                  .mm-spn ul{
+                    font-size: '.get_theme_mod('header_font_size_mobile', 14).'px;
+                  }
+                }
+            </style>';
+        ?>
+      
+      <div class="header-mfp">
+        <a href="#menu" class="header-mfp-a"><span></span></a>
+        <div class="image-wrppaer">
+            <?php
+            $custom_logo_id = get_theme_mod('custom_logo', 'logo');
+            $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', TRUE);
+            $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+            // check if the custom logo exists or not
+            if (!empty($custom_logo_id)) {
+              echo the_custom_logo();
+            } else {
+              echo '<a href="' . home_url('/') . '" class="custom-logo-link" rel="home" aria-current="page"><img width="225" height="90" src="' . get_stylesheet_directory_uri() . '/images/first_logo.png' . '" class="custom-logo" alt="Reputable Online Casinos"></a>';
+            }
+            ?>
+          
+        </div>
+        
+        <?php
+          // By location.
+          $menu_name = 'Header';
+          $locations = get_nav_menu_locations();
+          $menu_id   = $locations[$menu_name];
+          // check if our custom header is empty or not
+          if (!empty(custom_header_menu_2($menu_id))) {
+            echo custom_header_menu_2($menu_id);
+          } else {
+            echo "menu is empty, please add a new menu call 'Header'";
+          }
+          ?>
+       
+      </div>
+      <script src="<?php echo get_template_directory_uri() ?>/inc/menus/mmenu/mm_script.js"></script>
+      <script>
+        var menu = new MmenuLight(
+          document.querySelector('#menu'),
+          'all'
+        );
+
+        var navigator = menu.navigation({
+          selectedClass: 'Selected',
+          slidingSubmenus: true,
+          theme: 'light',
+          title: 'Menu'
+        });
+
+        var drawer = menu.offcanvas({
+          position: 'left'
+        });
+
+        //	Open the menu.
+        document.querySelector('a[href="#menu"]')
+          .addEventListener('click', evnt => {
+            evnt.preventDefault();
+            drawer.open();
+          });
+      </script>
+    <?php endif; ?>
