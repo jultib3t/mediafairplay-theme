@@ -186,8 +186,8 @@
     .site-main {
 
       <?php
-        $layout = get_theme_mod('global_layout_layout', 'container');
-        if ($layout == 'container') : ?>max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+      $layout = get_theme_mod('global_layout_layout', 'container');
+      if ($layout == 'container') : ?>max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
       <?php else : ?>max-width: 100%;
       <?php endif; ?>margin-right: auto;
       margin-left: auto;
@@ -200,7 +200,7 @@
     $layout = get_theme_mod('global_layout_layout', 'container');
     // Run code only for Single post page
     if (is_single() && 'post' == get_post_type()) :
-      
+
       $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
       if ($layout_page == 'default' || $layout_page == 'container') : ?>.site-main {
       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
@@ -226,10 +226,10 @@
     // run code for pages
     if (is_page()) :
       $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
-      if ($layout_page == 'default' || $layout_page == 'container') : ?>
-      .site-main {
+      if ($layout_page == 'default' || $layout_page == 'container') : ?>.site-main {
       max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
     }
+
     <?php else :
         echo 'max-width: 100%;';
       endif;
@@ -877,7 +877,8 @@
         max-width: <?php echo get_theme_mod('header_logo_size_tablet', '200') ?>px;
         width: 100%;
       }
-      .image-wrppaer img{
+
+      .image-wrppaer img {
         max-width: <?php echo get_theme_mod('header_logo_size_tablet', '200') ?>px;
         width: 100%;
       }
@@ -889,7 +890,8 @@
         max-width: <?php echo get_theme_mod('header_logo_size_mobile', '200') ?>px;
         width: 100%;
       }
-      .image-wrppaer img{
+
+      .image-wrppaer img {
         max-width: <?php echo get_theme_mod('header_logo_size_mobile', '200') ?>px;
         width: 100%;
       }
@@ -986,31 +988,44 @@
     <?php else : // if layout will be layout_2 
     ?>
       <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/inc/menus/mmenu/mm_style.css" />
-      <?php 
+      <?php
       echo '<style>
-                .header-mfp{
-                  background: '.get_theme_mod('header_background_color', '#eee').';
+                .header-mfp-wrapper {
+                  background: ' . get_theme_mod('header_background_color', '#eee') . ';
+                  position: fixed;
+                  width: 100%;
+                  top: 0;
                 }
+                .header-mfp{
+                  background-color: inherit;
+                  position: relative;
+                  height: 110px;
+                  padding-top: 5px;
+                  padding-bottom: 5px;
+                  max-width: 1200px;
+                  margin: 0 auto;
+                }
+              
                 .mm-spn ul{
-                  font-size: '.get_theme_mod('header_font_size_desktop', 16).'px;
-                  font-weight: '.get_theme_mod('mfp_header_font_weight', '400').';
+                  font-size: ' . get_theme_mod('header_font_size_desktop', 16) . 'px;
+                  font-weight: ' . get_theme_mod('mfp_header_font_weight', '400') . ';
                 }
                 @media(max-width: 1000px){
                   .mm-spn ul{
-                    font-size: '.get_theme_mod('header_font_size_tablet', 15).'px;
+                    font-size: ' . get_theme_mod('header_font_size_tablet', 15) . 'px;
                   }
                 }
                 @media(max-width: 500px){
                   .mm-spn ul{
-                    font-size: '.get_theme_mod('header_font_size_mobile', 14).'px;
+                    font-size: ' . get_theme_mod('header_font_size_mobile', 14) . 'px;
                   }
                 }
             </style>';
-        ?>
-      
-      <div class="header-mfp">
-        <a href="#menu" class="header-mfp-a"><span></span></a>
-        <div class="image-wrppaer">
+      ?>
+      <div class="header-mfp-wrapper">
+        <div class="header-mfp">
+          <a href="#menu" class="header-mfp-a"><span></span></a>
+          <div class="image-wrppaer">
             <?php
             $custom_logo_id = get_theme_mod('custom_logo', 'logo');
             $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', TRUE);
@@ -1022,10 +1037,10 @@
               echo '<a href="' . home_url('/') . '" class="custom-logo-link" rel="home" aria-current="page"><img width="225" height="90" src="' . get_stylesheet_directory_uri() . '/images/first_logo.png' . '" class="custom-logo" alt="Reputable Online Casinos"></a>';
             }
             ?>
-          
-        </div>
-        
-        <?php
+
+          </div>
+
+          <?php
           // By location.
           $menu_name = 'Header';
           $locations = get_nav_menu_locations();
@@ -1037,7 +1052,8 @@
             echo "menu is empty, please add a new menu call 'Header'";
           }
           ?>
-       
+
+        </div>
       </div>
       <script src="<?php echo get_template_directory_uri() ?>/inc/menus/mmenu/mm_script.js"></script>
       <script>
@@ -1065,3 +1081,5 @@
           });
       </script>
     <?php endif; ?>
+
+ 

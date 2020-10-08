@@ -437,16 +437,6 @@ body {
 	height: 2px;
 	margin: 6px 0;
 }
-.content {
-	padding: 150px 50px 50px 50px;
-}
-.header-mfp {
-    position: relative;
-    height: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
 .header-mfp .header-mfp-a {
     height: 100%;
     display: flex;
@@ -458,6 +448,10 @@ body {
 
 .header-mfp .image-wrppaer {
     line-height: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .header-mfp .image-wrppaer a.custom-logo-link img.custom-logo {
     display: block;

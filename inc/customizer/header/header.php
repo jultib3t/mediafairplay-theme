@@ -354,6 +354,54 @@ function register_header_customizer($wp_customize)
             )
         )
     ));
+    $wp_customize->add_setting(
+        'global_header_width',
+        array(
+            'default' => 1200,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'absint'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'global_header_width',
+        array(
+            'label' => __('Width', 'mediafairplay'),
+            'section' => 'mfp_header_layout_section',
+            'input_attrs' => array(
+                'min' => 100,
+                'max' => 1920,
+                'step' => 20,
+            ),
+        )
+    ));
+
+    $wp_customize->add_setting(
+        'global_haeder_width_layout',
+        array(
+            'default' => 'default',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_haeder_width_layout',
+        array(
+            'label' => __('Default Layout', 'mediafairplay'),
+            'description' => esc_html__('', 'skyrocket'),
+            'section' => 'mfp_header_layout_section',
+            'input_attrs' => array(
+                'placeholder' => false,
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                'default' => __('Default', 'mediafairplay'),
+                'container' => __('Container', 'mediafairplay'),
+                'Full_Width' => __('Full Width', 'mediafairplay'),
+            )
+        )
+    ));
     /** Header Logo size Tablet */
     $wp_customize->add_setting(
         'header_logo_size_tablet',
@@ -400,5 +448,6 @@ function register_header_customizer($wp_customize)
             ),
         )
     ));
+
 }
 add_action('customize_register', 'register_header_customizer');

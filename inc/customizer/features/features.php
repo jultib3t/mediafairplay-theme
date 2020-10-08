@@ -949,5 +949,38 @@
               ),
           )
       ));
+
+
+    $wp_customize->add_section(
+        'mfp_header_scroll_bar_section',
+        array(
+            'title' => __('Header Scroll Bar', 'mediafairplay'),
+            'description' => esc_html__('', 'mediafairplay'),
+            'panel' => 'mfp_features_panel',
+            'priority'       => 30
+        )
+    );
+    $wp_customize->add_setting(
+        'header_logo_size_mobile___',
+        array(
+            'default' => 100,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'absint'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'header_logo_size_mobile___',
+        array(
+            'label' => __('Mobile - Logo Size (px)', 'mediafairplay'),
+            'section' => 'mfp_header_scroll_bar_section',
+            'priority'       => 9,
+            'input_attrs' => array(
+                'min' => 0,
+                'max' => 500,
+                'step' => 1,
+            ),
+        )
+    ));
   }
   add_action('customize_register', 'mfp_features_controls');

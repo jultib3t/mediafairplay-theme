@@ -373,6 +373,9 @@ textarea {
 .menu-toggle {
   display: block;
 }
+.site {
+  position: relative;
+}
 @media screen and (min-width: 37.5em) {
   .menu-toggle {
     display: none;
