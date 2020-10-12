@@ -2394,6 +2394,10 @@ add_action('customize_controls_print_styles', 'my_customizer_responsive_sizes');
 require_once trailingslashit(dirname(__FILE__)) . 'global/global.php';
 // Register our Header Custom Control controls
 require_once trailingslashit(dirname(__FILE__)) . 'header/header.php';
+// Register our Blog Custom Control controls
+require_once trailingslashit(dirname(__FILE__)) . 'blog/blog.php';
+// Register our Sidebar Custom Control controls
+require_once trailingslashit(dirname(__FILE__)) . 'sidebar/sidebar.php';
 // Register our Footer Custom Control controls
 require_once trailingslashit(dirname(__FILE__)) . 'footer/footer.php';
 // Register our Features Custom Control controls

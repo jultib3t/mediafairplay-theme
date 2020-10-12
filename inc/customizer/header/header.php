@@ -70,12 +70,78 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_section(
         'mfp_header_width_height_section',
         array(
-            'title' => __('Header Width / Height', 'mediafairplay'),
+            'title' => __('Header Height ( Beta )', 'mediafairplay'),
             'description' => esc_html__('', 'mediafairplay'),
             'panel' => 'mfp_header_panel',
             'priority'       => 30
         )
     );
+    /** header height desktop*/
+    $wp_customize->add_setting(
+        'header_height_desktop',
+        array(
+            'default' => 110,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'absint'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'header_height_desktop',
+        array(
+            'label' => __('Desktop ( Beta )', 'mediafairplay'),
+            'section' => 'mfp_header_width_height_section',
+            'input_attrs' => array(
+                'min' => 1,
+                'max' => 1000,
+                'step' => 10,
+            ),
+        )
+    ));
+    /** header height tablet */
+    $wp_customize->add_setting(
+        'header_height_tablet',
+        array(
+            'default' => 110,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'absint'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'header_height_tablet',
+        array(
+            'label' => __('Tablet ( Beta )', 'mediafairplay'),
+            'section' => 'mfp_header_width_height_section',
+            'input_attrs' => array(
+                'min' => 1,
+                'max' => 1000,
+                'step' => 10,
+            ),
+        )
+    ));
+      /** header height mobile */
+      $wp_customize->add_setting(
+        'header_height_mobile',
+        array(
+            'default' => 110,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'absint'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'header_height_mobile',
+        array(
+            'label' => __('Mobile ( Beta )', 'mediafairplay'),
+            'section' => 'mfp_header_width_height_section',
+            'input_attrs' => array(
+                'min' => 1,
+                'max' => 1000,
+                'step' => 10,
+            ),
+        )
+    ));
     /**
      * Hedaer Mobile menu
      */
