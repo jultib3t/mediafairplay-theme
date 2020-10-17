@@ -134,19 +134,8 @@ if (!is_active_sidebar('mfp-footer-3')) {
         <style>
             .footer-copyrights-wrapper {
                 background: <?php echo get_theme_mod('mfp_copyright_background_color', '#000') ?>;
-                padding: 15px 5px;
+                padding: 30px 5px;
             }
-
-            .footer-copyrights li.widget.widget_text {
-                list-style: none;
-                margin: 0;
-            }
-
-            .footer-copyrights li.widget.widget_text p {
-                margin: 0;
-                color: <?php echo get_theme_mod('mfp_copyright_text_color', '#fff') ?>;
-            }
-
             .footer-copyrights {
                 max-width: <?php echo get_theme_mod('site_content_width', '1200') ?>px;
                 margin: 0 auto;
@@ -158,10 +147,31 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 padding-left: 0.83em;
             }
 
+            .footer-copyrights li {
+                list-style: none;
+                margin: 0 5px;
+                max-width: 100%;
+    width: 100%;
+            }
+            .footer-copyrights > li:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+            .footer-copyrights li p {
+                margin: 0;
+                color: <?php echo get_theme_mod('mfp_copyright_text_color', '#fff') ?>;
+            }
+
             section.first-footer-wrapper {
                 background-color: #b71c1c;
             }
-
+            .footer-copyrights-wrapper .footer-copyrights li#recent-posts-4 ul {
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+}
             section.first-footer-wrapper .first-footer {
                 width: 100%;
                 margin: 0 auto;
@@ -179,13 +189,13 @@ if (!is_active_sidebar('mfp-footer-3')) {
             .lower-footer .allrights {
                 display: flex;
                 justify-content: space-between;
-                padding: 15px 0px;
+                padding: 15px 0px; 
             }
 
             section.first-footer-wrapper .first-footer ul {
                 list-style: none;
             }
-
+ 
             @media(max-width: 1000px) {
                 .footer-copyrights {
                     flex-direction: column;
