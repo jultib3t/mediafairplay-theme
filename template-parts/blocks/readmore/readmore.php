@@ -71,20 +71,21 @@ if (!empty($block['align'])) {
     line-height: 2;
     border: 1px solid #ddd;
     border-radius: .25em;
-    z-index: 9;
+    position: relative;
+    z-index: 9999;
+  }
+  .read-more-main-wrapper{
     position: relative;
   }
 </style>
 
 
-<div>
+<div class="read-more-main-wrapper">
         <input type="checkbox" class="read-more-state" id="post-2" />
-      
         <div class="read-more-wrap">
           <ul class="read-more-target">
             <InnerBlocks/>
         </ul>
         </div>
-        
         <label for="post-2" class="read-more-trigger"></label>
       </div>
