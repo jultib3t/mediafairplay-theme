@@ -13,6 +13,8 @@
 ?>
 
 <footer>
+<?php $last_modifited_toggle = get_theme_mod('mfp_header_Last_Modifited_toggle', 0); ?>
+<?php if( $last_modifited_toggle ): ?>
     <style>
         .last-update {
             background: red;
@@ -31,6 +33,7 @@
             <?php echo '<time>' . get_the_modified_date() . '</time>'; ?>
         </div>
     </section>
+<?php endif; ?>
 
     <?php
     /* if (!is_active_sidebar('mfp-footer-1')) {

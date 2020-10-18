@@ -982,5 +982,28 @@
             ),
         )
     ));
+
+    $wp_customize->add_section(
+        'mfp_header_Last_Modifited_section',
+        array(
+            'title' => __('Last Modifited', 'mediafairplay'),
+            'description' => esc_html__('', 'mediafairplay'),
+            'panel' => 'mfp_features_panel'
+        )
+    );
+    $wp_customize->add_setting( 'mfp_header_Last_Modifited_toggle',
+    array(
+       'default' => 0,
+       'transport' => 'refresh',
+       'sanitize_callback' => 'skyrocket_switch_sanitization'
+    )
+ );
+  
+ $wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'mfp_header_Last_Modifited_toggle',
+    array(
+       'label' => esc_html__( 'Display Last Modifited' ),
+       'section' => 'mfp_header_Last_Modifited_section'
+    )
+ ) );
   }
   add_action('customize_register', 'mfp_features_controls');

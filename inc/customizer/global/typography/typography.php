@@ -16,9 +16,9 @@ function mfp_global_typohraphy($wp_customize)
     ));
 
     $global_heading_panel = new PE_WP_Customize_Panel($wp_customize, 'global_heading_panel', array(
-        'title' => 'Heading ( Beta )',
+        'title' => 'Heading',
         'panel' => 'global_typography_panel',
-        'priority' => 9999
+        'priority' => 9999,
     ));
     $wp_customize->add_panel($global_heading_panel);
 
@@ -26,75 +26,103 @@ function mfp_global_typohraphy($wp_customize)
         'title' => 'H1',
         'panel' => 'global_heading_panel',
     ));
-    // Test of Dropdown Select2 Control (single select)
-    $wp_customize->add_setting(
-        'global_typo_h1_font_family',
+
+    $wp_customize->add_setting('h1_global_color',
         array(
-            'default' => 'vic',
+            'default' => '#000',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
-        $wp_customize,
-        'global_typo_h1_font_family',
+
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h1_global_color',
         array(
-            'label' => __('Font Family', 'skyrocket'),
-            'description' => esc_html__('Sample Dropdown Select2 custom control (Single Select)', 'skyrocket'),
+            'label' => __('H1 Color'),
+            'description' => esc_html__(''),
             'section' => 'global_heading_section',
-            'input_attrs' => array(
-                'placeholder' => __('Please select a state...', 'skyrocket'),
-                'multiselect' => false,
+            'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
+            'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
+                '#000',
+                '#fff',
+                '#df312c',
+                '#df9a23',
+                '#eef000',
+                '#7ed934',
+                '#1571c1',
+                '#8309e7',
             ),
-            'choices' => array(
-                'nsw' => __('New South Wales', 'skyrocket'),
-                'vic' => __('Victoria', 'skyrocket'),
-                'qld' => __('Queensland', 'skyrocket'),
-                'wa' => __('Western Australia', 'skyrocket'),
-                'sa' => __('South Australia', 'skyrocket'),
-                'tas' => __('Tasmania', 'skyrocket'),
-                'act' => __('Australian Capital Territory', 'skyrocket'),
-                'nt' => __('Northern Territory', 'skyrocket'),
-            )
         )
     ));
 
-    
+    $wp_customize->add_setting('global_h1_font_size',
+        array(
+            'default' => 48,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h1_font_size',
+        array(
+            'label' => esc_html__('H1 Font Size'),
+            'section' => 'global_heading_section',
+            'input_attrs' => array(
+                'min' => 10, // Required. Minimum value for the slider
+                'max' => 200, // Required. Maximum value for the slider
+                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+            ),
+        )
+    ));
 
     $wp_customize->add_section('global_heading_section_h2', array(
         'title' => 'H2',
         'panel' => 'global_heading_panel',
     ));
-    // Test of Dropdown Select2 Control (single select)
-    $wp_customize->add_setting(
-        'global_typo_h2_font_family',
+
+    $wp_customize->add_setting('h2_global_color',
         array(
-            'default' => 'vic',
+            'default' => '#000',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
-        $wp_customize,
-        'global_typo_h2_font_family',
+
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h2_global_color',
         array(
-            'label' => __('Font Family', 'skyrocket'),
-            'description' => esc_html__('Sample Dropdown Select2 custom control (Single Select)', 'skyrocket'),
+            'label' => __('H2 Color'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section_h2',
+            'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
+            'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
+                '#000',
+                '#fff',
+                '#df312c',
+                '#df9a23',
+                '#eef000',
+                '#7ed934',
+                '#1571c1',
+                '#8309e7',
+            ),
+        )
+    ));
+
+    $wp_customize->add_setting('global_h2_font_size',
+        array(
+            'default' => 48,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h2_font_size',
+        array(
+            'label' => esc_html__('H2 Font Size'),
             'section' => 'global_heading_section_h2',
             'input_attrs' => array(
-                'placeholder' => __('Please select a state...', 'skyrocket'),
-                'multiselect' => false,
+                'min' => 10, // Required. Minimum value for the slider
+                'max' => 200, // Required. Maximum value for the slider
+                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
             ),
-            'choices' => array(
-                'nsw' => __('New South Wales', 'skyrocket'),
-                'vic' => __('Victoria', 'skyrocket'),
-                'qld' => __('Queensland', 'skyrocket'),
-                'wa' => __('Western Australia', 'skyrocket'),
-                'sa' => __('South Australia', 'skyrocket'),
-                'tas' => __('Tasmania', 'skyrocket'),
-                'act' => __('Australian Capital Territory', 'skyrocket'),
-                'nt' => __('Northern Territory', 'skyrocket'),
-            )
         )
     ));
 
@@ -102,36 +130,51 @@ function mfp_global_typohraphy($wp_customize)
         'title' => 'H3',
         'panel' => 'global_heading_panel',
     ));
-    // Test of Dropdown Select2 Control (single select)
-    $wp_customize->add_setting(
-        'global_typo_h3_font_family',
+
+    $wp_customize->add_setting('h3_global_color',
         array(
-            'default' => 'vic',
+            'default' => '#000',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
-        $wp_customize,
-        'global_typo_h3_font_family',
+
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h3_global_color',
         array(
-            'label' => __('Font Family', 'skyrocket'),
-            'description' => esc_html__('Sample Dropdown Select2 custom control (Single Select)', 'skyrocket'),
+            'label' => __('H3 Color'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section_h3',
+            'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
+            'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
+                '#000',
+                '#fff',
+                '#df312c',
+                '#df9a23',
+                '#eef000',
+                '#7ed934',
+                '#1571c1',
+                '#8309e7',
+            ),
+        )
+    ));
+
+    $wp_customize->add_setting('global_h3_font_size',
+        array(
+            'default' => 48,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h3_font_size',
+        array(
+            'label' => esc_html__('H3 Font Size'),
             'section' => 'global_heading_section_h3',
             'input_attrs' => array(
-                'placeholder' => __('Please select a state...', 'skyrocket'),
-                'multiselect' => false,
+                'min' => 10, // Required. Minimum value for the slider
+                'max' => 200, // Required. Maximum value for the slider
+                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
             ),
-            'choices' => array(
-                'nsw' => __('New South Wales', 'skyrocket'),
-                'vic' => __('Victoria', 'skyrocket'),
-                'qld' => __('Queensland', 'skyrocket'),
-                'wa' => __('Western Australia', 'skyrocket'),
-                'sa' => __('South Australia', 'skyrocket'),
-                'tas' => __('Tasmania', 'skyrocket'),
-                'act' => __('Australian Capital Territory', 'skyrocket'),
-                'nt' => __('Northern Territory', 'skyrocket'),
-            )
         )
     ));
 
@@ -139,36 +182,48 @@ function mfp_global_typohraphy($wp_customize)
         'title' => 'H4',
         'panel' => 'global_heading_panel',
     ));
-    // Test of Dropdown Select2 Control (single select)
-    $wp_customize->add_setting(
-        'global_typo_h4_font_family',
+
+    $wp_customize->add_setting('h4_global_color',
         array(
-            'default' => 'vic',
+            'default' => '#000',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
-        $wp_customize,
-        'global_typo_h4_font_family',
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h4_global_color',
         array(
-            'label' => __('Font Family', 'skyrocket'),
-            'description' => esc_html__('Sample Dropdown Select2 custom control (Single Select)', 'skyrocket'),
+            'label' => __('H4 Color'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section_h4',
+            'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
+            'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
+                '#000',
+                '#fff',
+                '#df312c',
+                '#df9a23',
+                '#eef000',
+                '#7ed934',
+                '#1571c1',
+                '#8309e7',
+            ),
+        )
+    ));
+    $wp_customize->add_setting('global_h4_font_size',
+        array(
+            'default' => 48,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer',
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h4_font_size',
+        array(
+            'label' => esc_html__('H4 Font Size'),
             'section' => 'global_heading_section_h4',
             'input_attrs' => array(
-                'placeholder' => __('Please select a state...', 'skyrocket'),
-                'multiselect' => false,
+                'min' => 10, // Required. Minimum value for the slider
+                'max' => 200, // Required. Maximum value for the slider
+                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
             ),
-            'choices' => array(
-                'nsw' => __('New South Wales', 'skyrocket'),
-                'vic' => __('Victoria', 'skyrocket'),
-                'qld' => __('Queensland', 'skyrocket'),
-                'wa' => __('Western Australia', 'skyrocket'),
-                'sa' => __('South Australia', 'skyrocket'),
-                'tas' => __('Tasmania', 'skyrocket'),
-                'act' => __('Australian Capital Territory', 'skyrocket'),
-                'nt' => __('Northern Territory', 'skyrocket'),
-            )
         )
     ));
 
@@ -176,36 +231,47 @@ function mfp_global_typohraphy($wp_customize)
         'title' => 'H5',
         'panel' => 'global_heading_panel',
     ));
-    // Test of Dropdown Select2 Control (single select)
-    $wp_customize->add_setting(
-        'global_typo_h5_font_family',
+    $wp_customize->add_setting('h5_global_color',
         array(
-            'default' => 'vic',
+            'default' => '#000',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
-        $wp_customize,
-        'global_typo_h5_font_family',
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h5_global_color',
         array(
-            'label' => __('Font Family', 'skyrocket'),
-            'description' => esc_html__('Sample Dropdown Select2 custom control (Single Select)', 'skyrocket'),
+            'label' => __('H5 Color'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section_h5',
+            'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
+            'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
+                '#000',
+                '#fff',
+                '#df312c',
+                '#df9a23',
+                '#eef000',
+                '#7ed934',
+                '#1571c1',
+                '#8309e7',
+            ),
+        )
+    ));
+    $wp_customize->add_setting('global_h5_font_size',
+        array(
+            'default' => 48,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer',
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h5_font_size',
+        array(
+            'label' => esc_html__('H5 Font Size'),
             'section' => 'global_heading_section_h5',
             'input_attrs' => array(
-                'placeholder' => __('Please select a state...', 'skyrocket'),
-                'multiselect' => false,
+                'min' => 10, // Required. Minimum value for the slider
+                'max' => 200, // Required. Maximum value for the slider
+                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
             ),
-            'choices' => array(
-                'nsw' => __('New South Wales', 'skyrocket'),
-                'vic' => __('Victoria', 'skyrocket'),
-                'qld' => __('Queensland', 'skyrocket'),
-                'wa' => __('Western Australia', 'skyrocket'),
-                'sa' => __('South Australia', 'skyrocket'),
-                'tas' => __('Tasmania', 'skyrocket'),
-                'act' => __('Australian Capital Territory', 'skyrocket'),
-                'nt' => __('Northern Territory', 'skyrocket'),
-            )
         )
     ));
 
@@ -213,42 +279,49 @@ function mfp_global_typohraphy($wp_customize)
         'title' => 'H6',
         'panel' => 'global_heading_panel',
     ));
-    // Test of Dropdown Select2 Control (single select)
-    $wp_customize->add_setting(
-        'global_typo_h6_font_family',
+    $wp_customize->add_setting('h6_global_color',
         array(
-            'default' => 'vic',
+            'default' => '#000',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
-        $wp_customize,
-        'global_typo_h6_font_family',
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h6_global_color',
         array(
-            'label' => __('Font Family', 'skyrocket'),
-            'description' => esc_html__('Sample Dropdown Select2 custom control (Single Select)', 'skyrocket'),
+            'label' => __('H6 Color'),
+            'description' => esc_html__(''),
             'section' => 'global_heading_section_h6',
-            'input_attrs' => array(
-                'placeholder' => __('Please select a state...', 'skyrocket'),
-                'multiselect' => false,
+            'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
+            'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
+                '#000',
+                '#fff',
+                '#df312c',
+                '#df9a23',
+                '#eef000',
+                '#7ed934',
+                '#1571c1',
+                '#8309e7',
             ),
-            'choices' => array(
-                'nsw' => __('New South Wales', 'skyrocket'),
-                'vic' => __('Victoria', 'skyrocket'),
-                'qld' => __('Queensland', 'skyrocket'),
-                'wa' => __('Western Australia', 'skyrocket'),
-                'sa' => __('South Australia', 'skyrocket'),
-                'tas' => __('Tasmania', 'skyrocket'),
-                'act' => __('Australian Capital Territory', 'skyrocket'),
-                'nt' => __('Northern Territory', 'skyrocket'),
-            )
         )
     ));
-
-
-
-
+    $wp_customize->add_setting('global_h6_font_size',
+        array(
+            'default' => 48,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer',
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h6_font_size',
+        array(
+            'label' => esc_html__('H6 Font Size'),
+            'section' => 'global_heading_section_h6',
+            'input_attrs' => array(
+                'min' => 10, // Required. Minimum value for the slider
+                'max' => 200, // Required. Maximum value for the slider
+                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+            ),
+        )
+    ));
 
     // Test of Dropdown Select2 Control (single select)
     $wp_customize->add_setting(
@@ -256,7 +329,7 @@ function mfp_global_typohraphy($wp_customize)
         array(
             'default' => 'arial',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_text_sanitization',
         )
     );
     $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
@@ -279,61 +352,59 @@ function mfp_global_typohraphy($wp_customize)
                 'tas' => __('Tasmania', 'mediafairplay'),
                 'act' => __('Australian Capital Territory', 'mediafairplay'),
                 'nt' => __('Northern Territory', 'mediafairplay'),
-            )
+            ),
         )
     ));
-    
-    $wp_customize->add_setting( 'turn_google_api_font',
-    array(
-       'default' => 0,
-       'transport' => 'refresh',
-       'sanitize_callback' => 'skyrocket_switch_sanitization'
-    )
- );
-  
- $wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'turn_google_api_font',
-    array(
-       'label' => esc_html__( 'Turn On Google Fonts' ),
-       'section' => 'global_base_typography_section'
-    )
- ) );
 
-$wp_customize->add_setting( 'sample_google_font_select',
-array(
-   'default' => json_encode(
-      array(
-         'font' => 'Open Sans',
-         'regularweight' => 'regular',
-         'italicweight' => 'italic',
-         'boldweight' => '700',
-         'category' => 'sans-serif'
-      )
-   ),
-   'transport' => 'refresh',
-   'sanitize_callback' => 'skyrocket_google_font_sanitization'
-)
-);
+    $wp_customize->add_setting('turn_google_api_font',
+        array(
+            'default' => 0,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_switch_sanitization',
+        )
+    );
 
-$wp_customize->add_control( new Skyrocket_Google_Font_Select_Custom_Control( $wp_customize, 'sample_google_font_select',
-array(
-   'label' => __( 'Google Font Family' ),
-   'description' => esc_html__( '' ),
-   'section' => 'global_base_typography_section',
-   'input_attrs' => array(
-      'font_count' => 'all',
-      'orderby' => 'alpha',
-   ),
-)
-) );
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'turn_google_api_font',
+        array(
+            'label' => esc_html__('Turn On Google Fonts'),
+            'section' => 'global_base_typography_section',
+        )
+    ));
 
+    $wp_customize->add_setting('sample_google_font_select',
+        array(
+            'default' => json_encode(
+                array(
+                    'font' => 'Open Sans',
+                    'regularweight' => 'regular',
+                    'italicweight' => 'italic',
+                    'boldweight' => '700',
+                    'category' => 'sans-serif',
+                )
+            ),
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_google_font_sanitization',
+        )
+    );
 
+    $wp_customize->add_control(new Skyrocket_Google_Font_Select_Custom_Control($wp_customize, 'sample_google_font_select',
+        array(
+            'label' => __('Google Font Family'),
+            'description' => esc_html__(''),
+            'section' => 'global_base_typography_section',
+            'input_attrs' => array(
+                'font_count' => 'all',
+                'orderby' => 'alpha',
+            ),
+        )
+    ));
 
     $wp_customize->add_setting(
         'global_typo_font_size',
         array(
             'default' => 16,
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_text_sanitization',
         )
     );
 
@@ -356,7 +427,7 @@ array(
         array(
             'default' => '400',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_text_sanitization',
         )
     );
     $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
@@ -380,7 +451,7 @@ array(
                 '700' => __('700', 'mediafairplay'),
                 '800' => __('800', 'mediafairplay'),
                 '900' => __('900', 'mediafairplay'),
-            )
+            ),
         )
     ));
 
@@ -389,7 +460,7 @@ array(
         array(
             'default' => 'None',
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_text_sanitization'
+            'sanitize_callback' => 'skyrocket_text_sanitization',
         )
     );
 
@@ -401,19 +472,19 @@ array(
             'description' => esc_html__(''),
             'section' => 'global_base_typography_section',
             'choices' => array(
-                'None' => array(  // Required. Setting for this particular radio button choice
+                'None' => array( // Required. Setting for this particular radio button choice
                     'image' => trailingslashit(get_template_directory_uri()) . 'images/none.png', // Required. URL for the image
-                    'name' => __('None') // Required. Title text to display
+                    'name' => __('None'), // Required. Title text to display
                 ),
                 'upercase' => array(
                     'image' => trailingslashit(get_template_directory_uri()) . 'images/AllCaps.png',
-                    'name' => __('uppercase')
+                    'name' => __('uppercase'),
                 ),
                 'lowercase' => array(
                     'image' => trailingslashit(get_template_directory_uri()) . 'images/lowercase.png',
-                    'name' => __('lowercase')
-                )
-            )
+                    'name' => __('lowercase'),
+                ),
+            ),
         )
     ));
     $wp_customize->add_setting(
@@ -421,7 +492,7 @@ array(
         array(
             'default' => 1.5,
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_sanitize_integer'
+            'sanitize_callback' => 'skyrocket_sanitize_integer',
         )
     );
 
@@ -444,7 +515,7 @@ array(
         array(
             'default' => 1.5,
             'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_sanitize_integer'
+            'sanitize_callback' => 'skyrocket_sanitize_integer',
         )
     );
 

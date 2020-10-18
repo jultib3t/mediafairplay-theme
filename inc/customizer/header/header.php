@@ -28,6 +28,7 @@ function register_header_customizer($wp_customize)
             'priority'       => 30
         )
     );
+
     /**
      * Hedaer Position section
      */
@@ -70,7 +71,7 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_section(
         'mfp_header_width_height_section',
         array(
-            'title' => __('Header Height ( Beta )', 'mediafairplay'),
+            'title' => __('Header Height', 'mediafairplay'),
             'description' => esc_html__('', 'mediafairplay'),
             'panel' => 'mfp_header_panel',
             'priority'       => 30
@@ -89,7 +90,7 @@ function register_header_customizer($wp_customize)
         $wp_customize,
         'header_height_desktop',
         array(
-            'label' => __('Desktop ( Beta )', 'mediafairplay'),
+            'label' => __('Desktop', 'mediafairplay'),
             'section' => 'mfp_header_width_height_section',
             'input_attrs' => array(
                 'min' => 1,
@@ -102,7 +103,7 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_setting(
         'header_height_tablet',
         array(
-            'default' => 110,
+            'default' => 61,
             'transport' => 'refresh',
             'sanitize_callback' => 'absint'
         )
@@ -111,7 +112,7 @@ function register_header_customizer($wp_customize)
         $wp_customize,
         'header_height_tablet',
         array(
-            'label' => __('Tablet ( Beta )', 'mediafairplay'),
+            'label' => __('Tablet', 'mediafairplay'),
             'section' => 'mfp_header_width_height_section',
             'input_attrs' => array(
                 'min' => 1,
@@ -124,7 +125,7 @@ function register_header_customizer($wp_customize)
       $wp_customize->add_setting(
         'header_height_mobile',
         array(
-            'default' => 110,
+            'default' => 61,
             'transport' => 'refresh',
             'sanitize_callback' => 'absint'
         )
@@ -133,7 +134,7 @@ function register_header_customizer($wp_customize)
         $wp_customize,
         'header_height_mobile',
         array(
-            'label' => __('Mobile ( Beta )', 'mediafairplay'),
+            'label' => __('Mobile', 'mediafairplay'),
             'section' => 'mfp_header_width_height_section',
             'input_attrs' => array(
                 'min' => 1,
@@ -468,6 +469,30 @@ function register_header_customizer($wp_customize)
             )
         )
     ));
+
+    $wp_customize->add_setting( 'header_alignment',
+    array(
+       'default' => 'rtl',
+       'transport' => 'refresh',
+       'sanitize_callback' => 'skyrocket_radio_sanitization'
+    )
+ );
+  
+ $wp_customize->add_control( new Skyrocket_Text_Radio_Button_Custom_Control( $wp_customize, 'header_alignment',
+    array(
+       'label' => __( 'Header Alignment' ),
+       'description' => esc_html__( 'Sample custom control description' ),
+       'section' => 'mfp_header_layout_section',
+       'choices' => array(
+          'ltr' => __( 'Left' ), // Required. Setting for this particular radio button choice and the text to display
+          'centered' => __( 'Centered' ), // Required. Setting for this particular radio button choice and the text to display
+          'rtl' => __( 'Right' ) // Required. Setting for this particular radio button choice and the text to display
+       )
+    )
+ ) );
+
+
+
     /** Header Logo size Tablet */
     $wp_customize->add_setting(
         'header_logo_size_tablet',

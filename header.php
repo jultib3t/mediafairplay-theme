@@ -12,61 +12,61 @@
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes();?>>
 
 <head>
-  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta charset="<?php bloginfo('charset');?>">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='profile' href='https://gmpg.org/xfn/11'>
-  <?php wp_head(); ?>
+  <?php wp_head();?>
  <?php
- $turn_google_api = get_theme_mod('turn_google_api_font');
- if( $turn_google_api ) :
-  $sitefonts = get_theme_mod('sample_google_font_select');
-  $sitefonts = json_decode($sitefonts);
-  $font = $sitefonts->font;
-  $font = preg_replace('/\s+/', '+', $font);
-  $weight = $sitefonts->boldweight;
-  $category = $sitefonts->category; ?>
-  
-  <link href="https://fonts.googleapis.com/css2?family=<?php echo $font?>&display=swap" rel="stylesheet">
+$turn_google_api = get_theme_mod('turn_google_api_font');
+if ($turn_google_api):
+    $sitefonts = get_theme_mod('sample_google_font_select');
+    $sitefonts = json_decode($sitefonts);
+    $font = $sitefonts->font;
+    $font = preg_replace('/\s+/', '+', $font);
+    $weight = $sitefonts->boldweight;
+    $category = $sitefonts->category;?>
 
- <?php endif; ?>
+	  <link href="https://fonts.googleapis.com/css2?family=<?php echo $font ?>&display=swap" rel="stylesheet">
+
+	 <?php endif;?>
 
   <?php
-  /**
-   * 
-   * call the FAQ block SCHEMA For Google. Look at functions.php -> cunstiom_blocks
-   * 
-   */
-  // Check if the MFP FAQ Block exist or NOT
-  $blocks = parse_blocks($post->post_content);
-  $objects = json_decode(json_encode($blocks));
-  $array = array();
-  foreach ($objects as $object) {
+/**
+ *
+ * call the FAQ block SCHEMA For Google. Look at functions.php -> cunstiom_blocks
+ *
+ */
+// Check if the MFP FAQ Block exist or NOT
+$blocks = parse_blocks($post->post_content);
+$objects = json_decode(json_encode($blocks));
+$array = array();
+foreach ($objects as $object) {
     if ($object->blockName == 'acf/mfp-faq') {
-      echo ldJson();
+        echo ldJson();
     }
-  }
+}
 
-  // Google Tag Manager Head
-  if (get_theme_mod('Google_Tag_Manager_Head')) {
+// Google Tag Manager Head
+if (get_theme_mod('Google_Tag_Manager_Head')) {
     echo get_theme_mod('Google_Tag_Manager_Head', '<script></script>');
-  }
-  ?>
+}
+?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class();?>>
 
   <?php
-  // Google Tag Manager Body
-  if (get_theme_mod('Google_Tag_Manager_Body')) {
+// Google Tag Manager Body
+if (get_theme_mod('Google_Tag_Manager_Body')) {
     echo get_theme_mod('Google_Tag_Manager_Body', '<script></script>');
-  }
+}
 
-  wp_body_open();
+wp_body_open();
 
-  ?>
+?>
 
   <!-- Header CSS - REMOVE IT ON PRODUCTION !! -->
   <style>
@@ -78,10 +78,10 @@
     }
 
     <?php
-    $post = get_post();
-    $blocks = parse_blocks($post->post_content);
-    foreach ($blocks as $block) {
-      if ($block['blockName'] === 'core/latest-posts') {  ?>ul.wp-block-latest-posts.wp-block-latest-posts__list li {
+$post = get_post();
+$blocks = parse_blocks($post->post_content);
+foreach ($blocks as $block) {
+    if ($block['blockName'] === 'core/latest-posts') {?>ul.wp-block-latest-posts.wp-block-latest-posts__list li {
       display: flex;
       flex-direction: column;
       margin-right: 0;
@@ -140,13 +140,14 @@
       justify-content: space-between;
     }
 
-    <?php } ?><?php } ?>
+    <?php }?><?php }?>
     body {
-      <?php if ( $turn_google_api ) :?>
-        font-family: <?php echo $font ?>;
-      <?php else :?>
+      <?php if ($turn_google_api): ?>
+        font-family: <?php echo $font ?>, <?php echo $category?>;
+      <?php else: ?>
         font-family: <?php echo get_theme_mod('global_typo_family', 'Arial') ?>;
       <?php endif;?>
+      
       background-color: <?php echo get_theme_mod('content_background_color', '#fff') ?>;
       font-size: <?php echo get_theme_mod('global_typo_font_size', 16); ?>px;
       font-weight: <?php echo get_theme_mod('global_typo_font_weight', 400); ?>;
@@ -155,6 +156,31 @@
       margin: 0;
       line-height: <?php echo get_theme_mod('global_typo_line_height', 1.5); ?>;
       color: <?php echo get_theme_mod('global_text_color', '#404040'); ?>;
+    }
+
+    h1{
+      font-size: <?php echo get_theme_mod('global_h1_font_size', '48') ?>px;
+      color: <?php echo get_theme_mod('h1_global_color', '#000') ?>;
+    }
+    h2{
+      font-size: <?php echo get_theme_mod('global_h2_font_size', '48') ?>px;
+      color: <?php echo get_theme_mod('h2_global_color', '#000') ?>;
+    }
+    h3{
+      font-size: <?php echo get_theme_mod('global_h3_font_size', '48') ?>px;
+      color: <?php echo get_theme_mod('h3_global_color', '#000') ?>;
+    }
+    h4{
+      font-size: <?php echo get_theme_mod('global_h4_font_size', '48') ?>px;
+      color: <?php echo get_theme_mod('h4_global_color', '#000') ?>;
+    }
+    h5{
+      font-size: <?php echo get_theme_mod('global_h5_font_size', '48') ?>px;
+      color: <?php echo get_theme_mod('h5_global_color', '#000') ?>;
+    }
+    h6{
+      font-size: <?php echo get_theme_mod('global_h6_font_size', '48') ?>px;
+      color: <?php echo get_theme_mod('h6_global_color', '#000') ?>;
     }
 
     p {
@@ -182,8 +208,8 @@
 
     <?php
 
-    /** Check if the breadcrumbs enables - if yes - enque style */
-    if (get_theme_mods('mfp_enable_breadcrumbs')) { ?>p#breadcrumbs a,
+/** Check if the breadcrumbs enables - if yes - enque style */
+if (get_theme_mods('mfp_enable_breadcrumbs')) {?>p#breadcrumbs a,
     p#breadcrumbs {
       color: <?php echo get_theme_mod('mfp_breadcrumbs_color', '#000') ?>;
       text-decoration: none;
@@ -193,7 +219,7 @@
     }
 
     <?php }
-    ?>main#primary header.entry-header h1.entry-title {
+?>main#primary header.entry-header h1.entry-title {
       margin-block-start: 0;
       margin-block-end: 0;
     }
@@ -204,10 +230,10 @@
     .site-main {
 
       <?php
-      $layout = get_theme_mod('global_layout_layout', 'container');
-      if ($layout == 'container') : ?>max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
-      <?php else : ?>max-width: 100%;
-      <?php endif; ?>margin-right: auto;
+$layout = get_theme_mod('global_layout_layout', 'container');
+if ($layout == 'container'): ?>max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+      <?php else: ?>max-width: 100%;
+      <?php endif;?>margin-right: auto;
       margin-left: auto;
       padding-right: 0.83em;
       padding-left: 0.83em;
@@ -215,44 +241,44 @@
     }
 
     <?php
-    $layout = get_theme_mod('global_layout_layout', 'container');
-    // Run code only for Single post page
-    if (is_single() && 'post' == get_post_type()) :
+$layout = get_theme_mod('global_layout_layout', 'container');
+// Run code only for Single post page
+if (is_single() && 'post' == get_post_type()):
 
-      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
-      if ($layout_page == 'default' || $layout_page == 'container') : ?>.site-main {
-      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
-    }
+    $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
+    if ($layout_page == 'default' || $layout_page == 'container'): ?>.site-main {
+	      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+	    }
 
-    <?php else :
-        echo 'max-width: 100%;';
-      endif;
-    endif;
+	    <?php else:
+    echo 'max-width: 100%;';
+endif;
+endif;
 
-    // run code for archive
-    if (is_archive()) :
-      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
-      if ($layout_page == 'default' || $layout_page == 'container') : ?>.site-main {
-      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
-    }
+// run code for archive
+if (is_archive()):
+    $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
+    if ($layout_page == 'default' || $layout_page == 'container'): ?>.site-main {
+	      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+	    }
 
-    <?php else :
-        echo 'max-width: 100%;';
-      endif;
-    endif;
+	    <?php else:
+    echo 'max-width: 100%;';
+endif;
+endif;
 
-    // run code for pages
-    if (is_page()) :
-      $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
-      if ($layout_page == 'default' || $layout_page == 'container') : ?>.site-main {
-      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
-    }
+// run code for pages
+if (is_page()):
+    $layout_page = get_theme_mod('global_layout_blog_post_layout', 'default');
+    if ($layout_page == 'default' || $layout_page == 'container'): ?>.site-main {
+	      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
+	    }
 
-    <?php else :
-        echo 'max-width: 100%;';
-      endif;
-    endif;
-    ?>@media(max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px) {
+	    <?php else:
+    echo 'max-width: 100%;';
+endif;
+endif;
+?>@media(max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px) {
       .site-main {
         margin-right: 0.83em;
         margin-left: 0.83em;
@@ -717,11 +743,42 @@
         flex-direction: row;
         margin: unset;
       }
+      .header-wrapper-mfp{
+        height: <?php echo get_theme_mod('header_height_desktop', '110')?>px;
+        display: flex;
+        align-items: flex-end;
+      }
 
-      header.header-wrapper-mfp nav.mfp-menu {
+      .header-wrapper-mfp nav.mfp-menu {
         max-width: <?php echo get_theme_mod('site_content_width', '1200') ?>px;
         margin: 0 auto;
+        width: 100%;
+        direction: <?php echo get_theme_mod('header_alignment', 'rtl') ?>;
       }
+
+      <?php
+       $header_alignment = get_theme_mod('header_alignment', 'rtl');
+        if( $header_alignment == 'ltr') : ?>
+        .company-logo-wrapper{
+            right: 0;
+            left: unset;
+        }
+        <?php elseif ( $header_alignment == 'centered' ) : ?>
+          nav.mfp-menu {
+              display: flex;
+              flex-direction: column-reverse;
+              height: 100%;
+              align-items: center;
+          }
+
+          .company-logo-wrapper {
+              position: relative;
+          }
+          ul.main-menu.clearfix.extra{
+            display: none;
+          }
+        <?php endif; ?>
+
     }
 
     .company-logo-wrapper a.custom-logo-link:hover {
@@ -736,7 +793,7 @@
       }
 
       .company-logo-wrapper {
-        height: 61px;
+        height: <?php echo get_theme_mod('header_height_tablet', '61')?>px;
         margin-right: -1.83em;
         margin-left: -2.5em;
       }
@@ -759,6 +816,7 @@
         right: 0;
         width: 90px;
         padding-right: 15px;
+        margin-left: 25px;
       }
 
       .btn2 .icon {
@@ -799,11 +857,16 @@
         padding: 18px 40px;
         width: 20%;
         margin: 0 -2.83em;
+        height: <?php echo get_theme_mod('header_height_tablet', '110')?>px;
+        display: flex;
+        align-items: center;
+        padding-right: 0.83em;
       }
 
       label#toggle-menu span {
         pointer-events: none;
         font-size: 14px;
+        order: 2;
       }
 
       .menu.btn2:focus {
@@ -826,6 +889,9 @@
         -ms-user-select: none;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
+        position: relative;
+        order: 1;
+        padding-right: 10px;
       }
 
       ul.main-menu.clearfix.extra {
@@ -924,6 +990,10 @@
         max-width: <?php echo get_theme_mod('header_logo_size_mobile', '200') ?>px;
         width: 100%;
       }
+
+      label#toggle-menu {
+        height: <?php echo get_theme_mod('header_height_mobile', '61')?>px;
+      }
     }
 
     /** END LOGO sizes */
@@ -933,8 +1003,8 @@
   <!-- Page Start -->
   <div id='page' class='site'>
 
-    <?php $layout_choose = get_theme_mod('global_layout_choose', 'layout_1'); ?>
-    <?php if ($layout_choose == 'layout_1') : ?>
+    <?php $layout_choose = get_theme_mod('global_layout_choose', 'layout_1');?>
+    <?php if ($layout_choose == 'layout_1'): ?>
       <header class="header-wrapper-mfp">
         <nav dir="rtl" class="mfp-menu">
           <label for="menutoggle" id="toggle-menu">
@@ -947,24 +1017,24 @@
           <ul class="main-menu clearfix extra">
 
             <?php
-            // check if polylang plugin exists
-            if (function_exists('pll_the_languages')) { ?>
+// check if polylang plugin exists
+if (function_exists('pll_the_languages')) {?>
               <li class="languegue-switcher">
                 <?php
-                $translations = pll_the_languages(array('raw' => 1));
-                foreach ($translations as $translation) {
-                  if ($translation['current_lang']) {
-                    $active_lang = 'true-active avoid-clicks';
-                    echo '<span class="' . $active_lang . '">' . ucwords($translation['slug']) . '</span>';
-                  } else {
-                    $active_lang = 'not-active';
-                    echo '<a class="' . $active_lang . '" href="' . $translation['url'] . '">' . ucwords($translation['slug']) . '</a>';
-                  }
-                } ?>
+$translations = pll_the_languages(array('raw' => 1));
+    foreach ($translations as $translation) {
+        if ($translation['current_lang']) {
+            $active_lang = 'true-active avoid-clicks';
+            echo '<span class="' . $active_lang . '">' . ucwords($translation['slug']) . '</span>';
+        } else {
+            $active_lang = 'not-active';
+            echo '<a class="' . $active_lang . '" href="' . $translation['url'] . '">' . ucwords($translation['slug']) . '</a>';
+        }
+    }?>
               </li>
             <?php
-            }
-            ?>
+}
+?>
 
             <li class="search-wrapper">
               <div class="search-container">
@@ -977,29 +1047,29 @@
             </li>
           </ul>
           <?php
-          // By location.
-          $menu_name = 'Header';
-          $locations = get_nav_menu_locations();
-          $menu_id   = $locations[$menu_name];
-          // check if our custom header is empty or not
-          if (!empty(custom_header_menu($menu_id))) {
-            echo custom_header_menu($menu_id);
-          } else {
-            echo "menu is empty, please add a new menu call 'Header'";
-          }
-          ?>
+// By location.
+$menu_name = 'Header';
+$locations = get_nav_menu_locations();
+$menu_id = $locations[$menu_name];
+// check if our custom header is empty or not
+if (!empty(custom_header_menu($menu_id))) {
+    echo custom_header_menu($menu_id);
+} else {
+    echo "menu is empty, please add a new menu call 'Header'";
+}
+?>
           <div class="company-logo-wrapper">
             <?php
-            $custom_logo_id = get_theme_mod('custom_logo', 'logo');
-            $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', TRUE);
-            $image = wp_get_attachment_image_src($custom_logo_id, 'full');
-            // check if the custom logo exists or not
-            if (!empty($custom_logo_id)) {
-              echo the_custom_logo();
-            } else {
-              echo '<a href="' . home_url('/') . '" class="custom-logo-link" rel="home" aria-current="page"><img width="225" height="90" src="' . get_stylesheet_directory_uri() . '/images/first_logo.png' . '" class="custom-logo" alt="Reputable Online Casinos"></a>';
-            }
-            ?>
+$custom_logo_id = get_theme_mod('custom_logo', 'logo');
+$image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', true);
+$image = wp_get_attachment_image_src($custom_logo_id, 'full');
+// check if the custom logo exists or not
+if (!empty($custom_logo_id)) {
+    echo the_custom_logo();
+} else {
+    echo '<a href="' . home_url('/') . '" class="custom-logo-link" rel="home" aria-current="page"><img width="225" height="90" src="' . get_stylesheet_directory_uri() . '/images/first_logo.png' . '" class="custom-logo" alt="Reputable Online Casinos"></a>';
+}
+?>
           </div>
         </nav>
       </header>
@@ -1014,99 +1084,99 @@
           menuText.classList.toggle("red");
         }
       </script>
-    <?php else : // if layout will be layout_2 
+    <?php else: // if layout will be layout_2
     ?>
-      <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/inc/menus/mmenu/mm_style.css" />
-      <?php
-      echo '<style>
-                .header-mfp-wrapper {
-                  background: ' . get_theme_mod('header_background_color', '#eee') . ';
-                  position: fixed;
-                  width: 100%;
-                  top: 0;
-                }
-                .header-mfp{
-                  background-color: inherit;
-                  position: relative;
-                  height: 110px;
-                  padding-top: 5px;
-                  padding-bottom: 5px;
-                  max-width: 1200px;
-                  margin: 0 auto;
-                }
-              
-                .mm-spn ul{
-                  font-size: ' . get_theme_mod('header_font_size_desktop', 16) . 'px;
-                  font-weight: ' . get_theme_mod('mfp_header_font_weight', '400') . ';
-                }
-                @media(max-width: 1000px){
-                  .mm-spn ul{
-                    font-size: ' . get_theme_mod('header_font_size_tablet', 15) . 'px;
-                  }
-                }
-                @media(max-width: 500px){
-                  .mm-spn ul{
-                    font-size: ' . get_theme_mod('header_font_size_mobile', 14) . 'px;
-                  }
-                }
-            </style>';
-      ?>
-      <div class="header-mfp-wrapper">
-        <div class="header-mfp">
-          <a href="#menu" class="header-mfp-a"><span></span></a>
-          <div class="image-wrppaer">
-            <?php
-            $custom_logo_id = get_theme_mod('custom_logo', 'logo');
-            $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', TRUE);
-            $image = wp_get_attachment_image_src($custom_logo_id, 'full');
-            // check if the custom logo exists or not
-            if (!empty($custom_logo_id)) {
-              echo the_custom_logo();
-            } else {
-              echo '<a href="' . home_url('/') . '" class="custom-logo-link" rel="home" aria-current="page"><img width="225" height="90" src="' . get_stylesheet_directory_uri() . '/images/first_logo.png' . '" class="custom-logo" alt="Reputable Online Casinos"></a>';
-            }
-            ?>
+	      <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/inc/menus/mmenu/mm_style.css" />
+	      <?php
+    echo '<style>
+	                .header-mfp-wrapper {
+	                  background: ' . get_theme_mod('header_background_color', '#eee') . ';
+	                  position: fixed;
+	                  width: 100%;
+	                  top: 0;
+	                }
+	                .header-mfp{
+	                  background-color: inherit;
+	                  position: relative;
+	                  height: 110px;
+	                  padding-top: 5px;
+	                  padding-bottom: 5px;
+	                  max-width: 1200px;
+	                  margin: 0 auto;
+	                }
 
-          </div>
+	                .mm-spn ul{
+	                  font-size: ' . get_theme_mod('header_font_size_desktop', 16) . 'px;
+	                  font-weight: ' . get_theme_mod('mfp_header_font_weight', '400') . ';
+	                }
+	                @media(max-width: 1000px){
+	                  .mm-spn ul{
+	                    font-size: ' . get_theme_mod('header_font_size_tablet', 15) . 'px;
+	                  }
+	                }
+	                @media(max-width: 500px){
+	                  .mm-spn ul{
+	                    font-size: ' . get_theme_mod('header_font_size_mobile', 14) . 'px;
+	                  }
+	                }
+	            </style>';
+    ?>
+	      <div class="header-mfp-wrapper">
+	        <div class="header-mfp">
+	          <a href="#menu" class="header-mfp-a"><span></span></a>
+	          <div class="image-wrppaer">
+	            <?php
+    $custom_logo_id = get_theme_mod('custom_logo', 'logo');
+    $image_alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', true);
+    $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+    // check if the custom logo exists or not
+    if (!empty($custom_logo_id)) {
+        echo the_custom_logo();
+    } else {
+        echo '<a href="' . home_url('/') . '" class="custom-logo-link" rel="home" aria-current="page"><img width="225" height="90" src="' . get_stylesheet_directory_uri() . '/images/first_logo.png' . '" class="custom-logo" alt="Reputable Online Casinos"></a>';
+    }
+    ?>
 
-          <?php
-          // By location.
-          $menu_name = 'Header';
-          $locations = get_nav_menu_locations();
-          $menu_id   = $locations[$menu_name];
-          // check if our custom header is empty or not
-          if (!empty(custom_header_menu_2($menu_id))) {
-            echo custom_header_menu_2($menu_id);
-          } else {
-            echo "menu is empty, please add a new menu call 'Header'";
-          }
-          ?>
+	          </div>
 
-        </div>
-      </div>
-      <script src="<?php echo get_template_directory_uri() ?>/inc/menus/mmenu/mm_script.js"></script>
-      <script>
-        var menu = new MmenuLight(
-          document.querySelector('#menu'),
-          'all'
-        );
+	          <?php
+    // By location.
+    $menu_name = 'Header';
+    $locations = get_nav_menu_locations();
+    $menu_id = $locations[$menu_name];
+    // check if our custom header is empty or not
+    if (!empty(custom_header_menu_2($menu_id))) {
+        echo custom_header_menu_2($menu_id);
+    } else {
+        echo "menu is empty, please add a new menu call 'Header'";
+    }
+    ?>
 
-        var navigator = menu.navigation({
-          selectedClass: 'Selected',
-          slidingSubmenus: true,
-          theme: 'light',
-          title: 'Menu'
-        });
+	        </div>
+	      </div>
+	      <script src="<?php echo get_template_directory_uri() ?>/inc/menus/mmenu/mm_script.js"></script>
+	      <script>
+	        var menu = new MmenuLight(
+	          document.querySelector('#menu'),
+	          'all'
+	        );
 
-        var drawer = menu.offcanvas({
-          position: 'left'
-        });
+	        var navigator = menu.navigation({
+	          selectedClass: 'Selected',
+	          slidingSubmenus: true,
+	          theme: 'light',
+	          title: 'Menu'
+	        });
 
-        //	Open the menu.
-        document.querySelector('a[href="#menu"]')
-          .addEventListener('click', evnt => {
-            evnt.preventDefault();
-            drawer.open();
-          });
-      </script>
-    <?php endif; ?>
+	        var drawer = menu.offcanvas({
+	          position: 'left'
+	        });
+
+	        //	Open the menu.
+	        document.querySelector('a[href="#menu"]')
+	          .addEventListener('click', evnt => {
+	            evnt.preventDefault();
+	            drawer.open();
+	          });
+	      </script>
+	    <?php endif;?>
