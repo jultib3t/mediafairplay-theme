@@ -255,6 +255,44 @@ function register_header_customizer($wp_customize)
             'show_opacity' => true
         )
     ));
+    /** caret color */
+    $wp_customize->add_setting(
+        'header_caret_color',
+        array(
+            'default' => 'red',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'header_caret_color',
+        array(
+            'label' => __('Caret Color'),
+            'description' => esc_html__(''),
+            'section' => 'mfp_header_colors_section',
+            'show_opacity' => true
+        )
+    ));
+    /** hamburger color */
+    $wp_customize->add_setting(
+        'header_hamburger_color',
+        array(
+            'default' => 'red',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'header_hamburger_color',
+        array(
+            'label' => __('Hamburger Color'),
+            'description' => esc_html__(''),
+            'section' => 'mfp_header_colors_section',
+            'show_opacity' => true
+        )
+    ));
     /** header background hover color */
     $wp_customize->add_setting(
         'header_background_hover_color',

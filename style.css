@@ -4,7 +4,7 @@ Theme URI: http://mediafairplay.com/
 Author: MFP DEV FORCE
 Author URI: http://underscores.me/
 Description: Mediafairplay Theme
-Version: 1.3.7
+Version: 1.3.8
 Tested up to: 5.4
 Requires PHP: 7.1
 License: GNU General Public License v2 or later
@@ -12,10 +12,18 @@ License URI: LICENSE
 Text Domain: mediafairplay
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 */
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
 }
+
 hr {
   box-sizing: content-box;
   overflow: visible;
@@ -151,14 +159,7 @@ template {
 [hidden] {
   display: none;
 }
-*,
-::after,
-::before {
-  box-sizing: inherit;
-}
-html {
-  box-sizing: border-box;
-}
+
 body,
 button,
 input,

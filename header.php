@@ -318,7 +318,7 @@ endif;
       height: 0px;
       border-left: 5px solid transparent;
       border-right: 5px solid transparent;
-      border-top: 5px solid red;
+      border-top: 5px solid <?php echo get_theme_mod('header_caret_color', 'red') ?>;
       display: inline-block;
       margin-right: 8px;
       vertical-align: middle;
@@ -787,7 +787,7 @@ endif;
 
     @media(max-width: 1000px) {
       .red {
-        color: red;
+        color: <?php echo get_theme_mod('header_hamburger_color', 'red')?>;
         text-decoration: underline;
         transition: all .3s ease;
       }
@@ -820,20 +820,20 @@ endif;
       }
 
       .btn2 .icon {
-        background: red;
+        background: <?php echo get_theme_mod('header_hamburger_color', 'red')?>;
         height: 2px;
         width: 20px;
       }
 
       .btn2 .icon:before {
-        background: red;
+        background: <?php echo get_theme_mod('header_hamburger_color', 'red')?>;
         top: -5px;
         width: 20px;
         height: 2px;
       }
 
       .btn2 .icon:after {
-        background: red;
+        background: <?php echo get_theme_mod('header_hamburger_color', 'red')?>;
         height: 2px;
         top: 5px;
         width: 20px;
