@@ -814,7 +814,7 @@ endif;
         display: flex;
         justify-content: end;
         right: 0;
-        width: 90px;
+        width: auto;
         padding-right: 15px;
         margin-left: 25px;
       }
@@ -992,6 +992,10 @@ endif;
       }
 
       label#toggle-menu {
+        height: <?php echo get_theme_mod('header_height_mobile', '61')?>px;
+      }
+
+      .company-logo-wrapper {
         height: <?php echo get_theme_mod('header_height_mobile', '61')?>px;
       }
     }

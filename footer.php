@@ -150,9 +150,17 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 justify-content: space-between;
                 padding-right: 0.83em;
                 padding-left: 0.83em;
+                color: <?php echo get_theme_mod('mfp_footer_bar_text_color', '#fff'); ?>;
             }
-
-          
+            .footer-copyrights h1, .footer-copyrights h2, .footer-copyrights h3, .footer-copyrights h4, .footer-copyrights h5, .footer-copyrights h6 {
+                color: <?php echo get_theme_mod('mfp_footer_bar_title_color', '#fff'); ?>
+            }
+            .footer-copyrights a {
+                color: <?php echo get_theme_mod('mfp_footer_bar_link_color', '#fff'); ?>
+            }
+            .footer-copyrights a:hover {
+                color: <?php echo get_theme_mod('mfp_footer_bar_h_link_color', 'blue'); ?>
+            }
 
             .footer-copyrights li {
                 list-style: none;
@@ -170,7 +178,6 @@ if (!is_active_sidebar('mfp-footer-3')) {
            
             .footer-copyrights li p {
                 margin: 0;
-                color: <?php echo get_theme_mod('mfp_copyright_text_color', '#fff') ?>;
             }
            
             .first-footer-wrapper {

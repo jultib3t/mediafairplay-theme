@@ -78,12 +78,35 @@ function mfp_footer_control($wp_customize)
             ),
         )
     ));
+    $wp_customize->add_setting(
+      'mfp_footer_bar_title_color',
+      array(
+          'default' => '#fff',
+          'transport' => 'refresh',
+          'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
+      )
+  );
 
+  $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize,
+      'mfp_footer_bar_title_color',
+      array(
+          'label' => __('Title Color'),
+          'description' => esc_html__(''),
+          'section' => 'mfp_footer_bar_scetion',
+          'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
+          'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
+              '#000',
+              '#fff',
+              '#df312c',
+              '#df9a23',
+          ),
+      )
+  ));
     /** Footer bar text color */
     $wp_customize->add_setting(
       'mfp_footer_bar_text_color',
       array(
-          'default' => '#000',
+          'default' => '#fff',
           'transport' => 'refresh',
           'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
       )
@@ -92,7 +115,7 @@ function mfp_footer_control($wp_customize)
   $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize,
       'mfp_footer_bar_text_color',
       array(
-          'label' => __('Background Color'),
+          'label' => __('Text Color'),
           'description' => esc_html__(''),
           'section' => 'mfp_footer_bar_scetion',
           'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
@@ -108,7 +131,7 @@ function mfp_footer_control($wp_customize)
   $wp_customize->add_setting(
    'mfp_footer_bar_link_color',
    array(
-       'default' => '#000',
+       'default' => '#fff',
        'transport' => 'refresh',
        'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
    )
@@ -117,7 +140,7 @@ function mfp_footer_control($wp_customize)
 $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize,
    'mfp_footer_bar_link_color',
    array(
-       'label' => __('Background Color'),
+       'label' => __('Link Color'),
        'description' => esc_html__(''),
        'section' => 'mfp_footer_bar_scetion',
        'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
@@ -133,7 +156,7 @@ $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_custo
   $wp_customize->add_setting(
    'mfp_footer_bar_h_link_color',
    array(
-       'default' => '#000',
+       'default' => 'blue',
        'transport' => 'refresh',
        'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
    )
@@ -142,7 +165,7 @@ $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_custo
 $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize,
    'mfp_footer_bar_h_link_color',
    array(
-       'label' => __('Background Color'),
+       'label' => __('Link Hover Color'),
        'description' => esc_html__(''),
        'section' => 'mfp_footer_bar_scetion',
        'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
