@@ -126,7 +126,7 @@ $align_class = $block['align'] ? ' align' . $block['align'] : '';
    <script>
        console.log('js file is connected');
 if (document.readyState !== 'loading') {
-        console.log("ready!");
+        // console.log("ready!");
         ready();
     } else {
         document.addEventListener('DOMContentLoaded', ready);
@@ -144,21 +144,21 @@ if (document.readyState !== 'loading') {
     }
 
     var accordionClick = (eventHappened) => {
-        console.log(eventHappened);
+        // console.log(eventHappened);
         var targetClicked = event.target;
-        console.log(targetClicked);
+        // console.log(targetClicked);
         var classClicked = targetClicked.classList;
-        console.log("target clicked: " + targetClicked);
-        console.log(classClicked[0]);
+        // console.log("target clicked: " + targetClicked);
+        // console.log(classClicked[0]);
         while ((classClicked[0] != "description-title")) {
-            console.log("parent element: " + targetClicked.parentElement);
+            // console.log("parent element: " + targetClicked.parentElement);
             targetClicked = targetClicked.parentElement;
             classClicked = targetClicked.classList;
-            console.log("target clicked while in loop:" + targetClicked);
-            console.log("class clicked while in loop: " + classClicked);
+            // console.log("target clicked while in loop:" + targetClicked);
+            // console.log("class clicked while in loop: " + classClicked);
         }
         var description = targetClicked.nextElementSibling;
-        console.log(description);
+        // console.log(description);
         var expander = targetClicked.children[0];
         if (description.style.maxHeight) {
             description.style.maxHeight = null;
@@ -167,7 +167,7 @@ if (document.readyState !== 'loading') {
         } else {
             var allDescriptions = document.getElementsByTagName("dd");
             for (var i = 0; i < allDescriptions.length; i++) {
-                console.log("current description: " + allDescriptions[i]);
+                // console.log("current description: " + allDescriptions[i]);
                 if (allDescriptions[i].style.maxHeight) {
                     console.log("there is a description already open");
                     allDescriptions[i].style.maxHeight = null;

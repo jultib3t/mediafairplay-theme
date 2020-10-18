@@ -20,44 +20,23 @@ function my_acf_init_block_types()
             'multiple' => false,
         ));
 
-        acf_register_block_type(array(
-            'name' => 'MFP Read More',
-            'title' => __('MFP Read More'),
-            'description' => __('A custom Read More block.'),
-            'render_callback' => 'my_acf_read_more_block_render_callback',
-            //'render_template' => 'template-parts/blocks/faq/faq.php',
-            // 'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/faq/faq.css',
-            // 'enqueue_script' => get_template_directory_uri() . '/template-parts/blocks/faq/faq.js',
-            'category' => 'formatting',
-            'icon' => 'embed-post',
-            'keywords' => array('read', 'quote', 'read more'),
-            'multiple' => true,
-        ));
-
         // Register a restricted block.
-        acf_register_block_type(array(
-            'name'              => 'restricted',
-            'title'             => 'Restricted',
-            'description'       => 'A restricted content block.',
-            'category'          => 'formatting',
-            'mode'              => 'preview',
-            'supports'          => array(
-                'align' => true,
-                'mode' => false,
-                'jsx' => true
-            ),
-            'render_template' => 'template-parts/blocks/restricted/restricted.php',
+        acf_register_block_type( array(
+            'title'			=> __( 'Read More', 'client_textdomain' ),
+            'name'			=> 'about',
+            'render_template'	=> 'template-parts/blocks/readmore/readmore.php',
+            'mode'			=> 'preview',
+            'supports'		=> [
+                'align'			=> true,
+                'anchor'		=> true,
+                'customClassName'	=> true,
+                'jsx' 			=> true,
+            ]
         ));
         
     }
 }
-function my_acf_read_more_block_render_callback($block)
-{
-    // include a template part from within the "template-parts/block" folder
-    if (file_exists(get_theme_file_path("/template-parts/blocks/read-more/read-more.php"))) {
-        include(get_theme_file_path("/template-parts/blocks/read-more/read-more.php"));
-    }
-}
+
 function my_acf_faq_block_render_callback($block)
 {
     // include a template part from within the "template-parts/block" folder
