@@ -18,6 +18,9 @@ if (!empty($block['align'])) {
   $classes .= sprintf(' align%s', $block['align']);
 }
 
+$id = 'read-more-' . $block['id'];
+
+
 // Load custom field values.
 // $start_date = get_field('start_date');
 // $end_date = get_field('end_date');
@@ -81,11 +84,11 @@ if (!empty($block['align'])) {
 
 
 <div class="read-more-main-wrapper">
-        <input type="checkbox" class="read-more-state" id="post-2" />
+        <input type="checkbox" class="read-more-state" id="<?php echo esc_attr($id); ?>" />
         <div class="read-more-wrap">
           <ul class="read-more-target">
             <InnerBlocks/>
         </ul>
         </div>
-        <label for="post-2" class="read-more-trigger"></label>
+        <label for="<?php echo esc_attr($id); ?>" class="read-more-trigger"></label>
       </div>
