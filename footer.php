@@ -17,7 +17,7 @@
 <?php if( $last_modifited_toggle ): ?>
     <style>
         .last-update {
-            background: red;
+            background: <?php echo get_theme_mod('last_mod_bg', '#000');?>;
             max-width: 1200px;
             margin: 0 auto;
             padding-right: 0.83em;
@@ -25,6 +25,8 @@
             padding-top: 0.83em;
             padding-bottom: 0.83em;
             margin-bottom: 10px;
+            color: <?php echo get_theme_mod('last_mod_txt_color', '#fff');?>;
+            font-size:  <?php echo get_theme_mod('last_mod_font_size', '15');?>px;
         }
     </style>
     <section class="last-update-wrapper">
@@ -49,7 +51,18 @@ if (!is_active_sidebar('mfp-footer-3')) {
     if (is_active_sidebar('mfp-footer-1')  || is_active_sidebar('mfp-footer-2') || is_active_sidebar('mfp-footer-3')) { ?>
         <style>
             section#wrapper-widget-footer {
-                background-color: <?php echo get_theme_mod('mfp_footer_background_color', '#728d9e'); ?>;
+                background-color: <?php echo get_theme_mod('mfp_footer_bg_color', '#728d9e'); ?>;
+                color: <?php echo get_theme_mod('mfp_footer_text_color', '#fff')?>;
+            }
+            section#wrapper-widget-footer h1, section#wrapper-widget-footer h2, section#wrapper-widget-footer h3, section#wrapper-widget-footer h4, section#wrapper-widget-footer h5, section#wrapper-widget-footer h6 {
+                color: <?php echo get_theme_mod('mfp_footer_titles_color', '#728d9e'); ?>;
+                font-size: <?php echo get_theme_mod('mfp_footer_titles_font_size', '25'); ?>px;
+            }
+            section#wrapper-widget-footer a{
+                color: <?php echo get_theme_mod('mfp_footer_link_color', '#fff'); ?>;
+            }
+            section#wrapper-widget-footer a:hover{
+                color: <?php echo get_theme_mod('mfp_footer_link_h_color', 'blue'); ?>;
             }
 
             section#wrapper-widget-footer .footer-widget-wrapper-inside {
@@ -76,7 +89,6 @@ if (!is_active_sidebar('mfp-footer-3')) {
             }
 
             section#wrapper-widget-footer .footer-widget-wrapper-inside li a {
-                color: #fff;
                 text-decoration: none;
             }
 
@@ -153,7 +165,8 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 color: <?php echo get_theme_mod('mfp_footer_bar_text_color', '#fff'); ?>;
             }
             .footer-copyrights h1, .footer-copyrights h2, .footer-copyrights h3, .footer-copyrights h4, .footer-copyrights h5, .footer-copyrights h6 {
-                color: <?php echo get_theme_mod('mfp_footer_bar_title_color', '#fff'); ?>
+                color: <?php echo get_theme_mod('mfp_footer_bar_title_color', '#fff');?>;
+                font-size: <?php echo get_theme_mod('mfp_footer_bar_title_font_size', '25');?>px;
             }
             .footer-copyrights a {
                 color: <?php echo get_theme_mod('mfp_footer_bar_link_color', '#fff'); ?>
@@ -234,13 +247,13 @@ if (!is_active_sidebar('mfp-footer-3')) {
 <!-- Footer End -->
 </div>
 <!-- Page End -->
-
-<style>
+<?php if( get_theme_mod('display_indicator', 1)): ?>
+    <style>
 html .indicator,
 body .indicator {
   position: fixed;
   display: block;
-  background-color: #d6d35d;
+  background-color: <?php echo get_theme_mod('indicator_bg', '#d6d35d')?>;
   height: 5px;
   top: 0;
   z-index: 99;
@@ -276,6 +289,8 @@ window.onresize = function () {
 }
 
  </script>
+<?php endif; ?>
+
 <?php wp_footer(); ?>
 
 <?php if (get_theme_mod('mfp_enable_back_to_top')) : ?>
