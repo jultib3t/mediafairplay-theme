@@ -708,7 +708,7 @@ function mfp_features_controls($wp_customize)
         'mfp_back_to_top_text_color',
         array(
             'label' => __('Icon Color'),
-            'description' => esc_html__('choose text color'),
+            'description' => esc_html__(''),
             'section' => 'mfp_features_section',
             'show_opacity' => true
         )
@@ -878,7 +878,7 @@ function mfp_features_controls($wp_customize)
         'mfp_breadcrumbs_color',
         array(
             'label' => __('Text Color'),
-            'description' => esc_html__('choose text color'),
+            'description' => esc_html__(''),
             'section' => 'mfp_breadcrumbs_section',
             'show_opacity' => true
         )

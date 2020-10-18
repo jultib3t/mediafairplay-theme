@@ -230,7 +230,7 @@ function register_header_customizer($wp_customize)
         'header_background_color',
         array(
             'label' => __('Choose Background Color'),
-            'description' => esc_html__('add your own background color'),
+            'description' => esc_html__(''),
             'section' => 'mfp_header_colors_section',
             'show_opacity' => true
         )
@@ -250,7 +250,7 @@ function register_header_customizer($wp_customize)
         'header_text_color',
         array(
             'label' => __('Choose Text Color'),
-            'description' => esc_html__('choose color'),
+            'description' => esc_html__(''),
             'section' => 'mfp_header_colors_section',
             'show_opacity' => true
         )
@@ -326,7 +326,7 @@ function register_header_customizer($wp_customize)
         'header_text_color_hover',
         array(
             'label' => __('Choose Hover Text Color'),
-            'description' => esc_html__('choose color'),
+            'description' => esc_html__(''),
             'section' => 'mfp_header_colors_section',
             'show_opacity' => true
         )
