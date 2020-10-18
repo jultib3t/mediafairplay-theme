@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Restricted Block Template.
+ * Read More Block Template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -10,11 +11,11 @@
 
 // Create class attribute allowing for custom "className" and "align" values.
 $classes = '';
-if( !empty($block['className']) ) {
-    $classes .= sprintf( ' %s', $block['className'] );
+if (!empty($block['className'])) {
+  $classes .= sprintf(' %s', $block['className']);
 }
-if( !empty($block['align']) ) {
-    $classes .= sprintf( ' align%s', $block['align'] );
+if (!empty($block['align'])) {
+  $classes .= sprintf(' align%s', $block['align']);
 }
 
 // Load custom field values.
@@ -35,54 +36,55 @@ if( !empty($block['align']) ) {
 } */
 ?>
 <style>
-.read-more-state {
-  display: none !important;
-}
+  .read-more-state {
+    display: none !important;
+  }
 
-.read-more-target {
-  opacity: 0;
-  max-height: 0;
-  font-size: 0;
-  transition: .25s ease;
-}
+  .read-more-target {
+    opacity: 0;
+    max-height: 0;
+    font-size: 0;
+    transition: .25s ease;
+  }
 
-.read-more-state:checked ~ .read-more-wrap .read-more-target {
-  opacity: 1;
-  font-size: inherit;
-  max-height: 999em;
-}
+  .read-more-state:checked~.read-more-wrap .read-more-target {
+    opacity: 1;
+    font-size: inherit;
+    max-height: 999em;
+    padding-inline-start: 0;
+  }
 
-.read-more-state ~ .read-more-trigger:before {
-  content: 'Show more';
-}
+  .read-more-state~.read-more-trigger:before {
+    content: 'Show more';
+  }
 
-.read-more-state:checked ~ .read-more-trigger:before {
-  content: 'Show less';
-}
+  .read-more-state:checked~.read-more-trigger:before {
+    content: 'Show less';
+  }
 
-.read-more-trigger {
-  cursor: pointer;
-  display: inline-block;
-  padding: 0 .5em;
-  color: #666;
-  font-size: .9em;
-  line-height: 2;
-  border: 1px solid #ddd;
-  border-radius: .25em;
-}
-
+  .read-more-trigger {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 .5em;
+    color: #666;
+    font-size: .9em;
+    line-height: 2;
+    border: 1px solid #ddd;
+    border-radius: .25em;
+    z-index: 9;
+    position: relative;
+  }
 </style>
 
-<div class="<?php echo esc_attr( $classes ); ?>">
-  <input type="checkbox" class="read-more-state" id="post-2" />
-  <div class="read-more-wrap">
-    <div class="inner-blocks-wrapper read-more-target">
-    <InnerBlocks/>
-    </div>
-</div>
-  
-  <label for="post-2" class="read-more-trigger"></label>
-</div>
 
-  
-</div>
+<div>
+        <input type="checkbox" class="read-more-state" id="post-2" />
+      
+        <div class="read-more-wrap">
+          <ul class="read-more-target">
+            <InnerBlocks/>
+        </ul>
+        </div>
+        
+        <label for="post-2" class="read-more-trigger"></label>
+      </div>

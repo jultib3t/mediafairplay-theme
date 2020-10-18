@@ -1105,7 +1105,8 @@
 	                  background: ' . get_theme_mod('header_background_color', '#eee') . ';
 	                  position: fixed;
 	                  width: 100%;
-	                  top: 0;
+                    top: 0;
+                    z-index: 2;
 	                }
 	                .header-mfp{
 	                  background-color: inherit;

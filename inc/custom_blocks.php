@@ -22,8 +22,8 @@ function my_acf_init_block_types()
 
         // Register a restricted block.
         acf_register_block_type( array(
-            'title'			=> __( 'Read More', 'client_textdomain' ),
-            'name'			=> 'about',
+            'title'			=> __( 'Read More', 'mediafairplay' ),
+            'name'			=> 'Read More',
             'render_template'	=> 'template-parts/blocks/readmore/readmore.php',
             'mode'			=> 'preview',
             'supports'		=> [
@@ -31,9 +31,9 @@ function my_acf_init_block_types()
                 'anchor'		=> true,
                 'customClassName'	=> true,
                 'jsx' 			=> true,
-            ]
+            ],
+            'multiple' => false
         ));
-        
     }
 }
 

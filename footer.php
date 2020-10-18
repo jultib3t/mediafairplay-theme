@@ -367,7 +367,12 @@ window.onresize = function () {
     <!-- END Back To Top script-->
 <?php endif; ?>
 
-
+<ul><?php pll_the_languages([
+    'dropdown' => 1,
+    'show_names' => 0,
+    'show_flags' => 1,
+    'hide_current' => 1,
+]);?></ul>
 </body>
 
 </html>
