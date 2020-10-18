@@ -59,6 +59,8 @@ function mfp_global_typohraphy($wp_customize)
         )
     ));
 
+    
+
     $wp_customize->add_section('global_heading_section_h2', array(
         'title' => 'H2',
         'panel' => 'global_heading_panel',
@@ -280,6 +282,51 @@ function mfp_global_typohraphy($wp_customize)
             )
         )
     ));
+    
+    $wp_customize->add_setting( 'turn_google_api_font',
+    array(
+       'default' => 0,
+       'transport' => 'refresh',
+       'sanitize_callback' => 'skyrocket_switch_sanitization'
+    )
+ );
+  
+ $wp_customize->add_control( new Skyrocket_Toggle_Switch_Custom_control( $wp_customize, 'turn_google_api_font',
+    array(
+       'label' => esc_html__( 'Turn On Google Fonts' ),
+       'section' => 'global_base_typography_section'
+    )
+ ) );
+
+$wp_customize->add_setting( 'sample_google_font_select',
+array(
+   'default' => json_encode(
+      array(
+         'font' => 'Open Sans',
+         'regularweight' => 'regular',
+         'italicweight' => 'italic',
+         'boldweight' => '700',
+         'category' => 'sans-serif'
+      )
+   ),
+   'transport' => 'refresh',
+   'sanitize_callback' => 'skyrocket_google_font_sanitization'
+)
+);
+
+$wp_customize->add_control( new Skyrocket_Google_Font_Select_Custom_Control( $wp_customize, 'sample_google_font_select',
+array(
+   'label' => __( 'Google Font Family' ),
+   'description' => esc_html__( '' ),
+   'section' => 'global_base_typography_section',
+   'input_attrs' => array(
+      'font_count' => 'all',
+      'orderby' => 'alpha',
+   ),
+)
+) );
+
+
 
     $wp_customize->add_setting(
         'global_typo_font_size',

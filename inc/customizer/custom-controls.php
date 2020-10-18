@@ -1014,10 +1014,13 @@ if (class_exists('WP_Customize_Control')) {
 		 */
 		public function render_content()
 		{
+			
 			$defaultValue = $this->value();
+			
 			if ($this->multiselect) {
 				$defaultValue = explode(',', $this->value());
 			}
+			// var_dump( $defaultValue );
 		?>
 			<div class="dropdown_select2_control">
 				<?php if (!empty($this->label)) { ?>
@@ -1036,9 +1039,11 @@ if (class_exists('WP_Customize_Control')) {
 						echo '<option></option>';
 					}
 					foreach ($this->choices as $key => $value) {
+						
 						if (is_array($value)) {
 							echo '<optgroup label="' . esc_attr($key) . '">';
 							foreach ($value as $optgroupkey => $optgroupvalue) {
+								
 								if ($this->multiselect) {
 									echo '<option value="' . esc_attr($optgroupkey) . '" ' . (in_array(esc_attr($optgroupkey), $defaultValue) ? 'selected="selected"' : '') . '>' . esc_attr($optgroupvalue) . '</option>';
 								} else {
@@ -1055,7 +1060,11 @@ if (class_exists('WP_Customize_Control')) {
 						}
 					}
 					?>
+ <optgroup label="Group Name">
+    <option>Nested option</option>
+  </optgroup>
 				</select>
+				
 			</div>
 		<?php
 		}
@@ -1284,7 +1293,7 @@ if (class_exists('WP_Customize_Control')) {
 							?>
 						</select>
 					</div>
-					<div class="customize-control-description"><?php esc_html_e('Select weight & style for regular text', 'skyrocket') ?></div>
+					<!-- <div class="customize-control-description"><?php esc_html_e('Select weight & style for regular text', 'skyrocket') ?></div>
 					<div class="weight-style">
 						<select class="google-fonts-regularweight-style">
 							<?php
@@ -1293,10 +1302,10 @@ if (class_exists('WP_Customize_Control')) {
 							}
 							?>
 						</select>
-					</div>
-					<div class="customize-control-description"><?php esc_html_e('Select weight for', 'skyrocket') ?> <italic><?php esc_html_e('italic text', 'skyrocket') ?></italic>
-					</div>
-					<div class="weight-style">
+					</div> -->
+					<!-- <div class="customize-control-description"><?php esc_html_e('Select weight for', 'skyrocket') ?> <italic><?php esc_html_e('italic text', 'skyrocket') ?></italic>
+					</div> -->
+					<!-- <div class="weight-style">
 						<select class="google-fonts-italicweight-style" <?php disabled(in_array('italic', $this->fontList[$this->fontListIndex]->variants), false); ?>>
 							<?php
 							$optionCount = 0;
@@ -1312,8 +1321,8 @@ if (class_exists('WP_Customize_Control')) {
 							}
 							?>
 						</select>
-					</div>
-					<div class="customize-control-description"><?php esc_html_e('Select weight for', 'skyrocket') ?> <strong><?php esc_html_e('bold text', 'skyrocket') ?></strong></div>
+					</div> -->
+					<!-- <div class="customize-control-description"><?php esc_html_e('Select weight for', 'skyrocket') ?> <strong><?php esc_html_e('bold text', 'skyrocket') ?></strong></div>
 					<div class="weight-style">
 						<select class="google-fonts-boldweight-style">
 							<?php
@@ -1331,7 +1340,7 @@ if (class_exists('WP_Customize_Control')) {
 							}
 							?>
 						</select>
-					</div>
+					</div> -->
 					<input type="hidden" class="google-fonts-category" value="<?php echo $this->fontValues->category; ?>">
 				</div>
 			<?php

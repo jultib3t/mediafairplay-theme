@@ -75,6 +75,23 @@ $align_class = $block['align'] ? ' align' . $block['align'] : '';
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
 }
+@media(max-width: 1000px){
+  .main-faq--wrap {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .main-content .description-title {
+    font-size: 15px;
+    display: flex;
+    align-items: flex-end;
+    line-height: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: space-between;
+  }
+
+}
 /*
 * END FOR FAQ - MOVE IT TO FAQ BLOCK CSS
 */

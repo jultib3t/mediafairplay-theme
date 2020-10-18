@@ -19,6 +19,19 @@
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='profile' href='https://gmpg.org/xfn/11'>
   <?php wp_head(); ?>
+ <?php
+ $turn_google_api = get_theme_mod('turn_google_api_font');
+ if( $turn_google_api ) :
+  $sitefonts = get_theme_mod('sample_google_font_select');
+  $sitefonts = json_decode($sitefonts);
+  $font = $sitefonts->font;
+  $font = preg_replace('/\s+/', '+', $font);
+  $weight = $sitefonts->boldweight;
+  $category = $sitefonts->category; ?>
+  
+  <link href="https://fonts.googleapis.com/css2?family=<?php echo $font?>&display=swap" rel="stylesheet">
+
+ <?php endif; ?>
 
   <?php
   /**
@@ -127,8 +140,13 @@
       justify-content: space-between;
     }
 
-    <?php } ?><?php } ?>body {
-      font-family: <?php echo get_theme_mod('global_typo_family', 'Arial') ?>;
+    <?php } ?><?php } ?>
+    body {
+      <?php if ( $turn_google_api ) :?>
+        font-family: <?php echo $font ?>;
+      <?php else :?>
+        font-family: <?php echo get_theme_mod('global_typo_family', 'Arial') ?>;
+      <?php endif;?>
       background-color: <?php echo get_theme_mod('content_background_color', '#fff') ?>;
       font-size: <?php echo get_theme_mod('global_typo_font_size', 16); ?>px;
       font-weight: <?php echo get_theme_mod('global_typo_font_weight', 400); ?>;
@@ -238,6 +256,8 @@
       .site-main {
         margin-right: 0.83em;
         margin-left: 0.83em;
+        padding-right: 10px;
+        padding-left: 10px;
       }
     }
 
@@ -259,6 +279,8 @@
     @media(max-width: 500px) {
       .site-main {
         margin-top: <?php echo get_theme_mod('header_fixed_margin_top_mobile', 70) ?>px;
+        margin-right: 0;
+        margin-left: 0;
       }
     }
 
@@ -331,7 +353,8 @@
     }
 
     .mfp-menu .sub-menu {
-      background-color: #fff;
+      /* background-color: #fff; */
+      background-color: <?php echo get_theme_mod('header_background_color', '#fff') ?>;
       border-width: 1px 1px 0;
     }
 
@@ -358,6 +381,7 @@
     .mfp-menu a {
       transition: all 0.125s ease-in-out;
       -webkit-transition: all 0.125s ease-in-out;
+      text-align: left;
     }
 
     .mfp-menu a.menu-item:hover,
@@ -592,6 +616,9 @@
         text-decoration: none;
         font-weight: 700;
       }
+      .mfp-menu a {
+        text-align: unset;
+      }
 
       .mfp-menu .sub-menu li {
         width: auto;
@@ -764,6 +791,8 @@
 
       .mfp-menu li label.caret:after {
         border-top: 5px solid red;
+        left: unset;
+        right: 1.5em;
       }
 
       label#toggle-menu {
@@ -1081,5 +1110,3 @@
           });
       </script>
     <?php endif; ?>
-
- 
