@@ -98,7 +98,7 @@ function mfp_tables_block($atts)
                 ' . get_theme_mod("mfp_cards_shadow_color", "rgba(0,0,0,.3)") . ';
                 border-width: ' . get_theme_mod("mfp_cards_border_width", "1") . 'px;
                 border-color: ' . get_theme_mod("mfp_cards_border_color", "rgba(0,0,0,0.1)") . ';
-                border-style: inset;
+                border-style: solid;
                 border-radius: ' . get_theme_mod("mfp_cards_border_radius", "20") . 'px;
               }
               .card__face--back {

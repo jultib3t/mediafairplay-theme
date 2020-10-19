@@ -856,7 +856,7 @@
       }
 
       .mfp-menu li label.caret:after {
-        border-top: 5px solid red;
+        border-top: 5px solid <?php echo get_theme_mod('header_caret_color', 'red') ?>;
         left: unset;
         right: 1.5em;
       }
@@ -905,6 +905,10 @@
       ul.main-menu.clearfix.extra {
         background-color: #e3e3e3;
         box-shadow: inset 0 3px 2px -2px #e3e3e3;
+      }
+
+      ul.main-menu li .sub-menu {
+        background: <?php echo get_theme_mod('menu_drop_down_bg', 'red')?>;
       }
 
       li.search-wrapper {

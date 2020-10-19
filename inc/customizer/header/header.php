@@ -332,6 +332,26 @@ function register_header_customizer($wp_customize)
         )
     ));
 
+      /** header DROP down background color */
+      $wp_customize->add_setting(
+        'menu_drop_down_bg',
+        array(
+            'default' => '#fff',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_hex_rgba_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'menu_drop_down_bg',
+        array(
+            'label' => __('Drop Down Background Color'),
+            'description' => esc_html__(''),
+            'section' => 'mfp_header_colors_section',
+            'show_opacity' => true
+        )
+    ));
+
     /** header font size desktop*/
     $wp_customize->add_setting(
         'header_font_size_desktop',
