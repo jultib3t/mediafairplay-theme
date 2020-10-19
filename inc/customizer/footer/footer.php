@@ -17,7 +17,32 @@ function mfp_footer_control($wp_customize)
             'panel' => 'mfp_footer_panel'
         )
     );
-
+    $wp_customize->add_setting(
+        'footer_container_width',
+        array(
+            'default' => 'default',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'footer_container_width',
+        array(
+            'label' => __('Layout', 'mediafairplay'),
+            'description' => esc_html__('', 'skyrocket'),
+            'section' => 'mfp_footer_scetion',
+            'input_attrs' => array(
+                'placeholder' => false,
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                'default' => __('Default', 'mediafairplay'),
+                'container' => __('Container', 'mediafairplay'),
+                'full_width' => __('Full Width', 'mediafairplay'),
+            )
+        )
+    ));
     $wp_customize->add_setting(
         'mfp_footer_bg_color',
         array(
@@ -180,7 +205,32 @@ function mfp_footer_control($wp_customize)
             'priority' => 30,
         )
     );
-
+    $wp_customize->add_setting(
+        'footer_bar_container_width',
+        array(
+            'default' => 'default',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'footer_bar_container_width',
+        array(
+            'label' => __('Layout', 'mediafairplay'),
+            'description' => esc_html__('', 'skyrocket'),
+            'section' => 'mfp_footer_bar_scetion',
+            'input_attrs' => array(
+                'placeholder' => false,
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                'default' => __('Default', 'mediafairplay'),
+                'container' => __('Container', 'mediafairplay'),
+                'full_width' => __('Full Width', 'mediafairplay'),
+            )
+        )
+    ));
     $wp_customize->add_setting(
         'mfp_footer_bar_bg_color',
         array(

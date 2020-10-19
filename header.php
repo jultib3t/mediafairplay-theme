@@ -379,8 +379,7 @@
     }
 
     .mfp-menu .sub-menu {
-      /* background-color: #fff; */
-      background-color: <?php echo get_theme_mod('header_background_color', '#fff') ?>;
+      background-color: <?php echo get_theme_mod('menu_drop_down_bg', '#000') ?>;
       border-width: 1px 1px 0;
     }
 
