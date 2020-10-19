@@ -18,6 +18,28 @@ function mfp_footer_control($wp_customize)
         )
     );
     $wp_customize->add_setting(
+        'footer_container_container_width',
+        array(
+            'default' => 1200,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'footer_container_container_width',
+        array(
+            'label' => esc_html__('Container Width'),
+            'section' => 'mfp_footer_scetion',
+            'input_attrs' => array(
+                'min' => 1, // Required. Minimum value for the slider
+                'max' => 1920, // Required. Maximum value for the slider
+                'step' => 10, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+            ),
+        )
+    ));
+    $wp_customize->add_setting(
         'footer_container_width',
         array(
             'default' => 'default',
@@ -205,6 +227,28 @@ function mfp_footer_control($wp_customize)
             'priority' => 30,
         )
     );
+    $wp_customize->add_setting(
+        'footer_bar_container_container_width',
+        array(
+            'default' => 1200,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'footer_bar_container_container_width',
+        array(
+            'label' => esc_html__('Container Width'),
+            'section' => 'mfp_footer_bar_scetion',
+            'input_attrs' => array(
+                'min' => 1, // Required. Minimum value for the slider
+                'max' => 1920, // Required. Maximum value for the slider
+                'step' => 10, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+            ),
+        )
+    ));
     $wp_customize->add_setting(
         'footer_bar_container_width',
         array(

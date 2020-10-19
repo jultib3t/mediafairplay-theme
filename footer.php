@@ -66,7 +66,15 @@ if (!is_active_sidebar('mfp-footer-3')) {
             }
 
             section#wrapper-widget-footer .footer-widget-wrapper-inside {
-                max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px;
+                <?php
+                  $footer_footer_width = get_theme_mod('footer_container_width', 'default');
+                    if( $footer_footer_width == 'default') :  ?>
+                        max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px;
+                    <?php elseif ( $footer_footer_width == 'container' ) : ?>
+                        max-width: <?php echo get_theme_mod('footer_container_container_width', '1200'); ?>px;
+                    <?php elseif ( $footer_footer_width == 'full_width' ) : ?>
+                        max-width: 100%;
+                    <?php endif; ?>
                 width: 100%;
                 margin: 0 auto;
                 display: flex;
@@ -154,7 +162,16 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 padding: 30px 5px;
             }
             .footer-copyrights {
-                max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px;
+                <?php 
+                    $footer_width = get_theme_mod('footer_bar_container_width', 'default');
+
+                    if( $footer_width == 'default') :  ?>
+                        max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px;
+                    <?php elseif ( $footer_width == 'container' ) : ?>
+                        max-width: <?php echo get_theme_mod('footer_bar_container_container_width', '1200'); ?>px;
+                    <?php elseif ( $footer_width == 'full_width' ) : ?>
+                        max-width: 100%;
+                    <?php endif; ?>
                 margin: 0 auto;
                 width: 100%;
                 display: flex;

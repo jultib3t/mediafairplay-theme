@@ -1060,9 +1060,6 @@ if (class_exists('WP_Customize_Control')) {
 						}
 					}
 					?>
- <optgroup label="Group Name">
-    <option>Nested option</option>
-  </optgroup>
 				</select>
 				
 			</div>
