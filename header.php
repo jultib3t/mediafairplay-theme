@@ -22,10 +22,12 @@
   <?php
   $turn_google_api = get_theme_mod('turn_google_api_font');
   if ($turn_google_api) :
-    $sitefonts = get_theme_mod('sample_google_font_select');
+    $sitefonts = get_theme_mod('sample_google_font_select', 'Open+sans');
     $sitefonts = json_decode($sitefonts);
     $font = $sitefonts->font;
     $font = preg_replace('/\s+/', '+', $font);
+    echo 'hopa';
+    var_dump( $font );
     $weight = $sitefonts->boldweight;
     $category = $sitefonts->category; ?>
 
@@ -141,9 +143,13 @@
     }
 
     <?php } ?><?php } ?>body {
-      <?php if ($turn_google_api) : ?>font-family: <?php echo $font ?>, <?php echo $category ?>;
+      <?php if ($turn_google_api) :
+         $font = str_replace("+"," ",$font) ;
+        ?>
+      font-family: <?php echo $font ?>, <?php echo $category ?>;
       <?php else : ?>font-family: <?php echo get_theme_mod('global_typo_family', 'Arial') ?>;
-      <?php endif; ?>background-color: <?php echo get_theme_mod('content_background_color', '#fff') ?>;
+      <?php endif; ?>
+      background-color: <?php echo get_theme_mod('content_background_color', '#fff') ?>;
       font-size: <?php echo get_theme_mod('global_typo_font_size', 16); ?>px;
       font-weight: <?php echo get_theme_mod('global_typo_font_weight', 400); ?>;
       font-style: normal;

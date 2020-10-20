@@ -75,7 +75,7 @@ $id = 'read-more-' . $block['id'];
     border: 1px solid #ddd;
     border-radius: .25em;
     position: relative;
-    z-index: 9999;
+    z-index: 8;
   }
   .read-more-main-wrapper{
     position: relative;
