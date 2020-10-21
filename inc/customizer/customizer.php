@@ -1275,7 +1275,34 @@ class skyrocket_initialise_customizer_settings
             'mfp_casino_cards_global_bg_color',
             array(
                 'label' => __('Choose Background Color'),
-                'description' => esc_html__('Sample custom control description'),
+                'description' => esc_html__(''),
+                'section' => 'mfp_casino_cards_global_section',
+                'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
+                'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
+                    '#000',
+                    '#fff',
+                    '#df312c',
+                    '#df9a23',
+                    '#eef000',
+                    '#7ed934',
+                    '#1571c1',
+                    '#8309e7'
+                )
+            )
+        ));
+        $wp_customize->add_setting(
+            'mfp_casino_cards_global_wrapper_bg_color',
+            array(
+                'default' => '#fff',
+                'transport' => 'refresh'
+            )
+        );
+        $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+            $wp_customize,
+            'mfp_casino_cards_global_wrapper_bg_color',
+            array(
+                'label' => __('Choose Surrounding Background Color'),
+                'description' => esc_html__(''),
                 'section' => 'mfp_casino_cards_global_section',
                 'show_opacity' => true, // Optional. Show or hide the opacity value on the opacity slider handle. Default: true
                 'palette' => array( // Optional. Select the colours for the colour palette . Default: WP color control palette
@@ -1291,7 +1318,7 @@ class skyrocket_initialise_customizer_settings
             )
         ));
         // card global width
-        $wp_customize->add_setting(
+    /*     $wp_customize->add_setting(
             'mfp_casino_cards_global_width',
             array(
                 'default' => 'width',
@@ -1311,7 +1338,7 @@ class skyrocket_initialise_customizer_settings
                     'full_width' => __('Full Width') // Required. Setting for this particular radio button choice and the text to display // Required. Setting for this particular radio button choice and the text to display
                 )
             )
-        ));
+        )); */
         // card height
         $wp_customize->add_setting(
             'mfp_cards_global_height',
