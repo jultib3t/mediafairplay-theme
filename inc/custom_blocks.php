@@ -6,7 +6,7 @@ function my_acf_init_block_types()
     if (function_exists('acf_register_block_type')) {
         // register a testimonial block.
         acf_register_block_type(array(
-            'name' => 'MFP FAQ',
+            'name' => 'mfp_faq',
             'title' => __('MFP FAQ'),
             'description' => __('A custom testimonial block.'),
             'align'                => 'wide',

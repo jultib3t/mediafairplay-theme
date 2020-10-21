@@ -27,7 +27,8 @@ function mfp_global_typohraphy($wp_customize)
         'panel' => 'global_heading_panel',
     ));
 
-    $wp_customize->add_setting('h1_global_color',
+    $wp_customize->add_setting(
+        'h1_global_color',
         array(
             'default' => '#000',
             'transport' => 'refresh',
@@ -35,7 +36,9 @@ function mfp_global_typohraphy($wp_customize)
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h1_global_color',
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'h1_global_color',
         array(
             'label' => __('H1 Color'),
             'description' => esc_html__(''),
@@ -54,7 +57,8 @@ function mfp_global_typohraphy($wp_customize)
         )
     ));
 
-    $wp_customize->add_setting('global_h1_font_size',
+    $wp_customize->add_setting(
+        'global_h1_font_size',
         array(
             'default' => 48,
             'transport' => 'refresh',
@@ -62,7 +66,9 @@ function mfp_global_typohraphy($wp_customize)
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h1_font_size',
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'global_h1_font_size',
         array(
             'label' => esc_html__('H1 Font Size'),
             'section' => 'global_heading_section',
@@ -73,13 +79,48 @@ function mfp_global_typohraphy($wp_customize)
             ),
         )
     ));
+    $wp_customize->add_setting(
+        'global_h1_font_weghit',
+        array(
+            'default' => '400',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_h1_font_weghit',
+        array(
+            'label' => __('H1 Font Weight', 'mediafairplay'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section',
+            'input_attrs' => array(
+                'placeholder' => __('Please select a state...', 'skyrocket'),
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                '100' => __('100', 'mediafairplay'),
+                '200' => __('200', 'mediafairplay'),
+                '300' => __('300', 'mediafairplay'),
+                '400' => __('400', 'mediafairplay'),
+                '500' => __('500', 'mediafairplay'),
+                '600' => __('600', 'mediafairplay'),
+                '700' => __('700', 'mediafairplay'),
+                '800' => __('800', 'mediafairplay'),
+                '900' => __('900', 'mediafairplay'),
+            )
+        )
+    ));
+    /** H1 END */
+    /** H2 */
 
     $wp_customize->add_section('global_heading_section_h2', array(
         'title' => 'H2',
         'panel' => 'global_heading_panel',
     ));
 
-    $wp_customize->add_setting('h2_global_color',
+    $wp_customize->add_setting(
+        'h2_global_color',
         array(
             'default' => '#000',
             'transport' => 'refresh',
@@ -87,7 +128,9 @@ function mfp_global_typohraphy($wp_customize)
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h2_global_color',
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'h2_global_color',
         array(
             'label' => __('H2 Color'),
             'description' => esc_html__(''),
@@ -106,7 +149,8 @@ function mfp_global_typohraphy($wp_customize)
         )
     ));
 
-    $wp_customize->add_setting('global_h2_font_size',
+    $wp_customize->add_setting(
+        'global_h2_font_size',
         array(
             'default' => 48,
             'transport' => 'refresh',
@@ -114,7 +158,9 @@ function mfp_global_typohraphy($wp_customize)
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h2_font_size',
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'global_h2_font_size',
         array(
             'label' => esc_html__('H2 Font Size'),
             'section' => 'global_heading_section_h2',
@@ -125,13 +171,48 @@ function mfp_global_typohraphy($wp_customize)
             ),
         )
     ));
+    $wp_customize->add_setting(
+        'global_h2_font_weghit',
+        array(
+            'default' => '400',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_h2_font_weghit',
+        array(
+            'label' => __('H2 Font Weight', 'mediafairplay'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section_h2',
+            'input_attrs' => array(
+                'placeholder' => __('Please select a state...', 'skyrocket'),
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                '100' => __('100', 'mediafairplay'),
+                '200' => __('200', 'mediafairplay'),
+                '300' => __('300', 'mediafairplay'),
+                '400' => __('400', 'mediafairplay'),
+                '500' => __('500', 'mediafairplay'),
+                '600' => __('600', 'mediafairplay'),
+                '700' => __('700', 'mediafairplay'),
+                '800' => __('800', 'mediafairplay'),
+                '900' => __('900', 'mediafairplay'),
+            )
+        )
+    ));
+    /** h2 end */
 
+    /** h3 start */
     $wp_customize->add_section('global_heading_section_h3', array(
         'title' => 'H3',
         'panel' => 'global_heading_panel',
     ));
 
-    $wp_customize->add_setting('h3_global_color',
+    $wp_customize->add_setting(
+        'h3_global_color',
         array(
             'default' => '#000',
             'transport' => 'refresh',
@@ -139,7 +220,9 @@ function mfp_global_typohraphy($wp_customize)
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h3_global_color',
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'h3_global_color',
         array(
             'label' => __('H3 Color'),
             'description' => esc_html__(''),
@@ -158,7 +241,8 @@ function mfp_global_typohraphy($wp_customize)
         )
     ));
 
-    $wp_customize->add_setting('global_h3_font_size',
+    $wp_customize->add_setting(
+        'global_h3_font_size',
         array(
             'default' => 48,
             'transport' => 'refresh',
@@ -166,7 +250,9 @@ function mfp_global_typohraphy($wp_customize)
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h3_font_size',
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'global_h3_font_size',
         array(
             'label' => esc_html__('H3 Font Size'),
             'section' => 'global_heading_section_h3',
@@ -177,20 +263,56 @@ function mfp_global_typohraphy($wp_customize)
             ),
         )
     ));
-
+    $wp_customize->add_setting(
+        'global_h3_font_weghit',
+        array(
+            'default' => '400',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_h3_font_weghit',
+        array(
+            'label' => __('H3 Font Weight', 'mediafairplay'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section_h3',
+            'input_attrs' => array(
+                'placeholder' => __('Please select a state...', 'skyrocket'),
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                '100' => __('100', 'mediafairplay'),
+                '200' => __('200', 'mediafairplay'),
+                '300' => __('300', 'mediafairplay'),
+                '400' => __('400', 'mediafairplay'),
+                '500' => __('500', 'mediafairplay'),
+                '600' => __('600', 'mediafairplay'),
+                '700' => __('700', 'mediafairplay'),
+                '800' => __('800', 'mediafairplay'),
+                '900' => __('900', 'mediafairplay'),
+            )
+        )
+    ));
+    /** h3 end */
+    /** h4 start */
     $wp_customize->add_section('global_heading_section_h4', array(
         'title' => 'H4',
         'panel' => 'global_heading_panel',
     ));
 
-    $wp_customize->add_setting('h4_global_color',
+    $wp_customize->add_setting(
+        'h4_global_color',
         array(
             'default' => '#000',
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h4_global_color',
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'h4_global_color',
         array(
             'label' => __('H4 Color'),
             'description' => esc_html__(''),
@@ -208,14 +330,17 @@ function mfp_global_typohraphy($wp_customize)
             ),
         )
     ));
-    $wp_customize->add_setting('global_h4_font_size',
+    $wp_customize->add_setting(
+        'global_h4_font_size',
         array(
             'default' => 48,
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_sanitize_integer',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h4_font_size',
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'global_h4_font_size',
         array(
             'label' => esc_html__('H4 Font Size'),
             'section' => 'global_heading_section_h4',
@@ -226,19 +351,55 @@ function mfp_global_typohraphy($wp_customize)
             ),
         )
     ));
-
+    $wp_customize->add_setting(
+        'global_h4_font_weghit',
+        array(
+            'default' => '400',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_h4_font_weghit',
+        array(
+            'label' => __('H4 Font Weight', 'mediafairplay'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section_h4',
+            'input_attrs' => array(
+                'placeholder' => __('Please select a state...', 'skyrocket'),
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                '100' => __('100', 'mediafairplay'),
+                '200' => __('200', 'mediafairplay'),
+                '300' => __('300', 'mediafairplay'),
+                '400' => __('400', 'mediafairplay'),
+                '500' => __('500', 'mediafairplay'),
+                '600' => __('600', 'mediafairplay'),
+                '700' => __('700', 'mediafairplay'),
+                '800' => __('800', 'mediafairplay'),
+                '900' => __('900', 'mediafairplay'),
+            )
+        )
+    ));
+    /** h4 end */
+    /** h5 start */
     $wp_customize->add_section('global_heading_section_h5', array(
         'title' => 'H5',
         'panel' => 'global_heading_panel',
     ));
-    $wp_customize->add_setting('h5_global_color',
+    $wp_customize->add_setting(
+        'h5_global_color',
         array(
             'default' => '#000',
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h5_global_color',
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'h5_global_color',
         array(
             'label' => __('H5 Color'),
             'description' => esc_html__(''),
@@ -256,14 +417,17 @@ function mfp_global_typohraphy($wp_customize)
             ),
         )
     ));
-    $wp_customize->add_setting('global_h5_font_size',
+    $wp_customize->add_setting(
+        'global_h5_font_size',
         array(
             'default' => 48,
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_sanitize_integer',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h5_font_size',
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'global_h5_font_size',
         array(
             'label' => esc_html__('H5 Font Size'),
             'section' => 'global_heading_section_h5',
@@ -275,18 +439,56 @@ function mfp_global_typohraphy($wp_customize)
         )
     ));
 
+    $wp_customize->add_setting(
+        'global_h5_font_weghit',
+        array(
+            'default' => '400',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_h5_font_weghit',
+        array(
+            'label' => __('H5 Font Weight', 'mediafairplay'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section_h5',
+            'input_attrs' => array(
+                'placeholder' => __('Please select a state...', 'skyrocket'),
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                '100' => __('100', 'mediafairplay'),
+                '200' => __('200', 'mediafairplay'),
+                '300' => __('300', 'mediafairplay'),
+                '400' => __('400', 'mediafairplay'),
+                '500' => __('500', 'mediafairplay'),
+                '600' => __('600', 'mediafairplay'),
+                '700' => __('700', 'mediafairplay'),
+                '800' => __('800', 'mediafairplay'),
+                '900' => __('900', 'mediafairplay'),
+            )
+        )
+    ));
+    /** H5 end */
+
+    /** H6 Start */
     $wp_customize->add_section('global_heading_section_h6', array(
         'title' => 'H6',
         'panel' => 'global_heading_panel',
     ));
-    $wp_customize->add_setting('h6_global_color',
+    $wp_customize->add_setting(
+        'h6_global_color',
         array(
             'default' => '#000',
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_hex_rgba_sanitization',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control($wp_customize, 'h6_global_color',
+    $wp_customize->add_control(new Skyrocket_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'h6_global_color',
         array(
             'label' => __('H6 Color'),
             'description' => esc_html__(''),
@@ -304,14 +506,17 @@ function mfp_global_typohraphy($wp_customize)
             ),
         )
     ));
-    $wp_customize->add_setting('global_h6_font_size',
+    $wp_customize->add_setting(
+        'global_h6_font_size',
         array(
             'default' => 48,
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_sanitize_integer',
         )
     );
-    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'global_h6_font_size',
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'global_h6_font_size',
         array(
             'label' => esc_html__('H6 Font Size'),
             'section' => 'global_heading_section_h6',
@@ -322,6 +527,39 @@ function mfp_global_typohraphy($wp_customize)
             ),
         )
     ));
+    $wp_customize->add_setting(
+        'global_h6_font_weghit',
+        array(
+            'default' => '400',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control(
+        $wp_customize,
+        'global_h6_font_weghit',
+        array(
+            'label' => __('H6 Font Weight', 'mediafairplay'),
+            'description' => esc_html__(''),
+            'section' => 'global_heading_section_h6',
+            'input_attrs' => array(
+                'placeholder' => __('Please select a state...', 'skyrocket'),
+                'multiselect' => false,
+            ),
+            'choices' => array(
+                '100' => __('100', 'mediafairplay'),
+                '200' => __('200', 'mediafairplay'),
+                '300' => __('300', 'mediafairplay'),
+                '400' => __('400', 'mediafairplay'),
+                '500' => __('500', 'mediafairplay'),
+                '600' => __('600', 'mediafairplay'),
+                '700' => __('700', 'mediafairplay'),
+                '800' => __('800', 'mediafairplay'),
+                '900' => __('900', 'mediafairplay'),
+            )
+        )
+    ));
+    /** h6 end */
 
     // Test of Dropdown Select2 Control (single select)
     $wp_customize->add_setting(
@@ -356,7 +594,8 @@ function mfp_global_typohraphy($wp_customize)
         )
     ));
 
-    $wp_customize->add_setting('turn_google_api_font',
+    $wp_customize->add_setting(
+        'turn_google_api_font',
         array(
             'default' => 0,
             'transport' => 'refresh',
@@ -364,14 +603,17 @@ function mfp_global_typohraphy($wp_customize)
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'turn_google_api_font',
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control(
+        $wp_customize,
+        'turn_google_api_font',
         array(
             'label' => esc_html__('Turn On Google Fonts'),
             'section' => 'global_base_typography_section',
         )
     ));
 
-    $wp_customize->add_setting('sample_google_font_select',
+    $wp_customize->add_setting(
+        'sample_google_font_select',
         array(
             'default' => json_encode(
                 array(
@@ -387,7 +629,9 @@ function mfp_global_typohraphy($wp_customize)
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_Google_Font_Select_Custom_Control($wp_customize, 'sample_google_font_select',
+    $wp_customize->add_control(new Skyrocket_Google_Font_Select_Custom_Control(
+        $wp_customize,
+        'sample_google_font_select',
         array(
             'label' => __('Google Font Family'),
             'description' => esc_html__(''),

@@ -390,7 +390,7 @@ span.card_value_description {
         $count++;
       }
       $html .= '</div></div>';
-      if ($display_default_info) {
+  /*     if ($display_default_info) {
         $html .= '<script>
       const cards = document.querySelectorAll(".icon-info-wr");
 
@@ -399,7 +399,7 @@ span.card_value_description {
       }
       cards.forEach((card) => card.addEventListener("click", flipCard));
     </script>';
-      }
+      } */
     } else {
       $html .= '
       <style>

@@ -26,8 +26,8 @@
     $sitefonts = json_decode($sitefonts);
     $font = $sitefonts->font;
     $font = preg_replace('/\s+/', '+', $font);
-    echo 'hopa';
-    var_dump( $font );
+    // echo 'hopa';
+    // var_dump( $font );
     $weight = $sitefonts->boldweight;
     $category = $sitefonts->category; ?>
 
@@ -162,31 +162,37 @@
     h1 {
       font-size: <?php echo get_theme_mod('global_h1_font_size', '48') ?>px;
       color: <?php echo get_theme_mod('h1_global_color', '#000') ?>;
+      font-weight: <?php echo get_theme_mod('global_h1_font_weghit', '400') ?>;
     }
 
     h2 {
       font-size: <?php echo get_theme_mod('global_h2_font_size', '48') ?>px;
       color: <?php echo get_theme_mod('h2_global_color', '#000') ?>;
+      font-weight: <?php echo get_theme_mod('global_h2_font_weghit', '400') ?>;
     }
 
     h3 {
       font-size: <?php echo get_theme_mod('global_h3_font_size', '48') ?>px;
       color: <?php echo get_theme_mod('h3_global_color', '#000') ?>;
+      font-weight: <?php echo get_theme_mod('global_h3_font_weghit', '400') ?>;
     }
 
     h4 {
       font-size: <?php echo get_theme_mod('global_h4_font_size', '48') ?>px;
       color: <?php echo get_theme_mod('h4_global_color', '#000') ?>;
+      font-weight: <?php echo get_theme_mod('global_h4_font_weghit', '400') ?>;
     }
 
     h5 {
       font-size: <?php echo get_theme_mod('global_h5_font_size', '48') ?>px;
       color: <?php echo get_theme_mod('h5_global_color', '#000') ?>;
+      font-weight: <?php echo get_theme_mod('global_h5_font_weghit', '400') ?>;
     }
 
     h6 {
       font-size: <?php echo get_theme_mod('global_h6_font_size', '48') ?>px;
       color: <?php echo get_theme_mod('h6_global_color', '#000') ?>;
+      font-weight: <?php echo get_theme_mod('global_h6_font_weghit', '400') ?>;
     }
 
     p {

@@ -307,7 +307,21 @@ window.onresize = function () {
 
  </script>
 <?php endif; ?>
+<?php   
+// $blocks = parse_blocks( $post->post_content );
+// print_r($blocks);
+// Use || instead
+// this code check if the MFP TABLE Short code is exist. we need to change the block from shortcode to mfp tables block etc. do it after you developed the code
+if ( has_block( 'core/shortcode' )  ) : ?>
+    <script>
+      const cards = document.querySelectorAll(".icon-info-wr");
 
+      function flipCard() {
+        this.parentElement.parentElement.classList.toggle("is-flipped");
+      }
+      cards.forEach((card) => card.addEventListener("click", flipCard));
+    </script>
+<?php endif; ?>
 <?php wp_footer(); ?>
 
 <?php if (get_theme_mod('mfp_enable_back_to_top')) : ?>
