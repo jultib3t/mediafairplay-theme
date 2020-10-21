@@ -13,6 +13,7 @@ function mfp_tables_block($atts)
   ), $atts);
 
   $response = wp_remote_get('https://dev.theoffersjunction.com/wp-json/api/v1/category?api_cat_id=' . $a['category_id'] . '');
+  // var_dump($a['category_id'] );
   if (is_wp_error($response)) {
     return false; // Bail early
   }
@@ -41,6 +42,8 @@ function mfp_tables_block($atts)
       $display_default_info = get_theme_mod('mfp_cards_default_info_toggle', '1');
       // check if display review link
       $display_review_link = get_theme_mod('mfp_cards_review_link_toggle', '1');
+
+      $card_wrapper_bg_color = 
 
       $count = 1;
       $html .= '<style>
