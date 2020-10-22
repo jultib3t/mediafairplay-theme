@@ -312,7 +312,7 @@ span.card_value_description {
 
       $html .= '<div class="mfp-casino-block-wrapper"><div class="mfp-casino-block scene scene--card">';
       foreach ($datas as $data) {
-        print_r( $data );
+        // print_r( $data );
         $html .= '<div class="card">
                 <div class="card__face card__face--front">';
         if ($display_rank) {

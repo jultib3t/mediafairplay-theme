@@ -62,9 +62,9 @@ get_header();
 
         $post = get_post();
         $blocks = parse_blocks( $post->post_content ); 
-        echo '<pre>';
+     /*    echo '<pre>';
         var_dump($blocks);
-        echo '</pre>';
+        echo '</pre>'; */
 
 if ( has_blocks( $post->post_content ) ) {
     $blocks = parse_blocks( $post->post_content );
