@@ -43,9 +43,9 @@ function mfp_tables_block($atts)
       // check if display review link
       $display_review_link = get_theme_mod('mfp_cards_review_link_toggle', '1');
 
-      $card_wrapper_bg_color = 
+      $card_wrapper_bg_color =
 
-      $count = 1;
+        $count = 1;
       $html .= '<style>
             .scene {
                 height: 260px;
@@ -312,6 +312,7 @@ span.card_value_description {
 
       $html .= '<div class="mfp-casino-block-wrapper"><div class="mfp-casino-block scene scene--card">';
       foreach ($datas as $data) {
+        print_r( $data );
         $html .= '<div class="card">
                 <div class="card__face card__face--front">';
         if ($display_rank) {
@@ -375,9 +376,7 @@ span.card_value_description {
                        </figure>
                      </div>
                      <div class="card__value">
-                         <span class="card_value_description">
-                         The best online casino in Canada keeps rewarding players with a huge welcome bonus and fabulous gaming
-                         </span>
+                         <span class="card_value_description">'.$data->default_info.'</span>
                      </div>
                      <div class="play__now__wrapper">
                        <img style="max-width: 100px; width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/5_stars.svg">';
@@ -393,7 +392,7 @@ span.card_value_description {
         $count++;
       }
       $html .= '</div></div>';
-  /*     if ($display_default_info) {
+      /*     if ($display_default_info) {
         $html .= '<script>
       const cards = document.querySelectorAll(".icon-info-wr");
 
@@ -449,7 +448,7 @@ span.card_value_description {
     </div>
     <div class="tbody">';
       foreach ($datas as $data) {
-          $html .= '
+        $html .= '
           <div class="tbody_tr">
               <span class="table_rank">1</span>
               <span class="table_logo"><img src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"></span>
