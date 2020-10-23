@@ -144,12 +144,10 @@
 
     <?php } ?><?php } ?>body {
       <?php if ($turn_google_api) :
-         $font = str_replace("+"," ",$font) ;
-        ?>
-      font-family: <?php echo $font ?>, <?php echo $category ?>;
+        $font = str_replace("+", " ", $font);
+      ?>font-family: <?php echo $font ?>, <?php echo $category ?>;
       <?php else : ?>font-family: <?php echo get_theme_mod('global_typo_family', 'Arial') ?>;
-      <?php endif; ?>
-      background-color: <?php echo get_theme_mod('content_background_color', '#fff') ?>;
+      <?php endif; ?>background-color: <?php echo get_theme_mod('content_background_color', '#fff') ?>;
       font-size: <?php echo get_theme_mod('global_typo_font_size', 16); ?>px;
       font-weight: <?php echo get_theme_mod('global_typo_font_weight', 400); ?>;
       font-style: normal;
@@ -919,7 +917,7 @@
       }
 
       ul.main-menu li .sub-menu {
-        background: <?php echo get_theme_mod('menu_drop_down_bg', 'red')?>;
+        background: <?php echo get_theme_mod('menu_drop_down_bg', 'red') ?>;
       }
 
       li.search-wrapper {
@@ -1115,6 +1113,8 @@
     ?>
       <link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/inc/menus/mmenu/mm_style.css" />
       <?php
+
+      $header_align = get_theme_mod('header_alignment', 'ltr');
       echo '<style>
 	                .header-mfp-wrapper {
 	                  background: ' . get_theme_mod('header_background_color', '#eee') . ';
@@ -1122,17 +1122,67 @@
 	                  width: 100%;
                     top: 0;
                     z-index: 2;
-	                }
-	                .header-mfp{
-	                  background-color: inherit;
-	                  position: relative;
-	                  height: 110px;
-	                  padding-top: 5px;
-	                  padding-bottom: 5px;
-	                  max-width: 1200px;
-	                  margin: 0 auto;
-	                }
-
+                  }
+                 ';
+                 
+      if ($header_align == 'rtl') :
+       echo '.header-mfp {
+          background-color: inherit;
+          position: relative;
+          height: 110px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+    flex-direction: row-reverse;
+      }
+      .header-mfp .header-mfp-a {
+        position: relative;
+    }
+    
+    .header-mfp .image-wrppaer {
+        align-items: center;
+        width: 100%;
+        justify-content: end;
+    }';
+      ?>
+      <?php elseif($header_align == 'ltr' ):?>
+      <?php  echo '.header-mfp {
+          background-color: inherit;
+          position: relative;
+          height: 110px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+    flex-direction: row-reverse;
+      }
+      .header-mfp .image-wrppaer {
+        line-height: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        align-items: center;
+        width: 100%;
+        justify-content: flex-end;
+    }'; ?>
+      <?php else :  ?>
+        <?php echo '.header-mfp {
+    background-color: inherit;
+    position: relative;
+    height: 110px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-width: 1200px;
+    margin: 0 auto;
+}'; ?>
+      <?php endif; ?>
+      <?php
+      echo '
 	                .mm-spn ul{
 	                  font-size: ' . get_theme_mod('header_font_size_desktop', 16) . 'px;
 	                  font-weight: ' . get_theme_mod('mfp_header_font_weight', '400') . ';

@@ -43,7 +43,7 @@ function mfp_tables_block($atts)
       // check if display review link
       $display_review_link = get_theme_mod('mfp_cards_review_link_toggle', '1');
 
-      $card_wrapper_bg_color =
+      $cards_bg_wrapper = get_theme_mod('mfp_casino_cards_global_wrapper_bg_color', '#fff');
 
         $count = 1;
       $html .= '<style>
@@ -158,7 +158,7 @@ function mfp_tables_block($atts)
         }
         
         .mfp-casino-block-wrapper {
-            background: #f7f7f7;
+            background: '.$cards_bg_wrapper.';
             max-width: 100%;
             width: 100%;
             padding-block-start: 0.83em;
@@ -312,7 +312,8 @@ span.card_value_description {
 
       $html .= '<div class="mfp-casino-block-wrapper"><div class="mfp-casino-block scene scene--card">';
       foreach ($datas as $data) {
-        // print_r( $data );
+        echo 'hello';
+        print_r( $data );
         $html .= '<div class="card">
                 <div class="card__face card__face--front">';
         if ($display_rank) {

@@ -530,7 +530,7 @@ function register_header_customizer($wp_customize)
 
     $wp_customize->add_setting( 'header_alignment',
     array(
-       'default' => 'rtl',
+       'default' => 'ltr',
        'transport' => 'refresh',
        'sanitize_callback' => 'skyrocket_radio_sanitization'
     )

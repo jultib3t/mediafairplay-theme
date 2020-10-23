@@ -446,13 +446,7 @@ body {
     margin-top: 0;
 }
 
-.header-mfp .image-wrppaer {
-    line-height: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .header-mfp .image-wrppaer a.custom-logo-link img.custom-logo {
     display: block;
 }
