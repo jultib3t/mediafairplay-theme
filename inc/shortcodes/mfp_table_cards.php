@@ -382,12 +382,23 @@ span.card_value_description {
                    <span class="__icon icon-cancel-circle"></span>
                  </div>
                  <div class="cards__wrapper">
-                     <div class="card__details">
-                         <figure>
-                         <img
-                         src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
-                         />
-                       </figure>
+                     <div class="card__details">';
+                     if( $logo_choose == 'logo1'){
+                      $html .= '<figure>
+                      <img
+                      src="'.$data->logo1.'"
+                      />
+                    </figure>'; 
+                     }else{
+                      $html .= '<figure>
+                      <img
+                      src="'.$data->logo2.'"
+                      />
+                    </figure>';
+                     }
+                         
+
+                       $html .= '
                      </div>
                      <div class="card__value">
                          <span class="card_value_description">'.$data->default_info.'</span>
