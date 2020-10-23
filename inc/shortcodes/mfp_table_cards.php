@@ -311,8 +311,10 @@ span.card_value_description {
 
 
       $html .= '<div class="mfp-casino-block-wrapper"><div class="mfp-casino-block scene scene--card">';
+      $logo_choose = get_theme_mod('mfp_cards_choose_logo', 'logo1');
       foreach ($datas as $data) {
-        
+        // echo 'hello';
+        // print_r( $data );
         $html .= '<div class="card">
                 <div class="card__face card__face--front">';
         if ($display_rank) {
@@ -331,14 +333,26 @@ span.card_value_description {
           }
           $html .= '</div>';
         }
-        $html .= '
-                    <div class="cards__wrapper">
-                      <div class="card__details">
-                          <figure>
-                          <img
-                          src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
-                          />
-                        </figure>';
+        if( $logo_choose == 'logo1'){
+          $html .= '
+          <div class="cards__wrapper">
+            <div class="card__details">
+                <figure>
+                <img
+                src="'.$data->logo1.'"
+                />
+              </figure>';
+        }else{
+          $html .= '
+          <div class="cards__wrapper">
+            <div class="card__details">
+                <figure>
+                <img
+                src="'.$data->logo2.'"
+                />
+              </figure>';
+        }
+      
 
         if ($display_brand) {
           $html .= '<a href="#" class="review-link-a">' . $data->name . '</a>';

@@ -1318,7 +1318,7 @@ class skyrocket_initialise_customizer_settings
             )
         ));
         // card global width
-    /*     $wp_customize->add_setting(
+        /*     $wp_customize->add_setting(
             'mfp_casino_cards_global_width',
             array(
                 'default' => 'width',
@@ -1632,6 +1632,28 @@ class skyrocket_initialise_customizer_settings
             'title' => __('Logos', 'mediafairplay'),
             'panel'    => 'mfp_casino_cards_panel'
         ]);
+        $wp_customize->add_setting(
+            'mfp_cards_choose_logo',
+            array(
+                'default' => 'logo1',
+                'transport' => 'refresh',
+                'sanitize_callback' => 'skyrocket_radio_sanitization'
+            )
+        );
+
+        $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
+            $wp_customize,
+            'mfp_cards_choose_logo',
+            array(
+                'label' => __('Choose Logo Layout'),
+                'description' => esc_html__('Logo 1 OR Logo 2'),
+                'section' => 'mfp_casino_cards_logo_section',
+                'choices' => array(
+                    'logo1' => __(' Logo 1'), // Required. Setting for this particular radio button choice and the text to display
+                    'logo2' => __('Logo 2')
+                )
+            )
+        ));
         // Logo Desktop
         $wp_customize->add_setting(
             'mfp_cards_logo_desktop',
