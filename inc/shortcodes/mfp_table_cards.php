@@ -333,6 +333,8 @@ span.card_value_description {
           }
           $html .= '</div>';
         }
+
+        // check if image is logo 1 or 2 fron the customizer
         if( $logo_choose == 'logo1'){
           $html .= '
           <div class="cards__wrapper">
@@ -355,7 +357,7 @@ span.card_value_description {
       
 
         if ($display_brand) {
-          $html .= '<a href="#" class="review-link-a">' . $data->name . '</a>';
+          $html .= '<a href="' . $data->visit_url . '" class="review-link-a">' . $data->name . '</a>';
         } else {
           $html .= '<span class="review-link-a">' . $data->name . '</span>';
         }
@@ -371,7 +373,7 @@ span.card_value_description {
         }
         $html .= '</div>
                       <div class="play__now__wrapper">
-                        <a href="' . $data->tracker . '" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
+                        <a href="' . $data->visit_url . '" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
                         <span class="t_c_apply">T&Cs Apply</span>
                       </div>
                    </div>
@@ -406,7 +408,7 @@ span.card_value_description {
                      <div class="play__now__wrapper">
                        <img style="max-width: 100px; width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/5_stars.svg">';
           if ($display_review_link) {
-            $html .= '<a href="' . $data->tracker . '" class="cards_read_reviews">' . get_theme_mod('mfp_cards_review_link_text', 'Read Review') . '</a>';
+            $html .= '<a href="' . $data->review_url . '" class="cards_read_reviews">' . get_theme_mod('mfp_cards_review_link_text', 'Read Review') . '</a>';
           }
 
           $html .= '</div>

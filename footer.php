@@ -78,7 +78,6 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 width: 100%;
                 margin: 0 auto;
                 display: flex;
-                align-items: baseline;
                 justify-content: space-between;
                 padding: 25px 0;
                 padding-right: 0.83em;

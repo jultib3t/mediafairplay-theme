@@ -1033,7 +1033,6 @@
       <header class="header-wrapper-mfp">
         <nav dir="rtl" class="mfp-menu">
           <label for="menutoggle" id="toggle-menu">
-            <span class="menu-text">Menu</span>
             <div class="menu btn2" data-menu="2">
               <div class="icon"></div>
             </div>
