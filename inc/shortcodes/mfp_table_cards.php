@@ -296,6 +296,7 @@ span.card_value_description {
 .card__details figure img {
   width: 100%;
   max-width: ' . get_theme_mod("mfp_cards_logo_desktop", "167") . 'px;
+  height: 70px;
 }
 @media(max-width: 1000px){
     .card__details figure img {
@@ -348,8 +349,8 @@ span.card_value_description {
             else:
               $html .= '
                 <figure>
-                <img
-                src="https://thailandonlinecasino.com/wp-content/uploads/2019/05/jackpot-city-logo.png"
+                <img height="70"
+                src="'.get_template_directory_uri().'/images/mediafairplay-logo.jpg"
                 />
               </figure>';
             endif;
@@ -364,8 +365,8 @@ span.card_value_description {
             else:
               $html .= '
                 <figure>
-                <img
-                src="https://thailandonlinecasino.com/wp-content/uploads/2019/05/jackpot-city-logo.png"
+                <img height="70"
+                src="'.get_template_directory_uri().'/images/mediafairplay-logo.jpg"
                 />
               </figure>';
             endif;
@@ -413,8 +414,8 @@ span.card_value_description {
                       else:
                         $html .= '
                           <figure>
-                          <img
-                          src="https://thailandonlinecasino.com/wp-content/uploads/2019/05/jackpot-city-logo.png"
+                          <img height="70"
+                          src="'.get_template_directory_uri().'/images/mediafairplay-logo.jpg"
                           />
                         </figure>';
                       endif;
@@ -429,15 +430,12 @@ span.card_value_description {
                       else:
                         $html .= '
                           <figure>
-                          <img
-                          src="https://thailandonlinecasino.com/wp-content/uploads/2019/05/jackpot-city-logo.png"
+                          <img height="70"
+                          src="'.get_template_directory_uri().'/images/mediafairplay-logo.jpg"
                           />
                         </figure>';
                       endif;
                   }
-
-                         
-
                        $html .= '
                      </div>
                      <div class="card__value">
@@ -457,16 +455,7 @@ span.card_value_description {
         $count++;
       }
       $html .= '</div></div>';
-      /*     if ($display_default_info) {
-        $html .= '<script>
-      const cards = document.querySelectorAll(".icon-info-wr");
-
-      function flipCard() {
-        this.parentElement.parentElement.classList.toggle("is-flipped");
-      }
-      cards.forEach((card) => card.addEventListener("click", flipCard));
-    </script>';
-      } */
+ 
     } else {
       $html .= '
       <style>
