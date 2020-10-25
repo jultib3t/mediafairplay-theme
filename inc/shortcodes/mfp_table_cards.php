@@ -314,7 +314,7 @@ span.card_value_description {
       $logo_choose = get_theme_mod('mfp_cards_choose_logo', 'logo1');
       foreach ($datas as $data) {
         // echo 'hello';
-        // print_r( $data );
+        //  var_dump( $data );
         $html .= '<div class="card">
                 <div class="card__face card__face--front">';
         if ($display_rank) {
@@ -400,20 +400,42 @@ span.card_value_description {
                    <span class="__icon icon-cancel-circle"></span>
                  </div>
                  <div class="cards__wrapper">
-                     <div class="card__details">';
-                 /*     if( $logo_choose == 'logo1'){
-                      $html .= '<figure>
-                      <img
-                      src="'.$data->logo1.'"
-                      />
-                    </figure>'; 
-                     }else{
-                      $html .= '<figure>
-                      <img
-                      src="'.$data->logo2.'"
-                      />
-                    </figure>';
-                     } */
+                     <div class="card__details">'; 
+                     
+                     if( $logo_choose == 'logo1'){
+                      if( !empty( $data->logo1 ) ) :
+                      $html .= '
+                          <figure>
+                          <img
+                          src="'.$data->logo1.'"
+                          />
+                        </figure>';
+                      else:
+                        $html .= '
+                          <figure>
+                          <img
+                          src="https://thailandonlinecasino.com/wp-content/uploads/2019/05/jackpot-city-logo.png"
+                          />
+                        </figure>';
+                      endif;
+                  }else{
+                    if( !empty( $data->logo2 ) ) :
+                      $html .= '
+                          <figure>
+                          <img
+                          src="'.$data->logo2.'"
+                          />
+                        </figure>';
+                      else:
+                        $html .= '
+                          <figure>
+                          <img
+                          src="https://thailandonlinecasino.com/wp-content/uploads/2019/05/jackpot-city-logo.png"
+                          />
+                        </figure>';
+                      endif;
+                  }
+
                          
 
                        $html .= '
