@@ -333,26 +333,42 @@ span.card_value_description {
           }
           $html .= '</div>';
         }
-
+        $html .= '
+        <div class="cards__wrapper">
+          <div class="card__details">';
         // check if image is logo 1 or 2 fron the customizer
         if( $logo_choose == 'logo1'){
-          $html .= '
-          <div class="cards__wrapper">
-            <div class="card__details">
+            if( !empty( $data->logo1 ) ) :
+            $html .= '
                 <figure>
                 <img
                 src="'.$data->logo1.'"
                 />
               </figure>';
+            else:
+              $html .= '
+                <figure>
+                <img
+                src="https://thailandonlinecasino.com/wp-content/uploads/2019/05/jackpot-city-logo.png"
+                />
+              </figure>';
+            endif;
         }else{
-          $html .= '
-          <div class="cards__wrapper">
-            <div class="card__details">
+          if( !empty( $data->logo2 ) ) :
+            $html .= '
                 <figure>
                 <img
                 src="'.$data->logo2.'"
                 />
               </figure>';
+            else:
+              $html .= '
+                <figure>
+                <img
+                src="https://thailandonlinecasino.com/wp-content/uploads/2019/05/jackpot-city-logo.png"
+                />
+              </figure>';
+            endif;
         }
       
 
@@ -385,7 +401,7 @@ span.card_value_description {
                  </div>
                  <div class="cards__wrapper">
                      <div class="card__details">';
-                     if( $logo_choose == 'logo1'){
+                 /*     if( $logo_choose == 'logo1'){
                       $html .= '<figure>
                       <img
                       src="'.$data->logo1.'"
@@ -397,7 +413,7 @@ span.card_value_description {
                       src="'.$data->logo2.'"
                       />
                     </figure>';
-                     }
+                     } */
                          
 
                        $html .= '

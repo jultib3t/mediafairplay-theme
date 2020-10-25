@@ -13,29 +13,29 @@
 ?>
 
 <footer>
-<?php $last_modifited_toggle = get_theme_mod('mfp_header_Last_Modifited_toggle', 0); ?>
-<?php if( $last_modifited_toggle ): ?>
-    <style>
-        .last-update {
-            background: <?php echo get_theme_mod('last_mod_bg', '#000');?>;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-right: 0.83em;
-            padding-left: 0.83em;
-            padding-top: 0.83em;
-            padding-bottom: 0.83em;
-            margin-bottom: 10px;
-            color: <?php echo get_theme_mod('last_mod_txt_color', '#fff');?>;
-            font-size:  <?php echo get_theme_mod('last_mod_font_size', '15');?>px;
-        }
-    </style>
-    <section class="last-update-wrapper">
-        <div class="last-update">
-            <?php echo '<span> Last Modified: </span>'; ?>
-            <?php echo '<time>' . get_the_modified_date() . '</time>'; ?>
-        </div>
-    </section>
-<?php endif; ?>
+    <?php $last_modifited_toggle = get_theme_mod('mfp_header_Last_Modifited_toggle', 0); ?>
+    <?php if ($last_modifited_toggle) : ?>
+        <style>
+            .last-update {
+                background: <?php echo get_theme_mod('last_mod_bg', '#000'); ?>;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding-right: 0.83em;
+                padding-left: 0.83em;
+                padding-top: 0.83em;
+                padding-bottom: 0.83em;
+                margin-bottom: 10px;
+                color: <?php echo get_theme_mod('last_mod_txt_color', '#fff'); ?>;
+                font-size: <?php echo get_theme_mod('last_mod_font_size', '15'); ?>px;
+            }
+        </style>
+        <section class="last-update-wrapper">
+            <div class="last-update">
+                <?php echo '<span> Last Modified: </span>'; ?>
+                <?php echo '<time>' . get_the_modified_date() . '</time>'; ?>
+            </div>
+        </section>
+    <?php endif; ?>
 
     <?php
     /* if (!is_active_sidebar('mfp-footer-1')) {
@@ -52,30 +52,34 @@ if (!is_active_sidebar('mfp-footer-3')) {
         <style>
             section#wrapper-widget-footer {
                 background-color: <?php echo get_theme_mod('mfp_footer_bg_color', '#728d9e'); ?>;
-                color: <?php echo get_theme_mod('mfp_footer_text_color', '#fff')?>;
+                color: <?php echo get_theme_mod('mfp_footer_text_color', '#fff') ?>;
             }
-            section#wrapper-widget-footer h1, section#wrapper-widget-footer h2, section#wrapper-widget-footer h3, section#wrapper-widget-footer h4, section#wrapper-widget-footer h5, section#wrapper-widget-footer h6 {
+
+            section#wrapper-widget-footer h1,
+            section#wrapper-widget-footer h2,
+            section#wrapper-widget-footer h3,
+            section#wrapper-widget-footer h4,
+            section#wrapper-widget-footer h5,
+            section#wrapper-widget-footer h6 {
                 color: <?php echo get_theme_mod('mfp_footer_titles_color', '#728d9e'); ?>;
                 font-size: <?php echo get_theme_mod('mfp_footer_titles_font_size', '25'); ?>px;
             }
-            section#wrapper-widget-footer a{
+
+            section#wrapper-widget-footer a {
                 color: <?php echo get_theme_mod('mfp_footer_link_color', '#fff'); ?>;
             }
-            section#wrapper-widget-footer a:hover{
+
+            section#wrapper-widget-footer a:hover {
                 color: <?php echo get_theme_mod('mfp_footer_link_h_color', 'blue'); ?>;
             }
 
             section#wrapper-widget-footer .footer-widget-wrapper-inside {
                 <?php
-                  $footer_footer_width = get_theme_mod('footer_container_width', 'default');
-                    if( $footer_footer_width == 'default') :  ?>
-                        max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px;
-                    <?php elseif ( $footer_footer_width == 'container' ) : ?>
-                        max-width: <?php echo get_theme_mod('footer_container_container_width', '1200'); ?>px;
-                    <?php elseif ( $footer_footer_width == 'full_width' ) : ?>
-                        max-width: 100%;
-                    <?php endif; ?>
-                width: 100%;
+                $footer_footer_width = get_theme_mod('footer_container_width', 'default');
+                if ($footer_footer_width == 'default') :  ?>max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px;
+                <?php elseif ($footer_footer_width == 'container') : ?>max-width: <?php echo get_theme_mod('footer_container_container_width', '1200'); ?>px;
+                <?php elseif ($footer_footer_width == 'full_width') : ?>max-width: 100%;
+                <?php endif; ?>width: 100%;
                 margin: 0 auto;
                 display: flex;
                 justify-content: space-between;
@@ -152,26 +156,23 @@ if (!is_active_sidebar('mfp-footer-3')) {
 
     <?php } ?>
 
-    <?php if (is_active_sidebar('mfp-copyrights-footer')) : ?>
-        
+    <?php if (is_active_sidebar('mfp-copyrights-footer')  || is_active_sidebar('mfp-copyrights-footer-2')) : ?>
+
+
         <style>
-               
             .footer-copyrights-wrapper {
                 background: <?php echo get_theme_mod('mfp_footer_bar_bg_color', '#000'); ?>;
                 padding: 30px 5px;
             }
-            .footer-copyrights {
-                <?php 
-                    $footer_width = get_theme_mod('footer_bar_container_width', 'default');
 
-                    if( $footer_width == 'default') :  ?>
-                        max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px;
-                    <?php elseif ( $footer_width == 'container' ) : ?>
-                        max-width: <?php echo get_theme_mod('footer_bar_container_container_width', '1200'); ?>px;
-                    <?php elseif ( $footer_width == 'full_width' ) : ?>
-                        max-width: 100%;
-                    <?php endif; ?>
-                margin: 0 auto;
+            .footer-copyrights {
+                <?php
+                $footer_width = get_theme_mod('footer_bar_container_width', 'default');
+
+                if ($footer_width == 'default') :  ?>max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px;
+                <?php elseif ($footer_width == 'container') : ?>max-width: <?php echo get_theme_mod('footer_bar_container_container_width', '1200'); ?>px;
+                <?php elseif ($footer_width == 'full_width') : ?>max-width: 100%;
+                <?php endif; ?>margin: 0 auto;
                 width: 100%;
                 display: flex;
                 flex-direction: row;
@@ -180,13 +181,21 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 padding-left: 0.83em;
                 color: <?php echo get_theme_mod('mfp_footer_bar_text_color', '#fff'); ?>;
             }
-            .footer-copyrights h1, .footer-copyrights h2, .footer-copyrights h3, .footer-copyrights h4, .footer-copyrights h5, .footer-copyrights h6 {
-                color: <?php echo get_theme_mod('mfp_footer_bar_title_color', '#fff');?>;
-                font-size: <?php echo get_theme_mod('mfp_footer_bar_title_font_size', '25');?>px;
+
+            .footer-copyrights h1,
+            .footer-copyrights h2,
+            .footer-copyrights h3,
+            .footer-copyrights h4,
+            .footer-copyrights h5,
+            .footer-copyrights h6 {
+                color: <?php echo get_theme_mod('mfp_footer_bar_title_color', '#fff'); ?>;
+                font-size: <?php echo get_theme_mod('mfp_footer_bar_title_font_size', '25'); ?>px;
             }
+
             .footer-copyrights a {
                 color: <?php echo get_theme_mod('mfp_footer_bar_link_color', '#fff'); ?>
             }
+
             .footer-copyrights a:hover {
                 color: <?php echo get_theme_mod('mfp_footer_bar_h_link_color', 'blue'); ?>
             }
@@ -197,26 +206,21 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 max-width: 100%;
                 width: 100%;
             }
-           
-            .footer-copyrights > li:last-child {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-end;
-            }
-           
+
             .footer-copyrights li p {
                 margin: 0;
             }
-           
+
             .first-footer-wrapper {
                 background-color: #b71c1c;
             }
+
             .footer-copyrights-wrapper .footer-copyrights li ul {
                 padding-inline-start: 0;
                 padding-inline-end: 0;
                 margin-left: 0;
             }
+
             .first-footer-wrapper .first-footer {
                 width: 100%;
                 margin: 0 auto;
@@ -224,28 +228,36 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 justify-content: space-between;
                 align-items: center;
             }
-           
-            .lower-footer-wrapper .lower-footer {
-                max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px;
-                width: 100%;
-                margin: 0 auto;
-            }
-
-            .lower-footer .allrights {
-                display: flex;
-                justify-content: space-between;
-                padding: 15px 0px; 
-
-            }
 
             .first-footer-wrapper .first-footer ul {
                 list-style: none;
-            } 
-            @media(max-width: 1200px){
+            }
+
+            <?php $footer_first_inner = get_theme_mod('mfp_footer_bar_column_width', 70); ?>
+
+            .footer-copyrights .footer-copyrights-inner.first {
+                width: <?php echo $footer_first_inner;?>%;
+                max-width: <?php echo $footer_first_inner;?>%;
+                height: auto;
+                margin-right: 15px;
+            }
+            <?php 
+                    $final_inner_width = 100;
+                    $final_inner_width -= $footer_first_inner;
+            ?>
+            .footer-copyrights-inner.sec {
+                
+                margin-left: 15px;
+                width: <?php echo $final_inner_width;?>%;
+                max-width: <?php echo $final_inner_width;?>%;
+            }
+
+            @media(max-width: 1200px) {
                 .footer-copyrights {
                     flex-direction: column;
                 }
-                .footer-copyrights > li:last-child {
+
+                .footer-copyrights>li:last-child {
                     align-items: baseline;
                 }
             }
@@ -253,8 +265,19 @@ if (!is_active_sidebar('mfp-footer-3')) {
 
         <div class="footer-copyrights-wrapper">
             <div class="footer-copyrights">
-                <?php dynamic_sidebar('mfp-copyrights-footer'); ?>
+                <?php if (is_active_sidebar('mfp-copyrights-footer')) : ?>
+                    <div class="footer-copyrights-inner first">
+                        <?php dynamic_sidebar('mfp-copyrights-footer'); ?>
+                    </div>
+                <?php endif;  ?>
+                <?php if (is_active_sidebar('mfp-copyrights-footer-2')) : ?>
+                    <div class="footer-copyrights-inner sec">
+                        <?php dynamic_sidebar('mfp-copyrights-footer-2'); ?>
+                    </div>
+                <?php endif;  ?>
+
             </div>
+
         </div>
 
     <?php endif; ?>
@@ -263,62 +286,61 @@ if (!is_active_sidebar('mfp-footer-3')) {
 <!-- Footer End -->
 </div>
 <!-- Page End -->
-<?php if( get_theme_mod('display_indicator', 1)): ?>
+<?php if (get_theme_mod('display_indicator', 1)) : ?>
     <style>
-html .indicator,
-body .indicator {
-  position: fixed;
-  display: block;
-  background-color: <?php echo get_theme_mod('indicator_bg', '#d6d35d')?>;
-  height: 5px;
-  top: 0;
-  z-index: 99;
-}
-</style>
-<div class="indicator"></div>
- <script>
-var body = document.body;
-var html = document.documentElement;
+        html .indicator,
+        body .indicator {
+            position: fixed;
+            display: block;
+            background-color: <?php echo get_theme_mod('indicator_bg', '#d6d35d') ?>;
+            height: 5px;
+            top: 0;
+            z-index: 99;
+        }
+    </style>
+    <div class="indicator"></div>
+    <script>
+        var body = document.body;
+        var html = document.documentElement;
 
-var height = 0;
-var h = 0;
+        var height = 0;
+        var h = 0;
 
-var initiateHeights = function () {
-  height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-  h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-  console.log("heights were initialised:", height, h);
-}
+        var initiateHeights = function() {
+            height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+            h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+            console.log("heights were initialised:", height, h);
+        }
 
-initiateHeights();
+        initiateHeights();
 
-var resize = function (e) {
-  var scrolled = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
-  height > 0 ? e[0].style.width = scrolled/(height-h) * 100 + "%" : e.style.width = 0 + "%";
-}
+        var resize = function(e) {
+            var scrolled = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+            height > 0 ? e[0].style.width = scrolled / (height - h) * 100 + "%" : e.style.width = 0 + "%";
+        }
 
-document.onscroll = function () {
-  resize(document.getElementsByClassName("indicator"));
-};
+        document.onscroll = function() {
+            resize(document.getElementsByClassName("indicator"));
+        };
 
-window.onresize = function () {
-  initiateHeights();
-}
-
- </script>
+        window.onresize = function() {
+            initiateHeights();
+        }
+    </script>
 <?php endif; ?>
-<?php   
+<?php
 // $blocks = parse_blocks( $post->post_content );
 // print_r($blocks);
 // Use || instead
 // this code check if the MFP TABLE Short code is exist. we need to change the block from shortcode to mfp tables block etc. do it after you developed the code
-if ( has_block( 'core/shortcode' )  ) : ?>
+if (has_block('core/shortcode')) : ?>
     <script>
-      const cards = document.querySelectorAll(".icon-info-wr");
+        const cards = document.querySelectorAll(".icon-info-wr");
 
-      function flipCard() {
-        this.parentElement.parentElement.classList.toggle("is-flipped");
-      }
-      cards.forEach((card) => card.addEventListener("click", flipCard));
+        function flipCard() {
+            this.parentElement.parentElement.classList.toggle("is-flipped");
+        }
+        cards.forEach((card) => card.addEventListener("click", flipCard));
     </script>
 <?php endif; ?>
 <?php wp_footer(); ?>

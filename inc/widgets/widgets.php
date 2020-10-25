@@ -30,8 +30,17 @@ function mfp_register_sidebars()
     'after_title'   => '</h2>',
   ));
   register_sidebar(array(
-    'name'          => __('Footer Bar Area', 'mfp'),
+    'name'          => __('Footer Bar Area 1', 'mfp'),
     'id'            => 'mfp-copyrights-footer',
+    'description'   => __('Copyrights Footer Area', 'mfp'),
+    'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</li>',
+    'before_title'  => '<h2 class="widgettitle">',
+    'after_title'   => '</h2>',
+  ));
+  register_sidebar(array(
+    'name'          => __('Footer Bar Area 2', 'mfp'),
+    'id'            => 'mfp-copyrights-footer-2',
     'description'   => __('Copyrights Footer Area', 'mfp'),
     'before_widget' => '<li id="%1$s" class="widget %2$s">',
     'after_widget'  => '</li>',

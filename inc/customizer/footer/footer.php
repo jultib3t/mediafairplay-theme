@@ -325,6 +325,31 @@ function mfp_footer_control($wp_customize)
             ),
         )
     ));
+    /** Fotter bar inner column width */
+    $wp_customize->add_setting(
+        'mfp_footer_bar_column_width',
+        array(
+            'default' => 70,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'mfp_footer_bar_column_width',
+        array(
+            'label' => esc_html__('Inner Column Width'),
+            'section' => 'mfp_footer_bar_scetion',
+            'input_attrs' => array(
+                'min' => 0, // Required. Minimum value for the slider
+                'max' => 100, // Required. Maximum value for the slider
+                'step' => 5, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+            ),
+        )
+    ));
+    /** END Fotter bar inner column width */
+
     /**   Title fonts size  */
     $wp_customize->add_setting(
         'mfp_footer_bar_title_font_size',
