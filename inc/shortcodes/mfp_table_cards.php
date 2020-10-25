@@ -45,7 +45,7 @@ function mfp_tables_block($atts)
 
       $cards_bg_wrapper = get_theme_mod('mfp_casino_cards_global_wrapper_bg_color', '#fff');
 
-        $count = 1;
+      $count = 1;
       $html .= '<style>
             .scene {
                 height: 260px;
@@ -158,7 +158,7 @@ function mfp_tables_block($atts)
         }
         
         .mfp-casino-block-wrapper {
-            background: '.$cards_bg_wrapper.';
+            background: ' . $cards_bg_wrapper . ';
             max-width: 100%;
             width: 100%;
             padding-block-start: 0.83em;
@@ -338,40 +338,40 @@ span.card_value_description {
         <div class="cards__wrapper">
           <div class="card__details">';
         // check if image is logo 1 or 2 fron the customizer
-        if( $logo_choose == 'logo1'){
-            if( !empty( $data->logo1 ) ) :
+        if ($logo_choose == 'logo1') {
+          if (!empty($data->logo1)) :
             $html .= '
                 <figure>
                 <img
-                src="'.$data->logo1.'"
+                src="' . $data->logo1 . '"
                 />
               </figure>';
-            else:
-              $html .= '
+          else :
+            $html .= '
                 <figure>
-                <img height="70"
-                src="'.get_template_directory_uri().'/images/mediafairplay-logo.jpg"
-                />
+                <img 
+                          src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
+                          />
               </figure>';
-            endif;
-        }else{
-          if( !empty( $data->logo2 ) ) :
+          endif;
+        } else {
+          if (!empty($data->logo2)) :
             $html .= '
                 <figure>
                 <img
-                src="'.$data->logo2.'"
+                src="' . $data->logo2 . '"
                 />
               </figure>';
-            else:
-              $html .= '
+          else :
+            $html .= '
                 <figure>
-                <img height="70"
-                src="'.get_template_directory_uri().'/images/mediafairplay-logo.jpg"
-                />
+                <img 
+                          src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
+                          />
               </figure>';
-            endif;
+          endif;
         }
-      
+
 
         if ($display_brand) {
           $html .= '<a href="' . $data->visit_url . '" class="review-link-a">' . $data->name . '</a>';
@@ -401,45 +401,45 @@ span.card_value_description {
                    <span class="__icon icon-cancel-circle"></span>
                  </div>
                  <div class="cards__wrapper">
-                     <div class="card__details">'; 
-                     
-                     if( $logo_choose == 'logo1'){
-                      if( !empty( $data->logo1 ) ) :
-                      $html .= '
+                     <div class="card__details">';
+
+          if ($logo_choose == 'logo1') {
+            if (!empty($data->logo1)) :
+              $html .= '
                           <figure>
                           <img
-                          src="'.$data->logo1.'"
+                          src="' . $data->logo1 . '"
                           />
                         </figure>';
-                      else:
-                        $html .= '
+            else :
+              $html .= '
                           <figure>
-                          <img height="70"
-                          src="'.get_template_directory_uri().'/images/mediafairplay-logo.jpg"
+                          <img 
+                          src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
                         </figure>';
-                      endif;
-                  }else{
-                    if( !empty( $data->logo2 ) ) :
-                      $html .= '
+            endif;
+          } else {
+            if (!empty($data->logo2)) :
+              $html .= '
                           <figure>
                           <img
-                          src="'.$data->logo2.'"
+                          src="' . $data->logo2 . '"
                           />
                         </figure>';
-                      else:
-                        $html .= '
+            else :
+              $html .= '
                           <figure>
-                          <img height="70"
-                          src="'.get_template_directory_uri().'/images/mediafairplay-logo.jpg"
+                          <img 
+                          src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
                         </figure>';
-                      endif;
-                  }
-                       $html .= '
+            endif;
+          }
+          $html .= '
                      </div>
                      <div class="card__value">
-                         <span class="card_value_description">'.$data->default_info.'</span>
+                         <span class="card_value_description">' . $data->default_info . '</span>
                      </div>
                      <div class="play__now__wrapper">
                        <img style="max-width: 100px; width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/5_stars.svg">';
@@ -455,7 +455,6 @@ span.card_value_description {
         $count++;
       }
       $html .= '</div></div>';
- 
     } else {
       $html .= '
       <style>
