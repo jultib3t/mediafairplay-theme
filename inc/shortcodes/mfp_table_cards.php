@@ -294,17 +294,19 @@ span.card_value_description {
   color: ' . get_theme_mod("mfp_cards_default_info_color", "#888") . ';
 }
 .card__details figure img {
-  width: 100%;
+  width: ' . get_theme_mod("mfp_cards_logo_desktop", "167") . 'px;
   max-width: ' . get_theme_mod("mfp_cards_logo_desktop", "167") . 'px;
   height: 70px;
 }
 @media(max-width: 1000px){
     .card__details figure img {
+      width: ' . get_theme_mod("mfp_cards_logo_tablet", "167") . 'px;
        max-width: ' . get_theme_mod("mfp_cards_logo_tablet", "167") . 'px;
   }
 }
 @media(max-width: 550px){
   .card__details figure img {
+    width: ' . get_theme_mod("mfp_cards_logo_mobile", "167") . 'px;
     max-width: ' . get_theme_mod("mfp_cards_logo_mobile", "167") . 'px;
 }
 }
@@ -342,14 +344,14 @@ span.card_value_description {
           if (!empty($data->logo1)) :
             $html .= '
                 <figure>
-                <img
+                <img width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" height="79"
                 src="' . $data->logo1 . '"
                 />
               </figure>';
           else :
             $html .= '
                 <figure>
-                <img 
+                <img width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" height="79"
                           src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
               </figure>';
@@ -358,14 +360,14 @@ span.card_value_description {
           if (!empty($data->logo2)) :
             $html .= '
                 <figure>
-                <img
+                <img width="'.get_theme_mod("mfp_cards_logo_mobile", "167").'" height="79"
                 src="' . $data->logo2 . '"
                 />
               </figure>';
           else :
             $html .= '
                 <figure>
-                <img 
+                <img width="'.get_theme_mod("mfp_cards_logo_mobile", "167").'" height="79"
                           src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
               </figure>';
@@ -407,14 +409,14 @@ span.card_value_description {
             if (!empty($data->logo1)) :
               $html .= '
                           <figure>
-                          <img
+                          <img height="79" width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" 
                           src="' . $data->logo1 . '"
                           />
                         </figure>';
             else :
               $html .= '
                           <figure>
-                          <img 
+                          <img height="79" width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" 
                           src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
                         </figure>';
@@ -423,14 +425,14 @@ span.card_value_description {
             if (!empty($data->logo2)) :
               $html .= '
                           <figure>
-                          <img
+                          <img height="79" width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" 
                           src="' . $data->logo2 . '"
                           />
                         </figure>';
             else :
               $html .= '
                           <figure>
-                          <img 
+                          <img height="79" width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" 
                           src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
                         </figure>';
