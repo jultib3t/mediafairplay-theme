@@ -871,13 +871,12 @@
       }
 
       label#toggle-menu {
-        padding: 18px 40px;
-        width: 20%;
+        padding: 18px 0;
+        width: 0;
         margin: 0 -2.83em;
         height: <?php echo get_theme_mod('header_height_tablet', '110') ?>px;
         display: flex;
         align-items: center;
-        padding-right: 0.83em;
       }
 
       label#toggle-menu span {
@@ -908,7 +907,7 @@
         -webkit-tap-highlight-color: transparent;
         position: relative;
         order: 1;
-        padding-right: 10px;
+        padding-right: 20px;
       }
 
       ul.main-menu.clearfix.extra {

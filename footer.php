@@ -93,6 +93,16 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 margin: 0;
             }
 
+            .footer-widget-wrapper-inside li h2 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .footer-widget-wrapper-inside li ul {
+                padding-inline-start: 0;
+                margin-left: 0;
+            }
+
             section#wrapper-widget-footer .footer-widget-wrapper-inside div {
                 max-width: 100%;
                 width: 100%;
@@ -101,15 +111,6 @@ if (!is_active_sidebar('mfp-footer-3')) {
 
             section#wrapper-widget-footer .footer-widget-wrapper-inside li a {
                 text-decoration: none;
-            }
-
-            section#wrapper-widget-footer .footer-widget-wrapper-inside .second-footer-widget-wrapper {
-                display: flex;
-                justify-content: center;
-            }
-
-            section#wrapper-widget-footer .footer-widget-wrapper-inside .third-footer-widget-wrapper {
-                text-align: right;
             }
 
             section#wrapper-widget-footer .footer-widget-wrapper-inside li .menu-footer-container ul#menu-footer {
@@ -127,9 +128,6 @@ if (!is_active_sidebar('mfp-footer-3')) {
                     text-align: left;
                 }
 
-                section#wrapper-widget-footer .footer-widget-wrapper-inside .second-footer-widget-wrapper {
-                    justify-content: flex-start;
-                }
             }
         </style>
         <section id="wrapper-widget-footer" class="wrapper-widget-footer">
@@ -233,23 +231,21 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 list-style: none;
             }
 
-            <?php $footer_first_inner = get_theme_mod('mfp_footer_bar_column_width', 70); ?>
-
-            .footer-copyrights .footer-copyrights-inner.first {
-                width: <?php echo $footer_first_inner;?>%;
-                max-width: <?php echo $footer_first_inner;?>%;
+            <?php $footer_first_inner = get_theme_mod('mfp_footer_bar_column_width', 70); ?>.footer-copyrights .footer-copyrights-inner.first {
+                width: <?php echo $footer_first_inner; ?>%;
+                max-width: <?php echo $footer_first_inner; ?>%;
                 height: auto;
                 margin-right: 15px;
             }
-            <?php 
-                    $final_inner_width = 100;
-                    $final_inner_width -= $footer_first_inner;
-            ?>
-            .footer-copyrights-inner.sec {
-                
+
+            <?php
+            $final_inner_width = 100;
+            $final_inner_width -= $footer_first_inner;
+            ?>.footer-copyrights-inner.sec {
+
                 margin-left: 15px;
-                width: <?php echo $final_inner_width;?>%;
-                max-width: <?php echo $final_inner_width;?>%;
+                width: <?php echo $final_inner_width; ?>%;
+                max-width: <?php echo $final_inner_width; ?>%;
             }
 
             @media(max-width: 1200px) {
