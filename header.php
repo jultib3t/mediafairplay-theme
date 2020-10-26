@@ -1098,6 +1098,7 @@
       <?php
 
       $header_align = get_theme_mod('header_alignment', 'ltr');
+      $header_height = get_theme_mod('header_height_desktop', '110');
       echo '<style>
 	                .header-mfp-wrapper {
 	                  background: ' . get_theme_mod('header_background_color', '#eee') . ';
@@ -1112,29 +1113,29 @@
         echo '.header-mfp {
           background-color: inherit;
           position: relative;
-          height: 110px;
+          height: '.$header_height.'px;
           padding-top: 5px;
           padding-bottom: 5px;
           max-width: 1200px;
           margin: 0 auto;
           display: flex;
-    flex-direction: row-reverse;
-      }
-      .header-mfp .header-mfp-a {
-        position: relative;
-    }
-    
-    .header-mfp .image-wrppaer {
-        align-items: center;
-        width: 100%;
-        justify-content: end;
-    }';
+          flex-direction: row-reverse;
+            }
+            .header-mfp .header-mfp-a {
+              position: relative;
+          }
+          
+          .header-mfp .image-wrppaer {
+              align-items: center;
+              width: 100%;
+              justify-content: end;
+          }';
       ?>
       <?php elseif ($header_align == 'ltr') : ?>
         <?php echo '.header-mfp {
           background-color: inherit;
           position: relative;
-          height: 110px;
+          height: '.$header_height.'px;
           padding-top: 5px;
           padding-bottom: 5px;
           max-width: 1200px;
@@ -1157,7 +1158,7 @@
         <?php echo '.header-mfp {
     background-color: inherit;
     position: relative;
-    height: 110px;
+    height: '.$header_height.'px;
     padding-top: 5px;
     padding-bottom: 5px;
     max-width: 1200px;
