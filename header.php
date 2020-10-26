@@ -515,15 +515,6 @@
       transition-duration: 0.5s;
     }
 
-    .btn2 .icon {
-      -webkit-transition-duration: 0.5s;
-      transition-duration: 0.5s;
-      position: absolute;
-      height: 8px;
-      width: 60px;
-      top: 30px;
-      background-color: #212121;
-    }
 
     .btn2 .icon:before {
       -webkit-transition-duration: 0.5s;
@@ -536,17 +527,6 @@
       top: -20px;
     }
 
-    .btn2 .icon:after {
-      -webkit-transition-duration: 0.5s;
-      transition-duration: 0.5s;
-      position: absolute;
-      width: 60px;
-      height: 8px;
-      background-color: #212121;
-      content: "";
-      top: 20px;
-    }
-
     .btn2.open .icon {
       -webkit-transition-duration: 0.5s;
       transition-duration: 0.5s;
@@ -557,12 +537,6 @@
       -webkit-transform: rotateZ(45deg) scaleX(1.25) translate(13px, 13px);
       transform: rotateZ(45deg) scaleX(1.25) translate(13px, 13px);
     }
-
-    .btn2.open .icon:after {
-      -webkit-transform: rotateZ(-45deg) scaleX(1.25) translate(12px, -12px);
-      transform: rotateZ(-45deg) scaleX(1.25) translate(12px, -12px);
-    }
-
     .btn2:hover {
       cursor: pointer;
     }
@@ -837,23 +811,33 @@
       }
 
       .btn2 .icon {
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        position: absolute;
+        top: 30px;
+        background-color: #212121;
         background: <?php echo get_theme_mod('header_hamburger_color', 'red') ?>;
         height: 2px;
-        width: 20px;
+        width: 25px;
       }
 
       .btn2 .icon:before {
         background: <?php echo get_theme_mod('header_hamburger_color', 'red') ?>;
-        top: -5px;
-        width: 20px;
+        top: -6px;
+        width: 25px;
         height: 2px;
       }
 
       .btn2 .icon:after {
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        position: absolute;
+        height: 8px;
+        content: "";
         background: <?php echo get_theme_mod('header_hamburger_color', 'red') ?>;
         height: 2px;
-        top: 5px;
-        width: 20px;
+        top: 6px;
+        width: 25px;
       }
 
       .btn2.open .icon:before {
@@ -861,7 +845,8 @@
       }
 
       .btn2.open .icon:after {
-        transform: rotateZ(-45deg) scaleX(0.9) translate(4px, -5px);
+        -webkit-transform: rotateZ(-45deg) scaleX(1.25) translate(12px, -12px);
+        transform: rotateZ(-45deg) scaleX(0.9) translate(5px, -6px);
       }
 
       .mfp-menu li label.caret:after {
@@ -1122,9 +1107,9 @@
                     z-index: 2;
                   }
                  ';
-                 
+
       if ($header_align == 'rtl') :
-       echo '.header-mfp {
+        echo '.header-mfp {
           background-color: inherit;
           position: relative;
           height: 110px;
@@ -1145,8 +1130,8 @@
         justify-content: end;
     }';
       ?>
-      <?php elseif($header_align == 'ltr' ):?>
-      <?php  echo '.header-mfp {
+      <?php elseif ($header_align == 'ltr') : ?>
+        <?php echo '.header-mfp {
           background-color: inherit;
           position: relative;
           height: 110px;
