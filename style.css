@@ -4,7 +4,7 @@ Theme URI: http://mediafairplay.com/
 Author: MFP DEV FORCE
 Author URI: http://underscores.me/
 Description: Mediafairplay Theme
-Version: 1.4.397
+Version: 1.4.398
 Tested up to: 5.4
 Requires PHP: 7.1
 License: GNU General Public License v2 or later
@@ -574,4 +574,8 @@ figcaption.blocks-gallery-caption {
 }
 .wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container{
   color: #000;
+}
+.wp-block-image figure {
+  max-width: 30%;
+  max-height: 100%;
 }
