@@ -242,15 +242,21 @@ if (!is_active_sidebar('mfp-footer-3')) {
             $final_inner_width = 100;
             $final_inner_width -= $footer_first_inner;
             ?>.footer-copyrights-inner.sec {
-
                 margin-left: 15px;
                 width: <?php echo $final_inner_width; ?>%;
                 max-width: <?php echo $final_inner_width; ?>%;
             }
 
-            @media(max-width: 1200px) {
+            @media(max-width: <?php echo $footer_first_inner; ?>px) {
                 .footer-copyrights {
                     flex-direction: column;
+                }
+
+                .footer-copyrights .footer-copyrights-inner.first,
+                .footer-copyrights .footer-copyrights-inner.sec {
+                    max-width: 100%;
+                    width: 100%;
+                    margin: 0;
                 }
 
                 .footer-copyrights>li:last-child {
