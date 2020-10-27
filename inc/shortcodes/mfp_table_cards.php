@@ -392,7 +392,7 @@ span.card_value_description {
         }
         $html .= '</div>
                       <div class="play__now__wrapper">
-                        <a href="' . $data->visit_url . '" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
+                        <a href="/visit/' . $data->visit_url . '" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
                         <span class="t_c_apply">T&Cs Apply</span>
                       </div>
                    </div>

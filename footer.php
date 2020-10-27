@@ -246,8 +246,8 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 width: <?php echo $final_inner_width; ?>%;
                 max-width: <?php echo $final_inner_width; ?>%;
             }
-
-            @media(max-width: <?php echo $footer_first_inner; ?>px) {
+        
+            @media(max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px) {
                 .footer-copyrights {
                     flex-direction: column;
                 }
@@ -421,7 +421,7 @@ if (has_block('core/shortcode')) : ?>
     <!-- END Back To Top script-->
 <?php endif; ?>
 
-<style>
+<!-- <style>
 
           #news-signup{
               position: fixed;
@@ -772,7 +772,7 @@ bioEp.init({
               cookieExp: 0
           });
 
-</script>
+</script> -->
 </body>
 
 </html>
