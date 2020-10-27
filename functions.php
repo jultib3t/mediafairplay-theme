@@ -527,6 +527,8 @@ function wpex_wp_welcome_panel()
   add_action('admin_init', 'wrapper');
 
 
+
+
   // Remove jQuery Migrate Script from header and Load jQuery from Google API
 function crunchify_stop_loading_wp_embed_and_jquery() {
 	if (!is_admin()) {
@@ -535,6 +537,17 @@ function crunchify_stop_loading_wp_embed_and_jquery() {
 	}
 }
 add_action('init', 'crunchify_stop_loading_wp_embed_and_jquery');
+
+// toj custom rewrite
+function toj_custom_rewrites()
+{
+    $theme_path = get_template();
+    // var_dump($theme_path);
+    add_rewrite_rule('^visit/(.+)/?', '/wp-content/themes/' . $theme_path . '/visit.php?visit_url=$1', 'top');
+    flush_rewrite_rules();
+}
+add_action('init', 'toj_custom_rewrites');
+
 
 
   require 'plugin-update-checker-master/plugin-update-checker.php';
