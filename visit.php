@@ -64,7 +64,7 @@ if(!empty($visit_url)) {
             <script>
             window.setTimeout(function () {
                 window.location.replace("http://stackoverflow.com");
-            }, 1000);
+            }, 3000);
         </script>
             
         <?php
