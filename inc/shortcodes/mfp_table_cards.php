@@ -2,7 +2,7 @@
 
 // [mfp-table category_id="1" display="10"]
 // [ mfp-table category_id="1" display="10" read-more="yes" style="table/cards"]
-// [mfp-table category_id="25" display="10" in_row="4" style="cards"]
+// [mfp-table category_id="25" display="10" read_more="yes" in_row="4" style="cards"]
 function mfp_tables_block($atts)
 {
   // ob_start();
