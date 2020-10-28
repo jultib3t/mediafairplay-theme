@@ -54,7 +54,7 @@ function mfp_tables_block($atts)
       // check if display review link
       $display_review_link = get_theme_mod('mfp_cards_review_link_toggle', '1');
 
-      $global_bg_color = get_theme_mod('global_Content_Background_Color', '#fff')
+      $global_bg_color = get_theme_mod('global_Content_Background_Color', '#fff');
       $cards_bg_wrapper = get_theme_mod('mfp_casino_cards_global_wrapper_bg_color', $global_bg_color);
 
       $count = 1;
