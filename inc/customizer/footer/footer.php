@@ -6,7 +6,7 @@ function mfp_footer_control($wp_customize)
         array(
             'title' => __('Footer', 'mediafairplay'),
             'description' => esc_html__('Adjust your Header', 'mediafairplay'),
-            'priority' => 40,
+            'priority' => 50,
         )
     );
     $wp_customize->add_section(

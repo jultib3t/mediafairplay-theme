@@ -325,6 +325,12 @@ function mfp_tables_block($atts)
                   width: ' . get_theme_mod("mfp_cards_logo_tablet", "167") . 'px;
                   max-width: ' . get_theme_mod("mfp_cards_logo_tablet", "167") . 'px;
               }
+              .mfp-casino-block-wrapper {
+                width: unset;
+                max-width: unset;
+                margin-right: -0.83em;
+                margin-left: -0.83em;
+            }
             }
             @media(max-width: 550px){
               .card__details figure img {
