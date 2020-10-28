@@ -2,13 +2,15 @@
 
 // [mfp-table category_id="1" display="10"]
 // [ mfp-table category_id="1" display="10" read-more="yes" style="table/cards"]
+// [mfp-table category_id="25" display="10" in_row="4" style="cards"]
 function mfp_tables_block($atts)
 {
   // ob_start();
   $a = shortcode_atts(array(
     'category_id' => null,
     'display' => null,
-    'read-more' => null,
+    'read_more' => null,
+    'in_row' => null,
     'style'     => null
   ), $atts);
 
@@ -23,6 +25,15 @@ function mfp_tables_block($atts)
 
     $html = '';
     if ($a['style'] == 'cards') {
+
+      $in_row = $a['in_row'];
+      /** in_row = 8 = 120px */
+      /** in_row = 7 = 140px */
+      /** in_row = 6 = 170px */
+      /** in_row = 5 = 210px */
+      /** in_row = 4 = 250px */
+      /** in_row = 3 = 350px */
+      /** in_row = 2 = 400px */
       // check if full width or only width
       $total_width = get_theme_mod("mfp_casino_cards_global_width", "width");
       if ($total_width !== 'width') {
@@ -46,6 +57,29 @@ function mfp_tables_block($atts)
       $cards_bg_wrapper = get_theme_mod('mfp_casino_cards_global_wrapper_bg_color', '#fff');
 
       $count = 1;
+      switch ($in_row) {
+        case '2':
+          $in_row_width = '400';
+          break;
+        case '3':
+          $in_row_width = '350';
+          break;
+        case '4':
+          $in_row_width = '250';
+          break;
+        case '5':
+          $in_row_width = '210';
+          break;
+        case '6':
+          $in_row_width = '170';
+          break;
+        case '7':
+          $in_row_width = '140';
+          break;
+        case '8':
+          $in_row_width = '120';
+          break;
+      }
       $html .= '<style>
             .scene {
                 height: 260px;
@@ -67,7 +101,7 @@ function mfp_tables_block($atts)
                 transform-style: preserve-3d;
                 position: relative;
                 width: 100%;
-                max-width: 250px;
+                max-width: ' . $in_row_width . 'px;
                 margin-right: 10px;
                 height: ' . get_theme_mod("mfp_cards_global_height", "330") . 'px;
                 margin-bottom: 10px;
@@ -116,200 +150,188 @@ function mfp_tables_block($atts)
                 margin-right: -10px;
                 margin-left: -10px;
                 margin-bottom: -10px;
+              }
+              .card figure {
+                  margin: 0;
+                  line-height: 0;
+              }
+              a.cards_play_now {
+                  background-color: ' . get_theme_mod("mfp_casino_cards_button_bg_color", "#267aba") . ';
+                  color: ' . get_theme_mod("mfp_casino_cards_button_text_color", "#f8f8f8") . ';
+                  box-shadow: 0 1px 0 0 #c7c7c7, 0 4px 8px 0 rgba(0,0,0,.1);
+                  width: 100%;
+                  display: inline-block;
+                  line-height: 46px;
+                  cursor: pointer;
+                  margin-top: 10px;
+                  text-decoration: none;
+                  font-size: ' . get_theme_mod("mfp_casino_cards_button_font_size", "26") . 'px;
+                  font-weight: 400;
+                  border-radius: 10px;
+                  max-width: 190px;
+              }
+              a.cards_play_now:hover {
+                  background: ' . get_theme_mod("mfp_casino_cards_button_bg_color_hover", "#65b6fa") . ';
+              }
+              span.number {
+                float: left;
+                border: 1px solid;
+                border-radius: 50%;
+                padding: 0px 7px;
+                margin-left: 5px;
+                border-color: #000;
+                font-size: 11px;
             }
-          .card figure {
-              margin: 0;
-              line-height: 0;
-          }
-       
-          
-          a.cards_play_now {
-              background-color: ' . get_theme_mod("mfp_casino_cards_button_bg_color", "#267aba") . ';
-              color: ' . get_theme_mod("mfp_casino_cards_button_text_color", "#f8f8f8") . ';
-              box-shadow: 0 1px 0 0 #c7c7c7, 0 4px 8px 0 rgba(0,0,0,.1);
-              width: 100%;
-              display: inline-block;
-              line-height: 46px;
-              cursor: pointer;
-              margin-top: 10px;
+            .mfp-casino-block.scene.scene--card {
+                max-width: ' . $width . ';
+                margin: 0 auto;
+                width: 100%;
+            }
+            
+            .mfp-casino-block-wrapper {
+                background: ' . $cards_bg_wrapper . ';
+                max-width: 100%;
+                width: 100%;
+                padding-block-start: 0.83em;
+                padding-block-end: 0.83em;
+                margin-block-start: 0.83em;
+                margin-block-end: 0.83em;
+            }
+            .card__details .review-link-a {
+              font-size: ' . get_theme_mod("mfp_cards_brand_name_font_size", "16") . 'px;
+              color: ' . get_theme_mod("mfp_cards_brand_name_color", "#267aba") . ';
+              font-weight: ' . get_theme_mod("mfp_cards_brand_name_font_weight", "700") . ';
               text-decoration: none;
-              font-size: ' . get_theme_mod("mfp_casino_cards_button_font_size", "26") . 'px;
-              font-weight: 400;
-              border-radius: 10px;
-              max-width: 190px;
-          }
-          
-          a.cards_play_now:hover {
-              background: ' . get_theme_mod("mfp_casino_cards_button_bg_color_hover", "#65b6fa") . ';
-          }
-          span.number {
-            float: left;
-            border: 1px solid;
-            border-radius: 50%;
-            padding: 0px 7px;
-            margin-left: 5px;
-            border-color: #000;
-            font-size: 11px;
-        }
-        .mfp-casino-block.scene.scene--card {
-            max-width: ' . $width . ';
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        .mfp-casino-block-wrapper {
-            background: ' . $cards_bg_wrapper . ';
-            max-width: 100%;
-            width: 100%;
-            padding-block-start: 0.83em;
-            padding-block-end: 0.83em;
-            margin-block-start: 0.83em;
-            margin-block-end: 0.83em;
-        }
-        .card__details .review-link-a {
-          font-size: ' . get_theme_mod("mfp_cards_brand_name_font_size", "16") . 'px;
-          color: ' . get_theme_mod("mfp_cards_brand_name_color", "#267aba") . ';
-          font-weight: ' . get_theme_mod("mfp_cards_brand_name_font_weight", "700") . ';
-          text-decoration: none;
-      }
-      
-      .card__value {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-top: 10px;
-          margin-bottom: 0px;
-          line-height: 27px;
-      }
-      
-      .card__value span.card_bonus {
-        font-size: ' . get_theme_mod("mfp_cards_bonus_font_size", "36") . 'px;
-        font-weight: ' . get_theme_mod("mfp_cards_bonus_font_weight", "700") . ';
-        color: ' . get_theme_mod("mfp_cards_bonus_color", "#3f3f3f") . ';
-      }
-      span.t_c_apply {
-        font-size: ' . get_theme_mod("mfp_casino_cards_t_c_apply_font_size", "12") . 'px;
-        font-weight: ' . get_theme_mod("mfp_casino_cards_t_c_apply_font_weight", "300") . ';
-        display: block;
-        padding-top: 5px;
-        color: ' . get_theme_mod("mfp_casino_cards_t_c_apply_color", "#888") . ';
-    }
-    .cards__wrapper {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-  }
-  
-  .play__now__wrapper {
-      padding-bottom: 15px;
-  }
-  span.card__free_spins{
-    font-size: ' . get_theme_mod("mfp_cards_free_spins_font_size", "16") . 'px;
-    font-weight: ' . get_theme_mod("mfp_cards_free_spins_font_weight", "700") . ';
-    display: block;
-    padding-top: 5px;
-    color: ' . get_theme_mod("mfp_cards_free_spins_color", "#3f3f3f") . ';
-  }
-  .card__details {
-    line-height: initial;
-}
-.card__face.card__face--back .card__value {
-  line-height: inherit;
-  font-size: 14px;
-  font-weight: bold;
-  padding-right: 5px;
-  padding-left: 5px;
-}
-.card__face.card__face--back .card__value {
-  margin-top: 0;
-}
-a.cards_read_reviews {
-  display: block;
-  font-size: ' . get_theme_mod("mfp_cards_review_link_font_size", "16") . 'px;
-  font-weight: bold;
-  text-decoration: none;
-  color:  ' . get_theme_mod("mfp_cards_review_link_color", "#267aba") . ';
-}
-@font-face {
-  font-family: "icomoon";
-  src:  url("' . get_template_directory_uri() . '/fonts/icomoon.eot?uew2");
-  src:  url("' . get_template_directory_uri() . '/fonts/icomoon.eot?uew2#iefix") format("embedded-opentype"),
-    url("' . get_template_directory_uri() . '/fonts/icomoon.ttf?uew2") format("truetype"),
-    url("' . get_template_directory_uri() . '/fonts/icomoon.woff?uew2") format("woff"),
-    url("' . get_template_directory_uri() . '/fonts/icomoon.svg?uew2#icomoon") format("svg");
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
+            }
+            .card__value {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 10px;
+                margin-bottom: 0px;
+                line-height: 27px;
+            }
+            .card__value span.card_bonus {
+              font-size: ' . get_theme_mod("mfp_cards_bonus_font_size", "36") . 'px;
+              font-weight: ' . get_theme_mod("mfp_cards_bonus_font_weight", "700") . ';
+              color: ' . get_theme_mod("mfp_cards_bonus_color", "#3f3f3f") . ';
+            }
+            span.t_c_apply {
+              font-size: ' . get_theme_mod("mfp_casino_cards_t_c_apply_font_size", "12") . 'px;
+              font-weight: ' . get_theme_mod("mfp_casino_cards_t_c_apply_font_weight", "300") . ';
+              display: block;
+              padding-top: 5px;
+              color: ' . get_theme_mod("mfp_casino_cards_t_c_apply_color", "#888") . ';
+            }
+            .cards__wrapper {
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+            .play__now__wrapper {
+                padding-bottom: 15px;
+            }
+            span.card__free_spins{
+              font-size: ' . get_theme_mod("mfp_cards_free_spins_font_size", "16") . 'px;
+              font-weight: ' . get_theme_mod("mfp_cards_free_spins_font_weight", "700") . ';
+              display: block;
+              padding-top: 5px;
+              color: ' . get_theme_mod("mfp_cards_free_spins_color", "#3f3f3f") . ';
+            }
+              .card__details {
+                line-height: initial;
+            }
+            .card__face.card__face--back .card__value {
+              line-height: inherit;
+              font-size: 14px;
+              font-weight: bold;
+              padding-right: 5px;
+              padding-left: 5px;
+            }
+            .card__face.card__face--back .card__value {
+              margin-top: 0;
+            }
+            a.cards_read_reviews {
+              display: block;
+              font-size: ' . get_theme_mod("mfp_cards_review_link_font_size", "16") . 'px;
+              font-weight: bold;
+              text-decoration: none;
+              color:  ' . get_theme_mod("mfp_cards_review_link_color", "#267aba") . ';
+            }
+            @font-face {
+              font-family: "icomoon";
+              src:  url("' . get_template_directory_uri() . '/fonts/icomoon.eot?uew2");
+              src:  url("' . get_template_directory_uri() . '/fonts/icomoon.eot?uew2#iefix") format("embedded-opentype"),
+                url("' . get_template_directory_uri() . '/fonts/icomoon.ttf?uew2") format("truetype"),
+                url("' . get_template_directory_uri() . '/fonts/icomoon.woff?uew2") format("woff"),
+                url("' . get_template_directory_uri() . '/fonts/icomoon.svg?uew2#icomoon") format("svg");
+                font-weight: normal;
+                font-style: normal;
+                font-display: block;
+            }
+            [class^="icon-"], [class*=" icon-"] {
+              /* use !important to prevent issues with browser extensions that change fonts */
+              font-family: "icomoon" !important;
+              speak: never;
+              font-style: normal;
+              font-weight: normal;
+              font-variant: normal;
+              text-transform: none;
 
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-info:before {
-  content: "\ea0c";
-}
-.icon-cancel-circle:before {
-  content: "\ea0d";
-}
-.icon-info-wr span {
-  color: ' . get_theme_mod("mfp_casino_rank_color", "#cacaca") . ';
-}
-.icon-info-wr span.__icon:hover, .icon-info-wr span.number:hover {
-  color: ' . get_theme_mod("mfp_casino_rank_color_hover", "#f00") . ';
-  transition: all .2s ease;
-}
-
-.icon-info-wr span.number {
-  font-size: 12px;
-  color:' . get_theme_mod("mfp_casino_rank_color", "#cacaca") . ';
-  font-weight: bold;
-  border: 2px solid;
-  padding: 0 6px;
-}
-
-.icon-info-wr span.__icon {
-  font-size: 23px;
-}
-
-
-.icon-info-wr {display: flex;align-items: center;justify-content: space-between;padding-top: 5px;}
-.icon-info-wr.back {
-  justify-content: flex-end;
-}
-span.card_value_description {
-  font-size: ' . get_theme_mod("mfp_cards_default_info_font_size", "15") . 'px;
-  font-weight: ' . get_theme_mod("mfp_cards_default_info_font_weight", "700") . ';
-  color: ' . get_theme_mod("mfp_cards_default_info_color", "#888") . ';
-}
-.card__details figure img {
-  width: ' . get_theme_mod("mfp_cards_logo_desktop", "167") . 'px;
-  max-width: ' . get_theme_mod("mfp_cards_logo_desktop", "167") . 'px;
-  height: 70px;
-}
-@media(max-width: 1000px){
-    .card__details figure img {
-      width: ' . get_theme_mod("mfp_cards_logo_tablet", "167") . 'px;
-       max-width: ' . get_theme_mod("mfp_cards_logo_tablet", "167") . 'px;
-  }
-}
-@media(max-width: 550px){
-  .card__details figure img {
-    width: ' . get_theme_mod("mfp_cards_logo_mobile", "167") . 'px;
-    max-width: ' . get_theme_mod("mfp_cards_logo_mobile", "167") . 'px;
-}
-}
+              /* Better Font Rendering =========== */
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
+            .icon-info:before {
+              content: "\ea0c";
+            }
+            .icon-cancel-circle:before {
+              content: "\ea0d";
+            }
+            .icon-info-wr span {
+              color: ' . get_theme_mod("mfp_casino_rank_color", "#cacaca") . ';
+            }
+            .icon-info-wr span.__icon:hover, .icon-info-wr span.number:hover {
+              color: ' . get_theme_mod("mfp_casino_rank_color_hover", "#f00") . ';
+              transition: all .2s ease;
+            }
+            .icon-info-wr span.number {
+              font-size: 12px;
+              color:' . get_theme_mod("mfp_casino_rank_color", "#cacaca") . ';
+              font-weight: bold;
+              border: 2px solid;
+              padding: 0 6px;
+            }
+            .icon-info-wr span.__icon {
+              font-size: 23px;
+            }
+            .icon-info-wr {display: flex;align-items: center;justify-content: space-between;padding-top: 5px;}
+            .icon-info-wr.back {
+              justify-content: flex-end;
+            }
+            span.card_value_description {
+              font-size: ' . get_theme_mod("mfp_cards_default_info_font_size", "15") . 'px;
+              font-weight: ' . get_theme_mod("mfp_cards_default_info_font_weight", "700") . ';
+              color: ' . get_theme_mod("mfp_cards_default_info_color", "#888") . ';
+            }
+            .card__details figure img {
+              width: ' . get_theme_mod("mfp_cards_logo_desktop", "167") . 'px;
+              max-width: ' . get_theme_mod("mfp_cards_logo_desktop", "167") . 'px;
+              height: 70px;
+            }
+            @media(max-width: 1000px){
+                .card__details figure img {
+                  width: ' . get_theme_mod("mfp_cards_logo_tablet", "167") . 'px;
+                  max-width: ' . get_theme_mod("mfp_cards_logo_tablet", "167") . 'px;
+              }
+            }
+            @media(max-width: 550px){
+              .card__details figure img {
+                width: ' . get_theme_mod("mfp_cards_logo_mobile", "167") . 'px;
+                max-width: ' . get_theme_mod("mfp_cards_logo_mobile", "167") . 'px;
+            }
+            }
             </style>';
 
 
@@ -344,14 +366,14 @@ span.card_value_description {
           if (!empty($data->logo1)) :
             $html .= '
                 <figure>
-                <img width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" height="79"
+                <img width="' . get_theme_mod("mfp_cards_logo_mobile", "162") . '" height="79"
                 src="' . $data->logo1 . '"
                 />
               </figure>';
           else :
             $html .= '
                 <figure>
-                <img width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" height="79"
+                <img width="' . get_theme_mod("mfp_cards_logo_mobile", "162") . '" height="79"
                           src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
               </figure>';
@@ -360,14 +382,14 @@ span.card_value_description {
           if (!empty($data->logo2)) :
             $html .= '
                 <figure>
-                <img width="'.get_theme_mod("mfp_cards_logo_mobile", "167").'" height="79"
+                <img width="' . get_theme_mod("mfp_cards_logo_mobile", "167") . '" height="79"
                 src="' . $data->logo2 . '"
                 />
               </figure>';
           else :
             $html .= '
                 <figure>
-                <img width="'.get_theme_mod("mfp_cards_logo_mobile", "167").'" height="79"
+                <img width="' . get_theme_mod("mfp_cards_logo_mobile", "167") . '" height="79"
                           src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
               </figure>';
@@ -392,7 +414,7 @@ span.card_value_description {
         }
         $html .= '</div>
                       <div class="play__now__wrapper">
-                        <a target="_blank" href="'.get_site_url().'/visit/' . $data->visit_url . '/" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
+                        <a target="_blank" href="' . get_site_url() . '/visit/' . $data->visit_url . '/" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
                         <span class="t_c_apply">T&Cs Apply</span>
                       </div>
                    </div>
@@ -409,14 +431,14 @@ span.card_value_description {
             if (!empty($data->logo1)) :
               $html .= '
                           <figure>
-                          <img height="79" width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" 
+                          <img height="79" width="' . get_theme_mod("mfp_cards_logo_mobile", "162") . '" 
                           src="' . $data->logo1 . '"
                           />
                         </figure>';
             else :
               $html .= '
                           <figure>
-                          <img height="79" width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" 
+                          <img height="79" width="' . get_theme_mod("mfp_cards_logo_mobile", "162") . '" 
                           src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
                         </figure>';
@@ -425,14 +447,14 @@ span.card_value_description {
             if (!empty($data->logo2)) :
               $html .= '
                           <figure>
-                          <img height="79" width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" 
+                          <img height="79" width="' . get_theme_mod("mfp_cards_logo_mobile", "162") . '" 
                           src="' . $data->logo2 . '"
                           />
                         </figure>';
             else :
               $html .= '
                           <figure>
-                          <img height="79" width="'.get_theme_mod("mfp_cards_logo_mobile", "162").'" 
+                          <img height="79" width="' . get_theme_mod("mfp_cards_logo_mobile", "162") . '" 
                           src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"
                           />
                         </figure>';
