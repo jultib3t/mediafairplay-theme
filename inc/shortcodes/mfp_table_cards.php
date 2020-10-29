@@ -325,7 +325,7 @@ function mfp_tables_block($atts)
             .card__details figure img {
               width: ' . get_theme_mod("mfp_cards_logo_desktop", "167") . 'px;
               max-width: ' . get_theme_mod("mfp_cards_logo_desktop", "167") . 'px;
-              height: 70px;
+              height: 72px;
             }
             @media(max-width: 1000px){
                 .card__details figure img {
