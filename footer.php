@@ -311,7 +311,7 @@ if (!is_active_sidebar('mfp-footer-3')) {
         var initiateHeights = function() {
             height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
             h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-            console.log("heights were initialised:", height, h);
+            // console.log("heights were initialised:", height, h);
         }
 
         initiateHeights();
@@ -773,8 +773,13 @@ bioEp.init({
           });
 
 </script> -->
-
-<!-- <script>
+<!-- <a href="#" id="get_it">Click me </a>
+<script>
+const b = document.querySelector("#get_it");
+b.onclick = fire;
+console.log( b );
+function fire(e){
+    e.preventDefault();
     fetch( 'https://jsonplaceholder.typicode.com/users' )
         .then(response => {
             return response.json();
@@ -782,6 +787,8 @@ bioEp.init({
         .then( users => {
             console.log(users);
         })
+}
+    
 </script> -->
 </body>
 
