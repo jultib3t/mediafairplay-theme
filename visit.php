@@ -54,7 +54,7 @@ if(!empty($visit_url)) {
      //   echo '<img src="http://i.stack.imgur.com/SBv4T.gif" alt="this slowpoke moves"  width=250/>';
         $response   =   json_decode(wp_remote_retrieve_body($response));
         if($response->status) { 
-            // var_dump($response->tracker_url);
+           //  var_dump($response->tracker_url);
             
             ?>
 
@@ -63,7 +63,7 @@ if(!empty($visit_url)) {
 </div>
             <script>
             window.setTimeout(function () {
-                window.location.replace("http://stackoverflow.com");
+                window.location.replace("<?php echo $response->tracker_url;?>");
             }, 3000);
         </script>
             

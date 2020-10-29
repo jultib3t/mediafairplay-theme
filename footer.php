@@ -773,7 +773,7 @@ bioEp.init({
           });
 
 </script> -->
-<a href="#" id="get_it">Click me </a>
+<!-- <a href="#" id="get_it">Click me </a>
 <script>
 const b = document.querySelector("#get_it");
 b.onclick = fire;
@@ -787,9 +787,9 @@ function fire(e){
         .then( users => {
             console.log(users);
         })
-}
+} -->
 
-/* window.addEventListener('load', function (e) {
+<!--  window.addEventListener('load', function (e) {
     e.preventDefault();
     fetch( 'https://dev.theoffersjunction.com/wp-json/api/v1/category?api_cat_id=31' )
         .then(response => {
@@ -798,9 +798,9 @@ function fire(e){
         .then( users => {
             console.log(users);
         })
-}); */
+}); 
     
-</script>
+</script> -->
 </body>
 
 </html>
