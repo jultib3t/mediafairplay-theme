@@ -773,14 +773,14 @@ bioEp.init({
           });
 
 </script> -->
-<!-- <a href="#" id="get_it">Click me </a>
+<a href="#" id="get_it">Click me </a>
 <script>
 const b = document.querySelector("#get_it");
 b.onclick = fire;
 console.log( b );
 function fire(e){
     e.preventDefault();
-    fetch( 'https://jsonplaceholder.typicode.com/users' )
+    fetch( 'https://dev.theoffersjunction.com/wp-json/api/v1/category?api_cat_id=31' )
         .then(response => {
             return response.json();
         })
@@ -788,8 +788,19 @@ function fire(e){
             console.log(users);
         })
 }
+
+/* window.addEventListener('load', function (e) {
+    e.preventDefault();
+    fetch( 'https://dev.theoffersjunction.com/wp-json/api/v1/category?api_cat_id=31' )
+        .then(response => {
+            return response.json();
+        })
+        .then( users => {
+            console.log(users);
+        })
+}); */
     
-</script> -->
+</script>
 </body>
 
 </html>

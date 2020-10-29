@@ -185,7 +185,8 @@ include_once trailingslashit(dirname(__FILE__)) . 'inc/users/custom_users.php';
 /** 
  * MFP SHORT CODES
  */
-include_once trailingslashit(dirname(__FILE__)) . 'inc/shortcodes/mfp_table_cards.php';
+ include_once trailingslashit(dirname(__FILE__)) . 'inc/shortcodes/mfp_table_cards.php';
+// include_once trailingslashit(dirname(__FILE__)) . 'inc/shortcodes/mfp_table_cards_2.php';
 
 
 /**

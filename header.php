@@ -31,7 +31,7 @@
     $weight = $sitefonts->boldweight;
     $category = $sitefonts->category; ?>
 
-    <link href="https://fonts.googleapis.com/css2?family=<?php echo $font ?>&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=<?php echo $font ?>&display=swap" rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');">
 
   <?php endif; ?>
 

@@ -25,7 +25,7 @@ function mfp_tables_block($atts)
 
     $html = '';
     if ($a['style'] == 'cards') {
-
+      // var_dump($a['in_row']);
       $in_row = $a['in_row'];
       /** in_row = 8 = 120px */
       /** in_row = 7 = 140px */
@@ -58,6 +58,8 @@ function mfp_tables_block($atts)
       $cards_bg_wrapper = get_theme_mod('mfp_casino_cards_global_wrapper_bg_color', $global_bg_color);
 
       $count = 1;
+      // echo 'hello';
+      // var_dump($in_row);
       switch ($in_row) {
         case '2':
           $in_row_width = '400';
@@ -80,7 +82,11 @@ function mfp_tables_block($atts)
         case '8':
           $in_row_width = '120';
           break;
+        default:
+        $in_row_width = '250';
+        break;
       }
+    
       $html .= '<style>
             .scene {
                 height: 260px;
