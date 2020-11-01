@@ -307,8 +307,13 @@ function mfp_tables_block($atts)
               font-size: 12px;
               color:' . get_theme_mod("mfp_casino_rank_color", "#cacaca") . ';
               font-weight: bold;
-              border: 2px solid;
-              padding: 0 6px;
+              border: 3px solid;
+              padding: 0 5px;
+              height: 25px;
+              width: 25px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
             .icon-info-wr span.__icon {
               font-size: 23px;
