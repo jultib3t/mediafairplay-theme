@@ -12,24 +12,47 @@ function mfp_blog_control($wp_customize)
     $wp_customize->add_section(
         'mfp_blog_scetion',
         array(
-            'title' => __('Blog', 'mediafairplay'),
+            'title' => __('Single Post', 'mediafairplay'),
             'description' => esc_html__('', 'mediafairplay'),
             'panel' => 'mfp_blog_panel',
             'priority'       => 30
         )
     );
 
-    $wp_customize->add_setting('test________', array(
-        'default' => 'default value here',
-        'sanitize_callback' => 'wp_kses_post',
-        'transport' => 'postMessage',
+    $wp_customize->add_setting(
+        'mfp_blog_post_pagination',
+        array(
+            'default' => 0,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_switch_sanitization'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control(
+        $wp_customize,
+        'mfp_blog_post_pagination',
+        array(
+            'label' => esc_html__('Display Post Pagination'),
+            'section' => 'mfp_blog_scetion'
+        )
     ));
 
-    $wp_customize->add_control('test________', array(
-        'type' => 'text',
-        'label' => 'Some text control',
-        'section' => 'mfp_blog_scetion',
-    ));
+    $wp_customize->add_setting(
+        'mfp_blog_post_posted_in',
+        array(
+            'default' => 0,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_switch_sanitization'
+        )
+    );
 
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control(
+        $wp_customize,
+        'mfp_blog_post_posted_in',
+        array(
+            'label' => esc_html__('Display Posted In'),
+            'section' => 'mfp_blog_scetion'
+        )
+    ));
 }
 add_action('customize_register', 'mfp_blog_control');

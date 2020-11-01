@@ -63,7 +63,10 @@ if ( ! function_exists( 'mediafairplay_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'mediafairplay' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
+				$single_post_posted_in = get_theme_mod('mfp_blog_post_posted_in', 0);
+				if( $single_post_posted_in ) :
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'mediafairplay' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				endif;
 			}
 
 			/* translators: used between list items, there is a space after the comma */
