@@ -359,7 +359,7 @@ function mfp_tables_block($atts)
           }
           
           a.cards_play_now {
-              font-size: 15px;
+              font-size: 22px;
           }
           
           .cards__wrapper {
