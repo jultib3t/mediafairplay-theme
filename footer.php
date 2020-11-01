@@ -335,6 +335,8 @@ if (!is_active_sidebar('mfp-footer-3')) {
 // print_r($blocks);
 // Use || instead
 // this code check if the MFP TABLE Short code is exist. we need to change the block from shortcode to mfp tables block etc. do it after you developed the code
+$default_info_show_ = get_theme_mod('mfp_cards_default_info_toggle', 1);
+if ( $default_info_show_ ): 
 if (has_block('core/shortcode')) : ?>
     <script>
         const cards = document.querySelectorAll(".icon-info-wr");
@@ -344,6 +346,7 @@ if (has_block('core/shortcode')) : ?>
         }
         cards.forEach((card) => card.addEventListener("click", flipCard));
     </script>
+<?php endif; ?>
 <?php endif; ?>
 <?php wp_footer(); ?>
 
