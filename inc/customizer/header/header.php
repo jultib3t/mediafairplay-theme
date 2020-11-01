@@ -555,7 +555,7 @@ function register_header_customizer($wp_customize)
     $wp_customize->add_setting(
         'header_alignment_mobile',
         array(
-            'default' => 'm_r_l_c',
+            'default' => 'm_r_l_l',
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_text_sanitization'
         )
@@ -566,7 +566,7 @@ function register_header_customizer($wp_customize)
         'header_alignment_mobile',
         array(
             'label' => __('Header Alignment Mobile'),
-            'description' => esc_html__(''),
+            'description' => esc_html__('Right now availble only for Layout 1'),
             'section' => 'mfp_header_layout_section',
             'choices' => array(
                 'm_r_l_c' => array( // Required. Setting for this particular radio button choice

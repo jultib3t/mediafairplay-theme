@@ -417,6 +417,7 @@
       transition: all 0.125s ease-in-out;
       -webkit-transition: all 0.125s ease-in-out;
       text-align: left;
+      cursor: pointer;
     }
 
     .mfp-menu a.menu-item:hover,
@@ -784,17 +785,27 @@
         text-decoration: underline;
         transition: all .3s ease;
       }
+      <?php $header_mobile_align = get_theme_mod('header_alignment_mobile', 'm_r_l_l');?>
 
       .company-logo-wrapper {
         height: <?php echo get_theme_mod('header_height_tablet', '61') ?>px;
         margin-right: -1.83em;
         margin-left: -2.5em;
+        <?php if( $header_mobile_align == 'm_r_l_c') :?>
+          width: 100%;
+          right: 0;
+          margin-left: 0;
+          margin-right: 0;
+        <?php endif; ?>
       }
 
       .company-logo-wrapper a.custom-logo-link {
         padding: 0;
         display: flex;
         align-items: center;
+        <?php if( $header_mobile_align == 'm_r_l_c') :?>
+          justify-content: center;
+        <?php endif; ?>
       }
 
       .btn2 {
