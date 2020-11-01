@@ -440,11 +440,21 @@ function mfp_tables_block($atts)
         $html .= '</div>
                       <div class="card__value">';
         if ($display_bonus) {
-          $html .= '<span class="card_bonus">$' . $data->bonus . '</span>';
+          if( $data->bonus == 0 ){
+              
+          }else{
+            $html .= '<span class="card_bonus">$' . $data->bonus . '</span>';
+          }
+        
         }
 
         if ($display_free_spins) {
-          $html .= '<span class="card__free_spins">+ ' . $data->free_spins . ' Free Spins</span>';
+            if( $data->free_spins == 0 ){
+              
+            }else{
+              $html .= '<span class="card__free_spins">+ ' . $data->free_spins . ' Free Spins</span>';
+            }
+          
         }
         $html .= '</div>
                       <div class="play__now__wrapper">
