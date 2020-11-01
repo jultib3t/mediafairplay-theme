@@ -432,6 +432,7 @@
 
     .mfp-menu input[type="checkbox"]:checked+.sub-menu {
       display: block;
+      direction: ltr;
     }
 
     .mfp-menu .sub-menu a:hover {
@@ -691,6 +692,7 @@
 
       .mfp-menu li:hover>input[type="checkbox"]+.sub-menu {
         display: block;
+        direction: ltr;
       }
 
       li.languegue-switcher {
