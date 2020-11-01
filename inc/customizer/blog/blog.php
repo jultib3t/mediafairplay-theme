@@ -54,5 +54,23 @@ function mfp_blog_control($wp_customize)
             'section' => 'mfp_blog_scetion'
         )
     ));
+
+    $wp_customize->add_setting(
+        'mfp_blog_post_by',
+        array(
+            'default' => 0,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_switch_sanitization'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control(
+        $wp_customize,
+        'mfp_blog_post_by',
+        array(
+            'label' => esc_html__('Display Author'),
+            'section' => 'mfp_blog_scetion'
+        )
+    ));
 }
 add_action('customize_register', 'mfp_blog_control');
