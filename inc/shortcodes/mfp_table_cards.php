@@ -452,7 +452,12 @@ function mfp_tables_block($atts)
             if( $data->free_spins == 0 ){
               
             }else{
-              $html .= '<span class="card__free_spins">+ ' . $data->free_spins . ' Free Spins</span>';
+              if( $data->bonus == 0 ){ 
+                $html .= '<span class="card__free_spins">' . $data->free_spins . ' Free Spins</span>';
+              }else{
+                $html .= '<span class="card__free_spins">+ ' . $data->free_spins . ' Free Spins</span>';
+              }
+             
             }
           
         }
