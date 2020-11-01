@@ -349,6 +349,22 @@ function mfp_tables_block($atts)
                 width: ' . get_theme_mod("mfp_cards_logo_mobile", "167") . 'px;
                 max-width: ' . get_theme_mod("mfp_cards_logo_mobile", "167") . 'px;
             }
+            .mfp-casino-block.scene.scene--card .card {
+              max-width: 43%;
+          }
+          
+          .mfp-casino-block.scene.scene--card .card img {
+              max-width: 100%;
+              height: auto;
+          }
+          
+          a.cards_play_now {
+              font-size: 15px;
+          }
+          
+          .cards__wrapper {
+              padding-top: 15px;
+          }
             }
             </style>';
 
