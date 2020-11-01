@@ -463,7 +463,7 @@ function mfp_tables_block($atts)
         }
         $html .= '</div>
                       <div class="play__now__wrapper">
-                        <a target="_blank" href="' . get_site_url() . '/visit/' . $data->visit_url . '/" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
+                        <a target="_blank" rel="nofollow" href="' . get_site_url() . '/visit/' . $data->visit_url . '/" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
                         <span class="t_c_apply">T&Cs Apply</span>
                       </div>
                    </div>
@@ -579,7 +579,7 @@ function mfp_tables_block($atts)
               <span class="table_rank">1</span>
               <span class="table_logo"><img src="https://www.reputableonlinecasinos.ca/wp-content/uploads/2020/06/Jackpot-City-162x79-1.png"></span>
               <span class="table_bonus">$1600</span>
-              <span class="table_play_now"><a href="#">Play Now</a></span>
+              <span class="table_play_now"><a href="#" rel="nofollow">Play Now</a></span>
               <span class="table_info">The best online casino in Canada keeps rewarding players with a huge welcome bonus and fabulous gaming</span>
               <span class="table_rating">4.5 / 5</span>
           </div>
