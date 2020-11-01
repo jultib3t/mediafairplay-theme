@@ -121,8 +121,8 @@ function register_header_customizer($wp_customize)
             ),
         )
     ));
-      /** header height mobile */
-      $wp_customize->add_setting(
+    /** header height mobile */
+    $wp_customize->add_setting(
         'header_height_mobile',
         array(
             'default' => 61,
@@ -146,7 +146,7 @@ function register_header_customizer($wp_customize)
     /**
      * Hedaer Mobile menu
      */
- 
+
     /** If header fixed - margin - Desktop*/
     $wp_customize->add_setting(
         'header_fixed_margin_top_desktop',
@@ -332,8 +332,8 @@ function register_header_customizer($wp_customize)
         )
     ));
 
-      /** header DROP down background color */
-      $wp_customize->add_setting(
+    /** header DROP down background color */
+    $wp_customize->add_setting(
         'menu_drop_down_bg',
         array(
             'default' => '#fff',
@@ -528,26 +528,66 @@ function register_header_customizer($wp_customize)
         )
     ));
 
-    $wp_customize->add_setting( 'header_alignment',
-    array(
-       'default' => 'ltr',
-       'transport' => 'refresh',
-       'sanitize_callback' => 'skyrocket_radio_sanitization'
-    )
- );
-  
- $wp_customize->add_control( new Skyrocket_Text_Radio_Button_Custom_Control( $wp_customize, 'header_alignment',
-    array(
-       'label' => __( 'Header Alignment' ),
-       'description' => esc_html__( 'Sample custom control description' ),
-       'section' => 'mfp_header_layout_section',
-       'choices' => array(
-          'ltr' => __( 'Left' ), // Required. Setting for this particular radio button choice and the text to display
-          'centered' => __( 'Centered' ), // Required. Setting for this particular radio button choice and the text to display
-          'rtl' => __( 'Right' ) // Required. Setting for this particular radio button choice and the text to display
-       )
-    )
- ) );
+    $wp_customize->add_setting(
+        'header_alignment',
+        array(
+            'default' => 'ltr',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Text_Radio_Button_Custom_Control(
+        $wp_customize,
+        'header_alignment',
+        array(
+            'label' => __('Header Alignment'),
+            'description' => esc_html__('Sample custom control description'),
+            'section' => 'mfp_header_layout_section',
+            'choices' => array(
+                'ltr' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
+                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
+                'rtl' => __('Right') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+
+    $wp_customize->add_setting(
+        'header_alignment_mobile',
+        array(
+            'default' => 'm_r_l_c',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_text_sanitization'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Image_Radio_Button_Custom_Control(
+        $wp_customize,
+        'header_alignment_mobile',
+        array(
+            'label' => __('Header Alignment Mobile'),
+            'description' => esc_html__(''),
+            'section' => 'mfp_header_layout_section',
+            'choices' => array(
+                'm_r_l_c' => array( // Required. Setting for this particular radio button choice
+                    'image' => trailingslashit(get_template_directory_uri()) . 'images/h_m_1.png', // Required. URL for the image
+                    'name' => __('Menu Right Logo Center') // Required. Title text to display
+                ),
+                'm_l_l_c' => array(
+                    'image' => trailingslashit(get_template_directory_uri()) . 'images/h_m_2.png',
+                    'name' => __('Menu Left Logo Center')
+                ),
+                'm_l_l_r' => array(
+                    'image' => trailingslashit(get_template_directory_uri()) . 'images/h_m_3.png',
+                    'name' => __('Menu Left Logo Right')
+                ),
+                'm_r_l_l' => array(
+                    'image' => trailingslashit(get_template_directory_uri()) . 'images/h_m_4.png',
+                    'name' => __('Menu Right Logo Left')
+                )
+            )
+        )
+    ));
 
 
 
@@ -597,6 +637,5 @@ function register_header_customizer($wp_customize)
             ),
         )
     ));
-
 }
 add_action('customize_register', 'register_header_customizer');

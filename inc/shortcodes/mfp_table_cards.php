@@ -432,7 +432,7 @@ function mfp_tables_block($atts)
 
 
         if ($display_brand) {
-          $html .= '<a href="' . $data->visit_url . '" class="review-link-a">' . $data->name . '</a>';
+          $html .= '<span class="review-link-a">' . $data->name . '</span>';
         } else {
           $html .= '<span class="review-link-a">' . $data->name . '</span>';
         }
