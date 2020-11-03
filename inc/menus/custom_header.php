@@ -159,18 +159,6 @@ function custom_header_menu_2($menu_id)
   return $html;
 }
 
-  
+add_action( 'init', 'custom_header_menu' );
     
-   /*  <li><span>About us</span>
-      <ul>
-        <li><a href="#about/history">History</a></li>
-        <li><span>The team</span>
-          <ul>
-            <li><a href="#about/team/management">Management</a></li>
-            <li><a href="#about/team/sales">Sales</a></li>
-            <li><a href="#about/team/development">Development</a></li>
-          </ul>
-        </li>
-        <li><a href="#about/address">Our address</a></li>
-      </ul>
-    </li> */
+add_action( 'init', 'custom_header_menu_2' );
