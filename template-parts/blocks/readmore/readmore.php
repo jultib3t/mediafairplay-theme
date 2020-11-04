@@ -39,56 +39,87 @@ $id = 'read-more-' . $block['id'];
 } */
 ?>
 <style>
-  .read-more-state {
-    display: none !important;
-  }
+.mfp-read-more-wrapper {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
 
-  .read-more-target {
-    opacity: 0;
-    max-height: 0;
-    font-size: 0;
-    transition: .25s ease;
-  }
+.mfp-read-more-wrapper span.collapsible {
+    display: flex;
+    align-items: center;
+}
+.collapsible:after {
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
+    display:block;
+    width: 15px;
+    height: 15px;
+}
 
-  .read-more-state:checked~.read-more-wrap .read-more-target {
-    opacity: 1;
-    font-size: inherit;
-    max-height: 999em;
-    padding-inline-start: 0;
-  }
+.active:after {
+  content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path d='M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z'/></svg>");
+    display:block;
+    width:22px;
+}
 
-  .read-more-state~.read-more-trigger:before {
-    content: 'Show more';
-  }
-
-  .read-more-state:checked~.read-more-trigger:before {
-    content: 'Show less';
-  }
-
-  .read-more-trigger {
-    cursor: pointer;
-    display: inline-block;
-    padding: 0 .5em;
-    color: #666;
-    font-size: .9em;
-    line-height: 2;
-    border: 1px solid #ddd;
-    border-radius: .25em;
-    position: relative;
-    z-index: 8;
-  }
-  .read-more-main-wrapper{
-    position: relative;
-  }
+.content {
+ /*  padding: 0 18px; */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  /* background-color: #f1f1f1; */
+}
 </style>
 
 
-<div class="read-more-main-wrapper">
-        <input type="checkbox" class="read-more-state" id="<?php echo esc_attr($id); ?>" />
-        <div class="read-more-wrap">
-          <ul class="read-more-target">
-            <InnerBlocks/>
-        </ul>
-        </div>
-        <label for="<?php echo esc_attr($id); ?>" class="read-more-trigger"></label>
-      </div>
+<!-- <div class="read-more-main-wrapper">
+  <input type="checkbox" class="read-more-state" id="<?php echo esc_attr($id); ?>" />
+  <div class="read-more-wrap">
+    <ul class="read-more-target">
+      <InnerBlocks />
+    </ul>
+  </div>
+  <label for="<?php echo esc_attr($id); ?>" class="read-more-trigger"></label>
+</div> -->
+<div class="mfp-read-more-wrapper" id="mfp-read-more-wrapper">
+ 
+    <div class="content" id="mfp-read-more-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <InnerBlocks />
+    </div>
+
+    <span class="collapsible" id="read-more-content">Read More</span>
+    
+</div>
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      if (this.innerText === 'Read More') {
+        this.innerText = 'Read Less';
+      } else {
+        this.innerText = 'Read More';
+        // window.scrollBy(0, -900);
+        var co = document.getElementById('mfp-read-more-content');
+        var c = co.scrollHeight;
+        window.scrollBy(0, -c);
+      }
+
+      var content = this.previousElementSibling;
+      console.log( content );
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+
+    });
+  }
+</script>
