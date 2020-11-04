@@ -20,79 +20,122 @@ if (!empty($block['align'])) {
 
 $id = 'read-more-' . $block['id'];
 
-
-// Load custom field values.
-// $start_date = get_field('start_date');
-// $end_date = get_field('end_date');
-
-// Restrict block output (front-end only).
-/* if( !$is_preview ) {
-    $now = time();
-    if( $start_date && strtotime($start_date) > $now ) {
-        echo sprintf( '<p>Content restricted until %s. Please check back later.</p>', $start_date );
-        return;
-    }
-    if( $end_date && strtotime($end_date) < $now ) {
-        echo sprintf( '<p>Content expired on %s.</p>', $end_date );
-        return;
-    }
-} */
+$display_on_mobile = get_field("display_on_mobile");
+$display_on_desktop = get_field("display_on_desktop");
+$rm_font_size = get_field('rm_font_size');
+if( empty($rm_font_size )){
+  $rm_font_size = 15;
+}
+$rm_color = get_field('rm_color');
+if( empty($rm_color )){
+  $rm_color = '#000';
+}
+$read_more_text = get_field('read_more_text');
+if( empty($read_more_text )){
+  $read_more_text = 'Read More';
+}
+$read_less_text = get_field('read_less_text');
+if( empty($read_less_text )){
+  $read_less_text = 'Read Less';
+}
+// var_dump($display_on_mobile);
+// var_dump($display_on_desktop);
 ?>
 <style>
-.mfp-read-more-wrapper {
+  .mfp-read-more-wrapper {
     max-width: 100%;
     width: 100%;
     height: auto;
-}
+  }
 
-.mfp-read-more-wrapper span.collapsible {
+  .mfp-read-more-wrapper span.collapsible {
     display: flex;
     align-items: center;
-}
-.collapsible:after {
-  color: white;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-  content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
-    display:block;
-    width: 15px;
-    height: 15px;
-}
+    font-size: <?php echo $rm_font_size;?>px;
+    color: <?php echo $rm_color;?>;
+  }
 
-.active:after {
-  content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path d='M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z'/></svg>");
-    display:block;
-    width:22px;
-}
+  .collapsible:after {
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
+    display: block;
+    width: <?php echo $rm_font_size;?>px;
+    height: <?php echo $rm_font_size;?>px;
+  }
 
-.content {
- /*  padding: 0 18px; */
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  /* background-color: #f1f1f1; */
-}
+  .active:after {
+    content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path d='M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z'/></svg>");
+    display: block;
+    width: 22px;
+  }
+
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  <?php
+  // hide readmore on desktop and show on mobile
+  if ( !$display_on_desktop && $display_on_mobile ) : ?>
+  
+    .mfp-read-more-wrapper span.collapsible {
+        display: none;
+    }
+
+    div#mfp-read-more-content {
+        max-height: initial;
+    }
+
+  @media(max-width: 1000px){
+        div#mfp-read-more-content {
+            max-height: 0;
+        }
+
+        .mfp-read-more-wrapper span.collapsible {
+            display: flex;
+        }
+  }
+
+  <?php endif; ?>
+
+  <?php
+  // hide readmore on Mobile and Hide on Desktop
+  if ( $display_on_desktop && !$display_on_mobile ) : ?>
+  
+  @media(max-width:1000px){
+        .mfp-read-more-wrapper span.collapsible {
+            display: none;
+        }
+
+        div#mfp-read-more-content {
+            max-height: initial;
+        }
+    }
+
+  <?php endif; ?>
+
+  <?php if ( !$display_on_desktop && !$display_on_mobile ) : ?>
+    span#read-more-content {
+    display: none;
+    }
+
+    div#mfp-read-more-content {
+        max-height: initial;
+    }
+  <?php endif; ?>
+
 </style>
-
-
-<!-- <div class="read-more-main-wrapper">
-  <input type="checkbox" class="read-more-state" id="<?php echo esc_attr($id); ?>" />
-  <div class="read-more-wrap">
-    <ul class="read-more-target">
-      <InnerBlocks />
-    </ul>
-  </div>
-  <label for="<?php echo esc_attr($id); ?>" class="read-more-trigger"></label>
-</div> -->
 <div class="mfp-read-more-wrapper" id="mfp-read-more-wrapper">
- 
-    <div class="content" id="mfp-read-more-content">
-      <InnerBlocks />
-    </div>
 
-    <span class="collapsible" id="read-more-content">Read More</span>
-    
+  <div class="content" id="mfp-read-more-content">
+    <InnerBlocks />
+  </div>
+
+  <span class="collapsible" id="read-more-content"><?php echo $read_more_text;?></span>
+
 </div>
 <script>
   var coll = document.getElementsByClassName("collapsible");
@@ -101,10 +144,10 @@ $id = 'read-more-' . $block['id'];
   for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
       this.classList.toggle("active");
-      if (this.innerText === 'Read More') {
-        this.innerText = 'Read Less';
+      if (this.innerText === '<?php echo $read_more_text;?>') {
+        this.innerText = '<?php echo $read_less_text;?>';
       } else {
-        this.innerText = 'Read More';
+        this.innerText = '<?php echo $read_more_text;?>';
         // window.scrollBy(0, -900);
         var co = document.getElementById('mfp-read-more-content');
         var c = co.scrollHeight;
@@ -112,7 +155,7 @@ $id = 'read-more-' . $block['id'];
       }
 
       var content = this.previousElementSibling;
-      console.log( content );
+      console.log(content);
       if (content.style.maxHeight) {
         content.style.maxHeight = null;
       } else {

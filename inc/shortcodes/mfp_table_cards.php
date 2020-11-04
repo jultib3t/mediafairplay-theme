@@ -8,7 +8,7 @@ function mfp_tables_block($atts)
   // ob_start();
   $a = shortcode_atts(array(
     'category_id' => null,
-    'display' => null,
+    'display' => 10,
     'read_more' => null,
     'in_row' => null,
     'style'     => null
@@ -27,6 +27,7 @@ function mfp_tables_block($atts)
     if ($a['style'] == 'cards') {
       // var_dump($a['in_row']);
       $in_row = $a['in_row'];
+      $display = $a['display'];
       /** in_row = 8 = 120px */
       /** in_row = 7 = 140px */
       /** in_row = 6 = 170px */
@@ -371,19 +372,18 @@ function mfp_tables_block($atts)
 
       $html .= '<div class="mfp-casino-block-wrapper"><div class="mfp-casino-block scene scene--card">';
       $logo_choose = get_theme_mod('mfp_cards_choose_logo', 'logo1');
-      foreach ($datas as $data) {
+      
+      foreach (array_slice($datas, 0, $display)  as $data) {
         // echo 'hello';
         //  var_dump( $data );
         $html .= '<div class="card">
                 <div class="card__face card__face--front">';
         if ($display_rank) {
-
           $html .= '<div class="icon-info-wr">
-                                <span class="number">' . $count . '</span>';
+            <span class="number">' . $count . '</span>';
           if ($display_default_info) {
             $html .= '<span class="__icon icon-info"></span>';
           }
-
           $html .= '</div>';
         } else {
           $html .= '<div class="icon-info-wr" style="flex-direction: row-reverse;">';

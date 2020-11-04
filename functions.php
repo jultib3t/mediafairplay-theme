@@ -192,7 +192,7 @@ include_once trailingslashit(dirname(__FILE__)) . 'inc/users/custom_users.php';
 /**
  * Hide ACF from Admin Menu
  */
- add_filter('acf/settings/show_admin', '__return_false');
+ // add_filter('acf/settings/show_admin', '__return_false');
 /**
  * Custom blocks
  */

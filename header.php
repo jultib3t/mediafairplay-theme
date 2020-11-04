@@ -241,12 +241,18 @@
 
       <?php
       $layout = get_theme_mod('global_layout_layout', 'container');
-      if ($layout == 'container') : ?>max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
-      <?php else : ?>max-width: 100%;
-      <?php endif; ?>margin-right: auto;
-      margin-left: auto;
+      if ($layout == 'container') : ?>
+      max-width: <?php echo get_theme_mod('global_container_width', 1200); ?>px;
       padding-right: 0.83em;
       padding-left: 0.83em;
+      <?php else : ?>
+      max-width: 100%;
+      padding-right: 0;
+      padding-left: 0;
+      <?php endif; ?>
+      margin-right: auto;
+      margin-left: auto;
+     
       background-color: <?php echo get_theme_mod('global_Content_Background_Color', '#fff'); ?>;
     }
 
