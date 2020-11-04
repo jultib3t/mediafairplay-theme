@@ -88,7 +88,6 @@ $id = 'read-more-' . $block['id'];
 <div class="mfp-read-more-wrapper" id="mfp-read-more-wrapper">
  
     <div class="content" id="mfp-read-more-content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <InnerBlocks />
     </div>
 
