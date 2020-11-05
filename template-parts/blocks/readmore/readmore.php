@@ -129,13 +129,10 @@ if( empty($read_less_text )){
 
 </style>
 <div class="mfp-read-more-wrapper" id="mfp-read-more-wrapper">
-
   <div class="content" id="mfp-read-more-content">
     <InnerBlocks />
   </div>
-
   <span class="collapsible" id="read-more-content"><?php echo $read_more_text;?></span>
-
 </div>
 <script>
   var coll = document.getElementsByClassName("collapsible");
