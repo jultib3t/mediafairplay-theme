@@ -550,6 +550,7 @@ function toj_custom_rewrites()
 add_action('init', 'toj_custom_rewrites');
 
 
+// var_dump(get_stylesheet_directory());
 
   require 'plugin-update-checker-master/plugin-update-checker.php';
   $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(

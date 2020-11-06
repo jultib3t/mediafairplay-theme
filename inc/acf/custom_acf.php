@@ -1,4 +1,6 @@
 <?php
+
+
 function pands_admin_colors()
 {
     echo '<style type="text/css">
@@ -40,3 +42,29 @@ function my_acf_settings_url( $url ) {
 // (Optional) Hide the ACF admin menu item.
 // add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
 function my_acf_settings_show_admin( $show_admin ) {return false;}
+
+// save jsonwith fields
+function bks_acf_json_save_point( $path ) {
+    // update path
+    $path = get_stylesheet_directory() . '/acf-json';
+    // return
+     return $path;
+    // var_dump($path);
+  }
+
+  
+  
+  
+  // load json with fields
+  function bks_acf_json_load_point( $paths ) {
+    // append path
+    $paths[] = get_stylesheet_directory( ) . '/acf-json';
+    // return
+    return $paths;
+  }
+  
+  add_filter('acf/settings/save_json', 'bks_acf_json_save_point');
+  add_filter('acf/settings/load_json', 'bks_acf_json_load_point');
+
+  // $path = get_stylesheet_directory() . '/acf-json';
+  // print_r( $path );
