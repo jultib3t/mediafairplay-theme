@@ -372,7 +372,8 @@ function mfp_tables_block($atts)
 
       $html .= '<div class="mfp-casino-block-wrapper"><div class="mfp-casino-block scene scene--card">';
       $logo_choose = get_theme_mod('mfp_cards_choose_logo', 'logo1');
-      
+      // echo 'hopa';
+      // echo count($datas);
       foreach (array_slice($datas, 0, $display)  as $data) {
         // echo 'hello';
         //  var_dump( $data );

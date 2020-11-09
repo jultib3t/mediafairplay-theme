@@ -53,6 +53,7 @@ if( empty($read_less_text )){
     align-items: center;
     font-size: <?php echo $rm_font_size;?>px;
     color: <?php echo $rm_color;?>;
+    cursor: pointer;
   }
 
   .collapsible:after {
