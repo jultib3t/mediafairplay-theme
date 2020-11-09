@@ -304,14 +304,7 @@ function wpex_wp_welcome_panel()
   </style>
   <div class="custom-welcome-panel-content">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-
-    </script>
-
-
-
-
-
+    
     <h3><?php _e('PageSpeed Insights'); ?></h3>
     <div class="chart_div_wrapper">
       <div class="loading"> <img src="<?php echo get_template_directory_uri(); ?>/images/831.gif" alt=""></div>
@@ -416,89 +409,7 @@ function wpex_wp_welcome_panel()
 
         });
       </script>
-      <!--  <script>
-        jQuery('.test').click(function() {
-          alert('d');
-          jQuery.ajax({
-            type: "GET",
-            url: 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://www.reputableonlinecasinos.ca&category=performance?key=AIzaSyC3FIMvr8jZJyuBGjoGhDl-CEcrKB37rkE',
-            contentType: "application/json",
-            dataType: "json",
-            success: function(response) {
-              /* Google Charts */
-              google.charts.load('current', {
-                'packages': ['gauge']
-              });
-              google.charts.setOnLoadCallback(drawChart);
-
-              function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                  ['Label', 'Value'],
-                  ['Performance', 0],
-                  ['Accessibility', 0],
-                  ['Best Practies', 0],
-                  ['SEO', 0]
-                ]);
-                var options = {
-                  width: 750,
-                  height: 250,
-                  redFrom: 0,
-                  redTo: 50,
-                  yellowFrom: 50,
-                  yellowTo: 80,
-                  greenFrom: 80,
-                  greenTo: 100,
-                  minorTicks: 5
-                };
-
-                var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-
-                // google.visualization.events.addListener(chart, 'ready', afterDraw);
-
-                chart.draw(data, options);
-
-                function getRandomIntInclusive(min, max) {
-                  min = Math.ceil(min);
-                  max = Math.floor(max);
-                  return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive 
-                }
-
-                setInterval(function() {
-                  data.setValue(0, 1, getRandomIntInclusive(99, 100));
-                  chart.draw(data, options);
-                }, 500);
-                setInterval(function() {
-                  data.setValue(1, 1, getRandomIntInclusive(99, 100));
-                  chart.draw(data, options);
-                }, 500);
-                setInterval(function() {
-                  data.setValue(2, 1, getRandomIntInclusive(99, 100));
-                  chart.draw(data, options);
-                }, 500);
-                setInterval(function() {
-                  data.setValue(3, 1, getRandomIntInclusive(99, 100));
-                  chart.draw(data, options);
-                }, 500);
-
-              }
-              jQuery(".loading").fadeOut(100, function() {
-                // fadeOut complete. Remove the loading div
-                jQuery(".loading").remove(); //makes page more lightweight
-
-              });
-            },
-            error: function(response) {
-              console.log(response);
-              jQuery(".loading").fadeOut(100, function() {
-                // fadeOut complete. Remove the loading div
-                jQuery(".loading").remove(); //makes page more lightweight
-
-              });
-            }
-          });
-        });
-      </script> -->
-      <!-- .custom-welcome-panel-content -->
+    
 
     <?php }
   add_action('welcome_panel', 'wpex_wp_welcome_panel');
@@ -550,6 +461,7 @@ function toj_custom_rewrites()
 add_action('init', 'toj_custom_rewrites');
 
 
+// var_dump(get_stylesheet_directory());
 
   require 'plugin-update-checker-master/plugin-update-checker.php';
   $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
