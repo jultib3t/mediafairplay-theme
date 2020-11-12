@@ -32,7 +32,22 @@ function my_acf_init_block_types()
                 'customClassName'	=> true,
                 'jsx' 			=> true,
             ],
-            'multiple' => false
+            'multiple' => true
+        ));
+
+        // register mfp table block
+        acf_register_block_type( array(
+            'title'			=> __( 'Mfp Cards', 'mediafairplay' ),
+            'name'			=> 'mfp_cards',
+            'render_template'	=> 'template-parts/blocks/mfp_table/mfp_table.php',
+            'mode'			=> 'preview',
+            'supports'		=> [
+                'align'			=> true,
+                'anchor'		=> true,
+                'customClassName'	=> true,
+                'jsx' 			=> true,
+            ],
+            'multiple' => true
         ));
     }
 }
