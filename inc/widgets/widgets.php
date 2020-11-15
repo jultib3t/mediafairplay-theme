@@ -2,6 +2,15 @@
 function mfp_register_sidebars()
 {
   register_sidebar(array(
+    'name'          => __('Sidebar', 'mfp'),
+    'id'            => 'mfp-sidebar',
+    'description'   => __('Sidebar Area', 'mfp'),
+    'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</li>',
+    'before_title'  => '<h2 class="widgettitle">',
+    'after_title'   => '</h2>',
+  ));
+  register_sidebar(array(
     'name'          => __('Footer Area 1', 'mfp'),
     'id'            => 'mfp-footer-1',
     'description'   => __('First Footer Area', 'mfp'),

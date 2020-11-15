@@ -412,6 +412,7 @@ textarea {
 }
 .entry-content,
 .entry-summary,
+aside,
 .page-content {
   margin: 1.5em 0 0;
 }

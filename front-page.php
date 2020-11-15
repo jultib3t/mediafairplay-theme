@@ -65,11 +65,14 @@ get_header();
 
     endif;
     ?>
-
+ 
+ <?php get_sidebar('sidebar'); ?>
+   
 </main>
 <!-- #main -->
 
 <?php
 /** Disable The sidebar */
+
 get_sidebar();
 get_footer();
