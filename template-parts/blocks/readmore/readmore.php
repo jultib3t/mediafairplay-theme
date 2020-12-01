@@ -23,12 +23,17 @@ $id = 'read-more-' . $block['id'];
 $display_on_mobile = get_field("display_on_mobile");
 $display_on_desktop = get_field("display_on_desktop");
 $rm_font_size = get_field('rm_font_size');
+
 if( empty($rm_font_size )){
   $rm_font_size = 15;
 }
 $rm_color = get_field('rm_color');
 if( empty($rm_color )){
   $rm_color = '#000';
+}
+$rm_font_weight = get_field('rm_font_weight');
+if( empty($rm_font_weight ) ){
+  $rm_font_weight = '400';
 }
 $read_more_text = get_field('read_more_text');
 if( empty($read_more_text )){
@@ -40,6 +45,11 @@ if( empty($read_less_text )){
 }
 // var_dump($display_on_mobile);
 // var_dump($display_on_desktop);
+$hex = $rm_color;
+list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
+// echo "$hex -> $r $g $b";
+// echo '<br>';
+ 
 ?>
 <style>
   .mfp-read-more-wrapper {
@@ -53,6 +63,7 @@ if( empty($read_less_text )){
     align-items: center;
     font-size: <?php echo $rm_font_size;?>px;
     color: <?php echo $rm_color;?>;
+    font-weight: <?php echo $rm_font_weight;?>;
     cursor: pointer;
   }
 
@@ -61,14 +72,14 @@ if( empty($read_less_text )){
     font-weight: bold;
     float: right;
     margin-left: 5px;
-    content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
+    content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path fill='<?php echo "rgb(" . $r . ", " . $g . ", " . $b . ")";?>' d='M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z'/></svg>");
     display: block;
     width: <?php echo $rm_font_size;?>px;
     height: <?php echo $rm_font_size;?>px;
   }
 
   .active:after {
-    content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path d='M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z'/></svg>");
+    content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24'><path fill='<?php echo "rgb(" . $r . ", " . $g . ", " . $b . ")";?>' d='M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z'/></svg>");
     display: block;
     width: 22px;
   }

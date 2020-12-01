@@ -62,7 +62,7 @@ if (!empty($block['align'])) {
         break;
       }
    
-    var_dump($in_row);
+    // var_dump($in_row);
     $html = '';
     
       $html .= '<style>
