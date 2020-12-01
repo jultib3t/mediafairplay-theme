@@ -17,7 +17,7 @@ function my_acf_init_block_types()
             'category' => 'formatting',
             'icon' => 'admin-comments',
             'keywords' => array('faq', 'quote'),
-            'multiple' => false,
+            'multiple' => true,
         ));
 
         // Register a restricted block.

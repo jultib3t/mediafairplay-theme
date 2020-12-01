@@ -56,6 +56,7 @@
     echo get_theme_mod('Google_Tag_Manager_Head', '<script></script>');
   }
   ?>
+
 </head>
 
 <body <?php body_class(); ?>>
