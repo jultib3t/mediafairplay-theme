@@ -33,6 +33,12 @@ $align_class = $block['align'] ? ' align' . $block['align'] : '';
     padding-left: 10px;
     line-height: 55px;
     transition: 0.2s;
+    display: flex;
+    align-items: flex-end;
+    line-height: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    justify-content: space-between;
   }
   .main-content .description-title:hover {
     background-color: <?php echo get_theme_mod('mfp_faq_question_hover_background_color', 'rgba(0,0,0,0.1)'); ?>;
