@@ -106,7 +106,7 @@ if (!is_active_sidebar('mfp-footer-3')) {
             section#wrapper-widget-footer .footer-widget-wrapper-inside div {
                 max-width: 100%;
                 width: 100%;
-                color: #fff;
+                color: <?php echo get_theme_mod('mfp_footer_text_color', '#fff') ?>;
             }
 
             section#wrapper-widget-footer .footer-widget-wrapper-inside li a {
