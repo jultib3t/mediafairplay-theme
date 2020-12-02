@@ -16,9 +16,14 @@
                 "id": ""
             },
             "choices": {
-                "16": "Microgaming",
-                "18": "NYX Gaming",
-                "20": "Real Money",
+                "29": "Real money",
+                "30": "Best payouts",
+                "31": "Blackjack",
+                "32": "Slot machines",
+                "33": "Microgaming",
+                "34": "Netent",
+                "35": "Neteller",
+                "36": "Visa",
                 "def": "Default Table"
             },
             "default_value": "def",
@@ -998,5 +1003,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606926543
+    "modified": 1606931393
 }
