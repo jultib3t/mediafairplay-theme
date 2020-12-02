@@ -10,14 +10,35 @@ function pands_admin_colors()
 
 add_action('admin_head', 'pands_admin_colors');
 
+
+
+
+
 add_filter('acf/load_field/name=choose_category', function($field) {
-	$choices = [
-		'red' => __('Red Color', 'txtdomain'),
-		'blue' => __('Blue Color', 'txtdomain'),
-		'green' => __('Green Color', 'txtdomain')
-	];
+    /** ============ new one ============== */
+    /**
+     * GEOS IDS
+     * NZEN - 3
+     * CAEN - 1
+     * CAFR - 2
+     */
+$categories = wp_remote_get('https://app.aff-wiz.com/wp-json/api/v1/get_categories_by_geo?geo_id=3');
+// var_dump($response);
+if (is_wp_error($categories)) {
+ return false; // Bail early
+}
+$categories = wp_remote_retrieve_body($categories);
+// var_dump($categories);
+$categories = json_decode($categories);
+// var_dump($categories->data);
+$categories = $categories->data;
+    $choices = [];
+    foreach ( $categories as $category) {
+        // print_r( $category->category );
+        $choices[$category->category_id] =  $category->category;
+    }
 	$field['choices'] = $choices;
-	$field['default_value'] = 'blue';
+	$field['default_value'] = 'def';
 	return $field;
 });
 

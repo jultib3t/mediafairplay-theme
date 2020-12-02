@@ -17,6 +17,7 @@ function my_acf_init_block_types()
             'category' => 'formatting',
             'icon' => 'admin-comments',
             'keywords' => array('faq', 'quote'),
+            'icon' => 'welcome-learn-more',
             'multiple' => true,
         ));
 
@@ -32,6 +33,7 @@ function my_acf_init_block_types()
                 'customClassName'	=> true,
                 'jsx' 			=> true,
             ],
+            'icon' => 'admin-settings',
             'multiple' => true
         ));
 
@@ -47,6 +49,7 @@ function my_acf_init_block_types()
                 'customClassName'	=> true,
                 'jsx' 			=> true,
             ],
+            'icon' => 'admin-multisite',
             'multiple' => true
         ));
     }
