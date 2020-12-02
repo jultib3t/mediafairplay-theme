@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_5fabcd59f6fff",
-            "label": "Select Category",
-            "name": "select_category",
+            "label": "Choose Category",
+            "name": "choose_category",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -16,9 +16,14 @@
                 "id": ""
             },
             "choices": {
-                "Default:default": "Default:default"
+                "1": "demo",
+                "2": "online pokies",
+                "3": "Best dude",
+                "4": "Gever al",
+                "5": "tizaer ben adam",
+                "def": "Default Table"
             },
-            "default_value": "default",
+            "default_value": "def",
             "allow_null": 0,
             "multiple": 0,
             "ui": 1,
@@ -226,5 +231,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1605103469
+    "modified": 1606894398
 }
