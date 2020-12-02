@@ -429,9 +429,9 @@
         },
         {
             "key": "field_5fc78b63f60ce",
-            "label": "Mobile View",
-            "name": "mobile_view",
-            "type": "true_false",
+            "label": "Table Design",
+            "name": "table_design",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -440,30 +440,154 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "Open",
-            "ui_off_text": "Closed"
-        },
-        {
-            "key": "field_5fabd22e9c6fc",
-            "label": "Display Free Spins",
-            "name": "display_free_spins",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5fc7b75825d36",
+                    "label": "Show On Table",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5fc7b7c925d38",
+                    "label": "Show On Table",
+                    "name": "show_on_table",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 1,
+                    "max": 6,
+                    "layout": "table",
+                    "button_label": "Add Column",
+                    "sub_fields": [
+                        {
+                            "key": "field_5fc7b7ef25d39",
+                            "label": "Section Width",
+                            "name": "section_width",
+                            "type": "range",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "min": "",
+                            "max": "",
+                            "step": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_5fc7b80025d3a",
+                            "label": "Show On Mobile",
+                            "name": "show_on_mobile",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Show",
+                            "ui_off_text": "Hide"
+                        },
+                        {
+                            "key": "field_5fc7b82d25d3b",
+                            "label": "Column Title",
+                            "name": "column_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5fc7b83d25d3c",
+                            "label": "Section Content",
+                            "name": "section_content",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "None": "None",
+                                "Logo": "Logo",
+                                "Bonus": "Bonus",
+                                "Free Spins": "Free Spins",
+                                "Rating": "Rating",
+                                "Software Providers": "Software Providers",
+                                "Payment Methods": "Payment Methods",
+                                "Brand Info": "Brand Info",
+                                "Play Now": "Play Now"
+                            },
+                            "default_value": "None",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_5fc7b76f25d37",
+                    "label": "Table Layout",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
+                }
+            ]
         },
         {
             "key": "field_5fc796bab6bec",
@@ -807,5 +931,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606923971
+    "modified": 1606924450
 }
