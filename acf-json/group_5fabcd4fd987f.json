@@ -16,14 +16,33 @@
                 "id": ""
             },
             "choices": {
-                "29": "Real money",
-                "30": "Best payouts",
-                "31": "Blackjack",
-                "32": "Slot machines",
                 "33": "Microgaming",
                 "34": "Netent",
                 "35": "Neteller",
                 "36": "Visa",
+                "38": "Bitcoin",
+                "41": "Credit Card",
+                "42": "Ecopayz",
+                "44": "Entropay",
+                "45": "Amatic",
+                "46": "Betsoft",
+                "47": "BTG",
+                "48": "Evolution Gaming",
+                "49": "Play\\'n go",
+                "50": "Quickspin",
+                "51": "Free Spins",
+                "52": "Best Payouts",
+                "53": "Fastest payouts",
+                "54": "Low wagering",
+                "55": "New Casinos",
+                "56": "NZD casinos",
+                "57": "CAD casinos",
+                "58": "online pokies",
+                "59": "Roulette",
+                "60": "Baccarrat",
+                "61": "Video Poker",
+                "62": "Craps",
+                "63": "Poker",
                 "def": "Default Table"
             },
             "default_value": "def",
@@ -104,7 +123,7 @@
                 {
                     "key": "field_5fc7ab26743d9",
                     "label": "Show Rank",
-                    "name": "show_rank",
+                    "name": "gl_show_rank",
                     "type": "true_false",
                     "instructions": "",
                     "required": 0,
@@ -115,7 +134,7 @@
                         "id": ""
                     },
                     "message": "",
-                    "default_value": 0,
+                    "default_value": 1,
                     "ui": 1,
                     "ui_on_text": "",
                     "ui_off_text": ""
@@ -133,8 +152,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "min": "",
+                    "default_value": 12,
+                    "min": 1,
                     "max": 50,
                     "step": "",
                     "prepend": "",
@@ -154,7 +173,7 @@
                         "id": ""
                     },
                     "message": "",
-                    "default_value": 0,
+                    "default_value": 1,
                     "ui": 1,
                     "ui_on_text": "Logo 1",
                     "ui_off_text": "Logo 2"
@@ -191,7 +210,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "default_value": "Read Review",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
@@ -210,7 +229,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "default_value": 16,
                     "min": "",
                     "max": 100,
                     "step": "",
@@ -476,8 +495,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "min": "",
+                    "default_value": 260,
+                    "min": 10,
                     "max": 1920,
                     "step": "",
                     "prepend": "",
@@ -496,8 +515,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "min": "",
+                    "default_value": 330,
+                    "min": 1,
                     "max": 1920,
                     "step": "",
                     "prepend": "",
@@ -516,9 +535,9 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "min": "",
-                    "max": 1920,
+                    "default_value": 20,
+                    "min": 0,
+                    "max": 200,
                     "step": "",
                     "prepend": "",
                     "append": ""
@@ -593,7 +612,7 @@
                         "id": ""
                     },
                     "message": "",
-                    "default_value": 0,
+                    "default_value": 1,
                     "ui": 1,
                     "ui_on_text": "",
                     "ui_off_text": ""
@@ -657,9 +676,9 @@
                             "default_value": false,
                             "allow_null": 0,
                             "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
+                            "ui": 1,
                             "ajax": 0,
+                            "return_format": "value",
                             "placeholder": ""
                         }
                     ]
@@ -1003,5 +1022,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1606931393
+    "modified": 1607258877
 }
