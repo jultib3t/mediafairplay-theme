@@ -487,7 +487,7 @@
                     "label": "Card Width",
                     "name": "card_width",
                     "type": "range",
-                    "instructions": "",
+                    "instructions": "default is 260",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -504,10 +504,10 @@
                 },
                 {
                     "key": "field_5fc7b319c7872",
-                    "label": "Card Hight",
+                    "label": "Card Height",
                     "name": "card_hight",
                     "type": "range",
-                    "instructions": "",
+                    "instructions": "Default 330",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -669,11 +669,15 @@
                             "choices": {
                                 "Logo": "Logo",
                                 "Bonus": "Bonus",
+                                "Bonus + Free Spins": "Bonus + Free Spins",
                                 "Free Spins": "Free Spins",
                                 "Rating": "Rating",
+                                "Software providers": "Software providers",
+                                "Payment methods": "Payment methods",
+                                "Brand Info": "Brand Info",
                                 "Play Now": "Play Now"
                             },
-                            "default_value": false,
+                            "default_value": "Logo",
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 1,
@@ -735,11 +739,15 @@
                             "choices": {
                                 "Logo": "Logo",
                                 "Bonus": "Bonus",
+                                "Bonus + Free Spins": "Bonus + Free Spins",
                                 "Free Spins": "Free Spins",
                                 "Rating": "Rating",
+                                "Software providers": "Software providers",
+                                "Payment methods": "Payment methods",
+                                "Brand Info": "Brand Info",
                                 "Play Now": "Play Now"
                             },
-                            "default_value": false,
+                            "default_value": "Logo",
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -1022,5 +1030,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607258877
+    "modified": 1607333835
 }

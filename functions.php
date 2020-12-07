@@ -503,6 +503,19 @@ function disable_embeds_code_init() {
 // Remove dns-prefetch Link from WordPress Head (Frontend)
 remove_action( 'wp_head', 'wp_resource_hints', 2 );
 
+// increase the size of the sidebar inspector width
+function gb_gutenberg_admin_styles__() {
+  echo '
+      <style>
+      @media (min-width: 782px){
+      .interface-complementary-area {
+          width: 320px;
+      }
+    }
+      </style>
+  ';
+}
+add_action('admin_head', 'gb_gutenberg_admin_styles__');
 // toj custom rewrite
 function toj_custom_rewrites()
 {
