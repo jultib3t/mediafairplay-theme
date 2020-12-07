@@ -154,7 +154,7 @@
       font-style: normal;
       text-transform: <?php echo get_theme_mod('global_typo_text_transform', 'capitalize'); ?>;
       margin: 0;
-      line-height: <?php echo get_theme_mod('global_typo_line_height', 1.5); ?>;
+      line-height: <?php echo get_theme_mod('global_typo_line_height', '25');?>px;
       color: <?php echo get_theme_mod('global_text_color', '#404040'); ?>;
     }
 
@@ -195,7 +195,7 @@
     }
 
     p {
-      margin-bottom: <?php echo get_theme_mod('global_typo_p_margin_bottom', 1.5); ?>em;
+      margin-bottom: <?php echo get_theme_mod('global_typo_p_margin_bottom', '24');?>px;
     }
 
     a {

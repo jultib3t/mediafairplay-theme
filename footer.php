@@ -117,6 +117,12 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 padding-inline-start: 0;
             }
 
+            @media(min-width: 1000px) {
+                section#wrapper-widget-footer .footer-widget-wrapper-inside div {
+                    margin-right: <?php echo get_theme_mod('footer_margin_between_elements', '4') ?>em;
+                }
+            }
+
             @media(max-width: 1000px) {
                 section#wrapper-widget-footer .footer-widget-wrapper-inside {
                     flex-direction: column;
@@ -127,6 +133,7 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 section#wrapper-widget-footer .footer-widget-wrapper-inside .third-footer-widget-wrapper {
                     text-align: left;
                 }
+
 
             }
         </style>
@@ -246,7 +253,7 @@ if (!is_active_sidebar('mfp-footer-3')) {
                 width: <?php echo $final_inner_width; ?>%;
                 max-width: <?php echo $final_inner_width; ?>%;
             }
-        
+
             @media(max-width: <?php echo get_theme_mod('site_content_width', '1200'); ?>px) {
                 .footer-copyrights {
                     flex-direction: column;
@@ -336,77 +343,76 @@ if (!is_active_sidebar('mfp-footer-3')) {
 // Use || instead
 // this code check if the MFP TABLE Short code is exist. we need to change the block from shortcode to mfp tables block etc. do it after you developed the code
 $default_info_show_ = get_theme_mod('mfp_cards_default_info_toggle', 1);
-if ( $default_info_show_ ): 
-if (has_block('core/shortcode')) : ?>
-    <script>
-        const cards = document.querySelectorAll(".icon-info-wr");
+if ($default_info_show_) :
+    if (has_block('core/shortcode')) : ?>
+        <script>
+            const cards = document.querySelectorAll(".icon-info-wr");
 
-        function flipCard() {
-            this.parentElement.parentElement.classList.toggle("is-flipped");
-        }
-        cards.forEach((card) => card.addEventListener("click", flipCard));
-    </script>
-<?php endif; ?>
+            function flipCard() {
+                this.parentElement.parentElement.classList.toggle("is-flipped");
+            }
+            cards.forEach((card) => card.addEventListener("click", flipCard));
+        </script>
+    <?php endif; ?>
 <?php endif; ?>
 <?php wp_footer(); ?>
 <script>
-    
     if (document.readyState !== 'loading') {
-      // console.log("ready!");
-      ready();
+        // console.log("ready!");
+        ready();
     } else {
-      document.addEventListener('DOMContentLoaded', ready);
+        document.addEventListener('DOMContentLoaded', ready);
     }
 
     function ready() {
-      var accordion = document.getElementsByTagName("dt");
+        var accordion = document.getElementsByTagName("dt");
 
-      for (var i = 0; i < accordion.length; i++) {
-        accordion[i].addEventListener('click', function() {
-          accordionClick(event);
+        for (var i = 0; i < accordion.length; i++) {
+            accordion[i].addEventListener('click', function() {
+                accordionClick(event);
 
-        });
-      }
+            });
+        }
     }
 
     var accordionClick = (eventHappened) => {
-      // console.log(eventHappened);
-      var targetClicked = event.target;
-      // console.log(targetClicked);
-      var classClicked = targetClicked.classList;
-      // console.log("target clicked: " + targetClicked);
-      // console.log(classClicked[0]);
-      while ((classClicked[0] != "description-title")) {
-        // console.log("parent element: " + targetClicked.parentElement);
-        targetClicked = targetClicked.parentElement;
-        classClicked = targetClicked.classList;
-        // console.log("target clicked while in loop:" + targetClicked);
-        // console.log("class clicked while in loop: " + classClicked);
-      }
-      var description = targetClicked.nextElementSibling;
-      // console.log(description);
-      var expander = targetClicked.children[0];
-      if (description.style.maxHeight) {
-        description.style.maxHeight = null;
-        expander.innerHTML = '<svg width="24px" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>'
-
-      } else {
-        var allDescriptions = document.getElementsByTagName("dd");
-        for (var i = 0; i < allDescriptions.length; i++) {
-          // console.log("current description: " + allDescriptions[i]);
-          if (allDescriptions[i].style.maxHeight) {
-            // console.log("there is a description already open");
-            allDescriptions[i].style.maxHeight = null;
-            allDescriptions[i].previousElementSibling.children[0].innerHTML = '<svg width="24px" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>'
-          }
+        // console.log(eventHappened);
+        var targetClicked = event.target;
+        // console.log(targetClicked);
+        var classClicked = targetClicked.classList;
+        // console.log("target clicked: " + targetClicked);
+        // console.log(classClicked[0]);
+        while ((classClicked[0] != "description-title")) {
+            // console.log("parent element: " + targetClicked.parentElement);
+            targetClicked = targetClicked.parentElement;
+            classClicked = targetClicked.classList;
+            // console.log("target clicked while in loop:" + targetClicked);
+            // console.log("class clicked while in loop: " + classClicked);
         }
-        description.style.maxHeight = description.scrollHeight + "px";
+        var description = targetClicked.nextElementSibling;
+        // console.log(description);
+        var expander = targetClicked.children[0];
+        if (description.style.maxHeight) {
+            description.style.maxHeight = null;
+            expander.innerHTML = '<svg width="24px" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>'
 
-        expander.innerHTML = '<svg width="24px" focusable="false" style="transform:rotate(180deg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>';
+        } else {
+            var allDescriptions = document.getElementsByTagName("dd");
+            for (var i = 0; i < allDescriptions.length; i++) {
+                // console.log("current description: " + allDescriptions[i]);
+                if (allDescriptions[i].style.maxHeight) {
+                    // console.log("there is a description already open");
+                    allDescriptions[i].style.maxHeight = null;
+                    allDescriptions[i].previousElementSibling.children[0].innerHTML = '<svg width="24px" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>'
+                }
+            }
+            description.style.maxHeight = description.scrollHeight + "px";
 
-      }
+            expander.innerHTML = '<svg width="24px" focusable="false" style="transform:rotate(180deg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg>';
+
+        }
     }
-  </script>
+</script>
 <?php if (get_theme_mod('mfp_enable_back_to_top')) : ?>
     <!-- begin Back to Top button -->
     <style>

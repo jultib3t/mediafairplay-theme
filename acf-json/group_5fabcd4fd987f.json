@@ -672,6 +672,7 @@
                                 "Bonus + Free Spins": "Bonus + Free Spins",
                                 "Free Spins": "Free Spins",
                                 "Rating": "Rating",
+                                "Description": "Description",
                                 "Software providers": "Software providers",
                                 "Payment methods": "Payment methods",
                                 "Brand Info": "Brand Info",
@@ -742,6 +743,7 @@
                                 "Bonus + Free Spins": "Bonus + Free Spins",
                                 "Free Spins": "Free Spins",
                                 "Rating": "Rating",
+                                "Description": "Description",
                                 "Software providers": "Software providers",
                                 "Payment methods": "Payment methods",
                                 "Brand Info": "Brand Info",
@@ -756,6 +758,108 @@
                             "placeholder": ""
                         }
                     ]
+                },
+                {
+                    "key": "field_5fce5025825e6",
+                    "label": "Logo Design",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5fce3f177754c",
+                    "label": "Free Spins Design",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5fce4ff9825e4",
+                    "label": "Bonus Design",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5fce5067825e9",
+                    "label": "Rating Design",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5fce509d825eb",
+                    "label": "Description Design",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5fce5045825e8",
+                    "label": "Play Now Design",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
                 }
             ]
         },
@@ -1030,5 +1134,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607333835
+    "modified": 1607356628
 }

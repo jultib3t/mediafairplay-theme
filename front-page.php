@@ -17,6 +17,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
+
     <?php
     // if enable breadcrumbs - default is 0 ( no )
     if (function_exists('yoast_breadcrumb')) {
@@ -67,7 +68,7 @@ get_header();
     ?>
  
  <?php get_sidebar('sidebar'); ?>
-   
+
 </main>
 <!-- #main -->
 

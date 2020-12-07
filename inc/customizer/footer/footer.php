@@ -451,5 +451,28 @@ function mfp_footer_control($wp_customize)
             ),
         )
     ));
+
+    $wp_customize->add_setting(
+        'footer_margin_between_elements',
+        array(
+            'default' => 4,
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
+        $wp_customize,
+        'footer_margin_between_elements',
+        array(
+            'label' => esc_html__('Margin Between Elements'),
+            'section' => 'mfp_footer_scetion',
+            'input_attrs' => array(
+                'min' => 0, // Required. Minimum value for the slider
+                'max' => 15, // Required. Maximum value for the slider
+                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+            ),
+        )
+    ));
 }
 add_action('customize_register', 'mfp_footer_control');

@@ -80,7 +80,7 @@ if (!empty($datas)) {
     $html .= '<div class="cards__wrapper">';
 
     foreach ($front_card_select as  $value) {
-      print_r($value);
+      // print_r($value);
       switch ($value) {
         case 'Logo':
           $html .= '<figure><img width="162" height="79" src="' . $data->logo1 . '"/></figure>';

@@ -734,7 +734,7 @@ function mfp_global_typohraphy($wp_customize)
     $wp_customize->add_setting(
         'global_typo_line_height',
         array(
-            'default' => 1.5,
+            'default' => 25,
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_sanitize_integer',
         )
@@ -748,8 +748,8 @@ function mfp_global_typohraphy($wp_customize)
             'section' => 'global_base_typography_section',
             'input_attrs' => array(
                 'min' => 0, // Required. Minimum value for the slider
-                'max' => 5, // Required. Maximum value for the slider
-                'step' => 0.1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+                'max' => 300, // Required. Maximum value for the slider
+                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
             ),
         )
     ));
@@ -757,7 +757,7 @@ function mfp_global_typohraphy($wp_customize)
     $wp_customize->add_setting(
         'global_typo_p_margin_bottom',
         array(
-            'default' => 1.5,
+            'default' => 24,
             'transport' => 'refresh',
             'sanitize_callback' => 'skyrocket_sanitize_integer',
         )
@@ -771,8 +771,8 @@ function mfp_global_typohraphy($wp_customize)
             'section' => 'global_base_typography_section',
             'input_attrs' => array(
                 'min' => 0, // Required. Minimum value for the slider
-                'max' => 5, // Required. Maximum value for the slider
-                'step' => 0.1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+                'max' => 300, // Required. Maximum value for the slider
+                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
             ),
         )
     ));
