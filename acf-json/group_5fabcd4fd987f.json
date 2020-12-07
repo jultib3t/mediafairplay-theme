@@ -811,6 +811,53 @@
                     "endpoint": 0
                 },
                 {
+                    "key": "field_5fce70cb48db7",
+                    "label": "Font Size",
+                    "name": "bonus_design_font_size",
+                    "type": "range",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 16,
+                    "min": 1,
+                    "max": 200,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_5fce712148db8",
+                    "label": "Font Weight",
+                    "name": "bonus_design_font_weight",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "100": "100",
+                        "300": "300",
+                        "400": "400",
+                        "700": "700"
+                    },
+                    "default_value": 400,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
                     "key": "field_5fce5067825e9",
                     "label": "Rating Design",
                     "name": "",
@@ -826,6 +873,32 @@
                     "open": 0,
                     "multi_expand": 0,
                     "endpoint": 0
+                },
+                {
+                    "key": "field_5fce718048db9",
+                    "label": "Rating Style",
+                    "name": "rating_design_style",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "10\/10 with pie": "10\/10 with pie",
+                        "100\/100%": "100\/100%",
+                        "Number + Stars": "Number + Stars"
+                    },
+                    "default_value": "Number + Stars",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
                 },
                 {
                     "key": "field_5fce509d825eb",
@@ -845,6 +918,26 @@
                     "endpoint": 0
                 },
                 {
+                    "key": "field_5fce71ad48dba",
+                    "label": "Font Size",
+                    "name": "description_design_font_size",
+                    "type": "range",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 16,
+                    "min": 1,
+                    "max": 200,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_5fce5045825e8",
                     "label": "Play Now Design",
                     "name": "",
@@ -860,6 +953,26 @@
                     "open": 0,
                     "multi_expand": 0,
                     "endpoint": 0
+                },
+                {
+                    "key": "field_5fce71b648dbb",
+                    "label": "Font Size",
+                    "name": "play_now_font_size",
+                    "type": "range",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 16,
+                    "min": 1,
+                    "max": 200,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         },
@@ -1134,5 +1247,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607356628
+    "modified": 1607365103
 }
