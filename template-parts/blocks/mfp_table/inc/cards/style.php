@@ -53,6 +53,7 @@ $html .= '<style>
         border-color: ' . get_theme_mod("mfp_cards_border_color", "rgba(0,0,0,0.1)") . ';
         border-style: solid;
         border-radius: '.$card_radius.'px;
+        padding-bottom: 10px;
     }
 
     .card__face--back {
