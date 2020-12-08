@@ -154,7 +154,7 @@
       font-style: normal;
       text-transform: <?php echo get_theme_mod('global_typo_text_transform', 'capitalize'); ?>;
       margin: 0;
-      line-height: <?php echo get_theme_mod('global_typo_line_height', '25');?>px;
+      line-height: <?php echo get_theme_mod('global_typo_line_height', '1.5');?>;
       color: <?php echo get_theme_mod('global_text_color', '#404040'); ?>;
     }
 

@@ -731,7 +731,7 @@ function mfp_global_typohraphy($wp_customize)
             ),
         )
     ));
-    $wp_customize->add_setting(
+   /*  $wp_customize->add_setting(
         'global_typo_line_height',
         array(
             'default' => 25,
@@ -749,10 +749,30 @@ function mfp_global_typohraphy($wp_customize)
             'input_attrs' => array(
                 'min' => 0, // Required. Minimum value for the slider
                 'max' => 300, // Required. Maximum value for the slider
-                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+                'step' => 0.1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
             ),
         )
-    ));
+    )); */
+    $wp_customize->add_setting( 'global_typo_line_height',
+   array(
+      'default' => '1.5',
+      'transport' => 'refresh',
+      'sanitize_callback' => 'skyrocket_text_sanitization'
+   )
+);
+ 
+$wp_customize->add_control( 'global_typo_line_height',
+   array(
+      'label' => __( 'Line Height' ),
+      'description' => esc_html__( '' ),
+      'section' => 'global_base_typography_section',
+      'type' => 'text', // Can be either text, email, url, number, hidden, or date
+      'input_attrs' => array( // Optional.
+         'style' => 'border: 1px solid rebeccapurple',
+         'placeholder' => __( 'Enter Line Height...' ),
+      ),
+   )
+);
 
     $wp_customize->add_setting(
         'global_typo_p_margin_bottom',
