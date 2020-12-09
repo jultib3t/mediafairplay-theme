@@ -32,6 +32,9 @@ if (!empty($datas)) {
       $show_rank = get_sub_field('gl_show_rank');
       $rank_size = get_sub_field('rank_size');
       $review_link_text = get_sub_field('review_link_text');
+      $card_background_color = get_sub_field('card_background_color');
+      $card_border_color = get_sub_field('card_border_color');
+      
     endwhile;
   endif;
   // Card Design
@@ -42,12 +45,38 @@ if (!empty($datas)) {
       $card_width = get_sub_field('card_width');
       $card_hight = get_sub_field('card_hight');
       $card_radius = get_sub_field('card_radius');
+      $card_stroke = get_sub_field('card_stroke');
+      $space_between_cards = get_sub_field('space_between_cards');
+      $logo_size_desktop = get_sub_field('logo_size_desktop');
+      $logo_size_tablet = get_sub_field('logo_size_tablet');
+      $logo_size_mobile = get_sub_field('logo_size_mobile');
+      $fs_font_size = get_sub_field('fs_font_size');
+      $fs_font_weight = get_sub_field('fs_font_weight');
+      $bn_font_size = get_sub_field('bn_font_size');
+      $bn_font_weight = get_sub_field('bn_font_weight');
+      $play_now_text = get_sub_field('play_now_text');
+      $play_now_font_size = get_sub_field('play_now_font_size');
+      $play_now_text_color = get_sub_field('play_now_text_color');
+      $play_now_background_color = get_sub_field('play_now_background_color');
+      $play_now_hover_background_color = get_sub_field('play_now_hover_background_color');
+
       // LOOP FRONT CARD
       if (have_rows('front_card')) :
         while (have_rows('front_card')) : the_row();
 
           // Get sub field values.
           $front_card_select[] = get_sub_field('front_card_select');
+        // var_dump($front_card_select);
+        // echo count($front_card_select);
+        endwhile;
+      endif;
+
+      // LOOP Back CARD
+      if (have_rows('back_card')) :
+        while (have_rows('back_card')) : the_row();
+
+          // Get sub field values.
+          $back_card_select[] = get_sub_field('back_card_select');
         // var_dump($front_card_select);
         // echo count($front_card_select);
         endwhile;
@@ -86,57 +115,74 @@ if (!empty($datas)) {
           $html .= '<figure><img width="162" height="79" src="' . $data->logo1 . '"/></figure>';
           break;
         case 'Bonus':
-          $html .= '<span class="card_bonus">' . $data->bonus . '</span>';
+          if ($data->bonus !== '-') {
+            $html .= '<span class="card_bonus">' . $data->bonus . '</span>';
+          }
           break;
         case 'Free Spins':
-          $html .= '<span class="card__free_spins">' . $data->free_spins . ' Free Spins</span>';
+          if ($data->free_spins !== '-') {
+            $html .= '<span class="card__free_spins">' . $data->free_spins . ' Free Spins</span>';
+          }
+          break;
+        case 'Rating':
+          $html .= '<span>' . $data->rating . '</span><img style="max-width: 100px; width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/5_stars.svg">';
+          break;
+        case 'Description':
+          $html .= '<span>' . $data->default_info . '</span>';
           break;
         case 'Play Now':
           $html .= '<div class="play__now__wrapper">
-          <a target="_blank" rel="nofollow" href="' . get_site_url() . '/visit/' . $data->visit_url . '/" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
-      </div>';
+          <a target="_blank" rel="nofollow" href="' . get_site_url() . '/visit/' . $data->visit_url . '/" class="cards_play_now">' . $play_now_text . '</a>
+           </div>';
           break;
       }
     }
-    // $html .= '<div class="card__details">';
-    // $html .= '<figure>';
-    // $html .= '<img width="' . get_theme_mod("mfp_cards_logo_mobile", "162") . '" height="79" src="' . $data->logo1 . '"/>';
-    // $html .= '</figure>';
-    // $html .= '<span class="review-link-a">' . $data->name . '</span>';
-    // $html .= '</div>';
-    // $html .= '<div class="card__value">';
-    // $html .= '<span class="card_bonus">' . $data->bonus . '</span>';
-    // $html .= '<span class="card__free_spins">' . $data->free_spins . ' Free Spins</span>';
-    // $html .= '</div>';
-    // $html .= '<div class="play__now__wrapper">
-    //                     <a target="_blank" rel="nofollow" href="' . get_site_url() . '/visit/' . $data->visit_url . '/" class="cards_play_now">' . get_theme_mod('play_now_button_text', 'Play Now') . '</a>
-    //                     <span class="t_c_apply">T&Cs Apply</span>';
-    // $html .= '</div>';
+
     $html .= '</div>';
     $html .= '</div>';
     // FRONT CARD END
+
     // BACK CARD //
     $html .= '<div class="card__face card__face--back">';
-    $html .= '<div class="icon-info-wr back">';
-    $html .= '<span class="__icon icon-cancel-circle"></span>
-                 </div>
-                 <div class="cards__wrapper">
-                     <div class="card__details">';
-    $html .= '<figure>
-                          <img height="79" width="' . get_theme_mod("mfp_cards_logo_mobile", "162") . '" 
-                          src="' . $data->logo1 . '"
-                          />
-                        </figure>';
+
+        $html .= '<div class="icon-info-wr back">';
+          $html .= '<span class="__icon icon-cancel-circle"></span>';
+        $html .= '</div>';
+
+      $html .= '<div class="cards__wrapper">';
+      foreach ($back_card_select as  $value) {
+        switch ($value) {
+          case 'Logo':
+            $html .= '<figure><img width="162" height="79" src="' . $data->logo1 . '"/></figure>';
+            break;
+          case 'Bonus':
+            if ($data->bonus !== '-') {
+              $html .= '<span class="card_bonus">' . $data->bonus . '</span>';
+            }
+            break;
+          case 'Free Spins':
+            if ($data->free_spins !== '-') {
+              $html .= '<span class="card__free_spins">' . $data->free_spins . ' Free Spins</span>';
+            }
+            break;
+          case 'Rating':
+            $html .= '<span>' . $data->rating . '</span><img style="max-width: 100px; width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/5_stars.svg">';
+            break;
+          case 'Description':
+            $html .= '<span>' . $data->default_info . '</span>';
+            break;
+          case 'Play Now':
+            $html .= '<div class="play__now__wrapper">
+            <a target="_blank" rel="nofollow" href="' . get_site_url() . '/visit/' . $data->visit_url . '/" class="cards_play_now">' . $play_now_text . '</a>
+             </div>';
+            break;
+        }
+      }
+           
+
+      $html .= '</div>';
+
     $html .= '</div>';
-    $html .= '<div class="card__value">
-                         <span class="card_value_description">' . $data->default_info . '</span>
-                     </div>
-                     <div class="play__now__wrapper">
-                       <img style="max-width: 100px; width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/5_stars.svg">';
-    $html .= '<a href="' . $data->review_url . '" class="cards_read_reviews">' . $review_link_text . '</a>';
-    $html .= '</div>
-                        </div>
-                    </div>';
 
     $html .= '</div>';
     $count++;

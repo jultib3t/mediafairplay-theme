@@ -198,97 +198,6 @@
                     "ui_off_text": "Off"
                 },
                 {
-                    "key": "field_5fc7abb8743dd",
-                    "label": "Review Link Text",
-                    "name": "review_link_text",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "Read Review",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5fc7ac88743df",
-                    "label": "Review Link Size",
-                    "name": "review_link_size",
-                    "type": "range",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": 16,
-                    "min": "",
-                    "max": 100,
-                    "step": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_5fc7aca0743e0",
-                    "label": "Show Review Link With",
-                    "name": "show_review_link_with",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "Logo": "Logo",
-                        "Rating": "Rating",
-                        "Brand Info": "Brand Info"
-                    },
-                    "default_value": "Logo",
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_5fc7acce743e1",
-                    "label": "Rating Style",
-                    "name": "rating_style",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "10\/10 with pie": "10\/10 with pie",
-                        "100\/100%": "100\/100%",
-                        "Number + Stars": "Number + Stars"
-                    },
-                    "default_value": "10\/10 with pie",
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
-                },
-                {
                     "key": "field_5fc7ab19743d8",
                     "label": "Colors",
                     "name": "",
@@ -307,23 +216,8 @@
                 },
                 {
                     "key": "field_5fc7b1ed936b0",
-                    "label": "Header Background Color",
-                    "name": "header_background_color",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": ""
-                },
-                {
-                    "key": "field_5fc7b204936b1",
-                    "label": "Header Text Color",
-                    "name": "header_text_color",
+                    "label": "Background Color",
+                    "name": "card_background_color",
                     "type": "color_picker",
                     "instructions": "",
                     "required": 0,
@@ -337,8 +231,8 @@
                 },
                 {
                     "key": "field_5fc7b212936b2",
-                    "label": "Row Background Color",
-                    "name": "row_background_color",
+                    "label": "Border Color",
+                    "name": "card_border_color",
                     "type": "color_picker",
                     "instructions": "",
                     "required": 0,
@@ -348,72 +242,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": ""
-                },
-                {
-                    "key": "field_5fc7b221936b3",
-                    "label": "Bonus Text Color",
-                    "name": "bonus_text_color",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": ""
-                },
-                {
-                    "key": "field_5fc7b231936b4",
-                    "label": "Button Background Color",
-                    "name": "button_background_color",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": ""
+                    "default_value": "#000"
                 },
                 {
                     "key": "field_5fc7b24a936b5",
                     "label": "Button Hover Color",
                     "name": "button_hover_color",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": ""
-                },
-                {
-                    "key": "field_5fc7b265936b6",
-                    "label": "Button Text Color",
-                    "name": "button_text_color",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": ""
-                },
-                {
-                    "key": "field_5fc7b273936b7",
-                    "label": "Ratings Color",
-                    "name": "ratings_color",
                     "type": "color_picker",
                     "instructions": "",
                     "required": 0,
@@ -555,8 +389,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "min": "",
+                    "default_value": 1,
+                    "min": 0,
                     "max": 1920,
                     "step": "",
                     "prepend": "",
@@ -575,7 +409,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "default_value": 10,
                     "min": "",
                     "max": 1920,
                     "step": "",
@@ -675,7 +509,6 @@
                                 "Description": "Description",
                                 "Software providers": "Software providers",
                                 "Payment methods": "Payment methods",
-                                "Brand Info": "Brand Info",
                                 "Play Now": "Play Now"
                             },
                             "default_value": "Logo",
@@ -746,7 +579,6 @@
                                 "Description": "Description",
                                 "Software providers": "Software providers",
                                 "Payment methods": "Payment methods",
-                                "Brand Info": "Brand Info",
                                 "Play Now": "Play Now"
                             },
                             "default_value": "Logo",
@@ -777,6 +609,66 @@
                     "endpoint": 0
                 },
                 {
+                    "key": "field_5fd0d0f2427b8",
+                    "label": "Logo Size Desktop",
+                    "name": "logo_size_desktop",
+                    "type": "range",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 167,
+                    "min": 1,
+                    "max": 1920,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_5fd0d118427b9",
+                    "label": "Logo Size Tablet",
+                    "name": "logo_size_tablet",
+                    "type": "range",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 167,
+                    "min": 1,
+                    "max": 1920,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_5fd0d121427ba",
+                    "label": "Logo Size Mobile",
+                    "name": "logo_size_mobile",
+                    "type": "range",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 167,
+                    "min": 1,
+                    "max": 1920,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_5fce3f177754c",
                     "label": "Free Spins Design",
                     "name": "",
@@ -792,6 +684,53 @@
                     "open": 0,
                     "multi_expand": 0,
                     "endpoint": 0
+                },
+                {
+                    "key": "field_5fd0d1621b5b0",
+                    "label": "Font Size",
+                    "name": "fs_font_size",
+                    "type": "range",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 18,
+                    "min": 1,
+                    "max": 200,
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_5fd0d1861b5b1",
+                    "label": "Font Weight",
+                    "name": "fs_font_weight",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "100": "100",
+                        "300": "300",
+                        "400": "400",
+                        "700": "700"
+                    },
+                    "default_value": 700,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 },
                 {
                     "key": "field_5fce4ff9825e4",
@@ -811,9 +750,9 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_5fce70cb48db7",
+                    "key": "field_5fd0d1bd1b5b2",
                     "label": "Font Size",
-                    "name": "bonus_design_font_size",
+                    "name": "bn_font_size",
                     "type": "range",
                     "instructions": "",
                     "required": 0,
@@ -823,7 +762,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": 16,
+                    "default_value": 36,
                     "min": 1,
                     "max": 200,
                     "step": "",
@@ -831,9 +770,9 @@
                     "append": ""
                 },
                 {
-                    "key": "field_5fce712148db8",
+                    "key": "field_5fd0d1d71b5b3",
                     "label": "Font Weight",
-                    "name": "bonus_design_font_weight",
+                    "name": "bn_font_weight",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -849,12 +788,12 @@
                         "400": "400",
                         "700": "700"
                     },
-                    "default_value": 400,
+                    "default_value": 700,
                     "allow_null": 0,
                     "multiple": 0,
-                    "ui": 1,
-                    "ajax": 0,
+                    "ui": 0,
                     "return_format": "value",
+                    "ajax": 0,
                     "placeholder": ""
                 },
                 {
@@ -875,9 +814,9 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_5fce718048db9",
+                    "key": "field_5fd0d1fd1b5b4",
                     "label": "Rating Style",
-                    "name": "rating_design_style",
+                    "name": "rating_style_select",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -888,16 +827,17 @@
                         "id": ""
                     },
                     "choices": {
+                        "stars": "stars",
                         "10\/10 with pie": "10\/10 with pie",
                         "100\/100%": "100\/100%",
                         "Number + Stars": "Number + Stars"
                     },
-                    "default_value": "Number + Stars",
+                    "default_value": "stars",
                     "allow_null": 0,
                     "multiple": 0,
-                    "ui": 1,
-                    "ajax": 0,
+                    "ui": 0,
                     "return_format": "value",
+                    "ajax": 0,
                     "placeholder": ""
                 },
                 {
@@ -918,9 +858,9 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_5fce71ad48dba",
+                    "key": "field_5fd0d26b1b5b5",
                     "label": "Font Size",
-                    "name": "description_design_font_size",
+                    "name": "dd_font_size",
                     "type": "range",
                     "instructions": "",
                     "required": 0,
@@ -930,12 +870,39 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": 16,
+                    "default_value": 15,
                     "min": 1,
                     "max": 200,
                     "step": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_5fd0d2831b5b6",
+                    "label": "Font Weight",
+                    "name": "dd_font_weight",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "100": "100",
+                        "300": "300",
+                        "400": "400",
+                        "700": "700"
+                    },
+                    "default_value": 400,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 },
                 {
                     "key": "field_5fce5045825e8",
@@ -955,7 +922,26 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_5fce71b648dbb",
+                    "key": "field_5fd0d2b81b5b7",
+                    "label": "Input Text",
+                    "name": "play_now_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Play Now",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5fd0d2e01b5b8",
                     "label": "Font Size",
                     "name": "play_now_font_size",
                     "type": "range",
@@ -967,12 +953,57 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": 16,
+                    "default_value": 26,
                     "min": 1,
                     "max": 200,
                     "step": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_5fd0d3011b5b9",
+                    "label": "Text Color",
+                    "name": "play_now_text_color",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#fff"
+                },
+                {
+                    "key": "field_5fd0d31a1b5ba",
+                    "label": "Background Color",
+                    "name": "play_now_background_color",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#ef6f6c"
+                },
+                {
+                    "key": "field_5fd0d33a1b5bb",
+                    "label": "Background Hover Color",
+                    "name": "play_now_hover_background_color",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#d67f60"
                 }
             ]
         },
@@ -1247,5 +1278,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607365103
+    "modified": 1607528933
 }

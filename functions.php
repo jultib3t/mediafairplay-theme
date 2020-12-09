@@ -512,6 +512,9 @@ function gb_gutenberg_admin_styles__() {
           width: 320px;
       }
     }
+    .acf-tab-wrap ul li.active::after {
+      content: none;
+  }
       </style>
   ';
 }

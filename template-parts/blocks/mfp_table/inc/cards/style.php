@@ -22,10 +22,10 @@ $html .= '<style>
         position: relative;
         width: 100%;
         max-width: '.$card_width.'px;
-        margin-right: 10px;
         height: ' .$card_hight. 'px;
         margin-bottom: 10px;
-        margin-left: 10px;
+        margin-right: '.$space_between_cards.'px;
+        margin-left: '.$space_between_cards.'px;
         flex-direction: column;
     }
 
@@ -46,11 +46,11 @@ $html .= '<style>
         padding-left: 15px;
         display: flex;
         flex-direction: column;
-        background: ' . get_theme_mod("mfp_casino_cards_global_bg_color", "#ebebeb") . ';
+        background: ' .$card_background_color. ';
         box-shadow:
             ' . get_theme_mod("mfp_cards_shadows_x", "0") . 'px ' . get_theme_mod("mfp_cards_shadows_y", "1") . 'px ' . get_theme_mod("mfp_cards_shadows_blur", "2") . 'px ' . get_theme_mod("mfp_cards_shadows_Spread", "0") . 'px ' . get_theme_mod("mfp_cards_shadow_color", "rgba(0,0,0,.3)") . ';
-        border-width: ' . get_theme_mod("mfp_cards_border_width", "1") . 'px;
-        border-color: ' . get_theme_mod("mfp_cards_border_color", "rgba(0,0,0,0.1)") . ';
+        border-width: '.$card_stroke.'px;
+        border-color: '.$card_border_color.';
         border-style: solid;
         border-radius: '.$card_radius.'px;
         padding-bottom: 10px;
@@ -77,8 +77,8 @@ $html .= '<style>
     }
 
     a.cards_play_now {
-        background-color: ' . get_theme_mod("mfp_casino_cards_button_bg_color", "#267aba") . ';
-        color: ' . get_theme_mod("mfp_casino_cards_button_text_color", "#f8f8f8") . ';
+        background-color:'.$play_now_background_color.';
+        color: ' .$play_now_text_color. ';
         box-shadow: 0 1px 0 0 #c7c7c7, 0 4px 8px 0 rgba(0, 0, 0, .1);
         width: 100%;
         display: inline-block;
@@ -86,14 +86,14 @@ $html .= '<style>
         cursor: pointer;
         margin-top: 10px;
         text-decoration: none;
-        font-size: ' . get_theme_mod("mfp_casino_cards_button_font_size", "26") . 'px;
+        font-size: ' .$play_now_font_size.'px;
         font-weight: 400;
         border-radius: 10px;
         max-width: 190px;
     }
 
     a.cards_play_now:hover {
-        background: ' . get_theme_mod("mfp_casino_cards_button_bg_color_hover", "#65b6fa") . ';
+        background: ' .$play_now_hover_background_color. ';
     }
 
     span.number {
@@ -159,15 +159,10 @@ $html .= '<style>
         justify-content: space-between;
     }
 
-    .play__now__wrapper {
-        padding-bottom: 15px;
-    }
-
     span.card__free_spins {
-        font-size: 16px;
-        font-weight: 700;
+        font-size: '.$fs_font_size.'px;
+        font-weight: '.$fs_font_weight.';
         display: block;
-        padding-top: 5px;
         color: #3f3f3f;
     }
     .card__details {
@@ -269,15 +264,19 @@ $html .= '<style>
         font-weight:700;
         color:#888;
     }
-    .card__details figure img {
-        width: 167px;
-        max-width: 167px;
+    .cards__wrapper figure img {
+        width: '.$logo_size_desktop.'px;
+        max-width:'.$logo_size_desktop.'px;
         height: 79px;
     }
+    span.card_bonus{
+        font-size: '.$bn_font_size.'px;
+        font-weight: '.$bn_font_weight.';
+    }
     @media(max-width: 1000px) {
-        .card__details figure img {
-            width: 167px;
-            max-width:167px;
+        .cards__wrapper figure img {
+            width: '.$logo_size_tablet.'px;
+            max-width:'.$logo_size_tablet.'px;
         }
 
         .mfp-casino-block-wrapper {
@@ -288,9 +287,9 @@ $html .= '<style>
         }
     }
     @media(max-width: 550px) {
-        .card__details figure img {
-            width: 167px;
-            max-width:167px;
+        .cards__wrapper figure img {
+            width: '.$logo_size_mobile.'px;
+            max-width:'.$logo_size_mobile.'px;
         }
         .mfp-casino-block.scene.scene--card .card_ {
             max-width: 43%;
