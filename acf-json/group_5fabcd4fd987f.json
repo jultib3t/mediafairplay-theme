@@ -750,6 +750,21 @@
                     "endpoint": 0
                 },
                 {
+                    "key": "field_5fd0f28cd2007",
+                    "label": "Text Color",
+                    "name": "bn_text_color",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#000"
+                },
+                {
                     "key": "field_5fd0d1bd1b5b2",
                     "label": "Font Size",
                     "name": "bn_font_size",
@@ -1278,5 +1293,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607528933
+    "modified": 1607529408
 }

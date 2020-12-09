@@ -272,6 +272,7 @@ $html .= '<style>
     span.card_bonus{
         font-size: '.$bn_font_size.'px;
         font-weight: '.$bn_font_weight.';
+        color: '.$bn_text_color.';
     }
     @media(max-width: 1000px) {
         .cards__wrapper figure img {

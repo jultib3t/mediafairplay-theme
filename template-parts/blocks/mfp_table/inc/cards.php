@@ -59,6 +59,8 @@ if (!empty($datas)) {
       $play_now_text_color = get_sub_field('play_now_text_color');
       $play_now_background_color = get_sub_field('play_now_background_color');
       $play_now_hover_background_color = get_sub_field('play_now_hover_background_color');
+      $bn_text_color = get_sub_field('bn_text_color');
+      
 
       // LOOP FRONT CARD
       if (have_rows('front_card')) :
