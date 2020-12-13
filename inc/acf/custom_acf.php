@@ -42,7 +42,6 @@ $categories = $categories->data;
 	return $field;
 });
 
-// add_filter('acf/settings/show_admin', '__return_false');
 
 function secret_plugin_webcusp()
 {
@@ -72,7 +71,10 @@ function my_acf_settings_url( $url ) {
 }
 
 // (Optional) Hide the ACF admin menu item.
-// add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
+
+ // add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
+
+
 function my_acf_settings_show_admin( $show_admin ) {return false;}
 
 // save jsonwith fields

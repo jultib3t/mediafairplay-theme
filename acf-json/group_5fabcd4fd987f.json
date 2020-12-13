@@ -73,7 +73,7 @@
             "ui_off_text": "Table"
         },
         {
-            "key": "field_5fd51bcb6b7da",
+            "key": "field_5fd5dc9cefaba",
             "label": "Card Layout",
             "name": "",
             "type": "tab",
@@ -87,6 +87,36 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_5fc7b1ed936b0",
+            "label": "Background Color",
+            "name": "card_background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#fff"
+        },
+        {
+            "key": "field_5fc7b212936b2",
+            "label": "Border Color",
+            "name": "card_border_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000"
         },
         {
             "key": "field_5fc7b302c7871",
@@ -129,36 +159,6 @@
             "append": ""
         },
         {
-            "key": "field_5fc7b1ed936b0",
-            "label": "Background Color",
-            "name": "card_background_color",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": ""
-        },
-        {
-            "key": "field_5fc7b212936b2",
-            "label": "Border Color",
-            "name": "card_border_color",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#000"
-        },
-        {
             "key": "field_5fc7b340c7874",
             "label": "Card Radius",
             "name": "card_radius",
@@ -174,26 +174,6 @@
             "default_value": 20,
             "min": 0,
             "max": 200,
-            "step": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_5fc7b331c7873",
-            "label": "Space Between Cards",
-            "name": "space_between_cards",
-            "type": "range",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 10,
-            "min": "",
-            "max": 1920,
             "step": "",
             "prepend": "",
             "append": ""
@@ -219,8 +199,28 @@
             "append": ""
         },
         {
-            "key": "field_5fd51b7a15a82",
-            "label": "Show on Card",
+            "key": "field_5fc7b331c7873",
+            "label": "Space Between Cards",
+            "name": "space_between_cards",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 10,
+            "min": "",
+            "max": 1920,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5fd5dca8efabb",
+            "label": "Show On Card",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -233,25 +233,6 @@
             },
             "placement": "top",
             "endpoint": 0
-        },
-        {
-            "key": "field_5fc7ab7d743db",
-            "label": "Show Logo",
-            "name": "show_logo",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "Logo 1",
-            "ui_off_text": "Logo 2"
         },
         {
             "key": "field_5fc7b037342b9",
@@ -271,6 +252,25 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5fc7ab7d743db",
+            "label": "Show Logo",
+            "name": "show_logo",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Logo 1",
+            "ui_off_text": "Logo 2"
         },
         {
             "key": "field_5fc7ab26743d9",
@@ -312,41 +312,7 @@
             "append": ""
         },
         {
-            "key": "field_5fc7ab9d743dc",
-            "label": "Review Link",
-            "name": "review_link",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "On",
-            "ui_off_text": "Off"
-        },
-        {
-            "key": "field_5fc7b24a936b5",
-            "label": "Button Hover Color",
-            "name": "button_hover_color",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": ""
-        },
-        {
-            "key": "field_5fd5225a1b480",
+            "key": "field_5fc7b085342ba",
             "label": "Front Card",
             "name": "",
             "type": "accordion",
@@ -361,34 +327,6 @@
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
-        },
-        {
-            "key": "field_5fd529734045d",
-            "label": "Align Items",
-            "name": "front_card_align_items",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "start": "start",
-                "center": "center",
-                "end": "end",
-                "space-between": "space-between",
-                "space-around": "space-around"
-            },
-            "default_value": "space-between",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
         },
         {
             "key": "field_5fc7b0b1342bb",
@@ -444,7 +382,7 @@
             ]
         },
         {
-            "key": "field_5fd522641b481",
+            "key": "field_5fc7b122342bc",
             "label": "Back Card",
             "name": "",
             "type": "accordion",
@@ -941,106 +879,6 @@
                 "id": ""
             },
             "default_value": "#d67f60"
-        },
-        {
-            "key": "field_5fd5284497b27",
-            "label": "Review Link",
-            "name": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 0,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
-            "key": "field_5fd5285597b28",
-            "label": "Review Link Text",
-            "name": "review_link_text",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5fd528c397b2b",
-            "label": "Color",
-            "name": "review_link_color",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#000"
-        },
-        {
-            "key": "field_5fd5286597b29",
-            "label": "Font Size",
-            "name": "review_link_font_size",
-            "type": "range",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "min": 1,
-            "max": 200,
-            "step": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_5fd5288597b2a",
-            "label": "Font Weight",
-            "name": "review_link_font_weight",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "100": "100",
-                "300": "300",
-                "400": "400",
-                "500": "500",
-                "700": "700",
-                "900": "900"
-            },
-            "default_value": 400,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
         }
     ],
     "location": [
@@ -1060,5 +898,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607805393
+    "modified": 1607852995
 }
