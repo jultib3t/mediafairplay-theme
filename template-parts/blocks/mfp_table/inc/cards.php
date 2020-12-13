@@ -24,7 +24,7 @@ $review_link_size = get_field('review_link_size');
 
 
 if (!empty($datas)) {
-  $front_card_select = [];
+  // $front_card_select = [];
   // Global Design
   /* if (have_rows('global_design')) :
     while (have_rows('global_design')) : the_row(); */
@@ -128,7 +128,7 @@ if (!empty($datas)) {
           }
           break;
         case 'Rating':
-          $html .= '<span>' . $data->rating . '</span><img style="max-width: 100px; width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/5_stars.svg">';
+          $html .= '<span>' . $data->rating . '</span><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div>';
           break;
         case 'Description':
           $html .= '<span>' . $data->default_info . '</span>';

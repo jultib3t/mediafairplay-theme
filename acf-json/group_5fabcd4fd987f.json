@@ -329,6 +329,34 @@
             "endpoint": 0
         },
         {
+            "key": "field_5fd603398b0b5",
+            "label": "Align Items",
+            "name": "front_card_align_items",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "start": "start",
+                "center": "center",
+                "end": "end",
+                "space-between": "space-between",
+                "space-around": "space-around"
+            },
+            "default_value": "space-around",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5fc7b0b1342bb",
             "label": "Front Card",
             "name": "front_card",
@@ -397,6 +425,34 @@
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
+        },
+        {
+            "key": "field_5fd6038a8b0b6",
+            "label": "Align Items",
+            "name": "back_card_align_items",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "start": "start",
+                "center": "center",
+                "end": "end",
+                "space-between": "space-between",
+                "space-around": "space-around"
+            },
+            "default_value": "space-around",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_5fc7b69db4862",
@@ -898,5 +954,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607852995
+    "modified": 1607861147
 }

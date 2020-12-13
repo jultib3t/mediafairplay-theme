@@ -1,6 +1,27 @@
 <?php
 
 $html .= '<style>
+@charset "UTF-8";
+:root {
+  --star-size: 30px;
+  --star-color: #A8A8A8;
+  --star-background: #71D24F;
+}
+
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times;
+  line-height: 1;
+}
+.Stars::before {
+  content: "★★★★★";
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
     .scene {
         height: 260px;
         margin: 40px 0;
