@@ -26,40 +26,41 @@ $review_link_size = get_field('review_link_size');
 if (!empty($datas)) {
   $front_card_select = [];
   // Global Design
-  if (have_rows('global_design')) :
-    while (have_rows('global_design')) : the_row();
+  /* if (have_rows('global_design')) :
+    while (have_rows('global_design')) : the_row(); */
       // Get sub field values.
-      $show_rank = get_sub_field('gl_show_rank');
-      $rank_size = get_sub_field('rank_size');
-      $review_link_text = get_sub_field('review_link_text');
-      $card_background_color = get_sub_field('card_background_color');
-      $card_border_color = get_sub_field('card_border_color');
+      $show_rank = get_field('gl_show_rank');
+      $rank_size = get_field('rank_size');
+      $review_link_text = get_field('review_link_text');
+      $card_background_color = get_field('card_background_color');
+      $card_border_color = get_field('card_border_color');
       
-    endwhile;
-  endif;
+  /*   endwhile;
+  endif; */
   // Card Design
 
-  if (have_rows('card_design')) :
-    while (have_rows('card_design')) : the_row();
+ /*  if (have_rows('card_design')) :
+    while (have_rows('card_design')) : the_row(); */
       // Get sub field values.
-      $card_width = get_sub_field('card_width');
-      $card_hight = get_sub_field('card_hight');
-      $card_radius = get_sub_field('card_radius');
-      $card_stroke = get_sub_field('card_stroke');
-      $space_between_cards = get_sub_field('space_between_cards');
-      $logo_size_desktop = get_sub_field('logo_size_desktop');
-      $logo_size_tablet = get_sub_field('logo_size_tablet');
-      $logo_size_mobile = get_sub_field('logo_size_mobile');
-      $fs_font_size = get_sub_field('fs_font_size');
-      $fs_font_weight = get_sub_field('fs_font_weight');
-      $bn_font_size = get_sub_field('bn_font_size');
-      $bn_font_weight = get_sub_field('bn_font_weight');
-      $play_now_text = get_sub_field('play_now_text');
-      $play_now_font_size = get_sub_field('play_now_font_size');
-      $play_now_text_color = get_sub_field('play_now_text_color');
-      $play_now_background_color = get_sub_field('play_now_background_color');
-      $play_now_hover_background_color = get_sub_field('play_now_hover_background_color');
-      $bn_text_color = get_sub_field('bn_text_color');
+      $card_width = get_field('card_width');
+      // var_dump($card_width);
+      $card_hight = get_field('card_hight');
+      $card_radius = get_field('card_radius');
+      $card_stroke = get_field('card_stroke');
+      $space_between_cards = get_field('space_between_cards');
+      $logo_size_desktop = get_field('logo_size_desktop');
+      $logo_size_tablet = get_field('logo_size_tablet');
+      $logo_size_mobile = get_field('logo_size_mobile');
+      $fs_font_size = get_field('fs_font_size');
+      $fs_font_weight = get_field('fs_font_weight');
+      $bn_font_size = get_field('bn_font_size');
+      $bn_font_weight = get_field('bn_font_weight');
+      $play_now_text = get_field('play_now_text');
+      $play_now_font_size = get_field('play_now_font_size');
+      $play_now_text_color = get_field('play_now_text_color');
+      $play_now_background_color = get_field('play_now_background_color');
+      $play_now_hover_background_color = get_field('play_now_hover_background_color');
+      $bn_text_color = get_field('bn_text_color');
       
 
       // LOOP FRONT CARD
@@ -68,7 +69,7 @@ if (!empty($datas)) {
 
           // Get sub field values.
           $front_card_select[] = get_sub_field('front_card_select');
-        // var_dump($front_card_select);
+         // var_dump($front_card_select);
         // echo count($front_card_select);
         endwhile;
       endif;
@@ -84,8 +85,8 @@ if (!empty($datas)) {
         endwhile;
       endif;
 
-    endwhile;
-  endif;
+  /*   endwhile;
+  endif; */
 
 
   $count = 1;
