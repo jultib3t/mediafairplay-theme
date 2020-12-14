@@ -147,30 +147,27 @@ if (!empty($datas)) {
     // FRONT CARD
     if( $data->special_flag !== '-' && $card_show_special_flag ){
       $html .= '<div class="card__face special card__face--front">';
+      $html .= '<div class="icon-info-wr special">';
+      $html .= '<span class="number">' . $count . '</span>';
+      $html .= '<div class="special_flag_wrapper">'.$data->special_flag.'</div>';
+      // $html .= '<span class="__icon icon-info"></span>';
+      $html .= '</div>';
     }else{
       $html .= '<div class="card__face card__face--front">';
-    }
-    
-    if( $data->special_flag !== '-' && $card_show_special_flag ){
-      $html .= '<div class="icon-info-wr special">';
-    }else{
+   
       $html .= '<div class="icon-info-wr">';
-    }
-    
+   
     if ($show_rank) :
-      // show rank or not
       $html .= '<span class="number">' . $count . '</span>';
     endif;
-    if( $card_show_special_flag ) :
-      if( $data->special_flag !== '-'){
-        $html .= '<div class="special_flag_wrapper">'.$data->special_flag.'</div>';
-      }
-      
-    endif;
+
     if(  $allow_flip ){
       $html .= '<span class="__icon icon-info"></span>';
     }
     $html .= '</div>';
+    }
+    
+
 
     $html .= '<div class="cards__wrapper">';
  
@@ -224,7 +221,12 @@ if (!empty($datas)) {
     // FRONT CARD END
 
     // BACK CARD //
-    $html .= '<div class="card__face card__face--back">';
+    if( $data->special_flag !== '-' && $card_show_special_flag ){
+      $html .= '<div class="card__face special card__face--back">';
+    }else{
+      $html .= '<div class="card__face card__face--back">';  
+    }
+    
 
         $html .= '<div class="icon-info-wr back">';
           $html .= '<span class="__icon icon-cancel-circle"></span>';

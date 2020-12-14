@@ -318,17 +318,18 @@ $html .= '<style>
         padding-top: 6px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        display: flex;
+        display: block;
         align-items: center;
         color: '.$special_flag_text_color.';
     }
     
     .special_flag_wrapper {
         font-size: 21px;
-        display: flex;
+        display: block;
         justify-content: center;
         align-items: center;
         height: 100%;
+        text-align: center;
     }
     span.card_value_description {
         font-size:15px;
