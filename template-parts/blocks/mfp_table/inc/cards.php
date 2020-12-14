@@ -145,6 +145,10 @@ if (!empty($datas)) {
   $html .= '<div class="mfp-casino-block scene scene--card">';
   // limit the foreach by number that chosed
   foreach (array_slice($datas, 0, $card_number_of_cards) as $data) {
+    if( $data->hide == 0 ){
+
+    
+    
     $html .= '<div class="card_">';
     // FRONT CARD
     if( $data->special_flag !== '-' && $card_show_special_flag ){
@@ -271,6 +275,7 @@ if (!empty($datas)) {
 
     $html .= '</div>';
     $count++;
+  }
   }
   // load more
   if( $card_load_more ){
