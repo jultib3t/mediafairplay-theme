@@ -10,10 +10,6 @@ function pands_admin_colors()
 
 add_action('admin_head', 'pands_admin_colors');
 
-
-
-
-
 add_filter('acf/load_field/name=choose_category', function($field) {
     /** ============ new one ============== */
     /**

@@ -1,5 +1,7 @@
 <?php
-$list = wp_remote_get("https://app.aff-wiz.com/wp-json/api/v1/get_site_table?website_id=4&geo_id=3&category_id={$categoryID}");
+$siteID = get_theme_mod('connect_your_site_to_aff_wiz');
+$geoID = $siteID = get_theme_mod('connect_your_site_to_aff_wiz_id');
+$list = wp_remote_get("https://app.aff-wiz.com/wp-json/api/v1/get_site_table?website_id={$siteID}&geo_id={$geoID}&category_id={$categoryID}");
 // var_dump($a['category_id'] );
 if (is_wp_error($list)) {
   return false; // Bail early
@@ -59,7 +61,7 @@ $card_review_link_space_bottom = get_field('card_review_link_space_bottom');
 $special_flag_text_color = get_field('special_flag_text_color');
 $special_flag_background_color = get_field('special_flag_background_color');
 
-
+$card_load_more = get_field('card_load_more');
 
 if (!empty($datas)) {
   // $front_card_select = [];
@@ -270,10 +272,15 @@ if (!empty($datas)) {
     $html .= '</div>';
     $count++;
   }
+  // load more
+  if( $card_load_more ){
+    $html .= '<div class="card_load_more_wrapper"><span>LOAD MORE</span></div>';
+  }
+  // load more end
   $html .= '</div>';
   $html .= '</div>';
   if( $allow_flip ) :
-    include 'cards/script.php';
+     include 'cards/script.php';
   endif;
 }else{
   $html .= 'Sorry your API is empty, pls contact your King Developer';

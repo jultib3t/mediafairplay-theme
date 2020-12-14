@@ -103,7 +103,7 @@
             },
             "default_value": 4,
             "min": 1,
-            "max": 30,
+            "max": 250,
             "step": "",
             "prepend": "",
             "append": ""
@@ -143,7 +143,7 @@
             },
             "default_value": 330,
             "min": 1,
-            "max": 1920,
+            "max": 1000,
             "step": "",
             "prepend": "",
             "append": ""
@@ -163,7 +163,7 @@
             },
             "default_value": 10,
             "min": "",
-            "max": 1920,
+            "max": 300,
             "step": "",
             "prepend": "",
             "append": ""
@@ -203,7 +203,7 @@
             },
             "default_value": 1,
             "min": 0,
-            "max": 1920,
+            "max": 200,
             "step": "",
             "prepend": "",
             "append": ""
@@ -726,6 +726,7 @@
                         "Free Spins": "Free Spins",
                         "Rating": "Rating",
                         "Description": "Description",
+                        "Review Link": "Review Link",
                         "Play Now": "Play Now"
                     },
                     "default_value": "Logo",
@@ -1766,5 +1767,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607947625
+    "modified": 1607962309
 }

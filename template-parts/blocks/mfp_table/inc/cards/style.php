@@ -1,7 +1,6 @@
 <?php
 if ($card_drop_shadow) {
-    $card_drop_shadow = ' box-shadow:
-    ' . get_theme_mod("mfp_cards_shadows_x", "0") . 'px ' . get_theme_mod("mfp_cards_shadows_y", "1") . 'px ' . get_theme_mod("mfp_cards_shadows_blur", "2") . 'px ' . get_theme_mod("mfp_cards_shadows_Spread", "0") . 'px ' . get_theme_mod("mfp_cards_shadow_color", "rgba(0,0,0,.3)") . ';';
+    $card_drop_shadow = 'box-shadow: 0px 1px 2px 1px rgba(0,0,0,.3);';
 } else {
     $card_drop_shadow = '';
 }

@@ -198,6 +198,45 @@ class skyrocket_initialise_customizer_settings
                 'type'       => 'textarea',
             )
         ));
+        /** SITE IDENTITY BY APP WIZ */
+        $wp_customize->add_setting(
+            'connect_your_site_to_aff_wiz',
+            [
+                'default' => ''
+            ]
+        );
+        $wp_customize->add_control(new WP_Customize_Control(
+            $wp_customize,
+            'connect_your_site_to_aff_wiz',
+            array(
+                'label'      => __('Connect Your Site To AFF-WIZ', 'mediafairplay'),
+                'description' => __('Please Check your ID from "Site Manager" in AFF WIZ', 'mediafairplay'),
+                'priority'       => 130,
+                'section'    => 'title_tagline',
+                'type'       => 'number',
+            )
+        ));
+        /** /// SITE IDENTITY BY APP WIZ */
+        
+         /** SITE IDENTITY BY APP WIZ GEO ID */
+         $wp_customize->add_setting(
+            'connect_your_site_to_aff_wiz_id',
+            [
+                'default' => ''
+            ]
+        );
+        $wp_customize->add_control(new WP_Customize_Control(
+            $wp_customize,
+            'connect_your_site_to_aff_wiz_id',
+            array(
+                'label'      => __('Connect Your Site To AFF-WIZ BY GEO ID', 'mediafairplay'),
+                'description' => __('Please Check your ID from "Site Manager" in AFF WIZ', 'mediafairplay'),
+                'priority'       => 130,
+                'section'    => 'title_tagline',
+                'type'       => 'number',
+            )
+        ));
+        /** /// SITE IDENTITY BY APP WIZ */
     }
     /** Register our sample custom controls */
     public function skyrocket_register_sample_custom_controls($wp_customize)
