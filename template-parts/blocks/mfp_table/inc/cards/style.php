@@ -1,11 +1,24 @@
 <?php
-
+if ($card_drop_shadow) {
+    $card_drop_shadow = ' box-shadow:
+    ' . get_theme_mod("mfp_cards_shadows_x", "0") . 'px ' . get_theme_mod("mfp_cards_shadows_y", "1") . 'px ' . get_theme_mod("mfp_cards_shadows_blur", "2") . 'px ' . get_theme_mod("mfp_cards_shadows_Spread", "0") . 'px ' . get_theme_mod("mfp_cards_shadow_color", "rgba(0,0,0,.3)") . ';';
+} else {
+    $card_drop_shadow = '';
+}
+if ($allow_flip) {
+    $allow_flip = 'cursor: pointer;';
+}
+if( $play_now_button_drop_shadow ){
+    $play_now_button_drop_shadow = 'box-shadow: 0 1px 0 0 #c7c7c7, 0 4px 8px 0 rgba(0, 0, 0, .1);';
+}else{
+    $play_now_button_drop_shadow = 'box-shadow: none;';
+}
 $html .= '<style>
 @charset "UTF-8";
 :root {
   --star-size: 30px;
-  --star-color: #A8A8A8;
-  --star-background: #71D24F;
+  --star-color: #000;
+  --star-background: '.$rating_text_color.';
 }
 
 .Stars {
@@ -42,11 +55,11 @@ $html .= '<style>
         transform-style: preserve-3d;
         position: relative;
         width: 100%;
-        max-width: '.$card_width.'px;
-        height: ' .$card_hight. 'px;
+        max-width: ' . $card_width . 'px;
+        height: ' . $card_hight . 'px;
         margin-bottom: 10px;
-        margin-right: '.$space_between_cards.'px;
-        margin-left: '.$space_between_cards.'px;
+        margin-right: ' . $space_between_cards . 'px;
+        margin-left: ' . $space_between_cards . 'px;
         flex-direction: column;
     }
 
@@ -67,14 +80,14 @@ $html .= '<style>
         padding-left: 15px;
         display: flex;
         flex-direction: column;
-        background: ' .$card_background_color. ';
-        box-shadow:
-            ' . get_theme_mod("mfp_cards_shadows_x", "0") . 'px ' . get_theme_mod("mfp_cards_shadows_y", "1") . 'px ' . get_theme_mod("mfp_cards_shadows_blur", "2") . 'px ' . get_theme_mod("mfp_cards_shadows_Spread", "0") . 'px ' . get_theme_mod("mfp_cards_shadow_color", "rgba(0,0,0,.3)") . ';
-        border-width: '.$card_stroke.'px;
-        border-color: '.$card_border_color.';
+        background: ' . $card_background_color . ';
+       ' . $card_drop_shadow . '
+        border-width: ' . $card_stroke . 'px;
+        border-color: ' . $card_border_color . ';
         border-style: solid;
-        border-radius: '.$card_radius.'px;
+        border-radius: ' . $card_radius . 'px;
         padding-bottom: 10px;
+        padding-top: 10px;
     }
 
     .card__face--back {
@@ -85,46 +98,63 @@ $html .= '<style>
     .icon-info-wr {
         text-align: right;
         padding-right: 5px;
-        padding-top: 10px;
-        cursor: pointer;
+        ' . $allow_flip . '
         margin-right: -10px;
         margin-left: -10px;
         margin-bottom: -10px;
+        
     }
 
     .card_ figure {
         margin: 0;
         line-height: 0;
+        margin-top: '.$card_logo_space_top.'px;
+        margin-bottom: '.$card_logo_space_bottom.'px;
     }
-
-    a.cards_play_now {
-        background-color:'.$play_now_background_color.';
-        color: ' .$play_now_text_color. ';
-        box-shadow: 0 1px 0 0 #c7c7c7, 0 4px 8px 0 rgba(0, 0, 0, .1);
+    .card_description{
+        color: '.$dd_text_color.';
+        font-size: '.$dd_font_size.'px;
+        font-weight: '.$dd_font_weight.';
+        margin-top: '.$card_dd_space_top.'px;
+        margin-bottom: '.$card_dd_space_bottom.'px;
+    }
+    .play__now__wrapper {
+        text-align: center;
+        display: flex;
         width: 100%;
-        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        margin-top: '.$card_play_now_space_top.'px;
+        margin-bottom: '.$card_play_now_space_bottom.'px;
+    }
+    a.cards_play_now {
+        background-color:' . $play_now_background_color . ';
+        color: ' . $play_now_text_color . ';
+        '.$play_now_button_drop_shadow.'
+        width: 100%;
         line-height: 46px;
         cursor: pointer;
-        margin-top: 10px;
         text-decoration: none;
-        font-size: ' .$play_now_font_size.'px;
+        font-size: ' . $play_now_font_size . 'px;
         font-weight: 400;
-        border-radius: 10px;
-        max-width: 190px;
+        border-radius: '.$play_now_button_radius.'px;
+        max-width: '.$play_now_button_width.'px;
+        min-height: '.$play_now_button_height.'px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     a.cards_play_now:hover {
-        background: ' .$play_now_hover_background_color. ';
+        background: ' . $play_now_hover_background_color . ';
     }
 
-    span.number {
-        float: left;
-        border: 1px solid;
-        border-radius: 50%;
-        padding: 0px 7px;
-        margin-left: 5px;
-        border-color: #000;
-        font-size: 11px;
+  
+    span.review_link_wrapper a {
+        font-size: '.$review_link_font_size.'px;
+        color: '.$review_link_text_color.';
+        margin-top: '.$card_review_link_space_top.'px;
+        margin-bottom: '.$card_review_link_space_bottom.'px;
     }
 
     .mfp-casino-block.scene.scene--card {
@@ -159,12 +189,6 @@ $html .= '<style>
         line-height: 27px;
     }
 
-    .card__value span.card_bonus {
-        font-size: ' . get_theme_mod("mfp_cards_bonus_font_size", "36") . 'px;
-        font-weight: ' . get_theme_mod("mfp_cards_bonus_font_weight", "700") . ';
-        color: ' . get_theme_mod("mfp_cards_bonus_color", "#3f3f3f") . ';
-    }
-
     span.t_c_apply {
         font-size: ' . get_theme_mod("mfp_casino_cards_t_c_apply_font_size", "12") . 'px;
         font-weight: ' . get_theme_mod("mfp_casino_cards_t_c_apply_font_weight", "300") . ';
@@ -177,14 +201,25 @@ $html .= '<style>
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+    }
+    .card__face.card__face--front .cards__wrapper{
+        justify-content: '.$front_card_align_items.';
+    }
+    .card__face.card__face--back .cards__wrapper{
+        justify-content: '.$back_card_align_items.';
     }
 
     span.card__free_spins {
-        font-size: '.$fs_font_size.'px;
-        font-weight: '.$fs_font_weight.';
+        font-size: ' . $fs_font_size . 'px;
+        font-weight: ' . $fs_font_weight . ';
         display: block;
-        color: #3f3f3f;
+        color: '.$fs_text_color.';
+        margin-top: '.$card_fs_space_top.'px;
+        margin-bottom: '.$card_fs_space_bottom.'px;
+    }
+    .rating-wrapper {
+        margin-top: '.$card_rating_space_top.'px;
+        margin-bottom: '.$card_rating_space_bottom.'px;
     }
     .card__details {
         line-height: initial;
@@ -243,62 +278,82 @@ $html .= '<style>
     }
 
     .icon-info-wr span {
-        color: #cacaca;
+        color: ' . $card_rank_flip_color . ';
+        font-size: ' . $rank_size . 'px;
     }
 
     .icon-info-wr span.__icon:hover,
     .icon-info-wr span.number:hover {
-        color:#f00;
+        color:' . $card_rank_flip_hover_color . ';
         transition: all .2s ease;
     }
 
     .icon-info-wr span.number {
-        font-size: '.$rank_size.'px;
-        color: #cacaca;
+        float: left;
+        font-size: 11px;
+        font-size: ' . $rank_size . 'px;
+        color: ' . $card_rank_flip_color . ';
         font-weight: bold;
-        border: 3px solid;
-        padding: 0 5px;
-        height: 25px;
-        width: 25px;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-left: 5px;
     }
-
-    .icon-info-wr span.__icon {
-        font-size: 23px;
-    }
-
+    
     .icon-info-wr {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 5px;
+        margin-bottom: 0px;
     }
 
     .icon-info-wr.back {
         justify-content: flex-end;
     }
-
+    .icon-info-wr.special {
+        background: '.$special_flag_background_color.';
+        margin-right: -15px;
+        margin-left: -15px;
+        margin-top: -10px;
+        padding-top: 6px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        display: flex;
+        align-items: center;
+        color: '.$special_flag_text_color.';
+    }
+    
+    .special_flag_wrapper {
+        font-size: 21px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
     span.card_value_description {
         font-size:15px;
         font-weight:700;
         color:#888;
     }
     .cards__wrapper figure img {
-        width: '.$logo_size_desktop.'px;
-        max-width:'.$logo_size_desktop.'px;
+        width: ' . $logo_size_desktop . 'px;
+        max-width:' . $logo_size_desktop . 'px;
         height: 79px;
     }
     span.card_bonus{
-        font-size: '.$bn_font_size.'px;
-        font-weight: '.$bn_font_weight.';
-        color: '.$bn_text_color.';
+        font-size: ' . $bn_font_size . 'px;
+        font-weight: ' . $bn_font_weight . ';
+        color: ' . $bn_text_color . ';
+        margin-top:'.$card_bonus_space_top.'px;
+        margin-bottom:'.$card_bonus_space_bottom.'px;;
+    }
+    .card__face.special {
+        border-color: '.$special_flag_background_color.';
     }
     @media(max-width: 1000px) {
         .cards__wrapper figure img {
-            width: '.$logo_size_tablet.'px;
-            max-width:'.$logo_size_tablet.'px;
+            width: ' . $logo_size_tablet . 'px;
+            max-width:' . $logo_size_tablet . 'px;
         }
 
         .mfp-casino-block-wrapper {
@@ -310,8 +365,8 @@ $html .= '<style>
     }
     @media(max-width: 550px) {
         .cards__wrapper figure img {
-            width: '.$logo_size_mobile.'px;
-            max-width:'.$logo_size_mobile.'px;
+            width: ' . $logo_size_mobile . 'px;
+            max-width:' . $logo_size_mobile . 'px;
         }
         .mfp-casino-block.scene.scene--card .card_ {
             max-width: 43%;

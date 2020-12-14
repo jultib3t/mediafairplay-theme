@@ -20,6 +20,44 @@ $show_logo = get_field('show_logo');
 $review_link = get_field('review_link');
 $review_link_text = get_field('review_link_text');
 $review_link_size = get_field('review_link_size');
+$card_drop_shadow = get_field('card_drop_shadow');
+$allow_flip = get_field('allow_flip');
+$t_n_c_apply = get_field('card_t_c_apply');
+$card_rank_flip_color = get_field('card_rank_flip_color');
+$card_rank_flip_hover_color = get_field('card_rank_flip_hover_color');
+$front_card_align_items = get_field('front_card_align_items');
+$back_card_align_items = get_field('back_card_align_items');
+$card_logo_space_top = get_field('card_logo_space_top');
+$card_logo_space_bottom = get_field('card_logo_space_bottom');
+$card_bonus_space_top = get_field('card_bonus_space_top');
+$card_bonus_space_bottom = get_field('card_bonus_space_bottom');
+$fs_text_color = get_field('fs_text_color');
+$card_fs_space_top = get_field('card_fs_space_top');
+$card_fs_space_bottom = get_field('card_fs_space_bottom');
+$rating_style_select = get_field('rating_style_select');
+$rating_text_color = get_field('rating_text_color');
+$card_rating_space_top = get_field('card_rating_space_top');
+$card_rating_space_bottom = get_field('card_rating_space_bottom');
+$dd_font_size = get_field('dd_font_size');
+$dd_font_weight = get_field('dd_font_weight');
+$card_dd_space_top = get_field('card_dd_space_top');
+$card_dd_space_bottom = get_field('card_dd_space_bottom');
+$dd_text_color = get_field('dd_text_color');
+$play_now_button_width = get_field('play_now_button_width');
+$play_now_button_height = get_field('play_now_button_height');
+$play_now_button_radius = get_field('play_now_button_radius');
+$play_now_button_drop_shadow = get_field('play_now_button_drop_shadow');
+$card_play_now_space_top = get_field('card_play_now_space_top');
+$card_play_now_space_bottom = get_field('card_play_now_space_bottom');
+$review_link_custom_text = get_field('review_link_custom_text');
+
+$review_link_font_size = get_field('review_link_font_size');
+$review_link_text_color = get_field('review_link_text_color');
+$card_review_link_space_top = get_field('card_review_link_space_top');
+$card_review_link_space_bottom = get_field('card_review_link_space_bottom');
+
+$special_flag_text_color = get_field('special_flag_text_color');
+$special_flag_background_color = get_field('special_flag_background_color');
 
 
 
@@ -29,6 +67,11 @@ if (!empty($datas)) {
   /* if (have_rows('global_design')) :
     while (have_rows('global_design')) : the_row(); */
       // Get sub field values.
+      $card_number_of_cards = get_field('card_number_of_cards');
+      if( empty($card_number_of_cards)){
+        $card_number_of_cards = 4;
+      }
+      // var_dump($card_number_of_cards);
       $show_rank = get_field('gl_show_rank');
       $rank_size = get_field('rank_size');
       $review_link_text = get_field('review_link_text');
@@ -61,23 +104,24 @@ if (!empty($datas)) {
       $play_now_background_color = get_field('play_now_background_color');
       $play_now_hover_background_color = get_field('play_now_hover_background_color');
       $bn_text_color = get_field('bn_text_color');
+      $card_show_special_flag = get_field('card_show_special_flag');
       
 
       // LOOP FRONT CARD
+      
       if (have_rows('front_card')) :
         while (have_rows('front_card')) : the_row();
-
+          // var_dump(get_sub_field('front_card_select'));
           // Get sub field values.
           $front_card_select[] = get_sub_field('front_card_select');
-         // var_dump($front_card_select);
+          // var_dump($front_card_select);
         // echo count($front_card_select);
         endwhile;
       endif;
-
+     // var_dump( $front_card_select );
       // LOOP Back CARD
       if (have_rows('back_card')) :
         while (have_rows('back_card')) : the_row();
-
           // Get sub field values.
           $back_card_select[] = get_sub_field('back_card_select');
         // var_dump($front_card_select);
@@ -97,20 +141,39 @@ if (!empty($datas)) {
 
   $html .= '<div class="mfp-casino-block-wrapper">';
   $html .= '<div class="mfp-casino-block scene scene--card">';
-  foreach ($datas as $data) {
+  // limit the foreach by number that chosed
+  foreach (array_slice($datas, 0, $card_number_of_cards) as $data) {
     $html .= '<div class="card_">';
     // FRONT CARD
-    $html .= '<div class="card__face card__face--front">';
-    $html .= '<div class="icon-info-wr">';
+    if( $data->special_flag !== '-' && $card_show_special_flag ){
+      $html .= '<div class="card__face special card__face--front">';
+    }else{
+      $html .= '<div class="card__face card__face--front">';
+    }
+    
+    if( $data->special_flag !== '-' && $card_show_special_flag ){
+      $html .= '<div class="icon-info-wr special">';
+    }else{
+      $html .= '<div class="icon-info-wr">';
+    }
+    
     if ($show_rank) :
       // show rank or not
       $html .= '<span class="number">' . $count . '</span>';
     endif;
-    $html .= '<span class="__icon icon-info"></span>';
+    if( $card_show_special_flag ) :
+      if( $data->special_flag !== '-'){
+        $html .= '<div class="special_flag_wrapper">'.$data->special_flag.'</div>';
+      }
+      
+    endif;
+    if(  $allow_flip ){
+      $html .= '<span class="__icon icon-info"></span>';
+    }
     $html .= '</div>';
 
     $html .= '<div class="cards__wrapper">';
-
+ 
     foreach ($front_card_select as  $value) {
       // print_r($value);
       switch ($value) {
@@ -128,11 +191,24 @@ if (!empty($datas)) {
           }
           break;
         case 'Rating':
-          $html .= '<span>' . $data->rating . '</span><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div>';
+          switch ($rating_style_select) {
+            case 'stars':
+              $html .= '<div class="rating-wrapper"><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div></div>';
+              break;
+              case 'Number + Stars':
+                $html .= '<div class="rating-wrapper"><span>' . $data->rating . '</span><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div></div>';
+                break;
+            default:
+            $html .= '<div class="rating-wrapper"><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div></div>';
+              break;
+          }
           break;
         case 'Description':
-          $html .= '<span>' . $data->default_info . '</span>';
+          $html .= '<span class="card_description">' . $data->default_info . '</span>';
           break;
+          case 'Review Link':
+            $html .= '<span class="review_link_wrapper"><a href="' . $data->review_url . '">'.$review_link_custom_text.'</a></span>';
+            break;
         case 'Play Now':
           $html .= '<div class="play__now__wrapper">
           <a target="_blank" rel="nofollow" href="' . get_site_url() . '/visit/' . $data->visit_url . '/" class="cards_play_now">' . $play_now_text . '</a>
@@ -140,7 +216,9 @@ if (!empty($datas)) {
           break;
       }
     }
-
+    if( $t_n_c_apply){
+      $html .= '<span class="t_c_apply">T&amp;C Apply</span>';
+    }
     $html .= '</div>';
     $html .= '</div>';
     // FRONT CARD END
@@ -192,6 +270,10 @@ if (!empty($datas)) {
   }
   $html .= '</div>';
   $html .= '</div>';
-  include 'cards/script.php';
+  if( $allow_flip ) :
+    include 'cards/script.php';
+  endif;
+}else{
+  $html .= 'Sorry your API is empty, pls contact your King Developer';
 }
 echo $html;
