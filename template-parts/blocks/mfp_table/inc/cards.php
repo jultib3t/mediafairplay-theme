@@ -1,6 +1,6 @@
 <?php
 $siteID = get_theme_mod('connect_your_site_to_aff_wiz');
-$geoID = $siteID = get_theme_mod('connect_your_site_to_aff_wiz_id');
+$geoID = get_theme_mod('connect_your_site_to_aff_wiz_id');
 $list = wp_remote_get("https://app.aff-wiz.com/wp-json/api/v1/get_site_table?website_id={$siteID}&geo_id={$geoID}&category_id={$categoryID}");
 // var_dump($a['category_id'] );
 if (is_wp_error($list)) {
@@ -10,12 +10,25 @@ $list = wp_remote_retrieve_body($list);
 $datas = json_decode($list);
 /// var_dump($datas->data);
 $datas = $datas->data;
-/* if (!empty($datas)) {
-  $html = '';
-  foreach ($datas as $data) {
-    print_r($data->logo1);
+
+uasort($datas, function ($item1, $item2) {
+  return $item1->readingOrder <=> $item2->readingOrder;
+});
+
+$withstring = [];
+foreach ($datas as $value) {
+  if( is_string($value->readingOrder) ){
+    $withstring[] = $value;
   }
-} */
+}
+$nostring = [];
+foreach ($datas as $value) {
+  if( !is_string($value->readingOrder) ){
+    $nostring[] = $value;
+  }
+}
+$datas = array_merge($withstring,$nostring);
+ // print_r($datas);
 
 
 $show_logo = get_field('show_logo');
@@ -288,6 +301,13 @@ if (!empty($datas)) {
      include 'cards/script.php';
   endif;
 }else{
-  $html .= 'Sorry your API is empty, pls contact your King Developer';
+  $html .= '<div style="width: 100%; max-width: 700px;margin: 0 auto; text-align: center;">
+  <h2>Sorry your API is empty, pls contact your King Developer</h2>
+  <h4>What you can do?</h4>
+  <ol>
+    <li>Check your Site Identety in customizer->site identety</li>
+    <li>Contact your king developer</li>
+  </ol>
+  <img style="width: 100%; max-width: 700px; height: auto;" src="https://media.giphy.com/media/3owzW8XucitRFDXKNO/giphy.gif"/></div>';
 }
 echo $html;

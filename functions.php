@@ -7,7 +7,6 @@
  *
  * @package mediafairplay
  */
-
 $show = false;
 show_admin_bar($show);
 
