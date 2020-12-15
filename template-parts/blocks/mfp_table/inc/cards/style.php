@@ -5,7 +5,7 @@ if ($card_drop_shadow) {
     $blur = get_field('card_drop_shadow_blur');
     $spread = get_field('card_drop_shadow_spread');
     $color = get_field('card_drop_shadow_color');
-    $card_drop_shadow = 'box-shadow: '.$x.' '.$y.' '.$blur.' '.$spread.' '.$color.';';
+    $card_drop_shadow = 'box-shadow: '.$x.'px '.$y.'px '.$blur.'px '.$spread.'px '.$color.';';
 } else {
     $card_drop_shadow = 'box-shadow: none;';
 }
@@ -18,7 +18,7 @@ if( $play_now_button_drop_shadow ){
     $blur = get_field('play_now_button_drop_shadow_blur');
     $spread = get_field('play_now_button_drop_shadow_spread');
     $color = get_field('play_now_button_drop_shadow_color');
-    $play_now_button_drop_shadow = 'box-shadow: '.$x.' '.$y.' '.$blur.' '.$spread.' '.$color.';';
+    $play_now_button_drop_shadow = 'box-shadow: '.$x.'px '.$y.'px '.$blur.'px '.$spread.'px '.$color.';';
 }else{
     $play_now_button_drop_shadow = 'box-shadow: none;';
 }
