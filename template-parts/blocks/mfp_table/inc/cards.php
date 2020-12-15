@@ -123,6 +123,9 @@ if (!empty($datas)) {
       $play_now_hover_background_color = get_field('play_now_hover_background_color');
       $bn_text_color = get_field('bn_text_color');
       $card_show_special_flag = get_field('card_show_special_flag');
+
+      $special_flag_font_size = get_field('special_flag_font_size');
+      $special_flag_font_weight = get_field('special_flag_font_weight');
       
 
       // LOOP FRONT CARD

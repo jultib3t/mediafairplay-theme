@@ -333,7 +333,8 @@ $html .= '<style>
     }
     
     .special_flag_wrapper {
-        font-size: 21px;
+        font-size: '.$special_flag_font_size.'px;
+        font-weight: '.$special_flag_font_weight.';
         display: block;
         justify-content: center;
         align-items: center;
