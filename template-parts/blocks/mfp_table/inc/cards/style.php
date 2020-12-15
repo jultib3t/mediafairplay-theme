@@ -1,14 +1,24 @@
 <?php
 if ($card_drop_shadow) {
-    $card_drop_shadow = 'box-shadow: 0px 1px 2px 1px rgba(0,0,0,.3);';
+    $y = get_field('card_drop_shadow_y');
+    $x = get_field('card_drop_shadow_x');
+    $blur = get_field('card_drop_shadow_blur');
+    $spread = get_field('card_drop_shadow_spread');
+    $color = get_field('card_drop_shadow_color');
+    $card_drop_shadow = 'box-shadow: '.$x.' '.$y.' '.$blur.' '.$spread.' '.$color.';';
 } else {
-    $card_drop_shadow = '';
+    $card_drop_shadow = 'box-shadow: none;';
 }
 if ($allow_flip) {
     $allow_flip = 'cursor: pointer;';
 }
 if( $play_now_button_drop_shadow ){
-    $play_now_button_drop_shadow = 'box-shadow: 0 1px 0 0 #c7c7c7, 0 4px 8px 0 rgba(0, 0, 0, .1);';
+    $y = get_field('play_now_button_drop_shadow_y');
+    $x = get_field('play_now_button_drop_shadow_x');
+    $blur = get_field('play_now_button_drop_shadow_blur');
+    $spread = get_field('play_now_button_drop_shadow_spread');
+    $color = get_field('play_now_button_drop_shadow_color');
+    $play_now_button_drop_shadow = 'box-shadow: '.$x.' '.$y.' '.$blur.' '.$spread.' '.$color.';';
 }else{
     $play_now_button_drop_shadow = 'box-shadow: none;';
 }
@@ -135,10 +145,10 @@ $html .= '<style>
         cursor: pointer;
         text-decoration: none;
         font-size: ' . $play_now_font_size . 'px;
-        font-weight: 400;
+        font-weight: '.$play_now_font_weight.';
         border-radius: '.$play_now_button_radius.'px;
         max-width: '.$play_now_button_width.'px;
-        min-height: '.$play_now_button_height.'px;
+        height: '.$play_now_button_height.'px;
         display: flex;
         align-items: center;
         justify-content: center;

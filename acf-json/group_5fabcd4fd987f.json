@@ -209,25 +209,6 @@
             "append": ""
         },
         {
-            "key": "field_5fd71cd41f9ff",
-            "label": "Drop Shadow",
-            "name": "card_drop_shadow",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "On",
-            "ui_off_text": "Off"
-        },
-        {
             "key": "field_5fc7b1ed936b0",
             "label": "Background Color",
             "name": "card_background_color",
@@ -250,6 +231,160 @@
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000"
+        },
+        {
+            "key": "field_5fd71cd41f9ff",
+            "label": "Drop Shadow",
+            "name": "card_drop_shadow",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off"
+        },
+        {
+            "key": "field_5fd8bb2094f9b",
+            "label": "Y",
+            "name": "card_drop_shadow_y",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd71cd41f9ff",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": 0,
+            "max": 100,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5fd8bb4994f9c",
+            "label": "X",
+            "name": "card_drop_shadow_x",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd71cd41f9ff",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": 0,
+            "max": 100,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5fd8bb5494f9d",
+            "label": "Blur",
+            "name": "card_drop_shadow_blur",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd71cd41f9ff",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": 0,
+            "max": 100,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5fd8bb5f94f9e",
+            "label": "Spread",
+            "name": "card_drop_shadow_spread",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd71cd41f9ff",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": 0,
+            "max": 100,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5fd8bcf8a6a6b",
+            "label": "Color",
+            "name": "card_drop_shadow_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd71cd41f9ff",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -928,8 +1063,13 @@
             "choices": {
                 "100": "100",
                 "300": "300",
+                "200": "200",
                 "400": "400",
-                "700": "700"
+                "500": "500",
+                "600": "600",
+                "700": "700",
+                "800": "800",
+                "900": "900"
             },
             "default_value": 700,
             "allow_null": 0,
@@ -1047,8 +1187,13 @@
             "choices": {
                 "100": "100",
                 "300": "300",
+                "200": "200",
                 "400": "400",
-                "700": "700"
+                "500": "500",
+                "600": "600",
+                "700": "700",
+                "800": "800",
+                "900": "900"
             },
             "default_value": 700,
             "allow_null": 0,
@@ -1280,8 +1425,13 @@
             "choices": {
                 "100": "100",
                 "300": "300",
+                "200": "200",
                 "400": "400",
-                "700": "700"
+                "500": "500",
+                "600": "600",
+                "700": "700",
+                "800": "800",
+                "900": "900"
             },
             "default_value": 400,
             "allow_null": 0,
@@ -1369,6 +1519,38 @@
             "append": ""
         },
         {
+            "key": "field_5fd8b93694f95",
+            "label": "Font Weight",
+            "name": "play_now_font_weight",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "100": "100",
+                "300": "300",
+                "200": "200",
+                "400": "400",
+                "500": "500",
+                "600": "600",
+                "700": "700",
+                "800": "800",
+                "900": "900"
+            },
+            "default_value": 400,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5fd0d2b81b5b7",
             "label": "Input Text",
             "name": "play_now_text",
@@ -1442,29 +1624,10 @@
             },
             "default_value": 10,
             "min": 1,
-            "max": 200,
+            "max": 250,
             "step": "",
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_5fd722c7c5fc3",
-            "label": "Drop Shadow",
-            "name": "play_now_button_drop_shadow",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "On",
-            "ui_off_text": "Off"
         },
         {
             "key": "field_5fd0d3011b5b9",
@@ -1550,6 +1713,160 @@
             "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_5fd722c7c5fc3",
+            "label": "Drop Shadow",
+            "name": "play_now_button_drop_shadow",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off"
+        },
+        {
+            "key": "field_5fd8ba6194f96",
+            "label": "Y",
+            "name": "play_now_button_drop_shadow_y",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd722c7c5fc3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": "",
+            "max": 100,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5fd8ba9f94f98",
+            "label": "X",
+            "name": "play_now_button_drop_shadow_x",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd722c7c5fc3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": "",
+            "max": 100,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5fd8bab994f99",
+            "label": "Blur",
+            "name": "play_now_button_drop_shadow_blur",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd722c7c5fc3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": "",
+            "max": 100,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5fd8bac794f9a",
+            "label": "Spread",
+            "name": "play_now_button_drop_shadow_spread",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd722c7c5fc3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": "",
+            "max": 100,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5fd8bc36a6a6a",
+            "label": "Color",
+            "name": "play_now_button_drop_shadow_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd722c7c5fc3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000"
         },
         {
             "key": "field_5fd722ebc5fc4",
@@ -1703,7 +2020,7 @@
             "key": "field_5fd7240bc5fcc",
             "label": "Font Weight",
             "name": "special_flag_font_weight",
-            "type": "range",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -1712,12 +2029,24 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 24,
-            "min": 1,
-            "max": 200,
-            "step": "",
-            "prepend": "",
-            "append": ""
+            "choices": {
+                "100": "100",
+                "300": "300",
+                "200": "200",
+                "400": "400",
+                "500": "500",
+                "600": "600",
+                "700": "700",
+                "800": "800",
+                "900": "900"
+            },
+            "default_value": 400,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_5fd7241dc5fcd",
@@ -1767,5 +2096,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1607968608
+    "modified": 1608039770
 }

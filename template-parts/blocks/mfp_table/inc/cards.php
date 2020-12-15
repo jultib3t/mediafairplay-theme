@@ -115,6 +115,9 @@ if (!empty($datas)) {
       $bn_font_weight = get_field('bn_font_weight');
       $play_now_text = get_field('play_now_text');
       $play_now_font_size = get_field('play_now_font_size');
+
+      $play_now_font_weight = get_field('play_now_font_weight');
+
       $play_now_text_color = get_field('play_now_text_color');
       $play_now_background_color = get_field('play_now_background_color');
       $play_now_hover_background_color = get_field('play_now_hover_background_color');
