@@ -194,7 +194,10 @@ $html .= '<style type="text/css">
   --star-color: #000;
   --star-background: '.$rating_text_color.';
 }
-
+#'.$block['id'].'{
+  width: 100%;
+  max-width: 100%;
+}
 #'.$block['id'].' .Stars {
   --percent: calc(var(--rating) / 5 * 100%);
   display: inline-block;
