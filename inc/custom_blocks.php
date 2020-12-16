@@ -47,7 +47,6 @@ function my_acf_init_block_types()
                 'align'			=> true,
                 'anchor'		=> true,
                 'customClassName'	=> true,
-                'jsx' 			=> true,
             ],
             'icon' => 'admin-multisite',
             'multiple' => true
