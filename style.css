@@ -5,8 +5,8 @@ Author: MFP DEV FORCE
 Author URI: http://underscores.me/
 Description: Mediafairplay Theme
 Version: 1.5.88
-Tested up to: 5.4
-Requires PHP: 7.1
+Tested up to: 5.6
+Requires PHP: 7.3
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: mediafairplay
@@ -601,5 +601,5 @@ figcaption.blocks-gallery-caption {
   max-height: 100%;
 }
 .wp-block-cover {
-  flex-direction: column;
+  flex-direction: column !important;
 }
