@@ -164,6 +164,7 @@ $html .= '<style>
         color: '.$review_link_text_color.';
         margin-top: '.$card_review_link_space_top.'px;
         margin-bottom: '.$card_review_link_space_bottom.'px;
+        display: block;
     }
 
     .mfp-casino-block.scene.scene--card {
@@ -361,6 +362,8 @@ $html .= '<style>
     .card__face.special {
         border-color: '.$special_flag_background_color.';
     }
+   
+
     @media(max-width: 1000px) {
         .cards__wrapper figure img {
             width: ' . $logo_size_tablet . 'px;

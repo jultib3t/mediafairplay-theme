@@ -126,8 +126,7 @@ if (!empty($datas)) {
 
       $special_flag_font_size = get_field('special_flag_font_size');
       $special_flag_font_weight = get_field('special_flag_font_weight');
-      
-
+     
       // LOOP FRONT CARD
       
       if (have_rows('front_card')) :
@@ -274,11 +273,24 @@ if (!empty($datas)) {
             }
             break;
           case 'Rating':
-            $html .= '<span>' . $data->rating . '</span><img style="max-width: 100px; width: 100%;" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/5_stars.svg">';
+            switch ($rating_style_select) {
+              case 'stars':
+                $html .= '<div class="rating-wrapper"><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div></div>';
+                break;
+                case 'Number + Stars':
+                  $html .= '<div class="rating-wrapper"><span>' . $data->rating . '</span><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div></div>';
+                  break;
+              default:
+              $html .= '<div class="rating-wrapper"><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div></div>';
+                break;
+            }
             break;
           case 'Description':
-            $html .= '<span>' . $data->default_info . '</span>';
+            $html .= '<span class="card_description">' . $data->default_info . '</span>';
             break;
+            case 'Review Link':
+              $html .= '<span class="review_link_wrapper"><a href="' . $data->review_url . '">'.$review_link_custom_text.'</a></span>';
+              break;
           case 'Play Now':
             $html .= '<div class="play__now__wrapper">
             <a target="_blank" rel="nofollow" href="' . get_site_url() . '/visit/' . $data->visit_url . '/" class="cards_play_now">' . $play_now_text . '</a>
@@ -286,7 +298,6 @@ if (!empty($datas)) {
             break;
         }
       }
-           
 
       $html .= '</div>';
 
