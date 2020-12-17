@@ -274,7 +274,7 @@ $html .= '<style type="text/css">
         color: #888;
     }
 
-    #'.$block['id'].' .icon-info-wr {
+    #'.$block['id'].' .icon_info_wr'.$block['id'].' {
         text-align: right;
         padding-right: 5px;
         ' . $allow_flip . '
@@ -457,18 +457,18 @@ $html .= '<style type="text/css">
         content: "\ea0d";
     }
 
-    #'.$block['id'].' .icon-info-wr span {
+    #'.$block['id'].' .icon_info_wr'.$block['id'].' span {
         color: ' . $card_rank_flip_color . ';
         font-size: ' . $rank_size . 'px;
     }
 
-    #'.$block['id'].' .icon-info-wr span.__icon:hover,
-    #'.$block['id'].' .icon-info-wr span.number:hover {
+    #'.$block['id'].' .icon_info_wr'.$block['id'].' span.__icon:hover,
+    #'.$block['id'].' .icon_info_wr'.$block['id'].' span.number:hover {
         color:' . $card_rank_flip_hover_color . ';
         transition: all .2s ease;
     }
 
-    #'.$block['id'].' .icon-info-wr span.number {
+    #'.$block['id'].' .icon_info_wr'.$block['id'].' span.number {
         float: left;
         font-size: 11px;
         font-size: ' . $rank_size . 'px;
@@ -480,17 +480,17 @@ $html .= '<style type="text/css">
         margin-left: 5px;
     }
     
-    #'.$block['id'].' .icon-info-wr {
+    #'.$block['id'].' .icon_info_wr'.$block['id'].' {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 0px;
     }
 
-    #'.$block['id'].' .icon-info-wr.back {
+    #'.$block['id'].' .icon_info_wr'.$block['id'].'.back {
         justify-content: flex-end;
     }
-    #'.$block['id'].' .icon-info-wr.special {
+    #'.$block['id'].' .icon_info_wr'.$block['id'].'.special {
         background: '.$special_flag_background_color.';
         margin-right: -15px;
         margin-left: -15px;
@@ -580,7 +580,7 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
     // FRONT CARD
     if( $data->special_flag !== '-' && $card_show_special_flag ){
       $html .= '<div class="card__face special card__face--front">';
-      $html .= '<div class="icon-info-wr special">';
+      $html .= '<div class="icon_info_wr'.$block['id'].' special">';
       $html .= '<span class="number">' . $count . '</span>';
       $html .= '<div class="special_flag_wrapper">'.$data->special_flag.'</div>';
       // $html .= '<span class="__icon icon-info"></span>';
@@ -588,7 +588,7 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
     }else{
       $html .= '<div class="card__face card__face--front">';
    
-      $html .= '<div class="icon-info-wr">';
+      $html .= '<div class="icon_info_wr'.$block['id'].'">';
    
     if ($show_rank) :
       $html .= '<span class="number">' . $count . '</span>';
@@ -661,7 +661,7 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
     }
     
 
-        $html .= '<div class="icon-info-wr back">';
+        $html .= '<div class="icon_info_wr'.$block['id'].' back">';
           $html .= '<span class="__icon icon-cancel-circle"></span>';
         $html .= '</div>';
 
@@ -718,9 +718,10 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
   }
   // load more
   if( $card_load_more ){
-   // $html .= '<div class="card_load_more_wrapper"><span>LOAD MORE</span></div>';
+    $html .= '<div class="card_load_more_wrapper"><span>LOAD MORE</span></div>';
   }
   // load more end
+  $html .= '</div>';
   $html .= '</div>';
   $html .= '</div>';
   
