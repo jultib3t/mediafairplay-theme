@@ -73,6 +73,21 @@
             "ui_off_text": "Table"
         },
         {
+            "key": "field_5fdb0fa09be7b",
+            "label": "Block Background Color",
+            "name": "card_block_background_color_copy",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#fff"
+        },
+        {
             "key": "field_5fd5dc9cefaba",
             "label": "Card Layout",
             "name": "",
@@ -2096,5 +2111,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608039770
+    "modified": 1608191935
 }

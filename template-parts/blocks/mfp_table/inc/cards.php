@@ -76,6 +76,8 @@ $special_flag_background_color = get_field('special_flag_background_color');
 
 $card_load_more = get_field('card_load_more');
 
+$cards_bg_wrapper  = get_field('card_block_background_color_copy');
+
 if (!empty($datas)) {
   // $front_card_select = [];
   // Global Design
@@ -716,14 +718,14 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
   }
   // load more
   if( $card_load_more ){
-    $html .= '<div class="card_load_more_wrapper"><span>LOAD MORE</span></div>';
+   // $html .= '<div class="card_load_more_wrapper"><span>LOAD MORE</span></div>';
   }
   // load more end
   $html .= '</div>';
   $html .= '</div>';
   
   if( $allow_flip ) :
-     include 'cards/script.php';
+     // include 'cards/script.php';
   endif;
 }else{
   $html .= '<div style="width: 100%; max-width: 700px;margin: 0 auto; text-align: center;">
