@@ -541,8 +541,8 @@ $html .= '<style type="text/css">
         .mfp-casino-block-wrapper {
             width: unset;
             max-width: unset;
-            margin-right: -0.83em;
-            margin-left: -0.83em;
+           /* margin-right: -0.83em;
+            margin-left: -0.83em; */
         }
     }
     @media(max-width: 550px) {
