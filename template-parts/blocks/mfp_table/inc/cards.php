@@ -725,7 +725,7 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
   $html .= '</div>';
   
   if( $allow_flip ) :
-     // include 'cards/script.php';
+     include 'cards/script.php';
   endif;
 }else{
   $html .= '<div style="width: 100%; max-width: 700px;margin: 0 auto; text-align: center;">

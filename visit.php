@@ -3,7 +3,7 @@
 header('Cache-Control: no-store, no-cache, must-revalidate');
 require_once("../../../wp-load.php");
 global $wpdb;
-// var_dump($_GET['visit_url']);
+ var_dump($_GET['visit_url']);
 $visit_url = str_replace('/','',$_GET['visit_url']);
 $siteID = get_theme_mod('connect_your_site_to_aff_wiz');
 $geoID = get_theme_mod('connect_your_site_to_aff_wiz_id');
