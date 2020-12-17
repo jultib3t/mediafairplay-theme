@@ -5,7 +5,7 @@ require_once("../../../wp-load.php");
 global $wpdb;
 // var_dump($_GET['visit_url']);
 $visit_url = str_replace('/','',$_GET['visit_url']);
-// var_dump( $visit_url );
+ var_dump( $visit_url );
 // $visit_url =   sanitize_text_field($_GET['visit_url']);
  // var_dump($visit_url);
 $website_id =   28; // TODO: Gal, you have to take it from DB
@@ -43,15 +43,12 @@ $website_id =   28; // TODO: Gal, you have to take it from DB
 <body>
 
 <?php
-
-
 if(!empty($visit_url)) {
-    
     // $base_url   =   'https://dev.theoffersjunction.com/wp-json/api/v1/getVisitURL?visit_url='.$visit_url.'&website_id='.$website_id;
     // https://app.aff-wiz.com/wp-json/api/v1/getVisitURL?visit_url=all-slots-casino&website_id=4
     
     // $base_url = 'https://dev.theoffersjunction.com/wp-json/api/v1/getVisitURL?visit_url='.$visit_url.'&website_id=28';
-    $base_url = 'https://app.aff-wiz.com/wp-json/api/v1/getVisitURL?visit_url='.$visit_url.'&website_id=4';
+    $base_url = 'https://app.aff-wiz.com/wp-json/api/v1/getVisitURL?visit_url='.$visit_url.'&website_id=18';
     $response = wp_remote_get($base_url);
    // echo '<img src="http://i.stack.imgur.com/SBv4T.gif" alt="this slowpoke moves"  width=250/>';
     if(!empty($response)) {
