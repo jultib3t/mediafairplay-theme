@@ -3,7 +3,7 @@
 header('Cache-Control: no-store, no-cache, must-revalidate');
 require_once("../../../wp-load.php");
 global $wpdb;
- var_dump($_GET['visit_url']);
+ // var_dump($_GET['visit_url']);
 $visit_url = str_replace('/','',$_GET['visit_url']);
 $siteID = get_theme_mod('connect_your_site_to_aff_wiz');
 $geoID = get_theme_mod('connect_your_site_to_aff_wiz_id');
@@ -32,6 +32,8 @@ $website_id =   28; // TODO: Gal, you have to take it from DB
     justify-content: center;
     align-items: center;
     height: 600px;
+    top: 20%;
+    flex-direction: column;
 }
 
 .wrapper img {
@@ -60,7 +62,11 @@ if(!empty($visit_url)) {
         if($response->status) { //  var_dump($response->tracker_url);  ?>
 
 <div class="wrapper">
-    <img src="<?php echo get_template_directory_uri();?>/images/pokies-online-gif.gif" alt="this slowpoke moves"  width=250/>
+<img src="<?php echo esc_url( get_theme_mod( 'visit_php_image' ) ); ?>" alt="">
+<h2>Taking you to <?php $test = str_replace("/", " ", $_GET['visit_url']); echo str_replace("-", " ",$test);?></h2>
+    <!-- <img src="<?php echo get_template_directory_uri();?>/images/pokies-online-gif.gif" alt="this slowpoke moves"  width=250/> -->
+    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="">
+    
 </div>
             <script>
             window.setTimeout(function () {

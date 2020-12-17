@@ -520,7 +520,7 @@ $html .= '<style type="text/css">
     #'.$block['id'].' .cards__wrapper figure img {
         width: ' . $logo_size_desktop . 'px;
         max-width:' . $logo_size_desktop . 'px;
-        height: 79px;
+        height: auto;
     }
     #'.$block['id'].' span.card_bonus{
         font-size: ' . $bn_font_size . 'px;
@@ -608,7 +608,12 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
       // print_r($value);
       switch ($value) {
         case 'Logo':
-          $html .= '<figure><img width="162" height="79" src="' . $data->logo1 . '"/></figure>';
+          if( !$show_logo ){
+            $html .= '<figure><img width="162" height="79" src="' . $data->logo2 . '"/></figure>';
+          }else{
+            $html .= '<figure><img width="162" height="79" src="' . $data->logo1 . '"/></figure>';
+          }
+          
           break;
         case 'Bonus':
           if ($data->bonus !== '-') {
@@ -669,7 +674,11 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
       foreach ($back_card_select as  $value) {
         switch ($value) {
           case 'Logo':
-            $html .= '<figure><img width="162" height="79" src="' . $data->logo1 . '"/></figure>';
+            if( !$show_logo ){
+              $html .= '<figure><img width="162" height="79" src="' . $data->logo2 . '"/></figure>';
+            }else{
+              $html .= '<figure><img width="162" height="79" src="' . $data->logo1 . '"/></figure>';
+            }
             break;
           case 'Bonus':
             if ($data->bonus !== '-') {
