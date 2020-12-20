@@ -50,7 +50,9 @@ $fs_text_color = get_field('fs_text_color');
 $card_fs_space_top = get_field('card_fs_space_top');
 $card_fs_space_bottom = get_field('card_fs_space_bottom');
 $rating_style_select = get_field('rating_style_select');
+$rating_starts_color = get_field('rating_starts_color');
 $rating_text_color = get_field('rating_text_color');
+$rating_text_font_size = get_field('rating_text_font_size');
 $card_rating_space_top = get_field('card_rating_space_top');
 $card_rating_space_bottom = get_field('card_rating_space_bottom');
 $dd_font_size = get_field('dd_font_size');
@@ -64,6 +66,8 @@ $play_now_button_radius = get_field('play_now_button_radius');
 $play_now_button_drop_shadow = get_field('play_now_button_drop_shadow');
 $card_play_now_space_top = get_field('card_play_now_space_top');
 $card_play_now_space_bottom = get_field('card_play_now_space_bottom');
+
+$review_link_custom_text_choose = get_field('review_link_custom_text_choose');
 $review_link_custom_text = get_field('review_link_custom_text');
 
 $review_link_font_size = get_field('review_link_font_size');
@@ -194,7 +198,7 @@ $html .= '<style type="text/css">
 :root {
   --star-size: 30px;
   --star-color: #000;
-  --star-background: '.$rating_text_color.';
+  --star-background: '.$rating_starts_color.';
 }
 #'.$block['id'].'{
   width: 100%;
@@ -401,6 +405,19 @@ $html .= '<style type="text/css">
         margin-top: '.$card_rating_space_top.'px;
         margin-bottom: '.$card_rating_space_bottom.'px;
     }
+    #'.$block['id'].' .rating-wrapper span {
+      font-size: '.$rating_text_font_size.'px;
+      font-weight: 900;
+      color: '.$rating_text_color .';
+  }
+  
+  #'.$block['id'].' .rating-wrapper hr {
+      max-width: 50%;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      border-color: #b8b3b3;
+  }
+
     #'.$block['id'].' .card__details {
         line-height: initial;
     }
@@ -631,7 +648,11 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
               $html .= '<div class="rating-wrapper"><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div></div>';
               break;
               case 'Number + Stars':
-                $html .= '<div class="rating-wrapper"><span>' . $data->rating . '</span><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div></div>';
+                $html .= '<div class="rating-wrapper">
+                          <span>' . $data->rating . '</span>
+                          <hr>
+                          <div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this brand is '.$data->rating.' out of 5."></div>
+                        </div>';
                 break;
             default:
             $html .= '<div class="rating-wrapper"><div class="Stars" style="--rating: '.$data->rating.';" aria-label="Rating of this product is 2.3 out of 5."></div></div>';
@@ -642,7 +663,15 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
           $html .= '<span class="card_description">' . $data->default_info . '</span>';
           break;
           case 'Review Link':
-            $html .= '<span class="review_link_wrapper"><a href="' . $data->review_url . '">'.$review_link_custom_text.'</a></span>';
+            $html .= '<span class="review_link_wrapper">
+            <a href="' . $data->review_url . '">';
+            if( $review_link_custom_text_choose == 'Custom Text'){
+              $html .= $review_link_custom_text;
+            }else{
+                $html .= $data->name;
+            }
+            $html .= '</a>
+            </span>';
             break;
         case 'Play Now':
           $html .= '<div class="play__now__wrapper">

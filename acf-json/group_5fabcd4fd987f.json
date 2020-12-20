@@ -1305,9 +1305,9 @@
             },
             "choices": {
                 "stars": "stars",
+                "Number + Stars": "Number + Stars",
                 "10\/10 with pie ( alpha )": "10\/10 with pie ( alpha )",
-                "100\/100% ( alpha )": "100\/100% ( alpha )",
-                "Number + Stars ( alpha )": "Number + Stars ( alpha )"
+                "100\/100% ( alpha )": "100\/100% ( alpha )"
             },
             "default_value": "stars",
             "allow_null": 0,
@@ -1318,9 +1318,61 @@
             "placeholder": ""
         },
         {
-            "key": "field_5fd72139c5fb9",
-            "label": "Text Color",
+            "key": "field_5fdf1935626c0",
+            "label": "Rating Text Color",
             "name": "rating_text_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd0d1fd1b5b4",
+                        "operator": "==",
+                        "value": "Number + Stars"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000"
+        },
+        {
+            "key": "field_5fdf19bd626c1",
+            "label": "Rating Text Font Size",
+            "name": "rating_text_font_size",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd0d1fd1b5b4",
+                        "operator": "==",
+                        "value": "Number + Stars"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 12,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5fd72139c5fb9",
+            "label": "Stars Color",
+            "name": "rating_starts_color",
             "type": "color_picker",
             "instructions": "",
             "required": 0,
@@ -1901,13 +1953,46 @@
             "endpoint": 0
         },
         {
+            "key": "field_5fdf0909d5fb7",
+            "label": "Review Link Text",
+            "name": "review_link_custom_text_choose",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Casino Name": "Casino Name",
+                "Custom Text": "Custom Text"
+            },
+            "default_value": "Casino Name",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_5fd722fcc5fc5",
             "label": "Custom Text",
             "name": "review_link_custom_text",
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fdf0909d5fb7",
+                        "operator": "==",
+                        "value": "Custom Text"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -2111,5 +2196,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608191935
+    "modified": 1608456723
 }
