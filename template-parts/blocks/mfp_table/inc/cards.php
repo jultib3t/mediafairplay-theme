@@ -49,10 +49,14 @@ $card_bonus_space_bottom = get_field('card_bonus_space_bottom');
 $fs_text_color = get_field('fs_text_color');
 $card_fs_space_top = get_field('card_fs_space_top');
 $card_fs_space_bottom = get_field('card_fs_space_bottom');
+
 $rating_style_select = get_field('rating_style_select');
 $rating_starts_color = get_field('rating_starts_color');
+$stars_background_color = get_field('stars_background_color');
 $rating_text_color = get_field('rating_text_color');
 $rating_text_font_size = get_field('rating_text_font_size');
+$rating_stars_size = get_field('rating_stars_size');
+
 $card_rating_space_top = get_field('card_rating_space_top');
 $card_rating_space_bottom = get_field('card_rating_space_bottom');
 $dd_font_size = get_field('dd_font_size');
@@ -197,7 +201,7 @@ $html .= '<style type="text/css">
 @charset "UTF-8";
 :root {
   --star-size: 30px;
-  --star-color: #000;
+  --star-color: '.$stars_background_color.';
   --star-background: '.$rating_starts_color.';
 }
 #'.$block['id'].'{
@@ -210,6 +214,7 @@ $html .= '<style type="text/css">
   font-size: var(--star-size);
   font-family: Times;
   line-height: 1;
+  font-size: '.$rating_stars_size.'px;
 }
 #'.$block['id'].' .Stars::before {
   content: "★★★★★";

@@ -20,7 +20,9 @@
                 "34": "Netent",
                 "35": "Neteller",
                 "36": "Visa",
+                "37": "Citadel",
                 "38": "Bitcoin",
+                "39": "Click and Buy",
                 "41": "Credit Card",
                 "42": "Ecopayz",
                 "44": "Entropay",
@@ -1370,6 +1372,42 @@
             "step": ""
         },
         {
+            "key": "field_5fe071a1b3f5a",
+            "label": "Stars Size",
+            "name": "rating_stars_size",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fd0d1fd1b5b4",
+                        "operator": "==",
+                        "value": "stars"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5fd0d1fd1b5b4",
+                        "operator": "==",
+                        "value": "Number + Stars"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 12,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_5fd72139c5fb9",
             "label": "Stars Color",
             "name": "rating_starts_color",
@@ -1383,6 +1421,21 @@
                 "id": ""
             },
             "default_value": "#71D24F"
+        },
+        {
+            "key": "field_5fe07858dae29",
+            "label": "Stars Background Color",
+            "name": "stars_background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#9e9e9e"
         },
         {
             "key": "field_5fd72189c5fba",
@@ -2196,5 +2249,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608456723
+    "modified": 1608546500
 }
