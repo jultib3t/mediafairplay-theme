@@ -503,6 +503,14 @@ function disable_embeds_code_init() {
 // Remove dns-prefetch Link from WordPress Head (Frontend)
 remove_action( 'wp_head', 'wp_resource_hints', 2 );
 
+/** extend wordpress api from 100 pages to 200 **/
+function tibet_maximum_api_filter($query_params) {
+  $query_params['per_page']["maximum"]=250;
+  return $query_params;
+}
+add_filter('rest_page_collection_params', 'tibet_maximum_api_filter');
+/** // extend wordpress api from 100 pages to 200 **/
+
 // increase the size of the sidebar inspector width
 function gb_gutenberg_admin_styles__() {
   echo '
