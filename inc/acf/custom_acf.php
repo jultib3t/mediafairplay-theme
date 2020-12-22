@@ -18,7 +18,8 @@ add_filter('acf/load_field/name=choose_category', function($field) {
      * CAEN - 1
      * CAFR - 2
      */
-$categories = wp_remote_get('https://app.aff-wiz.com/wp-json/api/v1/get_categories_by_geo?geo_id=3');
+    $geoID = get_theme_mod('connect_your_site_to_aff_wiz_id');
+$categories = wp_remote_get("https://app.aff-wiz.com/wp-json/api/v1/get_categories_by_geo?geo_id={$geoID}");
 // var_dump($response);
 if (is_wp_error($categories)) {
  return false; // Bail early
@@ -33,8 +34,10 @@ $categories = $categories->data;
         // print_r( $category->category );
         $choices[$category->category_id] =  $category->category;
     }
+    $choices = array_reverse($choices);
 	$field['choices'] = $choices;
-	$field['default_value'] = 'def';
+    $field['default_value'] = 'def';
+    // $field = array_reverse($field);
 	return $field;
 });
 
