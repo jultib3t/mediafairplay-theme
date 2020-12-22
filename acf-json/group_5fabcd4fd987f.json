@@ -818,7 +818,15 @@
             "type": "button_group",
             "instructions": "Remember to change it before upload",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc7b037342b9",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -2270,5 +2278,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608637552
+    "modified": 1608640711
 }
