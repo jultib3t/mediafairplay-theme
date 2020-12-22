@@ -30,7 +30,6 @@
                 "46": "Betsoft",
                 "47": "BTG",
                 "48": "Evolution Gaming",
-                "49": "Play\\'n go",
                 "50": "Quickspin",
                 "51": "Free Spins",
                 "52": "Best Payouts",
@@ -41,10 +40,10 @@
                 "57": "CAD casinos",
                 "58": "online pokies",
                 "59": "Roulette",
-                "60": "Baccarrat",
                 "61": "Video Poker",
                 "62": "Craps",
                 "63": "Poker",
+                "71": "Home",
                 "def": "Default Table"
             },
             "default_value": "def",
@@ -73,6 +72,33 @@
             "ui": 1,
             "ui_on_text": "Cards",
             "ui_off_text": "Table"
+        },
+        {
+            "key": "field_5fe1b6024cb31",
+            "label": "Development View",
+            "name": "block_cards_view_development",
+            "type": "true_false",
+            "instructions": "Remember to change it before upload",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc78b3bf60cd",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Front",
+            "ui_off_text": "Back"
         },
         {
             "key": "field_5fdb0fa09be7b",
@@ -2249,5 +2275,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608546500
+    "modified": 1608627844
 }

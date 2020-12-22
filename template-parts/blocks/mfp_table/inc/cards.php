@@ -36,6 +36,7 @@ $review_link = get_field('review_link');
 $review_link_text = get_field('review_link_text');
 $review_link_size = get_field('review_link_size');
 $card_drop_shadow = get_field('card_drop_shadow');
+$block_cards_view_development = get_field('block_cards_view_development');
 $allow_flip = get_field('allow_flip');
 $t_n_c_apply = get_field('card_t_c_apply');
 $card_rank_flip_color = get_field('card_rank_flip_color');
@@ -597,8 +598,12 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
     if( $data->hide == 0 ){
 
     
+    if( $block_cards_view_development ){
+      $html .= '<div class="card_">';
+    }else{
+      $html .= '<div class="card_ is-flipped"">';
+    }
     
-    $html .= '<div class="card_">';
     // FRONT CARD
     if( $data->special_flag !== '-' && $card_show_special_flag ){
       $html .= '<div class="card__face special card__face--front">';
