@@ -34,7 +34,7 @@ add_filter('acf/load_field/name=choose_category', function ($field) {
         // print_r( $category->category );
         $choices[$category->category_id] =  $category->category;
     }
-    $choices = array_reverse($choices);
+     $choices = array_reverse($choices, true);
     $field['choices'] = $choices;
     $field['default_value'] = 'def';
     // $field = array_reverse($field);
