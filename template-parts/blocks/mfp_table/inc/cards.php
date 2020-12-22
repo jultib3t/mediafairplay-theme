@@ -597,7 +597,7 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
   foreach (array_slice($datas, 0, $card_number_of_cards) as $data) {
     if( $data->hide == 0 ){
 
-      var_dump( $block_cards_view_development );
+      // var_dump( $block_cards_view_development );
       if( $block_cards_view_development == 'Front' ){
         $html .= '<div class="card_">';
       }else{
