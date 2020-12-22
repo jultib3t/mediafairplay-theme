@@ -16,35 +16,35 @@
                 "id": ""
             },
             "choices": {
-                "33": "Microgaming",
-                "34": "Netent",
-                "35": "Neteller",
-                "36": "Visa",
-                "37": "Citadel",
-                "38": "Bitcoin",
-                "39": "Click and Buy",
-                "41": "Credit Card",
-                "42": "Ecopayz",
-                "44": "Entropay",
-                "45": "Amatic",
-                "46": "Betsoft",
-                "47": "BTG",
-                "48": "Evolution Gaming",
-                "50": "Quickspin",
-                "51": "Free Spins",
-                "52": "Best Payouts",
-                "53": "Fastest payouts",
-                "54": "Low wagering",
-                "55": "New Casinos",
-                "56": "NZD casinos",
-                "57": "CAD casinos",
-                "58": "online pokies",
-                "59": "Roulette",
-                "61": "Video Poker",
-                "62": "Craps",
-                "63": "Poker",
-                "71": "Home",
-                "def": "Default Table"
+                "def": "Default Table",
+                "0": "Home",
+                "1": "Poker",
+                "2": "Craps",
+                "3": "Video Poker",
+                "4": "Roulette",
+                "5": "online pokies",
+                "6": "CAD casinos",
+                "7": "NZD casinos",
+                "8": "New Casinos",
+                "9": "Low wagering",
+                "10": "Fastest payouts",
+                "11": "Best Payouts",
+                "12": "Free Spins",
+                "13": "Quickspin",
+                "14": "Evolution Gaming",
+                "15": "BTG",
+                "16": "Betsoft",
+                "17": "Amatic",
+                "18": "Entropay",
+                "19": "Ecopayz",
+                "20": "Credit Card",
+                "21": "Click and Buy",
+                "22": "Bitcoin",
+                "23": "Citadel",
+                "24": "Visa",
+                "25": "Neteller",
+                "26": "Netent",
+                "27": "Microgaming"
             },
             "default_value": "def",
             "allow_null": 0,
@@ -72,33 +72,6 @@
             "ui": 1,
             "ui_on_text": "Cards",
             "ui_off_text": "Table"
-        },
-        {
-            "key": "field_5fe1b6024cb31",
-            "label": "Development View",
-            "name": "block_cards_view_development",
-            "type": "true_false",
-            "instructions": "Remember to change it before upload",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5fc78b3bf60cd",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "Front",
-            "ui_off_text": "Back"
         },
         {
             "key": "field_5fdb0fa09be7b",
@@ -837,6 +810,33 @@
             "open": 0,
             "multi_expand": 0,
             "endpoint": 0
+        },
+        {
+            "key": "field_5fe1b6024cb31",
+            "label": "Lock View",
+            "name": "block_cards_view_development",
+            "type": "true_false",
+            "instructions": "Remember to change it before upload",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc7b037342b9",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Front",
+            "ui_off_text": "Back"
         },
         {
             "key": "field_5fd6038a8b0b6",
@@ -2275,5 +2275,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608627844
+    "modified": 1608632655
 }
