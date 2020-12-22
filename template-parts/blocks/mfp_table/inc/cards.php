@@ -597,15 +597,13 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
   foreach (array_slice($datas, 0, $card_number_of_cards) as $data) {
     if( $data->hide == 0 ){
 
-    if( empty( $block_cards_view_development)){
-      $block_cards_view_development = 'Front';
-    }else{
+      var_dump( $block_cards_view_development );
       if( $block_cards_view_development == 'Front' ){
         $html .= '<div class="card_">';
       }else{
         $html .= '<div class="card_ is-flipped"">';
       }
-    }
+    
     
     
     // FRONT CARD
