@@ -10,7 +10,7 @@ function pands_admin_colors()
 
 add_action('admin_head', 'pands_admin_colors');
 
-add_filter('acf/load_field/name=choose_category', function($field) {
+add_filter('acf/load_field/name=choose_category', function ($field) {
     /** ============ new one ============== */
     /**
      * GEOS IDS
@@ -19,26 +19,26 @@ add_filter('acf/load_field/name=choose_category', function($field) {
      * CAFR - 2
      */
     $geoID = get_theme_mod('connect_your_site_to_aff_wiz_id');
-$categories = wp_remote_get("https://app.aff-wiz.com/wp-json/api/v1/get_categories_by_geo?geo_id={$geoID}");
-// var_dump($response);
-if (is_wp_error($categories)) {
- return false; // Bail early
-}
-$categories = wp_remote_retrieve_body($categories);
-// var_dump($categories);
-$categories = json_decode($categories);
-// var_dump($categories->data);
-$categories = $categories->data;
+    $categories = wp_remote_get("https://app.aff-wiz.com/wp-json/api/v1/get_categories_by_geo?geo_id={$geoID}");
+    // var_dump($response);
+    if (is_wp_error($categories)) {
+        return false; // Bail early
+    }
+    $categories = wp_remote_retrieve_body($categories);
+    // var_dump($categories);
+    $categories = json_decode($categories);
+    // var_dump($categories->data);
+    $categories = $categories->data;
     $choices = [];
-    foreach ( $categories as $category) {
+    foreach ($categories as $category) {
         // print_r( $category->category );
         $choices[$category->category_id] =  $category->category;
     }
     $choices = array_reverse($choices);
-	$field['choices'] = $choices;
+    $field['choices'] = $choices;
     $field['default_value'] = 'def';
     // $field = array_reverse($field);
-	return $field;
+    return $field;
 });
 
 
@@ -57,15 +57,16 @@ add_action('pre_current_active_plugins', 'secret_plugin_webcusp');
 
 // Define path and URL to the ACF plugin.
 
-define( 'MY_ACF_PATH', get_stylesheet_directory() . '/inc/acf/' );
-define( 'MY_ACF_URL', get_stylesheet_directory_uri() . '/inc/acf/' );
+define('MY_ACF_PATH', get_stylesheet_directory() . '/inc/acf/');
+define('MY_ACF_URL', get_stylesheet_directory_uri() . '/inc/acf/');
 
 // Include the ACF plugin.
-include_once( get_stylesheet_directory() . '/inc/acf/acf.php' );
+include_once(get_stylesheet_directory() . '/inc/acf/acf.php');
 
 // Customize the url setting to fix incorrect asset URLs.
 add_filter('acf/settings/url', 'my_acf_settings_url');
-function my_acf_settings_url( $url ) {
+function my_acf_settings_url($url)
+{
     return MY_ACF_URL;
 }
 
@@ -74,26 +75,31 @@ function my_acf_settings_url( $url ) {
 add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
 
 
-function my_acf_settings_show_admin( $show_admin ) {return false;}
+function my_acf_settings_show_admin($show_admin)
+{
+    return false;
+}
 
 // save jsonwith fields
-function bks_acf_json_save_point( $path ) {
+function bks_acf_json_save_point($path)
+{
     // update path
     $path = get_stylesheet_directory() . '/acf-json';
     // return
-     return $path;
+    return $path;
     // var_dump($path);
-  }
+}
 
   
   
   
   // load json with fields
-  function bks_acf_json_load_point( $paths ) {
-    // append path
-    $paths[] = get_stylesheet_directory( ) . '/acf-json';
-    // return
-    return $paths;
+  function bks_acf_json_load_point($paths)
+  {
+      // append path
+      $paths[] = get_stylesheet_directory() . '/acf-json';
+      // return
+      return $paths;
   }
   
   add_filter('acf/settings/save_json', 'bks_acf_json_save_point');
