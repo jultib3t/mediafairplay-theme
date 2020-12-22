@@ -598,7 +598,7 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
     if( $data->hide == 0 ){
 
     
-    if( $block_cards_view_development ){
+    if( $block_cards_view_development == 'Front' ){
       $html .= '<div class="card_">';
     }else{
       $html .= '<div class="card_ is-flipped"">';

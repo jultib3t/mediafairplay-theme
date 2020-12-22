@@ -815,7 +815,7 @@
             "key": "field_5fe1b6024cb31",
             "label": "Lock View",
             "name": "block_cards_view_development",
-            "type": "true_false",
+            "type": "button_group",
             "instructions": "Remember to change it before upload",
             "required": 0,
             "conditional_logic": [
@@ -832,11 +832,14 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "Front",
-            "ui_off_text": "Back"
+            "choices": {
+                "Front": "Front",
+                "Back": "Back"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
         },
         {
             "key": "field_5fd6038a8b0b6",
@@ -2275,5 +2278,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1608632655
+    "modified": 1608633643
 }
