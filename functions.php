@@ -509,7 +509,7 @@ function tibet_maximum_api_filter($query_params) {
   return $query_params;
 }
 add_filter('rest_page_collection_params', 'tibet_maximum_api_filter');
-/** // extend wordpress api from 100 pages to 200 **/
+/** // extend wordpress api from 100 pages to 250 **/
 
 // increase the size of the sidebar inspector width
 function gb_gutenberg_admin_styles__() {

@@ -550,7 +550,8 @@ $html .= '<style type="text/css">
         font-weight: ' . $bn_font_weight . ';
         color: ' . $bn_text_color . ';
         margin-top:'.$card_bonus_space_top.'px;
-        margin-bottom:'.$card_bonus_space_bottom.'px;;
+        margin-bottom:'.$card_bonus_space_bottom.'px;
+        height: 100%;
     }
     #'.$block['id'].' .card__face.special {
         border-color: '.$special_flag_background_color.';
@@ -606,10 +607,6 @@ $html .= '<div id="'.$block['id'].'" class="'.$className.'">';
         }else{
           $html .= '<div class="card_">';
         }
-       
-      
-    
-    
     
     // FRONT CARD
     if( $data->special_flag !== '-' && $card_show_special_flag ){
