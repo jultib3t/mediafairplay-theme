@@ -299,6 +299,7 @@ $html .= '<style type="text/css">
         line-height: 0;
         margin-top: '.$card_logo_space_top.'px;
         margin-bottom: '.$card_logo_space_bottom.'px;
+        height: 100%;
     }
     #'.$block['id'].' .card_description{
         color: '.$dd_text_color.';
