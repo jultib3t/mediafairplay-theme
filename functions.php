@@ -188,11 +188,6 @@ include_once trailingslashit(dirname(__FILE__)) . 'inc/users/custom_users.php';
  include_once trailingslashit(dirname(__FILE__)) . 'inc/shortcodes/mfp_table_cards.php';
 // include_once trailingslashit(dirname(__FILE__)) . 'inc/shortcodes/mfp_table_cards_2.php';
 
-
-/**
- * Hide ACF from Admin Menu
- */
- // add_filter('acf/settings/show_admin', '__return_false');
 /**
  * Custom blocks
  */
@@ -234,7 +229,7 @@ function mytheme_setup()
 }
 add_action('after_setup_theme', 'mytheme_setup');
 
-function set_default_admin_color($user_id)
+/* function set_default_admin_color($user_id)
 {
   $args = array(
     'ID' => $user_id,
@@ -242,7 +237,7 @@ function set_default_admin_color($user_id)
   );
   wp_update_user($args);
 }
-add_action('user_register', 'set_default_admin_color');
+add_action('user_register', 'set_default_admin_color'); */
 
 remove_action('welcome_panel', 'wp_welcome_panel');
 /**
