@@ -2505,6 +2505,8 @@ require_once trailingslashit(dirname(__FILE__)) . 'sidebar/sidebar.php';
 require_once trailingslashit(dirname(__FILE__)) . 'footer/footer.php';
 // Register our Features Custom Control controls
 require_once trailingslashit(dirname(__FILE__)) . 'features/features.php';
+// Register our PAGES Custom Control controls
+require_once trailingslashit(dirname(__FILE__)) . 'pages/pages.php';
 /**
  * This function adds some styles to the WordPress Customizer
  */

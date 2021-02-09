@@ -1014,9 +1014,9 @@ if (class_exists('WP_Customize_Control')) {
 		 */
 		public function render_content()
 		{
-			
+
 			$defaultValue = $this->value();
-			
+
 			if ($this->multiselect) {
 				$defaultValue = explode(',', $this->value());
 			}
@@ -1039,11 +1039,11 @@ if (class_exists('WP_Customize_Control')) {
 						echo '<option></option>';
 					}
 					foreach ($this->choices as $key => $value) {
-						
+
 						if (is_array($value)) {
 							echo '<optgroup label="' . esc_attr($key) . '">';
 							foreach ($value as $optgroupkey => $optgroupvalue) {
-								
+
 								if ($this->multiselect) {
 									echo '<option value="' . esc_attr($optgroupkey) . '" ' . (in_array(esc_attr($optgroupkey), $defaultValue) ? 'selected="selected"' : '') . '>' . esc_attr($optgroupvalue) . '</option>';
 								} else {
@@ -1061,7 +1061,7 @@ if (class_exists('WP_Customize_Control')) {
 					}
 					?>
 				</select>
-				
+
 			</div>
 		<?php
 		}
@@ -1507,6 +1507,179 @@ if (class_exists('WP_Customize_Control')) {
 		}
 	}
 
+	class tt_text_Radio_desktop extends  Skyrocket_Text_Radio_Button_Custom_Control
+	{
+
+		/**
+		 * The type of control being rendered
+		 */
+		public $type = 'text_radio_button';
+		/**
+		 * Enqueue our scripts and styles
+		 */
+		public function enqueue()
+		{
+			wp_enqueue_style('skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all');
+		}
+		/**
+		 * Render the control in the customizer
+		 */
+		public function render_content()
+		{
+		?>
+			<ul class="tt-responsive-btns">
+				<li class="desktop">
+					<button type="button" class="preview-desktop" data-device="desktop">
+						<i class="dashicons dashicons-desktop"></i>
+					</button>
+				</li>
+				<!-- <li class="tablet">
+						<button type="button" class="preview-tablet" data-device="tablet">
+							<i class="dashicons dashicons-tablet"></i>
+						</button>
+					</li>
+					<li class="mobile">
+						<button type="button" class="preview-mobile" data-device="mobile">
+							<i class="dashicons dashicons-smartphone"></i>
+						</button>
+					</li> -->
+			</ul>
+			<div class="text_radio_button_control">
+				<?php if (!empty($this->label)) { ?>
+					<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+				<?php } ?>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
+				<?php } ?>
+
+				<div class="radio-buttons">
+					<?php foreach ($this->choices as $key => $value) { ?>
+						<label class="radio-button-label">
+							<input type="radio" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($key); ?>" <?php $this->link(); ?> <?php checked(esc_attr($key), $this->value()); ?> />
+							<span><?php echo esc_attr($value); ?></span>
+						</label>
+					<?php	} ?>
+				</div>
+			</div>
+		<?php
+		}
+	}
+	class tt_text_Radio_tablet extends  Skyrocket_Text_Radio_Button_Custom_Control
+	{
+
+		/**
+		 * The type of control being rendered
+		 */
+		public $type = 'text_radio_button';
+		/**
+		 * Enqueue our scripts and styles
+		 */
+		public function enqueue()
+		{
+			wp_enqueue_style('skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all');
+		}
+		/**
+		 * Render the control in the customizer
+		 */
+		public function render_content()
+		{
+		?>
+			<ul class="tt-responsive-btns">
+				<!-- <li class="desktop">
+					<button type="button" class="preview-desktop" data-device="desktop">
+						<i class="dashicons dashicons-desktop"></i>
+					</button>
+				</li> -->
+				<li class="tablet">
+						<button type="button" class="preview-tablet" data-device="tablet">
+							<i class="dashicons dashicons-tablet"></i>
+						</button>
+					</li>
+					<!-- 
+					<li class="mobile">
+						<button type="button" class="preview-mobile" data-device="mobile">
+							<i class="dashicons dashicons-smartphone"></i>
+						</button>
+					</li> -->
+			</ul>
+			<div class="text_radio_button_control">
+				<?php if (!empty($this->label)) { ?>
+					<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+				<?php } ?>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
+				<?php } ?>
+
+				<div class="radio-buttons">
+					<?php foreach ($this->choices as $key => $value) { ?>
+						<label class="radio-button-label">
+							<input type="radio" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($key); ?>" <?php $this->link(); ?> <?php checked(esc_attr($key), $this->value()); ?> />
+							<span><?php echo esc_attr($value); ?></span>
+						</label>
+					<?php	} ?>
+				</div>
+			</div>
+		<?php
+		}
+	}
+	class tt_text_Radio_mobile extends  Skyrocket_Text_Radio_Button_Custom_Control
+	{
+
+		/**
+		 * The type of control being rendered
+		 */
+		public $type = 'text_radio_button';
+		/**
+		 * Enqueue our scripts and styles
+		 */
+		public function enqueue()
+		{
+			wp_enqueue_style('skyrocket-custom-controls-css', $this->get_skyrocket_resource_url() . 'css/customizer.css', array(), '1.0', 'all');
+		}
+		/**
+		 * Render the control in the customizer
+		 */
+		public function render_content()
+		{
+		?>
+			<ul class="tt-responsive-btns">
+				<!-- <li class="desktop">
+					<button type="button" class="preview-desktop" data-device="desktop">
+						<i class="dashicons dashicons-desktop"></i>
+					</button>
+				</li> -->
+				<!-- <li class="tablet">
+						<button type="button" class="preview-tablet" data-device="tablet">
+							<i class="dashicons dashicons-tablet"></i>
+						</button>
+					</li> -->
+					<li class="mobile">
+						<button type="button" class="preview-mobile" data-device="mobile">
+							<i class="dashicons dashicons-smartphone"></i>
+						</button>
+					</li>
+			</ul>
+			<div class="text_radio_button_control">
+				<?php if (!empty($this->label)) { ?>
+					<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
+				<?php } ?>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
+				<?php } ?>
+
+				<div class="radio-buttons">
+					<?php foreach ($this->choices as $key => $value) { ?>
+						<label class="radio-button-label">
+							<input type="radio" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($key); ?>" <?php $this->link(); ?> <?php checked(esc_attr($key), $this->value()); ?> />
+							<span><?php echo esc_attr($value); ?></span>
+						</label>
+					<?php	} ?>
+				</div>
+			</div>
+		<?php
+		}
+	}
+
 	/**
 	 * WPColorPicker Alpha Color Picker Custom Control
 	 *
@@ -1725,7 +1898,7 @@ if (class_exists('WP_Customize_Control')) {
 					<a href="<?php echo esc_url($this->url); ?>" target="_blank" <?php echo ' style="background-color:' . $bkgrndcolor . ';color:' . $color . ';"'; ?>><?php echo esc_html($this->title); ?></a>
 				</h3>
 			</li>
-		<?php
+<?php
 		}
 	}
 

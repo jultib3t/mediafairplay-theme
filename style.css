@@ -708,7 +708,7 @@ figcaption.blocks-gallery-caption {
 }
 
 .wp-block-image figure {
-    max-width: 30%;
+    /* max-width: 30%; */
     max-height: 100%;
 }
 
