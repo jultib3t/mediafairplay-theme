@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: 404
  * The template for displaying 404 pages (not found)
@@ -11,49 +12,94 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main" style="max-width: 1440px; width: 100%; margin:0 auto;">
+<style>
+	div#page {
+		background-image: url('<?php echo get_theme_mod('mfp_404_page_choose_img');?>');
+		background-size: cover;
+		padding-top: 100px;
+	}
 
-		<section class="error-404 not-found">
-			
-			<img src="https://media.giphy.com/media/14uQ3cOFteDaU/source.gif"/>
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'mediafairplay' ); ?></p>
+	.page-content-wrapper {
+		margin-top: 10em;
+		margin-bottom: 4em;
+		padding: 3em;
+		background: rgba(196, 196, 196, 0.5);
+		border: 4px solid #868686;
+		box-sizing: border-box;
+		backdrop-filter: blur(30px);
+		/* Note: backdrop-filter has minimal browser support */
+		border-radius: 10px;
+		max-width: 946px;
+		margin-right: auto;
+		margin-left: auto;
+	}
 
-					<?php
-					// get_search_form();
+	.page-content-wrapper {
+		margin-top: 0;
+	}
 
-					// the_widget( 'WP_Widget_Recent_Posts' );
-					?>
+	.button_wrapper a {
+		background: <?php echo get_theme_mod('header_background_color', '#E66D6D'); ?>;
+		border-radius: 10px;
+		color: #fff;
+		text-decoration: none;
+		padding: 15px;
+		font-size: 20px;
+	}
 
-					<!-- <div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'mediafairplay' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div> --><!-- .widget -->
+	.button_wrapper button {
+		background: <?php echo get_theme_mod('header_background_color', '#E66D6D'); ?>;
+		border-radius: 10px;
+		color: #fff;
+		text-decoration: none;
+		padding: 15px;
+		font-size: 20px;
+	}
 
-					<?php
-					/* translators: %1$s: smiley */
-					// $mediafairplay_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'mediafairplay' ), convert_smilies( ':)' ) ) . '</p>';
-					// the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$mediafairplay_archive_content" );
+	.button_wrapper {
+		width: 100%;
+		display: flex;
+		justify-content: space-evenly;
+		margin-top: 4em;
+	}
+	._404_title{
+		font-size: 200px;color: #425B9C;
+	}
+	._404_subtext_{
+		color: #425B9C;
+		font-size: 35px;
+		font-weight: bold;
+	}
+	@media(max-width: 550px){
+		._404_title{
+		font-size: 70px;color: #425B9C;
+	}
+	._404_subtext_{
+		color: #425B9C;
+		font-size: 21px;
+		font-weight: bold;
+	}
+	}
+</style>
+<main id="primary" class="site-main" style="margin-right: auto;margin-left: auto;max-width: 1440px; width: 100%;text-align:center;padding-top: 30px;background-color: transparent;padding-bottom:70px;">
+	
+	<section class="error-404 not-found">
+		<div class="page-content-wrapper">
+			<div class="_404_title" >404</div>
+			<div class="_404_subtext_" style=""><?php esc_html_e('The Page You Are Looking For Can Not Be Found'); ?></div>
+			<div class="button_wrapper">
+				<a href="<?php echo home_url(); ?>">Home Page</a>
+				<button onclick="goBack()">Go Back</button>
+				<script>
+					function goBack() {
+						window.history.back();
+					}
+				</script>
+			</div>
+		</div><!-- .page-content -->
+	</section><!-- .error-404 -->
 
-					// the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+</main><!-- #main -->
 
 <?php
 get_sidebar();

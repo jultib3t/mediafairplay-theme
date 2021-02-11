@@ -53,7 +53,7 @@ function custom_header_menu($menu_id)
       $string = str_replace(' ', '', $item['title']);
       // print_r($subs);
       $html .= '<li>
-                      <a class="menu-item">' . __($item['title'], 'mediafairplay') . ' <span class="caret"></span>
+                      <a href="' . $item['url'] . '" class="menu-item">' . __($item['title'], 'mediafairplay') . ' <span class="caret"></span>
                         <label class="caret" for="' . $string . '" title=""></label></a>
                       <input id="' . $string . '" type="checkbox" />
                       <ul class="sub-menu">';

@@ -240,17 +240,6 @@ class skyrocket_initialise_customizer_settings
 
         /** Image control */
        
-        $wp_customize->add_setting('visit_php_image', array(
-            'transport'         => 'refresh',
-        ));
-        $wp_customize->add_control( new WP_Customize_Image_Control( 
-            $wp_customize, 
-            'visit_php_image',
-             array(
-            'label'             => __('Choose Image For VISIT Page', 'mediafairplay'),
-            'priority'       => 130,
-            'section'           => 'title_tagline',
-        )));
         /** // Image control */
     }
     /** Register our sample custom controls */

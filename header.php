@@ -462,6 +462,7 @@
       width: 100%;
       height: 100%;
       margin-left: 0 !important;
+      max-width: 15%;
     }
 
     #toggle-menu .caret,
@@ -554,7 +555,7 @@
       position: fixed;
       width: 100%;
       max-width: 100%;
-      background-color: <?php echo get_theme_mod('header_background_color', '#fff') ?>;
+      background-color: <?php echo get_theme_mod('header_background_color', '#fff'); ?>;
       box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
       z-index: 9;
       top: 0;

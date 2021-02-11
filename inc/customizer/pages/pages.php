@@ -15,35 +15,63 @@ function mfp_pages_customizer($wp_customize)
         array(
             'title' => __('404', 'mediafairplay'),
             'description' => esc_html__('', 'mediafairplay'),
-            'panel' => 'mfp_pages_panel'
-        )
-    );
-    // choose 404 page
-    $wp_customize->add_setting(
-        'mfp_404_page_choose',
-        array(
-            'default' => 1200,
-            'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_sanitize_integer'
+            'panel' => 'mfp_pages_panel',
+            /* 'active_callback' => function() {
+            return ! is_404();
+        }, */
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control(
-        $wp_customize,
-        'mfp_404_page_choose',
+    // visit page section
+
+    $wp_customize->add_section(
+        'mfp_pages_visit',
         array(
-            'label' => esc_html__('Container Width'),
+            'title' => __('Visit', 'mediafairplay'),
+            'description' => esc_html__('', 'mediafairplay'),
+            'panel' => 'mfp_pages_panel',
+            /* 'active_callback' => function() {
+            return ! is_404();
+        }, */
+        )
+    );
+    // choose 404 page
+
+
+    $wp_customize->add_setting(
+        'mfp_404_page_choose_img',
+        array(
+            'transport' => 'refresh', // Add Default Image URL 
+        )
+    );
+
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+        $wp_customize,
+        'mfp_404_page_choose_img',
+        array(
+            'label' => 'Upload Logo',
+            'priority' => 20,
             'section' => 'mfp_pages_404',
-            'input_attrs' => array(
-                'min' => 1, // Required. Minimum value for the slider
-                'max' => 1920, // Required. Maximum value for the slider
-                'step' => 10, // Required. The size of each interval or step the slider takes between the minimum and maximum values
-            ),
+            /* 'settings' => 'diwp_logo', */
+            'button_labels' => array( // All These labels are optional
+                'select' => 'Select Logo',
+                'remove' => 'Remove Logo',
+                'change' => 'Change Logo',
+            )
         )
     ));
 
 
- 
-   
+    $wp_customize->add_setting('visit_php_image', array(
+        'transport'         => 'refresh',
+    ));
+    $wp_customize->add_control( new WP_Customize_Image_Control( 
+        $wp_customize, 
+        'visit_php_image',
+         array(
+        'label'             => __('Choose Image For VISIT Page', 'mediafairplay'),
+        'priority'       => 130,
+        'section'           => 'mfp_pages_visit',
+    )));
 }
 add_action('customize_register', 'mfp_pages_customizer');

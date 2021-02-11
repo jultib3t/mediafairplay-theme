@@ -497,11 +497,137 @@ function mfp_footer_control($wp_customize)
             'section' => 'mfp_footer_scetion',
             'choices' => array(
                 'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('center'), // Required. Setting for this particular radio button choice and the text to display
                 'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
             )
         )
     ));
+
+    // align items footer area 1 Desktop
+    $wp_customize->add_setting(
+        'footer_area_1_align_items_desktop',
+        array(
+            'default' => 'center',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_desktop(
+        $wp_customize,
+        'footer_area_1_align_items_desktop',
+        array(
+            'label' => __('Area 1 Align Items ( Vertical ) '),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'flex-start' => __('Top'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('Center'), // Required. Setting for this particular radio button choice and the text to display
+                'flex-end' => __('Bottom') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+    // align items footer area 1 tablet
+    $wp_customize->add_setting(
+        'footer_area_1_align_items_tablet',
+        array(
+            'default' => 'center',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_tablet(
+        $wp_customize,
+        'footer_area_1_align_items_tablet',
+        array(
+            'label' => __('Area 1 Align Items ( Vertical ) '),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'flex-start' => __('Top'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('Center'), // Required. Setting for this particular radio button choice and the text to display
+                'flex-end' => __('Bottom') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+    // align items footer area 1 mobile
+    $wp_customize->add_setting(
+        'footer_area_1_align_items_mobile',
+        array(
+            'default' => 'center',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_mobile(
+        $wp_customize,
+        'footer_area_1_align_items_mobile',
+        array(
+            'label' => __('Area 1 Align Items ( Vertical ) '),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'flex-start' => __('Top'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('Center'), // Required. Setting for this particular radio button choice and the text to display
+                'flex-end' => __('Bottom') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+
+    /////
+    // align items footer area 2 Desktop
+    $wp_customize->add_setting(
+        'footer_area_2_align_items_desktop',
+        array(
+            'default' => 'center',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_desktop(
+        $wp_customize,
+        'footer_area_2_align_items_desktop',
+        array(
+            'label' => __('Area 2 Align Items ( Vertical ) '),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'flex-start' => __('Top'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('Center'), // Required. Setting for this particular radio button choice and the text to display
+                'flex-end' => __('Bottom') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+   
+    // align items footer area 2 mobile
+    $wp_customize->add_setting(
+        'footer_area_2_align_items_mobile',
+        array(
+            'default' => 'center',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_mobile(
+        $wp_customize,
+        'footer_area_2_align_items_mobile',
+        array(
+            'label' => __('Area 2 Align Items ( Vertical ) '),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'flex-start' => __('Top'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('Center'), // Required. Setting for this particular radio button choice and the text to display
+                'flex-end' => __('Bottom') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+    ///
+
+    //////
+
+
+
+    /////
 
     // text align footer area 1 Tablet
     $wp_customize->add_setting(
@@ -521,7 +647,7 @@ function mfp_footer_control($wp_customize)
             'section' => 'mfp_footer_scetion',
             'choices' => array(
                 'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('center'), // Required. Setting for this particular radio button choice and the text to display
                 'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
             )
         )
@@ -545,226 +671,245 @@ function mfp_footer_control($wp_customize)
             'section' => 'mfp_footer_scetion',
             'choices' => array(
                 'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('center'), // Required. Setting for this particular radio button choice and the text to display
                 'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
             )
         )
     ));
-
-     // text align footer area 2 Desktop
-     $wp_customize->add_setting(
-        'footer_area_2_text_align_desktop',
-        array(
-            'default' => 'left',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_radio_sanitization'
-        )
-    );
-    $wp_customize->add_control(new tt_text_Radio_desktop(
-        $wp_customize,
-        'footer_area_2_text_align_desktop',
-        array(
-            'label' => __('Footer Area 2 Text Align'),
-            'description' => esc_html__('text align elements inside the area'),
-            'section' => 'mfp_footer_scetion',
-            'choices' => array(
-                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
-                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
-            )
-        )
-    ));
-
-    // text align footer area 2 Tablet
-    $wp_customize->add_setting(
-        'footer_area_2_text_align_tablet',
-        array(
-            'default' => 'left',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_radio_sanitization'
-        )
-    );
-    $wp_customize->add_control(new tt_text_Radio_tablet(
-        $wp_customize,
-        'footer_area_2_text_align_tablet',
-        array(
-            'label' => __('Footer Area 2 Text Align'),
-            'description' => esc_html__('text align elements inside the area'),
-            'section' => 'mfp_footer_scetion',
-            'choices' => array(
-                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
-                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
-            )
-        )
-    ));
-
-    // text align footer area 2 Mobile
-    $wp_customize->add_setting(
-        'footer_area_2_text_align_mobile',
-        array(
-            'default' => 'left',
-            'transport' => 'refresh'
-            /* 'sanitize_callback' => 'skyrocket_radio_sanitization' */
-        )
-    );
-    $wp_customize->add_control(new tt_text_Radio_mobile(
-        $wp_customize,
-        'footer_area_2_text_align_mobile',
-        array(
-            'label' => __('Footer Area 2 Text Align'),
-            'description' => esc_html__('text align elements inside the area'),
-            'section' => 'mfp_footer_scetion',
-            'choices' => array(
-                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
-                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
-            )
-        )
-    ));
-
-       // text align footer area 3 Desktop
-       $wp_customize->add_setting(
-        'footer_area_3_text_align_desktop',
-        array(
-            'default' => 'left',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_radio_sanitization'
-        )
-    );
-    $wp_customize->add_control(new tt_text_Radio_desktop(
-        $wp_customize,
-        'footer_area_3_text_align_desktop',
-        array(
-            'label' => __('Footer Area 3 Text Align'),
-            'description' => esc_html__('text align elements inside the area'),
-            'section' => 'mfp_footer_scetion',
-            'choices' => array(
-                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
-                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
-            )
-        )
-    ));
-
-    // text align footer area 2 Tablet
-    $wp_customize->add_setting(
-        'footer_area_3_text_align_tablet',
-        array(
-            'default' => 'left',
-            'transport' => 'refresh',
-            'sanitize_callback' => 'skyrocket_radio_sanitization'
-        )
-    );
-    $wp_customize->add_control(new tt_text_Radio_tablet(
-        $wp_customize,
-        'footer_area_3_text_align_tablet',
-        array(
-            'label' => __('Footer Area 3 Text Align'),
-            'description' => esc_html__('text align elements inside the area'),
-            'section' => 'mfp_footer_scetion',
-            'choices' => array(
-                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
-                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
-            )
-        )
-    ));
-
-    // text align footer area 2 Mobile
-    $wp_customize->add_setting(
-        'footer_area_3_text_align_mobile',
-        array(
-            'default' => 'left',
-            'transport' => 'refresh'
-            /* 'sanitize_callback' => 'skyrocket_radio_sanitization' */
-        )
-    );
-    $wp_customize->add_control(new tt_text_Radio_mobile(
-        $wp_customize,
-        'footer_area_3_text_align_mobile',
-        array(
-            'label' => __('Footer Area 3 Text Align'),
-            'description' => esc_html__('text align elements inside the area'),
-            'section' => 'mfp_footer_scetion',
-            'choices' => array(
-                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
-                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
-            )
-        )
-    ));
-
-    /**
-     * AREA 2
-     */
 
     // text align footer area 2 Desktop
-   /*  $wp_customize->add_setting(
+    $wp_customize->add_setting(
         'footer_area_2_text_align_desktop',
         array(
             'default' => 'left',
-            'transport' => 'refresh'
-            
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
         )
     );
     $wp_customize->add_control(new tt_text_Radio_desktop(
         $wp_customize,
         'footer_area_2_text_align_desktop',
         array(
-            'label' => __('Footer Area 2 Items Align'),
-            'description' => esc_html__('Items align elements inside the area'),
+            'label' => __('Footer Area 2 Text Align'),
+            'description' => esc_html__('text align elements inside the area'),
             'section' => 'mfp_footer_scetion',
             'choices' => array(
                 'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('center'), // Required. Setting for this particular radio button choice and the text to display
                 'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
             )
         )
-    )); */
+    ));
+
     // text align footer area 2 Tablet
-  /*   $wp_customize->add_setting(
+    $wp_customize->add_setting(
         'footer_area_2_text_align_tablet',
         array(
             'default' => 'left',
-            'transport' => 'refresh'
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
         )
     );
     $wp_customize->add_control(new tt_text_Radio_tablet(
         $wp_customize,
         'footer_area_2_text_align_tablet',
         array(
-            'label' => __('Footer Area 2 Items Align'),
-            'description' => esc_html__('Items align elements inside the area'),
+            'label' => __('Footer Area 2 Text Align'),
+            'description' => esc_html__('text align elements inside the area'),
             'section' => 'mfp_footer_scetion',
             'choices' => array(
                 'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('center'), // Required. Setting for this particular radio button choice and the text to display
                 'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
             )
         )
-    )); */
+    ));
+     // align items footer area 2 tablet
+     $wp_customize->add_setting(
+        'footer_area_2_align_items_tablet',
+        array(
+            'default' => 'center',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_tablet(
+        $wp_customize,
+        'footer_area_2_align_items_tablet',
+        array(
+            'label' => __('Area 2 Align Items ( Vertical ) '),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'flex-start' => __('Top'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('Center'), // Required. Setting for this particular radio button choice and the text to display
+                'flex-end' => __('Bottom') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+
     // text align footer area 2 Mobile
- /*    $wp_customize->add_setting(
+    $wp_customize->add_setting(
         'footer_area_2_text_align_mobile',
         array(
             'default' => 'left',
             'transport' => 'refresh'
+            /* 'sanitize_callback' => 'skyrocket_radio_sanitization' */
         )
     );
     $wp_customize->add_control(new tt_text_Radio_mobile(
         $wp_customize,
         'footer_area_2_text_align_mobile',
         array(
-            'label' => __('Footer Area 2 Items Align'),
-            'description' => esc_html__('Items align elements inside the area'),
+            'label' => __('Footer Area 2 Text Align'),
+            'description' => esc_html__('text align elements inside the area'),
             'section' => 'mfp_footer_scetion',
             'choices' => array(
                 'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
-                'centered' => __('Centered'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('center'), // Required. Setting for this particular radio button choice and the text to display
                 'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
             )
         )
-    )); */
+    ));
+
+    // text align footer area 3 Desktop
+    $wp_customize->add_setting(
+        'footer_area_3_text_align_desktop',
+        array(
+            'default' => 'left',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_desktop(
+        $wp_customize,
+        'footer_area_3_text_align_desktop',
+        array(
+            'label' => __('Footer Area 3 Text Align'),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('center'), // Required. Setting for this particular radio button choice and the text to display
+                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+    // align items footer area 3 Desktop
+    $wp_customize->add_setting(
+        'footer_area_3_align_items_desktop',
+        array(
+            'default' => 'center',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_desktop(
+        $wp_customize,
+        'footer_area_3_align_items_desktop',
+        array(
+            'label' => __('Area 3 Align Items ( Vertical ) '),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'flex-start' => __('Top'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('Center'), // Required. Setting for this particular radio button choice and the text to display
+                'flex-end' => __('Bottom') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+
+    // text align footer area 3 Tablet
+    $wp_customize->add_setting(
+        'footer_area_3_text_align_tablet',
+        array(
+            'default' => 'left',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_tablet(
+        $wp_customize,
+        'footer_area_3_text_align_tablet',
+        array(
+            'label' => __('Footer Area 3 Text Align'),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('center'), // Required. Setting for this particular radio button choice and the text to display
+                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+    // align items footer area 3 tablet
+    $wp_customize->add_setting(
+        'footer_area_3_align_items_tablet',
+        array(
+            'default' => 'center',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_tablet(
+        $wp_customize,
+        'footer_area_3_align_items_tablet',
+        array(
+            'label' => __('Area 2 Align Items ( Vertical ) '),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'flex-start' => __('Top'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('Center'), // Required. Setting for this particular radio button choice and the text to display
+                'flex-end' => __('Bottom') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+    // text align footer area 3 Mobile
+    $wp_customize->add_setting(
+        'footer_area_3_text_align_mobile',
+        array(
+            'default' => 'left',
+            'transport' => 'refresh'
+            /* 'sanitize_callback' => 'skyrocket_radio_sanitization' */
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_mobile(
+        $wp_customize,
+        'footer_area_3_text_align_mobile',
+        array(
+            'label' => __('Footer Area 3 Text Align'),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'left' => __('Left'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('center'), // Required. Setting for this particular radio button choice and the text to display
+                'right' => __('Right') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
+    // align items footer area 3 mobile
+    $wp_customize->add_setting(
+        'footer_area_3_align_items_mobile',
+        array(
+            'default' => 'center',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'skyrocket_radio_sanitization'
+        )
+    );
+    $wp_customize->add_control(new tt_text_Radio_mobile(
+        $wp_customize,
+        'footer_area_3_align_items_mobile',
+        array(
+            'label' => __('Area 3 Align Items ( Vertical ) '),
+            'description' => esc_html__('text align elements inside the area'),
+            'section' => 'mfp_footer_scetion',
+            'choices' => array(
+                'flex-start' => __('Top'), // Required. Setting for this particular radio button choice and the text to display
+                'center' => __('Center'), // Required. Setting for this particular radio button choice and the text to display
+                'flex-end' => __('Bottom') // Required. Setting for this particular radio button choice and the text to display
+            )
+        )
+    ));
 }
 add_action('customize_register', 'mfp_footer_control');
